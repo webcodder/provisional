@@ -1,0 +1,316 @@
+/*==== layout css s ====*/
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td { 
+	margin:0; 
+	padding:0; 
+}
+
+html, body {
+	margin: 0; 
+	padding: 0;
+}
+
+html {
+	font-size: 62.5%;/*10 ÷ 16 × 100% = 62.5%*/
+}
+
+::selection {
+	background-color: #35405f;
+	color: #fff;
+}
+
+*, *:active, *:focus, *:hover {
+	outline: none;
+}
+
+h1, h2, h3, h4, h5,h6 {
+	margin-top: 0;
+}
+
+body {
+	font-family: "Microsoft YaHei";
+	font-size: 1.2rem;/*1.2 × 10px = 12x */
+	background: #f5f5f5;
+}
+
+img{
+	width: 100%;
+	height: 100%;
+}
+
+li{
+	list-style: none;
+}
+
+a{
+	text-decoration: none;
+}
+/*==== layout css e ====*/
+
+/* bindAccount s */
+.bind_all{
+	width: 100%;
+}
+
+.bind_header{
+	 width: 100%;
+}
+
+.bind_header_logo{
+	width: 170px;
+	overflow: hidden;
+	margin: 65px auto 31px;
+}
+
+.bind_input{
+	width: 95%;
+	margin: 0 auto;
+}
+
+.bind_input ul > li{
+	width: 100%;
+    height: 38px;
+    margin-bottom: 10px;
+	position: relative;
+	border: solid 1px #d9d9d9;
+	border-radius: 3px;
+	overflow: hidden;
+	background: #fff;
+}
+
+.bind_input ul > li:hover{
+	border: solid 1px #55c2df;
+}
+
+.bind_input ul > li dl dd{
+	display: inline-block;
+}
+
+.bind_input ul > li dl dd:first-child{
+    width: 25px;
+    overflow: hidden;
+    position: absolute;
+    top: 4px;
+    left: 7px;
+}
+
+.bind_input ul > li dl dd:nth-child(2){
+    width: 66px;
+    overflow: hidden;
+    position: absolute;
+    top: 9px;
+    left: 42px;
+    color: #343434;
+}
+
+.bind_input ul > li dl dd:last-child{
+    margin-left: 112px;
+    margin-top: 3px;
+    width: 66.6%;
+    overflow: hidden;
+    position: relative;
+}
+
+.bind_input ul > li dl dd:last-child input[type="text"]{
+    width: 93.5%;
+    height: 28px;
+    padding: 0 6px;
+    outline: none;
+    border: 0;
+    color: #999999;
+}
+
+.bind_input ul > li dl dd:last-child select{
+	width: 100%;
+    height: 32px;
+    border: 0;
+    color: #999999;
+    background: 0;
+}
+
+.bind_input ul > li dl dd:last-child b{
+    position: absolute;
+    top: 13px;
+    right: 6px;
+    overflow: hidden;
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 6px solid #999999;
+}
+
+.bind_button{
+	width: 95%;
+	text-align: center;
+	margin: 33px auto 0;
+	position: relative;
+	height: 40px;
+	overflow: hidden;
+}
+
+.bind_button button{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    opacity: 0;
+    z-index: 1;
+    left: 0;
+}
+
+.bind_button a{
+    width: 100%;
+    height: 40px;
+    display: block;
+    line-height: 40px;
+    color: #fff;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    border-radius: 3px;
+    cursor: pointer;
+    background: -webkit-linear-gradient(left, #6aded1 , #47b2e6);
+}
+/* bindAccount e */
+
+/* screeningList s */
+.scrlit_header{
+    width: 100%;
+    height: 40px;
+    overflow: hidden;
+    background: #fff;
+    border-bottom: solid 1px #e6e6e6;
+}
+
+.scrlit_search{
+    width: 85%;
+    margin: 3.5px auto;
+    height: 30px;
+    border: solid 1px #d9d9d9;
+    border-radius: 24px;
+    text-align: center;
+    display: block;
+    overflow: hidden;
+}
+
+.scrlit_search ul{
+    position: relative;
+    width: 100px;
+    text-align: center;
+    margin: 5px auto 0;
+}
+
+.scrlit_search ul > li{
+	display: inline-block;
+}
+
+.scrlit_search ul > li:first-child{
+    width: 15px;
+    position: absolute;
+    left: 8px;
+    top: 2px;
+}
+
+.scrlit_search ul > li:last-child{
+    width: 60px;
+    top: 1.4px;
+    font-size: 1.3rem;
+    color: #999;
+    position: absolute;
+    left: 25px;
+}
+
+.scrlit_body{
+	width: 100%;
+	padding-top: 17px;
+}
+
+.left_nav{
+    width: 80px;
+}
+
+.left_nav nav ul > li{
+	
+}
+/* screeningList e */
+
+/* livePage s */
+.livage_all{
+	width: 100%;
+	overflow-y: hidden;
+}
+
+.livage_video{
+	width: 100%;
+	/* height: 211px; */
+	background: #fff;
+	overflow: hidden;
+}
+
+.livage_nav{
+    width: 100%;
+    height: 44px;
+    line-height: 42.5px;
+    background: #fff;
+    border-bottom: solid 1px #e6e6e6;
+}
+
+.livage_nav nav ul > li{
+    display: inline-block;
+    padding: 0 22px;
+    font-size: 1.5rem;
+}
+
+.livage_nav_on{
+	border-bottom: solid 2px #4fd4e3;
+	color: #4fd4e3;
+}
+
+.livage_box{
+	overflow: auto;
+}
+
+.livage_box div{
+	display: none;
+	width: 93%;
+    margin: 10px auto 0;
+}
+
+.livage_box div.chat_box{
+	display: block;
+}
+
+.livage_bottom{
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	height: 45px;
+	background: #f00;
+}
+
+.chat_box{
+
+}
+
+.chat_box ul > li{
+	margin-bottom: 10px;
+}
+
+.chat_box ul > li dl dt{
+	font-size: 1.3rem;
+	color: #989898;
+}
+
+.chat_box ul > li dl dd{
+	width: 95%;
+	margin: 5px auto 0;
+	font-size: 1.5rem;
+	color: #333333;
+}
+/* livePage e */
+
+/* courseCenter s */
+
+/* courseCenter e */
+
+/* broadcastCenter s */
+
+/* broadcastCenter e */
