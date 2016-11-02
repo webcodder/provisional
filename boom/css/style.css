@@ -616,12 +616,32 @@ a{
     padding-top: 17px;
 }
 
-.scrlit_body .left_nav{
-    width: 80px;
+.scrlit_nav{
+    width: 20%;
+    float: left;
+    background: #f90;
 }
 
-.scrlit_body .left_nav nav ul > li{
-    
+.scrlit_article{
+    float: left;
+    width: 80%;
+    background: #f00;
+}
+
+.scrlit_nav_on{
+    border-bottom: solid;
+}
+
+.scrlit_article section{
+    display: none;
+}
+
+.scrlit_article section li{
+    display: inline-block;
+}
+
+.scrlit_article section:first-child{
+    display: block;
 }
 /* screeningList e */
 
