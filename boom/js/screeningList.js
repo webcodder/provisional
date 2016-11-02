@@ -17,4 +17,9 @@ $(function(){
 			$("."+id+"_box").show();
 		});
 	});
+
+	//scrlit_article高度自适应 scrcleHeight
+	var scrhedHeight = $(".scrlit_header").height();
+	//console.log(scrhedHeight);
+	$(".scrlit_article").css("height",$(window).height()-scrhedHeight-8);
 });

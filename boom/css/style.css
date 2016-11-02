@@ -613,7 +613,7 @@ a{
 
 .scrlit_body{
     width: 100%;
-    padding-top: 17px;
+    padding-top: 7px;
 }
 
 .scrlit_nav{
@@ -629,19 +629,35 @@ a{
 }
 
 .scrlit_nav_on{
-    border-bottom: solid;
+    border-bottom: solid 1px #000!important;
 }
 
 .scrlit_article section{
     display: none;
+    overflow: auto;
+}
+
+.scrlit_article section ul{
+    width: 90%;
+    margin: 10px auto 0;
 }
 
 .scrlit_article section li{
     display: inline-block;
+    width: 25%;
+    text-align: center;
+    margin-bottom: 10px;
 }
 
 .scrlit_article section:first-child{
     display: block;
+}
+
+.scrlit_nav li{
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
+    border-bottom: solid 1px #ccc;
 }
 /* screeningList e */
 
