@@ -43,6 +43,11 @@ li{
 
 a{
 	text-decoration: none;
+    color: #333;
+}
+
+.clear{
+    clear: both;
 }
 /*==== layout css e ====*/
 
@@ -170,67 +175,6 @@ a{
     background: -webkit-linear-gradient(left, #6aded1 , #47b2e6);
 }
 /* bindAccount e */
-
-/* screeningList s */
-.scrlit_header{
-    width: 100%;
-    height: 40px;
-    overflow: hidden;
-    background: #fff;
-    border-bottom: solid 1px #e6e6e6;
-}
-
-.scrlit_search{
-    width: 85%;
-    margin: 3.5px auto;
-    height: 30px;
-    border: solid 1px #d9d9d9;
-    border-radius: 24px;
-    text-align: center;
-    display: block;
-    overflow: hidden;
-}
-
-.scrlit_search ul{
-    position: relative;
-    width: 100px;
-    text-align: center;
-    margin: 5px auto 0;
-}
-
-.scrlit_search ul > li{
-	display: inline-block;
-}
-
-.scrlit_search ul > li:first-child{
-    width: 15px;
-    position: absolute;
-    left: 8px;
-    top: 2px;
-}
-
-.scrlit_search ul > li:last-child{
-    width: 60px;
-    top: 1.4px;
-    font-size: 1.3rem;
-    color: #999;
-    position: absolute;
-    left: 25px;
-}
-
-.scrlit_body{
-	width: 100%;
-	padding-top: 17px;
-}
-
-.left_nav{
-    width: 80px;
-}
-
-.left_nav nav ul > li{
-	
-}
-/* screeningList e */
 
 /* livePage s */
 .livage_all{
@@ -618,3 +562,288 @@ a{
     overflow: hidden;
 }
 /* broadcastCenter e */
+
+/* screeningList s */
+.scrlit_header{
+    width: 100%;
+    height: 40px;
+    overflow: hidden;
+    background: #fff;
+    border-bottom: solid 1px #e6e6e6;
+}
+
+.scrlit_search{
+    width: 85%;
+    margin: 3.5px auto;
+    height: 30px;
+    border: solid 1px #d9d9d9;
+    border-radius: 24px;
+    text-align: center;
+    display: block;
+    overflow: hidden;
+    background: #F5F5F5;
+}
+
+.scrlit_search ul{
+    position: relative;
+    width: 100px;
+    text-align: center;
+    margin: 5px auto 0;
+}
+
+.scrlit_search ul > li{
+    display: inline-block;
+}
+
+.scrlit_search ul > li:first-child{
+    width: 15px;
+    position: absolute;
+    left: 8px;
+    top: 2px;
+}
+
+.scrlit_search ul > li:last-child{
+    width: 60px;
+    top: 1.4px;
+    font-size: 1.3rem;
+    color: #999;
+    position: absolute;
+    left: 25px;
+}
+
+.scrlit_body{
+    width: 100%;
+    padding-top: 17px;
+}
+
+.scrlit_body .left_nav{
+    width: 80px;
+}
+
+.scrlit_body .left_nav nav ul > li{
+    
+}
+/* screeningList e */
+
+/* courseList s */
+.curlit_header{
+    width: 100%;
+    overflow: hidden;
+    background: #fff;
+    border-bottom: solid 1px #e6e6e6;
+}
+
+.curlit_search{
+    width: 85%;
+    margin: 3.5px auto;
+    height: 30px;
+    border: solid 1px #d9d9d9;
+    border-radius: 24px;
+    text-align: center;
+    display: block;
+    overflow: hidden;
+    background: #F5F5F5;
+}
+
+.curlit_search ul{
+    position: relative;
+    width: 100px;
+    text-align: center;
+    margin: 5px auto 0;
+}
+
+.curlit_search ul > li{
+    display: inline-block;
+}
+
+.curlit_search ul > li:first-child{
+    width: 15px;
+    position: absolute;
+    left: 8px;
+    top: 2px;
+}
+
+.curlit_search ul > li:last-child{
+    width: 60px;
+    top: 1.4px;
+    font-size: 1.3rem;
+    color: #999;
+    position: absolute;
+    left: 25px;
+}
+
+.curlit_search + .top_nav{
+    width: 100%;
+    height: 40px;
+    background: #fff;
+    border-top: solid 1px #e6e6e6;
+    line-height: 40px;
+}
+
+.curlit_search + .top_nav ul > li{
+    display: inline-block;
+    border-right: solid 1px #e6e6e6;
+    width: 32.4%;
+    text-align: center;
+    position: relative;
+}
+
+.curlit_search + .top_nav ul > li select{
+    width: 100%;
+    text-align: center;
+    height: 37px;
+    border: 0;
+    background: 0;
+    padding-left: 36%;
+    color: #676767;
+    font-size: 1.2rem;
+    -webkit-appearance: none;
+}
+
+.curlit_search + .top_nav ul > li select + b{
+    position: absolute;
+    width: 10px;
+    height: 12px;
+    right: 30px;
+    top: 17px;
+    background: url(../images/arrow.png) top no-repeat;
+    background-size: 100%;
+}
+
+.curlit_search + .top_nav ul > li a{
+    display: block;
+    font-size: 1.2rem;
+    color: #676767;
+}
+
+.curlit_search + .top_nav ul > li:last-child{
+    border-right: 0;
+}
+
+.curlit_body{
+    width: 100%;
+    padding-top: 5px;
+}
+
+.curlit_list{
+    width: 100%;
+    overflow: auto;
+}
+
+.curlit_list > ul > li{
+    width: 100%;
+    height: 87px;
+    background: #fff;
+    margin-bottom: 5px;
+    border-top: solid 1px #e6e6e6;
+    border-bottom: solid 1px #e6e6e6;
+    overflow: hidden;
+}
+
+.curlit_list > ul > li a{
+    display: block;
+}
+
+.curlit_list > ul > li:first-child{
+    border-top: solid 1px transparent;
+}
+
+.curlit_list > ul > li:last-child{
+    margin-bottom: 0;
+}
+
+.curlit_list > ul > li dl{
+    width: 92%;
+    margin: 8px auto 0;
+}
+
+.curlit_list > ul > li dl > dt{
+    width: 120px;
+    height: 70px;
+    margin-right: 12px;
+    float: left;
+    overflow: hidden;
+}
+
+.curlit_list > ul > li dl > dd{
+    float: left;
+    width: 61%;
+    overflow: hidden;
+    height: 70px;
+    position: relative;
+}
+
+.curlit_list > ul > li dl > dd ol > li{
+    margin-bottom: 3px;
+}
+
+.curlit_list > ul > li dl > dd ol > li:first-child{
+    
+}
+
+.curlit_list > ul > li dl > dd ol > li:first-child span{
+    color: #333;
+    font-size: 1.4rem;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.curlit_list > ul > li dl > dd ol > li:nth-child(2){
+    
+}
+
+.curlit_list > ul > li dl > dd ol > li:nth-child(2) span{
+    color: #999999;
+    font-size: 1.2rem;
+}
+
+.curlit_list > ul > li dl > dd ol > li:last-child{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.curlit_list > ul > li dl > dd ol > li:last-child > ul > li{
+    display: inline-block;
+}
+
+.curlit_list > ul > li dl > dd ol > li:last-child > ul > li:first-child span{
+    font-size: 1.3rem;
+    color: #4ed4df;
+}
+
+.curlit_list > ul > li dl > dd ol > li:last-child > ul > li:first-child span:before{
+    content: " ";
+    display: block;
+    background: url(../images/e03.png) top no-repeat;
+    width: 12px;
+    height: 16px;
+    float: left;
+    margin-top: 1px;
+    margin-right: 10px;
+    background-size: 100%;
+}
+
+.curlit_list > ul > li dl > dd ol > li:last-child > ul > li:last-child{
+    float: right;
+}
+
+.curlit_list > ul > li dl > dd ol > li:last-child > ul > li:last-child span{
+    color: #999999;
+    letter-spacing: 1px;
+}
+/* courseList e */
+
+/* Listsearch s */
+.list_seasrch{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    z-index: 1;
+    top: 0;
+    display: none;
+}
+/* Listsearch e */
