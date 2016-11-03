@@ -1010,7 +1010,7 @@ a{
     margin: 0 auto;
 }
 
-.course_ask_bottom button{
+.curdtil_bottom button{
     width: 90%;
     height: 35px;
     background: -webkit-linear-gradient(left, #6aded1 , #47b2e6);
@@ -1021,7 +1021,100 @@ a{
     border-radius: 6px;
 }
 
+.course_noask_bottom{
+    background: #f5f5f5;
+}
+
+.course_asklist_bottom{
+    background: #fff;
+}
+
 .course_asklist{
-    
+    margin-top: 7px;
+}
+
+.course_asklist > ul > a > li{
+    width: 100%;
+    background: #fff;
+    min-height: 62px;
+    border-bottom: solid 1px #e6e6e6;
+}
+
+.course_asklist > ul > a > li:first-child{
+    border-top: solid 1px transparent;
+}
+
+.course_asklist > ul > a > li > dl{
+    width: 95%;
+    margin: 10px auto 0;
+}
+
+.course_asklist > ul > a{
+    display: block;
+}
+
+.course_asklist > ul > a > li > dl > dd:first-child{
+    margin-bottom: 5px;
+}
+
+.course_asklist > ul > a > li > dl > dd:first-child span{
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 1.4rem;
+}
+
+.course_asklist > ul > a > li > dl > dd:last-child{
+    padding-bottom: 10px;
+}
+
+.course_asklist > ul > a > li > dl > dd:last-child p{
+    width: 100%;
+    line-height: 20px;
+    color: #999;
+}
+
+.course_asklist > ul > a > li > dl > dd:last-child p span{
+    color: #4fd5e0;
+    font-size: 1.3rem;
+    margin-left: -8px;
+}
+
+.course_info_bottom{
+    background: #fff;
+}
+
+.course_info_bottom ul{
+    font-size: 0;
+}
+
+.course_info_bottom ul li{
+    display: inline-block;
+    width: 49.8%;
+    font-size: 1.2rem;
+    height: 45px;
+    line-height: 45px;
+    position: relative;
+}
+
+.course_info_bottom ul li:first-child{
+    border-right: solid 1px #e5e5e5;
+}
+
+.course_info_bottom ul li:last-child span{
+    color: #adadad;
+    font-size: 1.5rem;
+}
+
+.course_info_bottom ul li:last-child span:before{
+    content: " ";
+    width: 16px;
+    height: 21px;
+    background: url(../images/d02.png) top no-repeat;
+    position: absolute;
+    margin-left: -25px;
+    top: 13px;
+    background-size: 100%;
 }
 /* courseDetail e */

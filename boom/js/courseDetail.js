@@ -11,5 +11,15 @@ $(function(){
 	var cdivdoHeight = $(".curdtil_video").height();
 	var cdinavHeight = $(".curdtil_nav").height();
 	var cdibotHeight = $(".curdtil_bottom").height();
-	$(".curdtil_box").css("height",$(window).height()-cdivdoHeight-cdinavHeight-cdibotHeight);
+	$(".curdtil_box").css("height",$(window).height()-cdivdoHeight-cdinavHeight-cdibotHeight-1);
+
+	//赞
+    $('.course_info_bottom ul li:last').click(function(){
+    	/*$(this).find("span:before").css({
+    		"backgroundImage":"../images/e03.png",
+    	});*/
+    	/*alert($(this).find("span:before"));*/
+	    	$(this).find("span").after("<i>After</i>");
+    	}
+    }); 
 });
