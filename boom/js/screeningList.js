@@ -22,4 +22,5 @@ $(function(){
 	var scrhedHeight = $(".scrlit_header").height();
 	//console.log(scrhedHeight);
 	$(".scrlit_article").css("height",$(window).height()-scrhedHeight-8);
+	$(".scrlit_nav").css("height",$(window).height()-scrhedHeight-8);
 });
