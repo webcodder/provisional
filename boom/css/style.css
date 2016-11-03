@@ -1098,13 +1098,28 @@ a{
     position: relative;
 }
 
+.course_info_bottom ul li span, .course_info_bottom ul li a{
+    color: #adadad;
+    font-size: 1.5rem;
+}
+
 .course_info_bottom ul li:first-child{
     border-right: solid 1px #e5e5e5;
 }
 
-.course_info_bottom ul li:last-child span{
-    color: #adadad;
-    font-size: 1.5rem;
+.course_info_bottom ul li:first-child a{
+    display: block;
+}
+
+.course_info_bottom ul li:first-child a:before{
+    content: " ";
+    width: 16px;
+    height: 21px;
+    background: url(../images/d02.png) top no-repeat;
+    position: absolute;
+    margin-left: -25px;
+    top: 13px;
+    background-size: 100%;
 }
 
 .course_info_bottom ul li:last-child span:before{
@@ -1116,5 +1131,16 @@ a{
     margin-left: -25px;
     top: 13px;
     background-size: 100%;
+}
+
+.couin_bood{
+    color: #4fd4e3 !important;
+}
+
+.couin_bood:before{
+    width: 16px !important;
+    height: 21px !important;
+    background: url(../images/e03.png) top no-repeat !important;
+    background-size: 100% !important;
 }
 /* courseDetail e */

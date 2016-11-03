@@ -14,12 +14,12 @@ $(function(){
 	$(".curdtil_box").css("height",$(window).height()-cdivdoHeight-cdinavHeight-cdibotHeight-1);
 
 	//赞
-    $('.course_info_bottom ul li:last').click(function(){
-    	/*$(this).find("span:before").css({
-    		"backgroundImage":"../images/e03.png",
-    	});*/
-    	/*alert($(this).find("span:before"));*/
-	    	$(this).find("span").after("<i>After</i>");
-    	}
-    }); 
+	$('.course_info_bottom ul li:last').toggle(
+		function(){
+			$(this).find("span").addClass("couin_bood");
+		},
+		function(){
+			$(this).find("span").removeClass("couin_bood");
+		}
+	);
 });
