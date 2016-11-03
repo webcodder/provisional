@@ -1,0 +1,48 @@
+#container{
+    width:800px;
+    height:600px;
+    margin: 10px auto;
+    position: relative;
+}
+#canvas{
+    display: block;
+    border: 1px solid #808080;
+    margin:10px auto;
+}
+h2{
+    text-align: center;
+}
+#controller{
+    border-radius: 20px;
+    border: 1px solid grey;
+    width: 200px;
+    height:100px;
+    position: absolute;
+    top:10px;
+    left:10px;
+}
+#controller a{
+    background: #808080;
+    color:#ffffff;
+    text-decoration: none;
+    line-height: 35px;
+    text-align: center;
+    position: absolute;
+    display: block;
+    width:50px;
+    height:35px;
+    border:1px solid #808080;
+    border-radius: 20px;
+}
+#motion{
+    top:55px;
+    left:10px;
+}
+#white{
+    top:55px;
+    left:70px;
+}
+#black{
+    top:55px;
+    left:130px;
+}
