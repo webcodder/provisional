@@ -324,7 +324,7 @@ a{
     background-size: 100% 100%;
 }
 
-.swiper-container {
+.curcent_hadban .swiper-container {
     width: 93%;
     height: 98px;
     margin: 5px auto;
@@ -423,7 +423,7 @@ a{
     background: url(../images/cur_newcur.png) top no-repeat;
     display: block;
     float: left;
-    margin-top: -1px;
+    margin-top: -3px;
     margin-right: 10px;
     background-size: 100% 100%;
 }
@@ -472,7 +472,6 @@ a{
 
 .boacteer_cont{
     width: 100%;
-    /* height: 300px; */
     margin-top: 12px;
     background: #fff;
 }
@@ -1083,6 +1082,7 @@ a{
 
 .course_info_bottom{
     background: #fff;
+    border-top: solid 1px #e5e5e5;
 }
 
 .course_info_bottom ul{
@@ -1113,12 +1113,12 @@ a{
 
 .course_info_bottom ul li:first-child a:before{
     content: " ";
-    width: 16px;
+    width: 18px;
     height: 21px;
-    background: url(../images/d02.png) top no-repeat;
+    background: url(../images/d01.png) top no-repeat;
     position: absolute;
     margin-left: -25px;
-    top: 13px;
+    top: 14px;
     background-size: 100%;
 }
 
@@ -1142,5 +1142,105 @@ a{
     height: 21px !important;
     background: url(../images/e03.png) top no-repeat !important;
     background-size: 100% !important;
+}
+
+.curdtiox_wrap{
+    width: 100%;
+    margin-top: 5px;
+}
+
+.curdtiox_wrap section{
+    width: 100%;
+    min-height: 76px;
+    background: #fff;
+    margin-bottom: 4px;
+    border-top: solid 1px #e5e5e5;
+    border-bottom: solid 1px #e5e5e5;
+    padding-bottom: 10px;
+}
+
+.curdtiox_wrap section > span{
+    display: block;
+    width: 90%;
+    margin: 10px auto 0;
+    color: #959595;
+}
+
+.curdtiox_wrap section > span:before{
+    content: " ";
+    width: 15px;
+    height: 18px;
+    float: left;
+    margin-right: 10px;
+    margin-top: 2px;
+    background-size: 100%;
+    overflow: hidden;
+}
+
+.curdtiox_info span:before{
+    background: url(../images/b01.png) top no-repeat;
+}
+
+.curdtiox_mtip span:before{
+    background: url(../images/b02.png) top no-repeat;
+}
+
+.curdtiox_gift span:before{
+    background: url(../images/b03.png) top no-repeat;
+}
+
+.curdtiox_rune span:before{
+    background: url(../images/b04.png) top no-repeat;
+}
+
+.curdtiox_wrap section > span + div{
+    width: 90%;
+    margin: 7px auto 0;
+    color: #333;
+    font-size: 1.4rem;
+}
+
+.curdtiox_info_cont p{
+    line-height: 20px;
+}
+
+.curdtiox_mtip_cont ol{
+    width: 96%;
+    margin-left: 15px;
+}
+
+.curdtiox_mtip_cont ol li{
+    list-style-type: decimal;
+    margin-bottom: 3px;
+}
+
+.curdtiox_mtip_cont ol li:last-child{
+    margin-bottom: 0;
+}
+
+.curdtiox_gift_cont .swiper-container {
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.curdtiox_gift_cont .swiper-slide {
+    background-position: center;
+    background-size: cover;
+    width: 300px;
+    height: 300px;
+}
+
+.curdtiox_rune_cont .swiper-container {
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.curdtiox_rune_cont .swiper-slide {
+    background-position: center;
+    background-size: cover;
+    width: 300px;
+    height: 300px;
 }
 /* courseDetail e */

@@ -1,5 +1,5 @@
 //图片滑动
-var swiper = new Swiper('.swiper-container', {
+var swiper = new Swiper('.curcent_hadban .swiper-container', {
     pagination: '.swiper-pagination',
     slidesPerView: 1.6,
     paginationClickable: true,

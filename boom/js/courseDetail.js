@@ -22,4 +22,36 @@ $(function(){
 			$(this).find("span").removeClass("couin_bood");
 		}
 	);
+
+	//天赋配置 Swiper
+	var swiper = new Swiper('.curdtiox_gift_cont .swiper-container', {
+        pagination: '.swiper-pagination',
+        effect: 'coverflow',
+        grabCursor: true,
+        centeredSlides: true,
+        slidesPerView: 'auto',
+        coverflow: {
+            rotate: 50,
+            stretch: 0,
+            depth: 100,
+            modifier: 1,
+            slideShadows : true
+        }
+    });
+
+	//天赋配置 Swiper
+	var swiper = new Swiper('.curdtiox_rune_cont .swiper-container', {
+        pagination: '.swiper-pagination',
+        effect: 'coverflow',
+        grabCursor: true,
+        centeredSlides: true,
+        slidesPerView: 'auto',
+        coverflow: {
+            rotate: 50,
+            stretch: 0,
+            depth: 100,
+            modifier: 1,
+            slideShadows : true
+        }
+    });
 });
