@@ -5,10 +5,10 @@ $(function(){
 	$(".curlit_list").css("height",$(window).height()-culithdHeight-5-1);
 
 	//搜索框
-	$(".curlit_search").click(function(){
+	$(".search-icon").click(function(){
 		$(".list_seasrch").show();
 	});
-	$(".list_seasrch b").click(function(){
+	$(".close").click(function(){
 		$(".list_seasrch").fadeOut();
 	});
 });
