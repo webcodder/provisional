@@ -39,7 +39,7 @@ $(function(){
         }
     });
 
-	//天赋配置 Swiper
+	//符文搭配 Swiper
 	var swiper = new Swiper('.curdtiox_rune_cont .swiper-container', {
         pagination: '.swiper-pagination',
         effect: 'coverflow',
