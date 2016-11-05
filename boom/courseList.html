@@ -6,14 +6,13 @@
 <title>炸弹人</title>
 <link rel="stylesheet" type="text/css" href="css/style.css" />
 <style>
-	.search-wrapper {
+/* 	.search-wrapper {
     position: absolute;
-
-    /* -webkit-transform: translate(-50%, -50%);
-    -moz-transform: translate(-50%, -50%); */
-    /* transform: translate(-50%, -50%); */
-    /* top:50%; */
-    left:50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    top: 38px;
+    left: 50%;
 }
 .search-wrapper.active {}
 
@@ -201,33 +200,36 @@
 
 @media screen and (max-width: 560px) {
     .search-wrapper.active .input-holder {width:200px;}
-}
+} */
 </style>
 </head>
 <body>
 	<div class="curlit_all">
 		<div class="curlit_header">
 			<a href="#" class="curlit_search">
-				<!-- <ul>
-					<li>
-						<img src="images/scrlit_search.png">
-					</li>
-					<li>热门课程</li>
-				</ul> -->
 				<section class="container">
-		<form onsubmit="submitFn(this, event);">
-            <div class="search-wrapper">
-                <div class="input-holder">
-                    <input type="text" class="search-input" placeholder="Type to search" />
-                    <button class="search-icon" onclick="searchToggle(this, event);"><span></span></button>
-                </div>
-                <span class="close" onclick="searchToggle(this, event);"></span>
-                <div class="result-container">
+					<form onsubmit="submitFn(this, event);">
+			            <div class="search-wrapper">
+			                <div class="input-holder">
+			                    <input type="text" class="search-input" placeholder="Type to search" />
+			                    <button class="search-icon" onclick="searchToggle(this, event);">
+			                    	<span></span>
+			                    </button>
+			                </div>
+			                <span class="close" onclick="searchToggle(this, event);"></span>
+			                <div class="result-container">
 
-                </div>
-            </div>
-        </form>
-	</section>
+			                </div>
+			            </div>
+			        </form>
+				</section>
+<span style="
+    display: block;
+    margin-left: 10px;
+    margin-top: 10px;
+    z-index: 10000000;
+    background: #f00;
+">vsfd</span>
 			</a>
 			<div class="top_nav">
 				<ul>
@@ -621,9 +623,7 @@
 		</div>
 	</div>
 	<!-- <div class="list_seasrch_bg">132</div> -->
-	<div class="list_seasrch">
-		<b>123132</b>
-	</div>
+	<div class="list_seasrch"></div>
 
 <!-- js s -->
 <script src="js/lib/jquery1.8.3.min.js"></script>
