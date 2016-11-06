@@ -1,9 +1,9 @@
 $(function(){
 	//搜索框
-	$(".scrlit_search").click(function(){
+	$(".search-icon").click(function(){
 		$(".list_seasrch").show();
 	});
-	$(".list_seasrch b").click(function(){
+	$(".close").click(function(){
 		$(".list_seasrch").fadeOut();
 	});
 
