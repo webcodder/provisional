@@ -4,7 +4,7 @@
 
     Jaja2();
 
-    //Jaja3();
+    Jaja3();
 });
 
 function Jaja1() {
