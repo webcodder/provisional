@@ -19,16 +19,11 @@ function Jaja1() {
             var datalength = data.length;
             var str = "";
             for (var i = 0; i < datalength; i++) {
-                str += "<dd><ul><li>" + 
-                data[i]["position"] + 
+                str += "<dd><ul><li>" + data[i]["position"] + 
                 "</li><li>" + data[i]["className"] +
                 "</li><li>" + data[i]["key"] + 
-                "</li><li><div class='lx_pic'><img src='" +
-                Img(data[i]["header"]) +
-                "' /></div><span>" + 
-                data[i]["name"] + 
-                "</span></li><li>" +
-                data[i]["score"] +
+                "</li><li><div class='lx_pic'><img src='" + Img(data[i]["header"]) + "' /></div><span>" + data[i]["name"] + 
+                "</span></li><li>" + data[i]["score"] +
                 "s</li></ul></dd>";
             }
             $("#lx_main").append(str);
@@ -52,15 +47,11 @@ function Jaja2() {
             var datalength = data.length;
             var str = "";
             for (var i = 0; i < datalength; i++) {
-                str += "<dd><ul><li>" +
-                 data[i]["position"] +
-                 "</li><li>" +
-                data[i]["className"] +
+                str += "<dd><ul><li>" + data[i]["position"] +
+                "</li><li>" + data[i]["className"] +
                 "</li><li>" + data[i]["key"] +
-                "</li><li><div class='lx_pic'><img src='" +
-                Img(data[i]["header"]) + "' /></div><span>" +
-                data[i]["name"] + "</span></li><li>" +
-                data[i]["score"] + "s</li></ul></dd>";
+                "</li><li><div class='lx_pic'><img src='" + Img(data[i]["header"]) + "' /></div><span>" + data[i]["name"] +
+                "</span></li><li>" + data[i]["score"] + "s</li></ul></dd>";
             }
             $("#lx_main").append(str);
         },
