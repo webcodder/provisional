@@ -52,7 +52,7 @@ a{
 /*==== layout css e ====*/
 
 .lx_all{
-	max-width: 700px;
+	max-width: 800px;
 	min-height: 120px;
 }
 
@@ -104,5 +104,5 @@ a{
 }
 
 .lx_all dl dd ul > li:nth-last-child(2) span{
-	margin-left: 25px;
+	margin-left: 40px;
 }
