@@ -1,10 +1,10 @@
 ﻿$(function () {
 
-    //Jaja1();
+    Jaja1();
 
-    Jaja2();
+    //Jaja2();
 
-    Jaja3();
+    //Jaja3();
 });
 
 function Jaja1() {
