@@ -23,4 +23,5 @@ $(function(){
 	//console.log(scrhedHeight);
 	$(".scrlit_article").css("height",$(window).height()-scrhedHeight-8);
 	$(".scrlit_nav").css("height",$(window).height()-scrhedHeight-8);
+	$(".list_seasrch_cont").css("height",$(window).height()-50);
 });

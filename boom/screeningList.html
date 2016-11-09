@@ -14,11 +14,12 @@
 					<form onsubmit="submitFn(this, event);">
 			            <div class="search-wrapper">
 			                <div class="input-holder">
-			                    <input type="text" class="search-input" placeholder="热门搜索" />
+			                    <input type="text" class="search-input" placeholder="热门搜索" id="strName" />
 			                    <button class="search-icon" onclick="searchToggle(this, event);">
 			                    	<span></span>
 			                    	<span class="input-holder_sptx">热门搜索</span>
 			                    </button>
+			                    <b></b>
 			                </div>
 			                <span class="close" onclick="searchToggle(this, event);"></span>
 			                <div class="result-container"></div>
@@ -935,7 +936,15 @@
 			</div>
 		</div>
 	</div>
-	<div class="list_seasrch"></div>
+	<div class="list_seasrch">
+		<div class="list_seasrch_cont">
+			<ul>
+				<li>123</li>
+				<li>123</li>
+				<li>123</li>
+			</ul>
+		</div>
+	</div>
 
 <!-- js s -->
 <script src="js/lib/jquery1.8.3.min.js"></script>
@@ -943,11 +952,13 @@
 
 <script>
 function searchToggle(obj, evt){
+	var oInput = document.getElementById("strName");
 	var container = $(obj).closest('.search-wrapper');
 
 	if(!container.hasClass('active')){
 	      container.addClass('active');
 	      evt.preventDefault();
+	      oInput.focus();
 	}
 	else if(container.hasClass('active') && $(obj).closest('.input-holder').length == 0){
 	      container.removeClass('active');
