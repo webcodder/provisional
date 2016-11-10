@@ -1,0 +1,154 @@
+/* evalcoue_box s */
+.evalcoue_box{
+	position: fixed;
+	background: #f5f5f5;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	display: none;
+}
+
+.evalcoue_score{
+	width: 100%;
+    height: 223px;
+    background: #fff;
+    margin-top: 10px;
+    border-top: solid 1px transparent;
+}
+
+.evalcoue_score dl span{
+	color: #333;
+	font-size: 1.5rem;
+}
+
+.evalcoue_score dl{
+	width: 95%;
+	margin: 10px auto 0;
+}
+
+.evalcoue_score dl dt , .evalcoue_score dl dd{
+	margin-bottom: 19px;
+}
+
+.evalcoue_score dl dd ul li{
+	display: inline-block;
+}
+
+.evalcoue_score dl dd ul li:first-child{
+	width: 150px;
+}
+
+.evalcoue_score dl dd ul li:last-child{
+    width: 145px;
+    height: 20px;
+	background: url(../images/spec_star0.png);
+	overflow: hidden;
+	background-size: 100%;
+	position: relative;
+}
+
+b.spec_star1{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+b.spec_star1.pracour{
+	right: 20%;
+}
+
+b.spec_star1.teacxan{
+	right: 0%;
+}
+
+b.spec_star1.teafunny{
+	right: 43%;
+}
+
+b.spec_star1.interefect{
+	right: 100%;
+}
+
+.evalcoue_txt{
+	width: 100%;
+    height: 196px;
+    background: #fff;
+    margin-top: 10px;
+	text-align: center;
+}
+
+.evalcoue_txt textarea{
+    width: 95%;
+    margin-top: 10px;
+    height: 88%;
+    resize: initial;
+    border: 0;
+    font-size: 1.6rem;
+    line-height: 20px;
+    color: #999;
+}
+
+.evalcoue_button{
+    text-align: center;
+    width: 95%;
+    margin: 40px auto 0;
+}
+
+.evalcoue_button button{
+    width: 100%;
+    background: -webkit-linear-gradient(left, #6aded1 , #47b2e6);
+    height: 32px;
+    border: 0;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 1.5rem;
+}
+/* evalcoue_box e */
+
+/* quenask_box s */
+.quenask_box{
+	position: fixed;
+	background: #f5f5f5;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	display: none;
+}
+
+.quenask_txt{
+    width: 100%;
+    height: 196px;
+    background: #fff;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.quenask_txt textarea{
+    width: 95%;
+    margin-top: 10px;
+    height: 88%;
+    resize: initial;
+    border: 0;
+    font-size: 1.6rem;
+    line-height: 20px;
+    color: #999;
+}
+
+.quenask_button{
+    text-align: center;
+    width: 95%;
+    margin: 40px auto 0;
+}
+
+.quenask_button button{
+    width: 100%;
+    background: -webkit-linear-gradient(left, #6aded1 , #47b2e6);
+    height: 32px;
+    border: 0;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 1.5rem;
+}
+/* quenask_box e */

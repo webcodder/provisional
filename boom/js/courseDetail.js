@@ -54,4 +54,14 @@ $(function(){
             slideShadows : true
         }
     });
+
+    //评价
+    $(".course_info_bottom ul li:first").click(function(){
+        $(".evalcoue_box").fadeIn();
+    });
+    
+    //提问
+    $(".curdtil_bottom button").click(function(){
+        $(".quenask_box").fadeIn();
+    });
 });

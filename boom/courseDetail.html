@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
 <title>直播页</title>
 <link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/courseDetail.css" />
 <link rel="stylesheet" type="text/css" href="css/lib/swiper.min.css" />
 </head>
 <body>
@@ -212,7 +213,7 @@
 
 			<!-- 问答 s -->
 			<div class="curdtil_box_wrap course_ask_box">
-				<div class="course_noask" style="display:none;">
+				<div class="course_noask" style="display:block;">
 					<ul>
 						<li>暂无问题</li>
 						<li>
@@ -223,7 +224,7 @@
 						<button>我要提问</button>
 					</div>
 				</div>
-				<div class="course_asklist" style="display:block;">
+				<div class="course_asklist" style="display:none;">
 					<ul>
 						<a href="#">
 							<li>
@@ -324,6 +325,86 @@
 			<!-- 问答 s -->
 		</div>
 	</div>
+	<!-- 评价课程 s -->
+	<div class="evalcoue_box">
+		<form id="form_evalcoue" action="" name="form_evalcoue" method="post" >
+			<div class="evalcoue_score">
+				<dl>
+					<dt>
+						<span>给课程打个分吧</span>
+					</dt>
+					<dd>
+						<ul>
+							<li>
+								<span>课程实用度</span>
+							</li>
+							<li>
+								<b class="spec_star1 pracour">
+									<img src="images/spec_star1.png" />
+								</b>
+							</li>
+						</ul>
+					</dd>
+					<dd>
+						<ul>
+							<li>
+								<span>老师讲解是否清楚</span>
+							</li>
+							<li>
+								<b class="spec_star1 teacxan">
+									<img src="images/spec_star1.png" />
+								</b>
+							</li>
+						</ul>
+					</dd>
+					<dd>
+						<ul>
+							<li>
+								<span>老师风趣度</span>
+							</li>
+							<li>
+								<b class="spec_star1 teafunny">
+									<img src="images/spec_star1.png" />
+								</b>
+							</li>
+						</ul>
+					</dd>
+					<dd>
+						<ul>
+							<li>
+								<span>互动效果</span>
+							</li>
+							<li>
+								<b class="spec_star1 interefect">
+									<img src="images/spec_star1.png" />
+								</b>
+							</li>
+						</ul>
+					</dd>
+				</dl>
+			</div>
+			<div class="evalcoue_txt">
+				<textarea name="evalcoue_txt"  placeholder="有什么想对老师和布姆学院说的吗？"></textarea>
+			</div>
+			<div class="evalcoue_button">
+				<button>提交</button>
+			</div>
+		</form>
+	</div>
+	<!-- 评价课程 e -->
+
+	<!-- 我要提问 s -->
+	<div class="quenask_box">
+		<form id="form_quenask" action="" name="form_quenask" method="post">
+			<div class="quenask_txt">
+				<textarea name="quenask_txt" placeholder="有什么想对老师和布姆学院说的吗？"></textarea>
+			</div>
+			<div class="quenask_button" id="quenask_button">
+				<button>提交</button>
+			</div>
+		</form>
+	</div>
+	<!-- 我要提问 e -->
 
 <!-- js s -->
 <script src="js/lib/jquery1.8.3.min.js"></script>
