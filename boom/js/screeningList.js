@@ -6,6 +6,9 @@ $(function(){
 	$(".close").click(function(){
 		$(".list_seasrch").fadeOut();
 	});
+	$(".search-input ~ b").click(function(){
+		$(".search-input").attr("value","");
+	});
 
 	//选项卡
 	$(function(){

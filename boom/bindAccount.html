@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
 <title>炸弹人</title>
 <link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/bindAccount.css" />
 </head>
 <body>
 	<div class="bind_all">
@@ -13,41 +14,43 @@
 				<img src="images/bing_logo.png" />
 			</div>
 		</div>
-		<div class="bind_input">
-			<ul>
-				<li>
-					<dl>
-						<dd class="bid_name">
-							<img id="bid_name" src="images/a01.png" />
-						</dd>
-						<dd>召唤师名称</dd>
-						<dd>
-							<input type="text" placeholder="十九度威士忌、" />
-						</dd>
-					</dl>
-				</li>
-				<li>
-					<dl>
-						<dd class="bid_sele">
-							<img id="bid_sele" src="images/a03.png" />
-						</dd>
-						<dd>选择大区</dd>
-						<dd>
-							<select>
-								<option>选择大区</option>
-								<option>选择大区</option>
-								<option>选择大区</option>
-							</select>
-							<b class="bind_sle_tae"></b>
-						</dd>
-					</dl>
-				</li>
-			</ul>
-		</div>
-		<div class="bind_button">
-			<button>完成</button>
-			<a href="#">完成</a>
-		</div>
+		<form id="bind_input" action="" method="post" name="bind_input">
+			<div class="bind_input">
+				<ul>
+					<li>
+						<dl>
+							<dd class="bid_name">
+								<img id="bid_name" src="images/a01.png" />
+							</dd>
+							<dd>召唤师名称</dd>
+							<dd>
+								<input class="input_text" name="username" type="text" />
+							</dd>
+						</dl>
+					</li>
+					<li>
+						<dl>
+							<dd class="bid_sele">
+								<img id="bid_sele" src="images/a03.png" />
+							</dd>
+							<dd>选择大区</dd>
+							<dd>
+								<!-- <select>
+									<option>选择大区</option>
+									<option>选择大区</option>
+									<option>选择大区</option>
+								</select>
+								<b class="bind_sle_tae"></b> -->
+								<input class="input_text" name="password" type="password" />
+							</dd>
+						</dl>
+					</li>
+				</ul>
+			</div>
+			<div class="bind_button">
+				<button id="loginSubmit">登录</button>
+			</div>
+		</form>
 	</div>
 
 <!-- js s -->
