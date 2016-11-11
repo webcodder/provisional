@@ -66,3 +66,63 @@ http://school.iboom.tv/cs/xgt.png---效果图
 	（3）数据源换成下面的+20
 	     http://school.iboom.tv/school/boot/rank/getRankList --- 支持jsonp    
 	     http://school.iboom.tv/school/auth/login.do-----参数qq=1，password=11111111
+
+
+
+
+
+
+
+/*$(document).ready(function(){
+    $.get("wx/school/v1.0/recommend?groupId=12",function(data,status){
+        var thisLives = data.data;
+        var lists = "";
+        console.log(thisLives);
+        $.each(thisLives, function (n,value) {
+               var li = "";
+               li += "<li class='boacteer_list_li'><img src= " + value.img + "/>"  + "<span class='boacteer-img-name'>" + value.name + "</span>"+ "</li>";
+               lists += li;
+           });
+     $("#boacteer_list").append(lists);
+  });
+    $.get("wx/school/v1.0/recommend?groupId=13",function(data,status){
+        console.log(data);
+        var thisSlide = data.data;
+        var slides = "";
+        console.log();
+        $.each(thisSlide, function (n,value) {
+                         var li = "";
+                         li += "<div class='swiper-slide'> " + "<a href='#'>" + "<div class='boacteer_header_ban_pic'><img src= " + value.img + "/>" + "</div>" + "<span >" + value.name + "</span>"+ "</a>"+"</div>";
+                         slides += li;
+                 });
+ $("#vsrmd").append(slides);
+});
+});*/
+
+
+
+/*$(document).ready(function(){
+  $.get("wx/school/v1.0/recommend?groupId=11",function(data,status){
+  var thisCourses = data.data;
+  var lists = "";
+  console.log(thisCourses);
+  $.each(thisCourses, function (n,value) {
+             var li = "";
+             li += "<li class='boacteer_list_li'><img src= " + value.img + "/>"  + "<span class='boacteer-img-name'>" + value.name + "</span>"+ "</li>";
+             lists += li;
+         });
+ $("#hotCourse").append(lists);
+ });
+ $.get("wx/school/v1.0/recommend?groupId=14",function(data,status){
+ console.log(data);
+ var thisSlide = data.data;
+ var slides = "";
+ console.log();
+ $.each(thisSlide, function (n,value) {
+            var li = "";
+            li += "<div class='swiper-slide'> " + "<a href='#'>" + "<div class='boacteer_header_ban_pic'><img src= " + value.img + "/>" + "</div>" + "<span >" + value.name + "</span>"+ "</a>"+"</div>";
+            slides += li;
+        });
+$("#curcent_list").append(slides);
+});
+});*/

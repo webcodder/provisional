@@ -78,6 +78,13 @@ a{
 
 .lx_all dl dd{
 	border-bottom: solid 1px #ccc;
+    transition: 0.2s linear;
+    cursor: pointer;
+}
+
+.lx_all dl dd:hover{
+    background: #e6cdc1;
+    transition: 0.3s linear;
 }
 
 .lx_all dl dd:last-child{

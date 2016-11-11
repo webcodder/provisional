@@ -1,10 +1,11 @@
 ﻿$(function () {
 
-    Jaja1();
-
+    //Jaja1();
+    
     //Jaja2();
+    
+    Jaja3();
 
-    //Jaja3();
 });
 
 function Jaja1() {
@@ -64,6 +65,7 @@ function Jaja2() {
 function Jaja3() {
     $.ajax({
         type: "post",
+        /*async: false,*/
         url: "http://school.iboom.tv/school/auth/login.do?x=" + Math.random(),
         data: { "qq": "1", "password": "11111111" },
         scriptCharset: 'gbk',
@@ -71,7 +73,7 @@ function Jaja3() {
         jsonp: "callback",//服务端用于接收callback调用的function名的参数  
         jsonpCallback: "jquery",//自定义的jsonp回调函数名称，默认为jQuery自动生成的随机函数名，也可以写"?"，jQuery会自动为你处理数据
         success: function (data) {
-            var datalength = data.length;
+            Jaja2();
         },
         error: function () {
 
