@@ -1,0 +1,19 @@
+{
+    "error":false,
+    "msg":"获取视图数据成功！",
+    "data":{
+        "name":"位置",
+        "childs":[
+
+        ],
+        "labs":[
+            162,
+            2,
+            3,
+            4,
+            5
+        ]
+    },
+    "length":null,
+    "rtCode":null
+}

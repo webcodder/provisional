@@ -1,0 +1,35 @@
+{
+    "error":false,
+    "msg":"获取推荐信息成功！",
+    "data":[
+        {
+            "id":28,
+            "img":"41570d18f4da735cd28a55919921a1e4.png",
+            "name":"小帅老师课程，EZ最全上分攻略",
+            "title":"小帅老师课程，EZ最全上分攻略",
+            "url":"wx.school.iboom.tv/courseDetail.html?6",
+            "carouselGroupId":11,
+            "data":null
+        },
+        {
+            "id":27,
+            "img":"41570d18f4da735cd28a55919921a1e4.png",
+            "name":"小帅老师课程，EZ最全上分攻略",
+            "title":"小帅老师课程，EZ最全上分攻略",
+            "url":"wx.school.iboom.tv/courseDetail.html?6",
+            "carouselGroupId":11,
+            "data":null
+        },
+        {
+            "id":26,
+            "img":"41570d18f4da735cd28a55919921a1e4.png",
+            "name":"小帅老师课程，EZ最全上分攻略",
+            "title":"小帅老师课程，EZ最全上分攻略",
+            "url":"wx.school.iboom.tv/courseDetail.html?6",
+            "carouselGroupId":11,
+            "data":null
+        }
+    ],
+    "length":3,
+    "rtCode":null
+}

@@ -1,0 +1,17 @@
+{
+    "error":false,
+    "msg":"获取推荐信息成功！",
+    "data":[
+        {
+            "id":19,
+            "img":"41570d18f4da735cd28a55919921a1e4.png",
+            "name":"小小酥老师周课，本周讲解奥巴马",
+            "title":"小小酥老师周课，本周讲解奥巴马",
+            "url":"wx.school.iboom.tv/livePage.html?21",
+            "carouselGroupId":13,
+            "data":null
+        }
+    ],
+    "length":1,
+    "rtCode":null
+}

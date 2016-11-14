@@ -1,0 +1,32 @@
+{
+    "error":false,
+    "msg":"获取老师信息成功！",
+    "data":{
+        "version":4,
+        "disable":false,
+        "id":17,
+        "name":"111",
+        "userId":99,
+        "header":"9c88f78c7a58ed10072f756e86860b77.jpg",
+        "tier":"111",
+        "goodAtWay":"1111",
+        "qq":"111",
+        "goodAtChampion":[
+            {
+                "version":0,
+                "disable":false,
+                "id":219,
+                "championId":24
+            },
+            {
+                "version":0,
+                "disable":false,
+                "id":218,
+                "championId":202
+            }
+        ],
+        "introduce":"111111"
+    },
+    "length":null,
+    "rtCode":null
+}

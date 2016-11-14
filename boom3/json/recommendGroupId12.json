@@ -1,0 +1,35 @@
+{
+    "error":false,
+    "msg":"获取推荐信息成功！",
+    "data":[
+        {
+            "id":16,
+            "img":"41570d18f4da735cd28a55919921a1e4.png",
+            "name":"蓝阳老师直播，大师段位单排，边打边讲",
+            "title":"蓝阳老师直播，大师段位单排，边打边讲",
+            "url":"wx.school.iboom.tv/courseDetail.html?6",
+            "carouselGroupId":12,
+            "data":null
+        },
+        {
+            "id":17,
+            "img":"41570d18f4da735cd28a55919921a1e4.png",
+            "name":"上单教学",
+            "title":"上单教学",
+            "url":"wx.school.iboom.tv/courseDetail.html?6",
+            "carouselGroupId":12,
+            "data":null
+        },
+        {
+            "id":18,
+            "img":"41570d18f4da735cd28a55919921a1e4.png",
+            "name":"肥羊老师周课，本周讲解奥拉夫",
+            "title":"肥羊老师周课，本周讲解奥拉夫",
+            "url":"wx.school.iboom.tv/courseDetail.html?6",
+            "carouselGroupId":12,
+            "data":null
+        }
+    ],
+    "length":3,
+    "rtCode":null
+}

@@ -1,0 +1,46 @@
+{
+    "error":false,
+    "msg":"获取视图数据成功！",
+    "data":{
+        "name":"全部视频",
+        "childs":[
+            {
+                "name":"位置",
+                "childs":[
+
+                ],
+                "labs":[
+                    162,
+                    2,
+                    3,
+                    4,
+                    5
+                ]
+            },
+            {
+                "name":"打法",
+                "childs":[
+
+                ],
+                "labs":[
+                    161
+                ]
+            },
+            {
+                "name":"默认",
+                "childs":[
+
+                ],
+                "labs":[
+                    157,
+                    158
+                ]
+            }
+        ],
+        "labs":[
+
+        ]
+    },
+    "length":null,
+    "rtCode":null
+}

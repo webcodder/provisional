@@ -1,0 +1,90 @@
+/*==== layout css s ====*/
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td {
+    margin:0;
+    padding:0;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%;/*10 ÷ 16 × 100% = 62.5%*/
+}
+
+::selection {
+    background-color: #35405f;
+    color: #fff;
+}
+
+*, *:active, *:focus, *:hover {
+    outline: none;
+}
+
+h1, h2, h3, h4, h5,h6 {
+    margin-top: 0;
+}
+
+body {
+    font-family: "Microsoft YaHei";
+    font-size: 1.2rem;/*1.2 × 10px = 12x */
+    background: #f5f5f5;
+}
+
+img{
+    width: 100%;
+    height: 100%;
+}
+
+li{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    color: #333;
+}
+
+.clear{
+    clear: both;
+}
+/*==== layout css e ====*/
+
+/*==== public s ====*/
+/* Listsearch s */
+.list_seasrch{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    z-index: 1;
+    top: 0;
+    display: none;
+}
+
+.list_seasrch_cont{
+    width: 100%;
+    overflow: auto;
+    margin-top: 50px;
+}
+
+.list_seasrch_cont ul{
+    width: 88%;
+    margin: 0 auto;
+    padding-top: 15px;
+}
+
+.list_seasrch_cont li{
+    display: inline-block;
+    border: solid 1px #4ED4E2;
+    padding: 2px 8px;
+    margin-right: 12px;
+    color: #666;
+    font-size: 1.3rem;
+    border-radius: 5px;
+}
+/* Listsearch e */
+/*==== public e ====*/
+
+

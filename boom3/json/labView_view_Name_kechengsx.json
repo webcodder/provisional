@@ -1,0 +1,71 @@
+{
+    "error":false,
+    "msg":"获取视图数据成功！",
+    "data":{
+        "name":"课程筛选",
+        "childs":[
+            {
+                "name":"上单",
+                "childs":[
+
+                ],
+                "labs":[
+                    34,
+                    38
+                ]
+            },
+            {
+                "name":"打野",
+                "childs":[
+
+                ],
+                "labs":[
+                    57,
+                    129
+                ]
+            },
+            {
+                "name":"中单",
+                "childs":[
+
+                ],
+                "labs":[
+                    50
+                ]
+            },
+            {
+                "name":"ADC",
+                "childs":[
+
+                ],
+                "labs":[
+                    39
+                ]
+            },
+            {
+                "name":"辅助",
+                "childs":[
+
+                ],
+                "labs":[
+                    117
+                ]
+            },
+            {
+                "name":"默认",
+                "childs":[
+
+                ],
+                "labs":[
+                    157,
+                    158
+                ]
+            }
+        ],
+        "labs":[
+
+        ]
+    },
+    "length":null,
+    "rtCode":null
+}

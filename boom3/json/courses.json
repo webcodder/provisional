@@ -1,0 +1,26 @@
+{
+    "error":false,
+    "msg":"",
+    "totalElement":1,
+    "totalPage":1,
+    "nowPage":0,
+    "size":20,
+    "rtCode":null,
+    "data":[
+        {
+            "version":10,
+            "disable":false,
+            "id":6,
+            "name":"龙龟打野课程",
+            "sName":null,
+            "addTime":1478844531000,
+            "img":"1c1c135122352a84d62b68ee0e1aaddd.png",
+            "videoId":103,
+            "zy":"龙龟打野课程",
+            "actionId":99,
+            "watchTimes":0,
+            "commentTimes":0,
+            "priseTimes":0
+        }
+    ]
+}
