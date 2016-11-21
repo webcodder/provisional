@@ -146,4 +146,8 @@
     border-radius: 6px;
     overflow: hidden;
 }
+
+.boacteer_cont_list ul li a img{
+    margin-bottom: -3px;
+}
 /* broadcastCenter e */

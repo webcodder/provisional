@@ -1,992 +1,110 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
-<title>炸弹人</title>
-<link rel="stylesheet" type="text/css" href="css/style.css" />
-<link rel="stylesheet" type="text/css" href="css/screeningList.css" />
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no" />
+	<title>炸弹人</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
+	<link rel="stylesheet" type="text/css" href="css/screeningList.css" />
 </head>
+
 <body>
-	<div class="scrlit_all">
-		<div class="scrlit_header">
-			<a href="#" class="scrlit_search">
-				<section class="container">
-					<form onsubmit="submitFn(this, event);">
-			            <div class="search-wrapper">
-			                <div class="input-holder">
-			                    <input type="text" class="search-input" placeholder="热门搜索" id="strName" />
-			                    <button class="search-icon" onclick="searchToggle(this, event);">
-			                    	<span></span>
-			                    	<span class="input-holder_sptx">热门搜索</span>
-			                    </button>
-			                    <b></b>
-			                </div>
-			                <span class="close" onclick="searchToggle(this, event);"></span>
-			                <div class="result-container"></div>
-			            </div>
-			        </form>
-				</section>
-			</a>
-		</div>
-		<div class="scrlit_body">
-			<div class="scrlit_nav">
-				<nav>
-					<ul>
-						<li id="single" class="scrlit_nav_on">上单</li>
-						<li id="paild">打野</li>
-						<li id="ingle">中单</li>
-						<li id="adc">ADC</li>
-						<li id="auxry">辅助</li>
-						<li id="scrnall">全部<span><b>最新</b></span></li>
-					</ul>
-				</nav>
+	<div id="app">
+		<div class="scrlit_all">
+			<div class="scrlit_header">
+				<a href="#" class="scrlit_search">
+					<section class="container">
+
+						<div class="search-wrapper">
+							<div class="input-holder">
+								<input type="text" class="search-input" placeholder="热门搜索" v-model.trim="searchQuery" v-on:keyup.enter="searchCourse(searchQuery)"  id="strName"/>
+								<button class="search-icon" onclick="searchToggle(this, event);">
+				                    	<span></span>
+				                    	<span class="input-holder_sptx">热门搜索</span>
+				                    </button>
+								<b></b>
+							</div>
+							<span class="close" onclick="searchToggle(this, event);"></span>
+							<div class="result-container"></div>
+						</div>
+
+					</section>
+				</a>
 			</div>
-			<div class="scrlit_article">
-				<article>
-					<!-- 上单 s -->
-					<section class="single_box">
+			<div class="scrlit_body">
+				<div class="scrlit_nav">
+					<nav>
 						<ul>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
+							<li v-for="(item,index) in thisViews" :class="{scrlit_nav_on : item.isActive}" @click="chooseNav(index)" v-show="item.isShow">
+								{{item.name}}
 							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
+							<li id="scrnall" @click="toALLCourse">全部<span><b>最新</b></span></li>
 						</ul>
-					</section>
-					<!-- 上单 e -->
-
-					<!-- 打野 s -->
-					<section class="paild_box">
-						<ul>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-						</ul>
-					</section>
-					<!-- 打野 e -->
-
-					<!-- 中单 s -->
-					<section class="ingle_box">
-						<ul>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-						</ul>
-					</section>
-					<!-- 中单 e -->
-
-					<!-- ADC s -->
-					<section class="adc_box">
-						<ul>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-						</ul>
-					</section>
-					<!-- ADC e -->
-
-					<!-- 辅助 s -->
-					<section class="auxry_box">
-						<ul>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-						</ul>
-					</section>
-					<!-- 辅助 e -->
-
-					<!-- 全部 s -->
-					<section class="scrnall_box">
-						<ul>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-							<li>
-								<dl>
-									<a href="#">
-										<dd><img src="images/single_box_cs1.png"></dd>
-										<dd>克雷顿</dd>
-									</a>
-								</dl>
-							</li>
-						</ul>
-					</section>
-					<!-- 全部 e -->
-				</article>
+					</nav>
+				</div>
+				<div class="scrlit_article">
+					<article>
+						<!-- 上单 s -->
+						<section class="single_box">
+							<ul>
+								<li v-for="lab in viewLabs" @click="toLabCourse(lab.id)">
+									<dl>
+										<a href="#">
+											<dd> <img :src=" staticUrl + lab.eName + '.png' "> </dd>
+											<dd> {{lab.labName}} </dd>
+										</a>
+									</dl>
+								</li>
+							</ul>
+						</section>
+					</article>
+				</div>
 			</div>
 		</div>
-	</div>
-	<div class="list_seasrch">
-		<!-- <div class="list_seasrch_cont">
-			<ul>
-				<li>123</li>
-				<li>123</li>
-				<li>123</li>
-			</ul>
-		</div> -->
+		<div class="list_seasrch"></div>
 	</div>
 
-<!-- js s -->
-<script src="js/lib/jquery1.8.3.min.js"></script>
-<script src="js/screeningList.js"></script>
+	<!-- js s -->
+	<script src="js/lib/vue.js"></script>
+	<script src="js/lib/jquery1.8.3.min.js"></script>
+	<script src="js/screeningList.js"></script>
 
-<script>
-function searchToggle(obj, evt){
-	var oInput = document.getElementById("strName");
-	var container = $(obj).closest('.search-wrapper');
+	<script>
+		function searchToggle(obj, evt) {
+			var oInput = document.getElementById("strName");
+			var container = $(obj).closest('.search-wrapper');
 
-	if(!container.hasClass('active')){
-	      container.addClass('active');
-	      evt.preventDefault();
-	      oInput.focus();
-	}
-	else if(container.hasClass('active') && $(obj).closest('.input-holder').length == 0){
-	      container.removeClass('active');
-	      // clear input
-	      container.find('.search-input').val('');
-	      // clear and hide result container when we press close
-	      container.find('.result-container').fadeOut(100, function(){$(this).empty();});
-	}
-}
+			if (!container.hasClass('active')) {
+				container.addClass('active');
+				evt.preventDefault();
+				/*oInput.focus();*/
+			} else if (container.hasClass('active') && $(obj).closest('.input-holder').length == 0) {
+				container.removeClass('active');
+				// clear input
+				container.find('.search-input').val('');
+				// clear and hide result container when we press close
+				container.find('.result-container').fadeOut(100, function() {
+					$(this).empty();
+				});
+			}
+		}
+		$(function(){
+			var culithdHeight = jQuery(".curlit_header").height();
+			console.log(culithdHeight);
+			jQuery(".curlit_list").css("height", jQuery(window).height() - culithdHeight - 5 - 1);
 
-function submitFn(obj, evt){
-	value = $(obj).find('.search-input').val().trim();
-
-	_html = "Yup yup! Your search text sounds like this: ";
-	if(!value.length){
-	    _html = "Yup yup! Add some text friend :D";
-	}
-	else{
-	    _html += "<b>" + value + "</b>";
-	}
-
-	$(obj).find('.result-container').html('<span>' + _html + '</span>');
-	$(obj).find('.result-container').fadeIn(100);
-
-	evt.preventDefault();
-}
-</script>
-<!-- js e -->
+			$(".search-icon").click(function () {
+				$(".list_seasrch").show();
+			});
+			$(".close").click(function () {
+				$(".list_seasrch").fadeOut();
+			});
+			$(".search-input ~ b").click(function () {
+				$(".search-input").attr("value", "");
+			});
+		});
+	</script>
+	<!-- js e -->
 </body>
+
 </html>

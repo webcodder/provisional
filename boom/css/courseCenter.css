@@ -32,15 +32,23 @@
 
 .curcent_hadban .swiper-container {
     width: 93%;
-    height: 98px;
+    /* height: 98px; */
     margin: 5px auto;
 }
 
 .curcent_hadban{
     width: 100%;
-    height: 110px;
+    /* height: 110px; */
     overflow: hidden;
     border-bottom: solid 1px #e6e6e6;
+}
+
+.curcent_hadban_pic {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 6px;
+    overflow: hidden;
 }
 
 .curcent_hadtit{
@@ -135,6 +143,10 @@
     height: 100%
 }
 
+.curcent_cont_list a img{
+    margin-bottom: -3px;
+}
+
 .curcent_cont_list ul{
     width: 92%;
     margin: 10px auto;
@@ -146,5 +158,10 @@
     min-height: 88px;
     border-radius: 6px;
     overflow: hidden;
+}
+.curcent_header_ban_pic{
+    display: block;
+    width: 100%;
+    height: 100%;
 }
 /* courseCenter e */

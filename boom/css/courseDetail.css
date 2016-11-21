@@ -30,8 +30,8 @@
 }
 
 .curdtil_nav_on {
-    border-bottom: solid 2px #4fd4e3;
-    color: #4fd4e3;
+    border-bottom: solid 2px #4a9bff;
+    color: #4a9bff;
 }
 
 .curdtil_box{
@@ -43,11 +43,8 @@
     display: block;
 }
 
-.curdtil_box_wrap {
-    display: none;
-}
 
-.curdtil_bottom{
+.curdtil_bottom {
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -76,7 +73,7 @@
 .curdtil_bottom button{
     width: 90%;
     height: 35px;
-    background: -webkit-linear-gradient(left, #6aded1 , #47b2e6);
+    background: -webkit-linear-gradient(left, #4ADFFF, #4883FF);
     border: 0;
     color: #fff;
     font-size: 1.4rem;
@@ -198,7 +195,7 @@
 }
 
 .couin_bood{
-    color: #4fd4e3 !important;
+    color: #4a9bff !important;
 }
 
 .couin_bood:before{
@@ -464,7 +461,7 @@ b.spec_star1.interefect{
 
 .evalcoue_button button{
     width: 100%;
-    background: -webkit-linear-gradient(left, #6aded1 , #47b2e6);
+    background: -webkit-linear-gradient(left, #4ADFFF, #4883FF);
     height: 32px;
     border: 0;
     border-radius: 6px;
@@ -511,7 +508,7 @@ b.spec_star1.interefect{
 
 .quenask_button button{
     width: 100%;
-    background: -webkit-linear-gradient(left, #6aded1 , #47b2e6);
+    background: -webkit-linear-gradient(left, #4ADFFF, #4883FF);
     height: 32px;
     border: 0;
     border-radius: 6px;

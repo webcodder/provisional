@@ -1,416 +1,118 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
-<title>直播页</title>
-<link rel="stylesheet" type="text/css" href="css/style.css" />
-<link rel="stylesheet" type="text/css" href="css/courseDetail.css" />
-<link rel="stylesheet" type="text/css" href="css/lib/swiper.min.css" />
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no" />
+	<title>课程页</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
+	<link rel="stylesheet" type="text/css" href="css/courseDetail.css" />
+	<link rel="stylesheet" type="text/css" href="css/lib/swiper.min.css" />
+
+	<!-- 视频播放接口 -->
+	<script type="text/javascript" charset="utf-8" src="http://yuntv.letv.com/player/vod/bcloud.js"></script>
+
 </head>
+
 <body>
-	<div class="curdtil_all">
-		<div class="curdtil_video">
-			<img src="images/livage_video.png">
-		</div>
-		<div class="curdtil_nav">
-			<nav>
-				<ul>
-					<li id="course_info" class="curdtil_nav_on">课程说明</li>
-					<li id="course_ask">问答</li>
-				</ul>
-			</nav>
-		</div>
-		<div class="curdtil_box">
-			<!-- 课程说明 s -->
-			<div class="curdtil_box_wrap course_info_box">
-				<article class="curdtiox_wrap">
-					<section class="curdtiox_info">
-						<span>课程说明</span>
-						<div class="curdtiox_info_cont">
-							<p>
-								这节课主要讲解金克斯的四个技能和被动的原理和使用技巧和场景。
-							</p>
-						</div>
-					</section>
+	<div id="app">
+		<div class="curdtil_all">
+			<div class="curdtil_video">
+				<div>
+					<div class="" id="autoJs6f527b7c18">
 
-					<section class="curdtiox_mtip">
-						<span>核心要点</span>
-						<div class="curdtiox_mtip_cont">
-							<ol>
-								<li>
-									<span>金克斯E技能架子布置时间长，禁锢时长；</span>
-								</li>
-								<li>
-									<span>金克斯E技能架子布置时间长，禁锢时长；</span>
-								</li>
-								<li>
-									<span>金克斯E技能架子布置时间长，禁锢时长；</span>
-								</li>
-								<li>
-									<span>金克斯E技能架子布置时间长，禁锢时长；</span>
-								</li>
-								<li>
-									<span>金克斯E技能架子布置时间长，禁锢时长；</span>
-								</li>
-							</ol>
-						</div>
-					</section>
-
-					<section class="curdtiox_gift">
-						<span>天赋配置</span>
-						<div class="curdtiox_gift_cont">
-							<!-- Swiper -->
-						    <div class="swiper-container">
-						        <div class="swiper-wrapper">
-						            <div class="swiper-slide">
-						            	<ul>
-						            		<li>
-						            			<img src="images/curdtiox_gift_cs.png" />
-						            		</li>
-						            		<li>
-						            			<p>
-						            				凶猛系点出双刃剑、赏金猎人和战争热诚，在对线平A中能打出更高的伤害。
-						            				赏金猎人也比恃强凌弱在后期能提高更多伤害。
-						            			</p>
-						            		</li>
-						            	</ul>
-						            </div>
-						            <div class="swiper-slide">
-						            	<ul>
-						            		<li>
-						            			<img src="images/curdtiox_gift_cs.png" />
-						            		</li>
-						            		<li>
-						            			<p>
-						            				凶猛系点出双刃剑、赏金猎人和战争热诚，在对线平A中能打出更高的伤害。
-						            				赏金猎人也比恃强凌弱在后期能提高更多伤害。
-						            			</p>
-						            		</li>
-						            	</ul>
-						            </div>
-						            <div class="swiper-slide">
-						            	<ul>
-						            		<li>
-						            			<img src="images/curdtiox_gift_cs.png" />
-						            		</li>
-						            		<li>
-						            			<p>
-						            				凶猛系点出双刃剑、赏金猎人和战争热诚，在对线平A中能打出更高的伤害。
-						            				赏金猎人也比恃强凌弱在后期能提高更多伤害。
-						            			</p>
-						            		</li>
-						            	</ul>
-						            </div>
-						            <div class="swiper-slide">
-						            	<ul>
-						            		<li>
-						            			<img src="images/curdtiox_gift_cs.png" />
-						            		</li>
-						            		<li>
-						            			<p>
-						            				凶猛系点出双刃剑、赏金猎人和战争热诚，在对线平A中能打出更高的伤害。
-						            				赏金猎人也比恃强凌弱在后期能提高更多伤害。
-						            			</p>
-						            		</li>
-						            	</ul>
-						            </div>
-						            <div class="swiper-slide">
-						            	<ul>
-						            		<li>
-						            			<img src="images/curdtiox_gift_cs.png" />
-						            		</li>
-						            		<li>
-						            			<p>
-						            				凶猛系点出双刃剑、赏金猎人和战争热诚，在对线平A中能打出更高的伤害。
-						            				赏金猎人也比恃强凌弱在后期能提高更多伤害。
-						            			</p>
-						            		</li>
-						            	</ul>
-						            </div>
-						        </div>
-						        <!-- Add Pagination -->
-						        <div class="swiper-pagination"></div>
-						    </div>
-						</div>
-					</section>
-
-					<section class="curdtiox_rune">
-						<span>符文搭配</span>
-						<div class="curdtiox_rune_cont">
-							<!-- Swiper -->
-						    <div class="swiper-container">
-						        <div class="swiper-wrapper">
-						            <div class="swiper-slide">
-						            	<ul>
-						            		<li>
-						            			<img src="images/curdtiox_rune_cs.png" />
-						            		</li>
-						            		<li>
-						            			符文带三个攻击力精华；9个攻速印记；9个护甲符印；4个攻速雕文和5个法力回复雕文。
-						            		</li>
-						            	</ul>
-						            </div>
-						            <div class="swiper-slide">
-						            	<ul>
-						            		<li>
-						            			<img src="images/curdtiox_rune_cs.png" />
-						            		</li>
-						            		<li>
-						            			符文带三个攻击力精华；9个攻速印记；9个护甲符印；4个攻速雕文和5个法力回复雕文。
-						            		</li>
-						            	</ul>
-						            </div>
-						            <div class="swiper-slide">
-						            	<ul>
-						            		<li>
-						            			<img src="images/curdtiox_rune_cs.png" />
-						            		</li>
-						            		<li>
-						            			符文带三个攻击力精华；9个攻速印记；9个护甲符印；4个攻速雕文和5个法力回复雕文。
-						            		</li>
-						            	</ul>
-						            </div>
-						            <div class="swiper-slide">
-						            	<ul>
-						            		<li>
-						            			<img src="images/curdtiox_rune_cs.png" />
-						            		</li>
-						            		<li>
-						            			符文带三个攻击力精华；9个攻速印记；9个护甲符印；4个攻速雕文和5个法力回复雕文。
-						            		</li>
-						            	</ul>
-						            </div>
-						            <div class="swiper-slide">
-						            	<ul>
-						            		<li>
-						            			<img src="images/curdtiox_rune_cs.png" />
-						            		</li>
-						            		<li>
-						            			符文带三个攻击力精华；9个攻速印记；9个护甲符印；4个攻速雕文和5个法力回复雕文。
-						            		</li>
-						            	</ul>
-						            </div>
-						        </div>
-						        <!-- Add Pagination -->
-						        <div class="swiper-pagination"></div>
-						    </div>
-						</div>
-					</section>
-				</article>
-				<div class="curdtil_bottom course_info_bottom">
-					<ul>
-						<li>
-							<a href="#">评价课程</a>
-						</li>
-						<li>
-							<span>赞</span>
-						</li>
-					</ul>
-				</div>
-			</div>
-			<!-- 课程说明 e -->
-
-			<!-- 问答 s -->
-			<div class="curdtil_box_wrap course_ask_box">
-				<div class="course_noask" style="display:block;">
-					<ul>
-						<li>暂无问题</li>
-						<li>
-							<img src="images/course_noask.png">
-						</li>
-					</ul>
-					<div class="curdtil_bottom course_noask_bottom">
-						<button>我要提问</button>
-					</div>
-				</div>
-				<div class="course_asklist" style="display:none;">
-					<ul>
-						<a href="#">
-							<li>
-								<dl>								
-									<dd>
-										<span>金克斯的最大招最多能造成多少伤害?</span>
-									</dd>
-									<dd>
-										<p>
-											<span>【佐佐的回答】</span>
-											基础伤害+物理伤害，最低配500基础伤害+物理伤害，最低配500基础伤害+物理伤害，最低配500基础伤害+物理伤害，最低配500
-										</p>
-									</dd>
-								</dl>
-							</li>
-						</a>
-						<a href="#">
-							<li>
-								<dl>								
-									<dd>
-										<span>金克斯的最大招最多能造成多少伤害?</span>
-									</dd>
-									<dd>
-										<p>
-											<span>【佐佐的回答】</span>
-											基础伤害+物理伤害，最低配500基础伤害+物理伤害，最低配500基础伤害+物理伤害，最低配500基础伤害+物理伤害，最低配500
-										</p>
-									</dd>
-								</dl>
-							</li>
-						</a>
-						<a href="#">
-							<li>
-								<dl>								
-									<dd>
-										<span>金克斯的最大招最多能造成多少伤害?</span>
-									</dd>
-									<dd>
-										<p>
-											<span>【佐佐的回答】</span>
-											基础伤害+物理伤害，最低配500基础伤害+物理伤害，最低配500基础伤害+物理伤害，最低配500基础伤害+物理伤害，最低配500
-										</p>
-									</dd>
-								</dl>
-							</li>
-						</a>
-						<a href="#">
-							<li>
-								<dl>								
-									<dd>
-										<span>金克斯的最大招最多能造成多少伤害?</span>
-									</dd>
-									<dd>
-										<p>
-											<span>【佐佐的回答】</span>
-											基础伤害+物理伤害，最低配500基础伤害+物理伤害，最低配500基础伤害+物理伤害，最低配500基础伤害+物理伤害，最低配500
-										</p>
-									</dd>
-								</dl>
-							</li>
-						</a>
-						<a href="#">
-							<li>
-								<dl>								
-									<dd>
-										<span>金克斯的最大招最多能造成多少伤害?</span>
-									</dd>
-									<dd>
-										<p>
-											<span>【佐佐的回答】</span>
-											基础伤害+物理伤害，最低配500基础伤害+物理伤害，最低配500基础伤害+物理伤害，最低配500基础伤害+物理伤害，最低配500
-										</p>
-									</dd>
-								</dl>
-							</li>
-						</a>
-						<a href="#">
-							<li>
-								<dl>								
-									<dd>
-										<span>金克斯的最大招最多能造成多少伤害?</span>
-									</dd>
-									<dd>
-										<p>
-											<span>【佐佐的回答】</span>
-											基础伤害+物理伤害，最低配500基础伤害+物理伤害，最低配500基础伤害+物理伤害，最低配500基础伤害+物理伤害，最低配500
-										</p>
-									</dd>
-								</dl>
-							</li>
-						</a>
-					</ul>
-					<div class="curdtil_bottom course_asklist_bottom">
-						<button>我要提问</button>
 					</div>
 				</div>
 			</div>
-			<!-- 问答 s -->
+			<div class="curdtil_nav">
+				<nav>
+					<ul>
+						<li id="course_info"  :class="{curdtil_nav_on:isShowCourse}" @click="showCourse">课程说明</li>
+						<li id="course_ask"  :class="{curdtil_nav_on:isShowAsk}"   @click="showAsk">问答</li>
+					</ul>
+				</nav>
+			</div>
+			<div class="curdtil_box">
+				<!-- 课程说明 s -->
+				<div class="curdtil_box_wrap course_info_box" v-show="isShowCourse">
+					<article class="curdtiox_wrap">
+						<div class="" v-html="courseContent" v-show="isHaveContent">
+
+						</div>
+						<div class="course_noask" v-show="!isHaveContent">
+							<ul>
+								<li>暂未开放</li>
+								<li>
+									<img src="images/course_noask.png">
+								</li>
+							</ul>
+							<!-- <div class="curdtil_bottom course_noask_bottom">
+                                <button>我要提问</button>
+                            </div> -->
+						</div>
+					</article>
+					<!-- <div class="curdtil_bottom course_info_bottom">
+						<ul>
+							<li>
+								<a href="#">评价课程</a>
+							</li>
+							<li>
+								<span>赞</span>
+							</li>
+						</ul>
+					</div> -->
+				</div>
+				<!-- 课程说明 e -->
+
+				<!-- 问答 s -->
+				<div class="curdtil_box_wrap course_ask_box" v-show="isShowAsk">
+					<div class="course_noask" >
+						<ul>
+							<li>暂未开放</li>
+							<li>
+								<img src="images/course_noask.png">
+							</li>
+						</ul>
+						<!-- <div class="curdtil_bottom course_noask_bottom">
+							<button>我要提问</button>
+						</div> -->
+					</div>
+					<!-- <div class="course_asklist" >
+						<ul>
+							<a href="#">
+								<li>
+									<dl>
+										<dd>
+											<span>金克斯的最大招最多能造成多少伤害?</span>
+										</dd>
+										<dd>
+											<p>
+												<span>【佐佐的回答】</span> 基础伤害+物理伤害，最低配500基础伤害+物理伤害，最低配500基础伤害+物理伤害，最低配500基础伤害+物理伤害，最低配500
+											</p>
+										</dd>
+									</dl>
+								</li>
+							</a>
+
+						</ul>
+						<div class="curdtil_bottom course_asklist_bottom">
+							<button>我要提问</button>
+						</div>
+					</div> -->
+				</div>
+				<!-- 问答 s -->
+			</div>
 		</div>
 	</div>
-	
-	<!-- 评价课程 s -->
-	<div class="evalcoue_box">
-		<form id="form_evalcoue" action="" name="form_evalcoue" method="post" >
-			<div class="evalcoue_score">
-				<dl>
-					<dt>
-						<span>给课程打个分吧</span>
-					</dt>
-					<dd>
-						<ul>
-							<li>
-								<span>课程实用度</span>
-							</li>
-							<li>
-								<b class="spec_star1 pracour">
-									<img src="images/spec_star1.png" />
-								</b>
-							</li>
-						</ul>
-					</dd>
-					<dd>
-						<ul>
-							<li>
-								<span>老师讲解是否清楚</span>
-							</li>
-							<li>
-								<b class="spec_star1 teacxan">
-									<img src="images/spec_star1.png" />
-								</b>
-							</li>
-						</ul>
-					</dd>
-					<dd>
-						<ul>
-							<li>
-								<span>老师风趣度</span>
-							</li>
-							<li>
-								<b class="spec_star1 teafunny">
-									<img src="images/spec_star1.png" />
-								</b>
-							</li>
-						</ul>
-					</dd>
-					<dd>
-						<ul>
-							<li>
-								<span>互动效果</span>
-							</li>
-							<li>
-								<b class="spec_star1 interefect">
-									<img src="images/spec_star1.png" />
-								</b>
-							</li>
-						</ul>
-					</dd>
-				</dl>
-			</div>
-			<div class="evalcoue_txt">
-				<textarea name="evalcoue_txt"  placeholder="有什么想对老师和布姆学院说的吗？"></textarea>
-			</div>
-			<div class="evalcoue_button">
-				<button>提交</button>
-			</div>
-		</form>
-	</div>
-	<!-- 评价课程 e -->
 
-	<!-- 我要提问 s -->
-	<div class="quenask_box">
-		<form id="form_quenask" action="" name="form_quenask" method="post">
-			<div class="quenask_txt">
-				<textarea name="quenask_txt" placeholder="有什么想对老师和布姆学院说的吗？"></textarea>
-			</div>
-			<div class="quenask_button" id="quenask_button">
-				<button>提交</button>
-			</div>
-		</form>
-	</div>
-	<!-- 我要提问 e -->
+	<!-- js s -->
+	<script src="js/lib/jquery1.8.3.min.js"></script>
+	<script src="js/lib/vue.js"></script>
+	<script src="js/lib/vue-router.js"></script>
+	<script src="js/lib/swiper.min.js"></script>
+	<script src="js/courseDetail.js"></script>
 
-<!-- js s -->
-<script src="js/lib/jquery1.8.3.min.js"></script>
-<script src="js/lib/swiper.min.js"></script>
-<script src="js/courseDetail.js"></script>
-<!-- js e -->
+	<!-- js e -->
 </body>
+
 </html>

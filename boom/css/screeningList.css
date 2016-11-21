@@ -97,6 +97,10 @@
     width: 100%;
     text-align: center;
     margin-top: 5px;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .scrlit_article section:first-child{
@@ -114,9 +118,9 @@
 }
 
 .scrlit_nav li.scrlit_nav_on{
-    border-left: solid 4px #4fd4e3;
+    border-left: solid 4px #4a9bff;
     background: #f5f5f5;
-    color: #4fd4e3;
+    color: #4a9bff;
     border-right: 0;
 }
 

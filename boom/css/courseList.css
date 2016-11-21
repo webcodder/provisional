@@ -385,19 +385,23 @@
 }
 
 .curlit_list > ul > li dl > dt{
-    width: 120px;
+    width: 30%;
     height: 70px;
-    margin-right: 12px;
+    /* margin-right: 12px; */
     float: left;
     overflow: hidden;
 }
 
 .curlit_list > ul > li dl > dd{
     float: left;
-    width: 61%;
+    width: 70%;
     overflow: hidden;
     height: 70px;
     position: relative;
+}
+
+.curlit_list > ul > li dl > dd ol{
+    margin-left: 10px;
 }
 
 .curlit_list > ul > li dl > dd ol > li{
@@ -429,7 +433,7 @@
 .curlit_list > ul > li dl > dd ol > li:last-child{
     position: absolute;
     bottom: 0;
-    width: 100%;
+    right: 0;
 }
 
 .curlit_list > ul > li dl > dd ol > li:last-child > ul > li{
@@ -441,17 +445,17 @@
     color: #4ed4df;
 }
 
-.curlit_list > ul > li dl > dd ol > li:last-child > ul > li:first-child span:before{
-    content: " ";
-    display: block;
-    background: url(../images/e03.png) top no-repeat;
-    width: 12px;
-    height: 16px;
-    float: left;
-    margin-top: 1px;
-    margin-right: 10px;
-    background-size: 100%;
-}
+/*.curlit_list > ul > li dl > dd ol > li:last-child > ul > li:first-child span:before{*/
+    /*content: " ";*/
+    /*display: block;*/
+    /*background: url(../images/e03.png) top no-repeat;*/
+    /*width: 12px;*/
+    /*height: 16px;*/
+    /*float: left;*/
+    /*margin-top: 1px;*/
+    /*margin-right: 10px;*/
+    /*background-size: 100%;*/
+/*}*/
 
 .curlit_list > ul > li dl > dd ol > li:last-child > ul > li:last-child{
     float: right;
@@ -479,4 +483,20 @@
 .curlit_header{
     overflow: initial;
     border-top: solid 1px transparent;
+}
+
+.course_noask{
+    width: 100%;
+    text-align: center;
+}
+.course_noask li:first-child{
+    margin-bottom:13%;
+    margin-top:35px;
+    color:#999;
+    font-size:1.4rem;
+}
+.course_noask li:last-child{
+    width:135px;
+    overflow:hidden ;
+    margin:0 auto;
 }
