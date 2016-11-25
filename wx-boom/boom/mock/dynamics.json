@@ -1,0 +1,40 @@
+{
+  "error": false,
+  "msg": "获取成功.",
+  "data": [
+    {
+      "id": 1,
+      "studentNum": "666",
+      "teacherId": 1,
+      "serviceType": 1,
+      "applyTime": 1479781821000,
+      "teachFinishTime": 1479781844000,
+      "closeTime": 1479782512000,
+      "hopeTeachTime": 1479781825000,
+      "stage": "end",
+      "step": "watched",
+      "certify": "11",
+      "mark": null,
+      "whatStudy": null,
+      "howTeach": null,
+      "evaluateDetailDto":
+      {
+        "score": 1.0,
+        "studentEvaluate": "111111",
+        "abilityScore": 1.0,
+        "abilityEvaluate": "ada",
+        "serviceScore": 1.0,
+        "serviceEvaluate": "111",
+        "evaluatePhoto": null,
+        "teacherEvaluate": null
+      },
+      "boomServiceTeacherEvaluateDto":
+      {
+        "applyId": 1,
+        "teacherEvaluate": "11111"
+      }
+    }
+  ],
+  "length": 1,
+  "rtCode": null
+}

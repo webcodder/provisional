@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+    <title>直播页</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="css/livePage.css"/>
+    <!--乐视云直播接口-->
+    <script type="text/javascript" charset="utf-8" src="http://yuntv.letv.com/player/live/blive.js "></script>
+
+    <!--socket接口-->
+    <!--socket-->
+    <script src="js/lib/socket/socket.js" sync></script>
+    <script src="js/lib/socket/boomUtil.js"></script>
+    <script src="js/lib/socket/SpeakerJs.js" sync></script>
+    <script src="js/lib/socket/stomp.js" sync></script>
+</head>
+
+<body ng-app="mainApp">
+<div class="livage_all" ng-controller="show">
+    <div class="livage_video">
+        <div class="livage_video_box">
+            <div id="player" style="width:100%;height:230px;">
+            </div>
+        </div>
+        <div class="livage_nav">
+            <nav>
+                <ul>
+                    <li id="chat" class="livage_nav_on">聊天室</li>
+                </ul>
+            </nav>
+        </div>
+        <div class="livage_box" id="contentBox">
+            <!-- chat_box s -->
+            <div class="chat_box" id="inner">
+                <ul>
+                    <li><a href="javascript:void(0)"><span id="info">正在连接直播聊天室</span></a></li>
+                </ul>
+                <ul>
+                    <li ng-repeat="chat in chats">
+                        <dl>
+                            <dt>{{chat.speaker.name}}:</dt>
+                            <dd>{{chat.content}}</dd>
+                        </dl>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="livage_bottom">
+            <ul>
+                <li>
+                    <input type="text" ng-model="data" ng-keyup="myKeyup($event)"/>
+                </li>
+                <li>
+                    <button ng-click="say()">发送</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<!-- js s -->
+<script src="js/lib/jquery1.8.3.min.js"></script>
+<script src="js/lib/angular.js"></script>
+<script src="js/livePage.js"></script>
+<!-- js e -->
+</body>
+
+</html>

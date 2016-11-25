@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+    <title>直播中心</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="css/broadcastCenter.css"/>
+    <link rel="stylesheet" type="text/css" href="css/lib/swiper.min.css"/>
+</head>
+
+<body>
+
+<div class="" id="app">
+    <div class="boacteer_all">
+        <div class="boacteer_header">
+            <div class="boacteer_header_ban">
+                <!-- Swiper -->
+                <div class="swiper-container">
+                    <div class="swiper-wrapper" id="vsrmd">
+                        <!--<div class="swiper-slide" v-for="slide in slides">-->
+                        <!--<a :href="'http://' + slide.url ">-->
+                        <!--<div class="boacteer_header_ban_pic">-->
+                        <!--<img :src="staticUrl + slide.img" />-->
+                        <!--</div>-->
+                        <!--&lt;!&ndash;<span>{{slide.name}}</span>&ndash;&gt;-->
+                        <!--</a>-->
+                        <!--</div>-->
+                        <!-- <div class="swiper-slide" >
+                            <a href="#" >
+                                <div class="boacteer_header_ban_pic">
+                                    <img src="images/bohadbn.png" />
+                                </div>
+                            </a>
+                        </div>
+                        <div class="swiper-slide" >
+                                <a href="#" >
+                                    <div class="boacteer_header_ban_pic">
+                                        <img src="images/bohadbn.png" />
+                                    </div>
+                                </a>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+            <div class="boacteer_header_tit">
+                <ul>
+                    <li>
+                        <dl>
+                            <a href="#" @click="toOldCourse">
+                                <dd>
+                                    <img src="images/boac_hiscose.png"/>
+                                </dd>
+                                <dd>往期课程录播</dd>
+                            </a>
+                        </dl>
+                    </li>
+                    <li>
+                        <dl>
+                            <a href="#">
+                                <dd>
+                                    <img src="images/boac_newcose.png"/>
+                                </dd>
+                                <dd>直播课程表</dd>
+                            </a>
+                        </dl>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="boacteer_cont">
+            <div class="boacteer_cont_top">
+                <span>正在直播</span>
+            </div>
+            <div class="boacteer_cont_list">
+                <ul id="boacteer_list">
+                    <li class="boacteer_list_li" v-for="live in lives">
+                        <a :href=" 'http://' + live.url ">
+                            <img :src=" staticUrl + live.img "/>
+                            <!--<span class="boacteer-img-name">{{live.name}}</span>-->
+                        </a>
+                    </li>
+                    <!-- <li class="boacteer_list_li">
+                        <a href="#">
+                            <img src="images/boacteer_cont_list_cs1.png" />
+                        </a>
+                    </li>
+                    <li class="boacteer_list_li">
+                        <a href="#">
+                            <img src="images/boacteer_cont_list_cs1.png" />
+                        </a>
+                    </li> -->
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- js s -->
+<script src="js/lib/jquery1.8.3.min.js"></script>
+<script src="js/lib/vue.js"></script>
+<script src="js/lib/swiper.min.js"></script>
+<script src="js/broadcastCenter.js"></script>
+<!-- js e -->
+</body>
+
+</html>

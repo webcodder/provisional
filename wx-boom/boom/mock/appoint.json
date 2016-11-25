@@ -1,0 +1,16 @@
+{
+  "error": false,
+  "msg": "当前无CD，可以预约！",
+  "data": {
+    "statue": "wait",
+    "waitDays": 47,
+    "cdDays": null,
+    "lolServiceApplyDetailResponse": {
+      "appointTime":1479781844000,
+      "teachRange":"英雄 来吧",
+      "teacher":"我去"
+    }
+  },
+  "length": null,
+  "rtCode": null
+}

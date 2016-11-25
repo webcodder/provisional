@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+    <title>炸弹人</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="css/courseList.css"/>
+</head>
+
+<body>
+<div id="app">
+    <div class="curlit_all">
+        <div class="curlit_header">
+            <div class="curlit_search">
+                <section class="container">
+                    <!-- <form onsubmit="submitFn(this, event);"> -->
+                    <div class="search-wrapper">
+                        <div class="input-holder">
+                            <input type="text" class="search-input" placeholder="热门搜索" v-model.trim="searchQuery"
+                                   v-on:keyup.enter="searchCourse(searchQuery)" id="strName"/>
+                            <button class="search-icon" onclick="searchToggle(this, event);">
+                                <span></span>
+                                <span class="input-holder_sptx">热门搜索</span>
+                            </button>
+                            <b></b>
+                        </div>
+                        <span class="close" onclick="searchToggle(this, event);"></span>
+
+                        <div class="result-container"></div>
+                    </div>
+                    <!-- </form> -->
+                </section>
+            </div>
+            <div class="top_nav">
+                <ul>
+                    <li>
+                        <select v-model="positionSelected" v-on:change="getFilterCourse(positionSelected)">
+                            <option>位置</option>
+                            <option v-for=" view in locationView" v-bind:value="view">{{view | labNameFilter}}</option>
+                        </select>
+                        <b></b>
+                    </li>
+                    <li>
+                        <select v-model="functionSelected" v-on:change="getFilterCourse(functionSelected)">
+                            <option>打法</option>
+                            <option v-for="view in playView" v-bind:value="view">{{view | labNameFilter}}</option>
+                        </select>
+                        <b></b>
+                    </li>
+                    <li>
+                        <a href="screeningList.html">英雄</a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+        <div class="curlit_body">
+            <div class="curlit_list">
+                <div class="course_noask" v-if="isEmpty">
+                    <ul>
+                        <li>暂无内容</li>
+                        <li><img src="images/course_noask.png"></li>
+                    </ul>
+                    <!-- <p>
+                        暂无内容
+                    </p>
+                    <img src="images/course_noask.png"> -->
+                </div>
+                <ul>
+                    <li v-for="course in courseList">
+                        <a :href=" 'courseDetail.html?' + course.id">
+                            <dl>
+                                <dt>
+                                    <img :src=" staticUrl + course.img ">
+                                </dt>
+                                <dd>
+                                    <ol>
+                                        <li>
+                                            <span>{{course.name}}</span>
+                                        </li>
+                                        <li>
+                                            <span>授课老师: {{course.actionId | teacherName}}</span>
+                                        </li>
+                                        <li>
+                                            <ul>
+                                                <!-- <li>
+                                                    <span>53个推荐</span>
+                                                </li> -->
+                                                <li>
+                                                    <span>{{course.addTime | dateText}}</span>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ol>
+                                </dd>
+                                <div class="clear"></div>
+                            </dl>
+                        </a>
+                    </li>
+                    <!-- <li>
+                        <a href="#">
+                            <dl>
+                                <dt>
+                                    <img src="images/curlit_list_cs1.png">
+                                </dt>
+                                <dd>
+                                    <ol>
+                                        <li>
+                                            <span>金克斯基础技能讲解</span>
+                                        </li>
+                                        <li>
+                                            <span>授课老师：小小酥</span>
+                                        </li>
+                                        <li>
+                                            <ul>
+                                                <li>
+                                                    <span>53个推荐</span>
+                                                </li>
+                                                <li>
+                                                    <span>34分钟前</span>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ol>
+                                </dd>
+                                <div class="clear"></div>
+                            </dl>
+                        </a>
+                    </li> -->
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="list_seasrch"></div>
+</div>
+
+
+<!-- js s -->
+<script src="js/lib/jquery1.8.3.min.js"></script>
+<script src="js/lib/vue.js"></script>
+<script src="js/courseList.js"></script>
+<!-- js e -->
+<script>
+    function searchToggle(obj, evt) {
+        var oInput = document.getElementById("strName");
+        var container = $(obj).closest('.search-wrapper');
+
+        if (!container.hasClass('active')) {
+            container.addClass('active');
+            evt.preventDefault();
+            /*oInput.focus();*/
+        } else if (container.hasClass('active') && $(obj).closest('.input-holder').length == 0) {
+            container.removeClass('active');
+            // clear input
+            container.find('.search-input').val('');
+            // clear and hide result container when we press close
+            container.find('.result-container').fadeOut(100, function () {
+                $(this).empty();
+            });
+        }
+    }
+    $(function () {
+        var culithdHeight = jQuery(".curlit_header").height();
+        console.log(culithdHeight);
+        jQuery(".curlit_list").css("height", jQuery(window).height() - culithdHeight - 5 - 1);
+
+        $(".search-icon").click(function () {
+            $(".list_seasrch").show();
+            console.log("11111")
+        });
+        $(".close").click(function () {
+            $(".list_seasrch").fadeOut();
+        });
+        $(".search-input ~ b").click(function () {
+            $(".search-input").attr("value", "");
+        });
+    });
+</script>
+</body>
+
+</html>

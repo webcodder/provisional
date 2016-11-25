@@ -1,0 +1,169 @@
+/* courseCenter s */
+.curcent_all {
+    width: 100%;
+}
+
+.curcent_hadtop {
+    width: 100%;
+    background: #fff;
+    height: 38px;
+    border-top: solid 1px transparent;
+    border-bottom: solid 1px #e6e6e6;
+}
+
+.curcent_hadtop span {
+    width: 92%;
+    display: block;
+    margin: 8px auto 0;
+    color: #333;
+}
+
+.curcent_hadtop span:before {
+    content: " ";
+    width: 20px;
+    height: 24px;
+    background: url(../images/curcent_tpcor.png) top no-repeat;
+    display: block;
+    float: left;
+    margin-top: -4px;
+    margin-right: 10px;
+    background-size: 100% 100%;
+}
+
+.curcent_hadban .swiper-container {
+    width: 93%;
+    /* height: 98px; */
+    margin: 5px auto;
+}
+
+.curcent_hadban {
+    width: 100%;
+    /* height: 110px; */
+    overflow: hidden;
+    border-bottom: solid 1px #e6e6e6;
+}
+
+.curcent_hadban_pic {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.curcent_hadtit {
+    width: 100%;
+    height: 72px;
+    background: #fff;
+    border-bottom: solid 1px #e6e6e6;
+    border-top: solid 1px transparent;
+}
+
+.curcent_hadtit ul {
+    margin: 20px auto 0;
+    text-align: center;
+}
+
+.curcent_hadtit ul > li {
+    display: inline-block;
+    width: 48.5%;
+    text-align: center;
+    height: 33px;
+}
+
+.curcent_hadtit ul > li:first-child {
+    border-right: solid 1px #e6e6e6;
+}
+
+.curcent_hadtit ul > li dl {
+    margin-top: -12px;
+}
+
+.curcent_hadtit ul > li dl a {
+    display: block;
+}
+
+.curcent_hadtit ul > li dl dd:first-child {
+    width: 26px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.curcent_hadtit ul > li dl dd:last-child {
+    margin-top: 3px;
+    color: #333;
+    font-size: 1.2rem;
+    letter-spacing: 1.5px;
+}
+
+.curcent_hadtit ul > li dl dd {
+    text-align: center;
+}
+
+.curcent_cont {
+    width: 100%;
+    height: 100px;
+    background: #fff;
+    margin-top: 12px;
+}
+
+.curcent_cont_top {
+    width: 100%;
+    height: 38px;
+    border-top: solid 1px transparent;
+}
+
+.curcent_cont_top span {
+    display: block;
+    width: 92%;
+    margin: 8px auto 0;
+    color: #333;
+}
+
+.curcent_cont_top span:before {
+    content: " ";
+    width: 20px;
+    height: 22px;
+    background: url(../images/cur_newcur.png) top no-repeat;
+    display: block;
+    float: left;
+    margin-top: -3px;
+    margin-right: 10px;
+    background-size: 100% 100%;
+}
+
+.curcent_cont_list {
+    width: 100%;
+    overflow: auto;
+}
+
+.curcent_cont_list a {
+    display: block;
+    width: 100%;
+    height: 100%
+}
+
+.curcent_cont_list a img {
+    margin-bottom: -3px;
+}
+
+.curcent_cont_list ul {
+    width: 92%;
+    margin: 10px auto;
+}
+
+.curcent_cont_list ul li {
+    width: 100%;
+    margin-bottom: 6px;
+    min-height: 88px;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.curcent_header_ban_pic {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* courseCenter e */

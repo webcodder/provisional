@@ -1,0 +1,78 @@
+.teacher-service {
+    padding: 30px 0 0 0;
+}
+
+.bind_all {
+    width: 100%;
+
+}
+
+.bind_header {
+    width: 100%;
+}
+
+.bind_header_logo {
+    width: 170px;
+    overflow: hidden;
+    margin: 65px auto 31px;
+}
+
+.teacher-service {
+    padding: 30px 12px;
+}
+
+.teacher-service > div {
+    margin: 0 0 40px 0;
+}
+
+.oneToOne-on {
+    display: inline-block;
+    position: relative;
+    width: auto;
+    font-size: 0;
+    /*background-image:url("../images/teacherService/oneToOneOn.png");*/
+}
+
+.oneToOne-on-left {
+    display: inline-block;
+    width: 28%;
+}
+
+.oneToOne-on-right {
+    position: relative;
+    display: inline-block;
+    width: 72%;
+
+}
+
+.oneToOne-on-info {
+    position: absolute;
+    left: 42%;
+    top: 18%;
+    font-size: 1.2rem;
+}
+
+.oneToOne-on-info > div {
+    margin-bottom: 18%;
+}
+
+.oneToOne-info-icon {
+    position: relative;
+    width: 100%;
+}
+
+.oneToOne-info-icon img {
+    position: absolute;
+    left: -24%;
+    width: 20px;
+    height: 20px;
+    top: -4px;
+}
+
+/*.oneToOne-info-time::before {*/
+/*content: url("../images/teacherService/teacher-icon.png");*/
+/*width: 20px;*/
+/*height: 20px;*/
+/*!*background-image:;*!*/
+/*!*width:100%;*!*/
+/*}*/

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+    <title>课程页</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="css/courseDetail.css"/>
+    <link rel="stylesheet" type="text/css" href="css/lib/swiper.min.css"/>
+
+    <!-- 视频播放接口 -->
+    <script type="text/javascript" charset="utf-8" src="http://yuntv.letv.com/player/vod/bcloud.js"></script>
+
+</head>
+
+<body>
+<div id="app">
+    <div class="curdtil_all">
+        <div class="curdtil_video">
+            <div>
+                <div class="" id="autoJs6f527b7c18">
+
+                </div>
+            </div>
+        </div>
+        <div class="curdtil_nav">
+            <nav>
+                <ul>
+                    <li id="course_info" :class="{curdtil_nav_on:isShowCourse}" @click="showCourse">课程说明</li>
+                    <li id="course_ask" :class="{curdtil_nav_on:isShowAsk}" @click="showAsk">问答</li>
+                </ul>
+            </nav>
+        </div>
+        <div class="curdtil_box">
+            <!-- 课程说明 s -->
+            <div class="curdtil_box_wrap course_info_box" v-show="isShowCourse">
+                <article class="curdtiox_wrap">
+                    <div class="" v-html="courseContent" v-show="isHaveContent">
+
+                    </div>
+                    <div class="course_noask" v-show="!isHaveContent">
+                        <ul>
+                            <li>暂未开放</li>
+                            <li>
+                                <img src="images/course_noask.png">
+                            </li>
+                        </ul>
+                        <!-- <div class="curdtil_bottom course_noask_bottom">
+                            <button>我要提问</button>
+                        </div> -->
+                    </div>
+                </article>
+                <!-- <div class="curdtil_bottom course_info_bottom">
+                    <ul>
+                        <li>
+                            <a href="#">评价课程</a>
+                        </li>
+                        <li>
+                            <span>赞</span>
+                        </li>
+                    </ul>
+                </div> -->
+            </div>
+            <!-- 课程说明 e -->
+
+            <!-- 问答 s -->
+            <div class="curdtil_box_wrap course_ask_box" v-show="isShowAsk">
+                <div class="course_noask">
+                    <ul>
+                        <li>暂未开放</li>
+                        <li>
+                            <img src="images/course_noask.png">
+                        </li>
+                    </ul>
+                    <!-- <div class="curdtil_bottom course_noask_bottom">
+                        <button>我要提问</button>
+                    </div> -->
+                </div>
+                <!-- <div class="course_asklist" >
+                    <ul>
+                        <a href="#">
+                            <li>
+                                <dl>
+                                    <dd>
+                                        <span>金克斯的最大招最多能造成多少伤害?</span>
+                                    </dd>
+                                    <dd>
+                                        <p>
+                                            <span>【佐佐的回答】</span> 基础伤害+物理伤害，最低配500基础伤害+物理伤害，最低配500基础伤害+物理伤害，最低配500基础伤害+物理伤害，最低配500
+                                        </p>
+                                    </dd>
+                                </dl>
+                            </li>
+                        </a>
+
+                    </ul>
+                    <div class="curdtil_bottom course_asklist_bottom">
+                        <button>我要提问</button>
+                    </div>
+                </div> -->
+            </div>
+            <!-- 问答 s -->
+        </div>
+    </div>
+</div>
+
+<!-- js s -->
+<script src="js/lib/jquery1.8.3.min.js"></script>
+<script src="js/lib/vue.js"></script>
+<script src="js/lib/vue-router.js"></script>
+<script src="js/lib/swiper.min.js"></script>
+<script src="js/courseDetail.js"></script>
+
+<!-- js e -->
+</body>
+
+</html>

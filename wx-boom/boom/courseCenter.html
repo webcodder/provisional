@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+    <title>课程中心</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="css/courseCenter.css"/>
+    <link rel="stylesheet" type="text/css" href="css/lib/swiper.min.css"/>
+</head>
+
+<body>
+<div id="app">
+    <div class="curcent_all">
+        <div class="curcent_header">
+            <div class="curcent_hadtop">
+                <span>热门课程</span>
+            </div>
+            <div class="curcent_hadban">
+                <div class="swiper-container ">
+                    <div class="swiper-wrapper" id="hotCourse">
+                        <!--<div class="swiper-slide" v-for="slide in slides">-->
+                        <!--<a :href=" 'http://' + slide.url " class="curcent_hadban_pic">-->
+                        <!--&lt;!&ndash;<div class="curcent_header_ban_pic">&ndash;&gt;-->
+                        <!--<img :src=" staticUrl + slide.img "/>-->
+                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                        <!--</a>-->
+                        <!--</div>-->
+                        <!--<div class="swiper-slide">-->
+                        <!--<a class="curcent_hadban_pic" href="#">-->
+                        <!--<img src="images/curcent_hadban_cs1.png">-->
+                        <!--</a>-->
+                        <!--</div>-->
+                        <!--<div class="swiper-slide">-->
+                        <!--<a class="curcent_hadban_pic" href="#">-->
+                        <!--<img src="images/curcent_hadban_cs1.png">-->
+                        <!--</a>-->
+                        <!--</div>-->
+                        <!--<div class="swiper-slide">-->
+                        <!--<a class="curcent_hadban_pic" href="#">-->
+                        <!--<img src="images/curcent_hadban_cs1.png">-->
+                        <!--</a>-->
+                        <!--</div>-->
+                    </div>
+                </div>
+            </div>
+            <div class="curcent_hadtit">
+                <ul>
+                    <li>
+                        <dl>
+                            <a @click="toALLCourse">
+                                <dd>
+                                    <img src="images/boac_hiscose.png"/>
+                                </dd>
+                                <dd>往期课程录播</dd>
+                            </a>
+                        </dl>
+                    </li>
+                    <li>
+                        <dl>
+                            <a @click="toALLCourse">
+                                <dd>
+                                    <img src="images/cur_alcus.png"/>
+                                </dd>
+                                <dd>全部课程</dd>
+                            </a>
+                        </dl>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="curcent_cont">
+            <div class="curcent_cont_top">
+                <span>最新上线</span>
+            </div>
+            <div class="curcent_cont_list">
+                <ul id="curcent_list">
+                    <li v-for="course in courses">
+                        <a :href=" 'http://' + course.url">
+                            <img :src=" staticUrl + course.img "/>
+
+                        </a>
+                    </li>
+                    <!-- <li>
+                        <a href="#">
+                            <img src="images/boacteer_cont_list_cs1.png" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="images/boacteer_cont_list_cs1.png" />
+                        </a>
+                    </li> -->
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- js s -->
+<script src="js/lib/jquery1.8.3.min.js"></script>
+<script src="js/lib/vue.js"></script>
+<script src="js/lib/swiper.min.js"></script>
+<script src="js/courseCenter.js"></script>
+<!-- js e -->
+</body>
+
+</html>

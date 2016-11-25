@@ -1,0 +1,28 @@
+{
+  "error": false,
+  "msg": "推荐老师ok",
+  "data": [
+    {
+      "name": "111",
+      "teachRange": "我是个很厉害的人1",
+      "goodAtChampions": [],
+      "userId": 1,
+      "canApplyDate": 1479957409256,
+      "canApply": true,
+      "num": 1,
+      "now": 1479957409256
+    },
+    {
+      "name": "111",
+      "teachRange": "我是个很厉害的人3",
+      "goodAtChampions": [],
+      "userId": 2,
+      "canApplyDate": 1479957409265,
+      "canApply": true,
+      "num": 0,
+      "now": 1479957409265
+    }
+  ],
+  "length": 2,
+  "rtCode": null
+}

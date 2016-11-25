@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+    <title>list</title>
+<style>
+*{
+    padding:0;
+    margin:0;
+}
+
+li{
+    list-style:none;
+}
+
+a{
+    text-decoration:none;
+    color:#333;
+    font-size:12px;
+}
+
+.list_box{
+    border:solid 1px #ccc;
+    width:123px;
+    margin:20px auto;
+}
+
+.list_box a{
+    padding-left:15px;
+    display:block;
+    width:88%;
+    height:20px;
+    line-height:20px;
+}
+
+.list_box > ul li:first-child a + ul{
+    display: block;
+}
+
+.list_box a + ul{
+    display: none;
+}
+
+.list_current_on{
+    background:#929292;
+}
+
+.list_current_mon{
+    background: #E2E0E0;
+}
+</style>
+</head>
+
+<body>
+    <div class="list_box">
+        <ul>
+            <li>
+                <a href="#" class="list_current_mon">A</a>
+                <ul>
+                    <li><a href="#">a1</a></li>
+                    <li><a href="#">a2</a></li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#">B</a>
+                <ul>
+                    <li><a href="#">b1</a></li>
+                    <li><a href="#">b2</a></li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#">C</a>
+                <ul>
+                    <li><a href="#">c1</a></li>
+                    <li><a href="#">c2</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</body>
+
+<!-- js s -->
+<script src="http://libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>
+<script>
+$(function(){
+    $('li a').click(function(){
+        $('li a').removeClass('list_current_mon');
+        $(this).addClass('list_current_mon');
+        $(this).next().slideToggle();
+        //$(this).parent().parent().prev().addClass('list_current_on');
+    });
+});
+</script>
+<!-- js e -->
+</body>
+
+</html>
