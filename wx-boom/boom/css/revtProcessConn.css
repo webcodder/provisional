@@ -150,6 +150,23 @@
     background: #ccc;
     color: #f0f0f0;
 }
+
+.revpros_btn a{
+    width: 93%;
+    height: 35px;
+    background: -webkit-linear-gradient(left, #4295ff, #36b5ff);
+    border-radius: 6px;
+    color: #fff;
+    font-size: 1.4rem;
+    display: block;
+    line-height: 35px;
+    margin: 0 auto;
+}
+
+.revpros_btn a.revpros_btn_off{
+    background: #ccc;
+    color: #f0f0f0;
+}
 /* revpros_btn e */
 
 /* iphone 4 s */

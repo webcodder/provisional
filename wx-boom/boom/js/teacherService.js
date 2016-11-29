@@ -15,9 +15,7 @@ jQuery(document).ready(function () {
     };
     bMock.setFace(thisApi);
 
-    bMock.setEnv("test")
-
-
+    bMock.setEnv("dev");
 
 
     //时间戳转换
@@ -78,11 +76,11 @@ jQuery(document).ready(function () {
                 switch (otoStatus.statue) {
                     case "apply" :
                         console.log('一对一可申请状态');
-                        $("#oneToOneOn").remove();
+                        $("#oneToOneOn").hide();
                         break;
                     case "wait" :
                         console.log('一对一已经有申请');
-                        $("#oneToOne").remove();
+                        $("#oneToOne").hide();
                         // var thisTime = new Date(otoStatus.lolServiceApplyDetailResponse.hopeTeachTime);
                         $("#otoTime").text(formatDate(new Date(otoStatus.lolServiceApplyDetailResponse.hopeTeachTime)));
                         $("#otoInfo").text(otoStatus.lolServiceApplyDetailResponse.info);
@@ -92,18 +90,18 @@ jQuery(document).ready(function () {
                         console.log('一对一其他状态');
                 };
             }else{
-                $("#oneToOneOn").remove();
+                $("#oneToOneOn").hide();
             }
             if(thisServiceStatus.ssj){
                 var ssjStatus = thisServiceStatus.ssj;
                 switch (ssjStatus.statue) {
                     case "apply" :
                         console.log('生死局可申请状态');
-                        $("#SSJOn").remove();
+                        $("#SSJOn").hide();
                         break;
                     case "wait" :
                         console.log('生死局已经有申请');
-                        $("#SSJ").remove();
+                        $("#SSJ").hide();
                         $("#ssjTime").text(formatDate(new Date(ssjStatus.lolServiceApplyDetailResponse.hopeTeachTime)));
                         $("#ssjInfo").text(ssjStatus.lolServiceApplyDetailResponse.info);
                         $("#ssjTeacher").text(getTeacher(ssjStatus.lolServiceApplyDetailResponse.teacherId).teacherName);

@@ -141,11 +141,20 @@ $(function () {
     function getRecommend() {
         $.get(bMock.getFace("recommend"), function (data, status) {
             console.log(data.data);
-            var thisRecommendStatus = data.data;
-            $(".teacherInt1>h3").text(thisRecommendStatus[0].name);
-            $(".teacherInt2>h3").text(thisRecommendStatus[1].name);
-            $(".introduce-two1 p:nth-child(1)").text(thisRecommendStatus[0].teachRange);
-            $(".introduce-two2 p:nth-child(1)").text(thisRecommendStatus[1].teachRange);
+            var sections="";
+            $.each(data.data,function(i,v){
+                var section1="";
+                section1+= '<div class="teac2 teac">'+'<div class="teacher-in">'+'<img src="images/teacher.png" >'+'<div class="teacherInt2 teacherInt">'+'<h3>'+data.data[i].name+'</h3>'+'<a href="#">明天预约</a>'+'</div>'+'<div class="introduce">'+'<div class="introduce-one">'+'<p>授课范围:</p>'+'<p>累计完成:</p>'+'<p>擅长英雄:</p>'+'</div>'+'<div class="introduce-two2 introduce-two">'+'<p>'+data.data[i].teachRange+'</p>'+'<p>378次一对一教学</p>'+'<p>'+'<img class="in-img" src="images/in.png" >'+'<img class="in-img" src="images/in.png" >'+'<img class="in-img" src="images/in.png" >'+'<img class="in-img" src="images/in.png" >'+'<img class="in-img" src="images/in.png" >'+'</p>'+'</div>'+'</div>'+'<div class="clear"></div>'+'<p class="introduce-p">'+'<a class="introduce-th" href="#">预约老师</a>'+'</p>'+'</div>'+'</div>'
+
+                sections+=section1;
+
+            })
+            $(".appointt").append(sections)
+            //var thisRecommendStatus = data.data;
+            //$(".teacherInt1>h3").text(thisRecommendStatus[0].name);
+            //$(".teacherInt2>h3").text(thisRecommendStatus[1].name);
+            //$(".introduce-two1 p:nth-child(1)").text(thisRecommendStatus[0].teachRange);
+            //$(".introduce-two2 p:nth-child(1)").text(thisRecommendStatus[1].teachRange);
 
         });
     }

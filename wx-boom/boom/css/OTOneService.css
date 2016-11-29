@@ -19,7 +19,8 @@ body{
 .appoint{
     position: relative;
     border-bottom: 1px solid #EFEFEF;
-    border-top: 1px solid #EFEFEF;
+    border-top: 1px solid #F5F5F5;
+    border-top: 9px solid #F5F5F5;
 }
 .appointment,.teacher,.dynamic{
     height:40px;
@@ -55,7 +56,7 @@ body{
     background: #499BFF;
 }
 .deta{
-    border-bottom: 10px solid #F5F5F5;
+    /*border-bottom: 10px solid #F5F5F5;*/
     position: relative;
 }
 .detailed{
@@ -93,12 +94,12 @@ body{
     margin-left:10px;
     line-height:2;
 }
-.teac1{
+.teac{
     border-bottom: 1px solid #EFEFEF;
 }
-.teac2{
-    border-bottom: 10px solid #F5F5F5;
-}
+/*.teac2{*/
+    /*border-bottom: 1px solid #F5F5F5;*/
+/*}*/
 .teacher-in{
     height: 180px;
     width: 92%;
