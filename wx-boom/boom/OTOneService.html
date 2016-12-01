@@ -13,7 +13,7 @@
 <!--头部评价模块-->
 <div class="evaluate">
     <div>
-        <a href="#"><img src="images/eva1.gif" ></a>
+        <a href="otoJudge.html"><img src="images/eva1.gif" ></a>
     </div>
 </div>
 
@@ -52,9 +52,11 @@
 <div class="appoint appointt ">
     <div class="teacher">
         <span>优秀老师</span>
-        <a href="#">查看全部老师</a>
+        <a href="revtProcessChta.html">查看全部老师</a>
     </div>
 </div>
+
+<!--需要动态渲染的数据-->
 <!--<div class="teac1 teac">-->
     <!--<div class="teacher-in">-->
         <!--<img src="images/teacher.png" >-->
@@ -126,7 +128,7 @@
     <div class="dynamices">
         <div class="dynamic-fir">
             <span>银时老师和8036学院完成一对一训练。</span>
-            <a class="firsta" href="#">36分钟前</a>
+            <a class="firsta" href="javascript:;">36分钟前</a>
         </div>
         <div class="dynamic-two1 dynamic-two">
             <img src="images/inn.png" >
@@ -164,39 +166,39 @@
 <script src="js/lib/jquery1.8.3.min.js"></script>
 <script src="js/OTOneService.js"></script>
 <!--页面js交互-->
-<script>
-//    点击更多显示
-    $(function(){
-        $(".appointment>a").click(function(){
-            if($(".appointment>a").text()!="正在进行"){
-                if($(".more-box").css("display")=="none" ){
-//                $(".more-box").css("display","block");
-                    $(".more-box").slideDown();
-                    $(this).text("取消");
-                }else{
-//                $(".more-box").css("display","none")
-                    $(".more-box").slideUp();
-                    $(this).text("更多");
-                }
-            }
+<!--<script>-->
+<!--//    点击更多显示-->
+    <!--$(function(){-->
+        <!--$(".appointment>a").click(function(){-->
+            <!--if($(".appointment>a").text()!="正在进行"){-->
+                <!--if($(".more-box").css("display")=="none" ){-->
+<!--//                $(".more-box").css("display","block");-->
+                    <!--$(".more-box").show(1000);-->
+                    <!--$(this).text("取消");-->
+                <!--}else{-->
+<!--//                $(".more-box").css("display","none")-->
+                    <!--$(".more-box").hide(1000);-->
+                    <!--$(this).text("更多");-->
+                <!--}-->
+            <!--}-->
 
-        })
+        <!--})-->
 
-//     点击显示模态框
-        $(".more1").click(function(){
-//            $(".bomb").show();
-            $(".bomb").fadeIn(1000)
-        });
+<!--//     点击显示模态框-->
+        <!--$(".more1").click(function(){-->
+<!--//            $(".bomb").show();-->
+            <!--$(".bomb").fadeIn(1000)-->
+        <!--});-->
 
-//    点击取消显示
-        $(".submit").click(function(){
-            $(".bomb").fadeOut(1000);
-            $(".more-box").slideUp();
-            $(".appointment>a").text("更多");
-        })
+<!--//    点击取消显示-->
+        <!--$(".submit").click(function(){-->
+            <!--$(".bomb").fadeOut(1000);-->
+            <!--$(".more-box").hide(1000);-->
+            <!--$(".appointment>a").text("更多");-->
+        <!--})-->
 
-    });
+    <!--});-->
 
-</script>
+<!--</script>-->
 
 </html>

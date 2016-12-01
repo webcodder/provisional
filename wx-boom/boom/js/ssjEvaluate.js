@@ -147,7 +147,8 @@ $(function(){
                    studentEvaluate: studentEvaluate,
                 },
                 success: function (data, status) {
-                    console.log(data)
+                    console.log(data);
+
                 },
                 complete: function(xhr, status){
                     console.log(xhr.status);

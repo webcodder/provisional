@@ -51,7 +51,7 @@
 .Probar ul li{
     width: 10px;
     height: 10px;
-    background: #cccccc;
+    background: #e7cd9d;
     position: relative;
     border-radius: 10px;
 }
@@ -188,6 +188,134 @@
     background: #f54242;
     color: #fff;
     letter-spacing: 1px;
+}
+
+.rencp_feedback{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: none;
+    z-index: 2;
+}
+
+.rencp_feedback_cont{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    background: #fff;
+    width: 72%;
+    border-radius: 10px;
+}
+
+.rencp_feedback_cont h3{
+    font-size: 1.4rem;
+    text-align: center;
+    line-height: 50px;
+}
+
+.rencp_feedback_cont p{
+    font-size: 1.2rem;
+    text-align: center;
+    height: 60px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.rencp_feedback_cont .bomb-box-btn a {
+    width: 50%;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    font-size: 1.6rem;
+    float: left;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    color: #4A9BFF;
+}
+
+.rencp_feedback_cont .bomb-box-btn {
+    border-top: 1px solid #ccc;
+}
+
+.rencp_feedback_cont .bomb-box-btn .cancel {
+    color: #4A9BFF;
+    border-right: 1px solid #ccc;
+}
+
+.rencp_feedback_cont .bomb-box-btn .submit {
+}
+
+.cancel_reservation{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: none;
+    z-index: 2;    
+}
+
+.cancel_reservation_cont{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    background: #fff;
+    width: 72%;
+    border-radius: 10px;
+}
+
+.cancel_reservation_cont h3{
+    font-size: 1.4rem;
+    text-align: center;
+    line-height: 50px;
+}
+
+.cancel_reservation_cont p{
+    font-size: 1.2rem;
+    text-align: center;
+    height: 60px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.cancel_reservation_cont .bomb-box-btn a {
+    width: 50%;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    font-size: 1.6rem;
+    float: left;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    color: #4A9BFF;
+}
+
+.cancel_reservation_cont .bomb-box-btn {
+    border-top: 1px solid #ccc;
+}
+
+.cancel_reservation_cont .bomb-box-btn .cancel {
+    color: #4A9BFF;
+    border-right: 1px solid #ccc;
+}
+
+.cancel_reservation_cont .bomb-box-btn .submit {
 }
 
 .resucap_dtl{

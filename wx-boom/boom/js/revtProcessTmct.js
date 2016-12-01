@@ -2,7 +2,7 @@ $(function(){
 
     var thisApi = {
         statue: {dev: "mock/statue.json", test: "http://192.168.1.150:9000/wx/school/v1.0/statue", product: "/wx/school/v1.0/statue"},
-        teacher: {dev: "mock/teacher.json", test: "http://192.168.1.150:9000/wx/school/v1.0/teacher/", product: "/wx/school/v1.0/teacher/"},
+        teacher: {dev: "mock/teacher.json", test: "http://192.168.1.150:9000/wx/school/v1.0/oto /lol/allTeacher", product: "/wx/school/v1.0/teacher/"},
         canApplyStudent: {dev: "mock/canApplyStudent.json", test: "http://192.168.1.150:9000/wx/school/v1.0/oto/lol/canApply?studentNum=666&date=2016-11-22-14", product: "/wx/school/v1.0/canApplyStudent/"},
         canApplyStudent1: {dev: "mock/canApplyStudent1.json", test: "http://192.168.1.150:9000/wx/school/v1.0/oto/lol/canApply?studentNum=666&date=2016-11-22-14", product: "/wx/school/v1.0/canApplyStudent/"},
         teacherSlots: {dev: "mock/teacherSlots.json", test: "http://192.168.1.150:9000/wx/school/v1.0/teacherSlots?teacherId=1&slotDay=2016-11-24-10", product: "/wx/school/v1.0/canApplyStudent/"},
@@ -31,7 +31,7 @@ $(function(){
     }
 
 
-    //下一天时间转换
+    //下一天时间转换 变成11-30 周三
     function getNextDay(d){
         d = new Date(d);
         d = +d + 1000*60*60*24;
@@ -40,10 +40,12 @@ $(function(){
         var weekDay = ["周日", "周一", "周二", "周三", "周四", "周五", "周六"];
         return (d.getMonth()+1)+"-"+d.getDate()+" "+weekDay[week];
     }
+
     function getNextDDay(d,s){
         d = d + (1000*60*60*24)*s;
         return d;
     }
+    //转换成2016-11-30-21格式
     function getNextYearDay(d,s){
         d = new Date(d);
         d = +d + (1000*60*60*24)*s;
@@ -75,24 +77,29 @@ $(function(){
             async: false,
             url: bMock.getFace("teacher"),
             success: function (data, status) {
-                if(data.data.teacherId==value){
-                    thisTeacher = data.data;
-                }
+               for(var i=0;i<data.data.length;i++){
+                   //console.log(data.data[i].userId);
+                   if(data.data[i].userId===Number(value)){
+                       thisTeacher = data.data[i];
+                   }
+               }
+
             }
         });
         return thisTeacher;
     }
 //传入老师ID，找到老师数据
 //    console.log(getTeacher(window.location.search.substring(1)));
-
+    //console.log(window.location.search.substring(1));
     //得到老师数据，渲染到页面
     $(".protmc_teh_cnt dt li:first-child span:last-child").text(getTeacher(window.location.search.substring(1)).teacherName);
-    $(".frange > li:last-child").text(getTeacher(window.location.search.substring(1)).desireWay);
+    $(".frange > li:last-child").text(getTeacher(window.location.search.substring(1)).teachRange);
 
     //获取老师空闲时间
     function getTeacherSlots() {
         $.get(bMock.getFace("teacherSlots"), function (data, status) {
             console.log(data.data.slotStatue);
+
             switch (data.data.slotStatue[0]) {
                 case false :
                     $(".protmc_time_cont > ul > li:nth-child(1) > dl > dd > ol > li:nth-child(1)").removeClass("protmc_time_active");
@@ -143,8 +150,8 @@ $(function(){
             };
 
                     console.log(getNextYearDay(data.data.date,0));
-                    //$(".protmc_time_cont > ul > li:nth-child(1) > dl > dd > ol > li:nth-child(ii)").removeClass("protmc_time_active");
 
+            //点击时间选中（变蓝色）
             $(".protmc_time_cont > ul > li > dl > dd > ol > li.protmc_time_active").click(function(){
                 $(".protmc_time_cont > ul > li > dl > dd > ol > li").removeClass("protmc_time_on");
                 if($(this).hasClass("protmc_time_active")){
@@ -153,7 +160,6 @@ $(function(){
                     $(this).unbind("click")
                 }
             })
-
         });
     }
 
@@ -172,7 +178,7 @@ $(function(){
 
 
 //预约时间模块(上一天，下一天）
-        (function getLastLowerDay(){
+        ;(function getLastLowerDay(){
             var u=0;
             (function(){
                 $(".protmc_time_nav ul li:nth-child(2) span ").text(formatDate(new Date(new Date().getTime())));
@@ -180,6 +186,7 @@ $(function(){
                 $(".protmc_time_nav ul li:nth-child(3) span ").click(function(){
                     $(".protmc_time_nav ul li:nth-child(2) span ").text(getNextDay(getNextDDay(ttin,u)));
                     $(".protmc_time_nav ul li:nth-child(1) span ").css("color", "#4a9bff");
+                    $(".protmc_time_cont ul li").removeClass("protmc_time_on");
                     //console.log(getNextYearDay(ttin,u));
                     revtStudentData.revtData=getNextYearDay(ttin,u);
                     revtTeacherData.revtData=getNextYearDay(ttin,u);
@@ -252,6 +259,7 @@ $(function(){
 
                         console.log(getNextYearDay(data.data.date,0));
 
+                        //点击时间选中（变蓝色）
                         $(".protmc_time_cont > ul > li > dl > dd > ol > li.protmc_time_active").click(function(){
                             $(".protmc_time_cont > ul > li > dl > dd > ol > li").removeClass("protmc_time_on");
                             if($(this).hasClass("protmc_time_active")){
@@ -272,7 +280,7 @@ $(function(){
                         $(".protmc_time_nav ul li:nth-child(2) span ").text(getNextDay(getNextDDay(ttin,y)));
                         revtStudentData.revtData=getNextYearDay(ttin,y);
                         revtTeacherData.revtData=getNextYearDay(ttin,y);
-
+                        $(".protmc_time_cont ul li").removeClass("protmc_time_on");
                         canApplyStudentURL=bMock.getFace("canApplyStudent1").split("?")[0]+"?"+"studentNum="+revtStudentData.revtStudentNum+"&"+"date="+revtStudentData.revtData;
                         //console.log(bMock.getFace("canApplyStudent1").split("?")[0]+"?"+"studentNum="+revtStudentData.revtStudentNum+"&"+"date="+revtStudentData.revtData);
 
@@ -442,6 +450,8 @@ $(function(){
         })();
     };
 
+
+    //点击提交按钮 提交数据
     $(".revpros_btn button").click(function(){
 
         ceshidata={
@@ -466,6 +476,7 @@ $(function(){
             },
             success: function (data, status) {
                 console.log(data)
+                window.location.href="revtProcessSucc.html";
             },
             complete: function(XMLHttpRequest, textStatus){
                 console.log(XMLHttpRequest.responseText);

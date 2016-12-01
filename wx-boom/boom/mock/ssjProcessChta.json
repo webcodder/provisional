@@ -1,0 +1,48 @@
+{
+  "error": false,
+  "msg": "推荐老师ok",
+  "data": [
+    {
+      "name": "111",
+      "teachRange": "上路、中路",
+      "goodAtChampions": [],
+      "userId": 1,
+      "canApplyDate": 1479957409256,
+      "canApply": true,
+      "num": 1,
+      "now": 1479957409256
+    },
+    {
+      "name": "222",
+      "teachRange": "上路",
+      "goodAtChampions": [],
+      "userId": 2,
+      "canApplyDate": 1479957409265,
+      "canApply": true,
+      "num": 0,
+      "now": 1479957409265
+    },
+    {
+      "name": "333",
+      "teachRange": "中路、下路",
+      "goodAtChampions": [],
+      "userId": 3,
+      "canApplyDate": 1479957409265,
+      "canApply": true,
+      "num": 0,
+      "now": 1479957409265
+    },
+    {
+      "name": "444",
+      "teachRange": "上路、中路、下路",
+      "goodAtChampions": [],
+      "userId": 4,
+      "canApplyDate": 1479957409265,
+      "canApply": true,
+      "num": 0,
+      "now": 1479957409265
+    }
+  ],
+  "length": 2,
+  "rtCode": null
+}

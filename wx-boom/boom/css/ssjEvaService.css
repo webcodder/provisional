@@ -12,7 +12,12 @@ body{
 .evaluate>div{
     width: 92%;
     margin: 0 auto;
+    display: block;
 }
+.evaluate a{
+    display: block;
+}
+
 /*生死局助阵说明*/
 .explain{
     position: relative;

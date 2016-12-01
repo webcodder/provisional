@@ -1,6 +1,6 @@
 /* revpros_all s */
 .revpros_all{
-	width: 100%;
+    width: 100%;
 }
 
 .revpros_tbx{
@@ -10,13 +10,13 @@
     border-radius: 6px;
     position: relative;
     overflow: hidden;
-    box-shadow: 1px 3px 6px 1px #67b7f1;
-    background: -webkit-linear-gradient(left, #4295ff, #36b5ff);
+    box-shadow: 1px 3px 6px 1px rgba(255, 195, 28, 0.45);
+    background: -webkit-linear-gradient(left, #FF972C, #FFC51C);
 }
 
 .revpros_tbx b{
     position: absolute;
-    width: 45px;
+    width: 52px;
     left: -5px;
     top: -5px;
 }
@@ -27,7 +27,7 @@
     z-index: 1;
     width: 88%;
     top: 15px;
-    color: #dae7ff;
+    color: #fff;
     font-size: 1.24rem;
     letter-spacing: 1.5px;
     left: 50%;
@@ -51,13 +51,13 @@
 .Probar ul li{
     width: 10px;
     height: 10px;
-    background: #cccccc;
+    background: #e7cd9d;
     position: relative;
     border-radius: 10px;
 }
 
 .Probar ul li:before{
-	content: '';
+    content: '';
     width: 128px;
     height: 1px;
     background: #cccccc;
@@ -72,19 +72,19 @@
 }
 
 .Probar ul li:first-child:before{
-	display: none;
+    display: none;
 }
 
 .Probar ul li.Probar_on{
-    background: #40d9ff !important;
-    box-shadow: 1px 2px 2px 0px #2d97e2;
+    background: #ffdc3a !important;
+    box-shadow: 1px 2px 3px 0px #ec991c;
     width: 12px;
     height: 12px;
     top: -1.5px;
 }
 
 .Probar_on:before{
-	background: #40d9ff !important;
+    background: #fedd3a !important;
 }
 /* revpros_all e */
 

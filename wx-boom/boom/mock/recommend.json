@@ -10,7 +10,8 @@
       "canApplyDate": 1479957409256,
       "canApply": true,
       "num": 1,
-      "now": 1479957409256
+      "now": 1479957409256,
+      "imgs":"images/repo_yxtx_cs.png"
     },
     {
       "name": "222",
@@ -20,7 +21,8 @@
       "canApplyDate": 1479957409265,
       "canApply": true,
       "num": 0,
-      "now": 1479957409265
+      "now": 1479957409265,
+      "imgs":"images/repo_yxtx_cs.png"
     }
   ],
   "length": 2,

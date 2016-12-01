@@ -14,6 +14,9 @@ body{
     width: 92%;
     margin: 0 auto;
 }
+.evaluate a{
+    display: block;
+}
 
 /*我的预约栏模块 /优秀老师栏模块*/
 .appoint{
@@ -80,6 +83,7 @@ body{
     height:4.5rem;
     width:4.5rem;
     float:left;
+    padding-left: 2px
 }
 .detailed div{
     float:left;
@@ -131,6 +135,9 @@ body{
 }
 .teacher-in .introduce-p{
     margin-top:20px;
+}
+a:active{
+    -webkit-tap-highlight-color: transparent;
 }
 .teacher-in .introduce-th{
     color: #4A9BFF;
@@ -213,19 +220,18 @@ body{
    margin-top:15px;
 }
 .more .more1{
-    font-size: 1.6rem;
-    background-color: #fff;
-    color: #4A9BFF;
+    font-size:1.6rem;
+    background-color: #F44242;
+    color:#4A9BFF;
     height: 3.3rem;
     line-height: 3.3rem;
-    width: 44.5%;
+    width:44.5%;
     display: block;
-    float: left;
+    float:left;
     text-align: center;
-    -moz-border-radius: 8px;
-    -webkit-border-radius: 8px;
-    border-radius: 8px;
-    border: solid 1px #4A9BFF;
+    -moz-border-radius: 8px; /* Firefox */
+    -webkit-border-radius: 8px; /* Safari 和 Chrome */
+    border-radius: 8px; /* Opera 10.5+, 以及使用了IE-CSS3的IE浏览器 */
 
 }
 .more .more2{

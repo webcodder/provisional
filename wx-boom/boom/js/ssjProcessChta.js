@@ -10,8 +10,8 @@ $(function () {
             test: "http://192.168.1.150:9000/wx/school/v1.0/oto/lol/hasNeedEvaluate?studentNum=666",
             product: "/wx/school/v1.0/statue"
         },
-        revtProcessChta: {
-            dev: "mock/revtProcessChta.json",
+        ssjProcessChta: {
+            dev: "mock/ssjProcessChta.json",
             test: "http://192.168.1.150:9000/wx/school/v1.0/oto /lol/allTeacher",
             product: "/wx/school/v1.0/evaluate"
         },
@@ -68,14 +68,14 @@ $(function () {
     }
 
     //获取全部老师信息
-    function getRevtProcessChta() {
+    function getSsjProcessChta() {
         console.log($("#ssel option").val() );
-        $.get(bMock.getFace("revtProcessChta"), function (data, status) {
+        $.get(bMock.getFace("ssjProcessChta"), function (data, status) {
             console.log(data.data);
             var sections="";
             $.each(data.data,function(i,v){
                 var section1="";
-                section1+= '<div class="chat">'+'<section>'+'<div class="revpros_chta_cont revpros_chta_cont'+i+'">'+'<div class="revpros_chta_pic_wrap">'+'<div class="revpros_chta_pic">'+'<div class="revcp_cot">'+'<div class="revcp_cott">'+'<img src="images/revcp_teach_cs1.png">'+'</div>'+'</div>'+'</div>'+'</div>'+'<div class="revpros_chta_cnt_wrap">'+'<div class="revpros_chta_cnt">'+'<dl>'+'<dt>'+'<ul>'+'<li>'+data.data[i].name+'</li>'+'<li>明天可约</li>'+'</ul>'+'</dt>'+'<dd class="revpros_chta_cnt_d1">'+'<ul>'+'<li>授课范围：</li>'+'<li class="revcp_cott_jx'+i+'">'+data.data[i].teachRange+'</li>'+'</ul>'+'</dd>'+'<dd>'+'<ul>'+'<li>累计完成：</li>'+'<li>378次一对一教学</li>'+'</ul>'+'</dd>'+'<dd>'+'<ul>'+'<li>擅长英雄：</li>'+'<li>'+'<ol>'+'<li>'+'<img src="images/repo_yxtx_cs.png" />'+'</li>'+'<li>'+'<img src="images/repo_yxtx_cs.png" />'+'</li>'+'<li>'+'<img src="images/repo_yxtx_cs.png" />'+'</li>'+'<li>'+'<img src="images/repo_yxtx_cs.png" />'+'</li>'+'</ol>'+'</li>'+'</ul>'+'</dd>'+'<dd>'+'<a href="revtProcessTmct.html?'+data.data[i].userId+'">'+'<button>预约老师</button>'+'</a>'+'</dd>'+'</dl>'+'</div>'+'</div>'+'<div class="clear"></div>'+'</div>'+'</section>'+'</div>'
+                section1+= '<div class="chat">'+'<section>'+'<div class="revpros_chta_cont revpros_chta_cont'+i+'">'+'<div class="revpros_chta_pic_wrap">'+'<div class="revpros_chta_pic">'+'<div class="revcp_cot">'+'<div class="revcp_cott">'+'<img src="images/revcp_teach_cs1.png">'+'</div>'+'</div>'+'</div>'+'</div>'+'<div class="revpros_chta_cnt_wrap">'+'<div class="revpros_chta_cnt">'+'<dl>'+'<dt>'+'<ul>'+'<li>'+data.data[i].name+'</li>'+'<li>明天可约</li>'+'</ul>'+'</dt>'+'<dd class="revpros_chta_cnt_d1">'+'<ul>'+'<li>授课范围：</li>'+'<li class="revcp_cott_jx'+i+'">'+data.data[i].teachRange+'</li>'+'</ul>'+'</dd>'+'<dd>'+'<ul>'+'<li>累计完成：</li>'+'<li>378次一对一教学</li>'+'</ul>'+'</dd>'+'<dd>'+'<ul>'+'<li>擅长英雄：</li>'+'<li>'+'<ol>'+'<li>'+'<img src="images/repo_yxtx_cs.png" />'+'</li>'+'<li>'+'<img src="images/repo_yxtx_cs.png" />'+'</li>'+'<li>'+'<img src="images/repo_yxtx_cs.png" />'+'</li>'+'<li>'+'<img src="images/repo_yxtx_cs.png" />'+'</li>'+'</ol>'+'</li>'+'</ul>'+'</dd>'+'<dd>'+'<a href="ssjservice.html?'+data.data[i].userId+'">'+'<button>预约老师</button>'+'</a>'+'</dd>'+'</dl>'+'</div>'+'</div>'+'<div class="clear"></div>'+'</div>'+'</section>'+'</div>'
                 sections+=section1;
 
             })
@@ -88,7 +88,7 @@ $(function () {
         $(".chat").remove();
         if($("#ssel").find("option:selected").text()=="中路"){
             function getRevtProcessChta2() {
-                $.get(bMock.getFace("revtProcessChta"), function (data, status) {
+                $.get(bMock.getFace("ssjProcessChta"), function (data, status) {
                     var sections = "";
                     var arry=[];
                     var u=0;
@@ -101,7 +101,7 @@ $(function () {
                     $.each(arry, function (i, v) {
                         console.log(arry);
                         var section1 = "";
-                        section1 += '<div class="chat">'+'<section>' + '<div class="revpros_chta_cont revpros_chta_cont' + i + '">' + '<div class="revpros_chta_pic_wrap">' + '<div class="revpros_chta_pic">' + '<div class="revcp_cot">' + '<div class="revcp_cott">' + '<img src="images/revcp_teach_cs1.png">' + '</div>' + '</div>' + '</div>' + '</div>' + '<div class="revpros_chta_cnt_wrap">' + '<div class="revpros_chta_cnt">' + '<dl>' + '<dt>' + '<ul>' + '<li>' + arry[i].name + '</li>' + '<li>明天可约</li>' + '</ul>' + '</dt>' + '<dd class="revpros_chta_cnt_d1">' + '<ul>' + '<li>授课范围：</li>' + '<li class="revcp_cott_jx' + i + '">' + arry[i].teachRange + '</li>' + '</ul>' + '</dd>' + '<dd>' + '<ul>' + '<li>累计完成：</li>' + '<li>378次一对一教学</li>' + '</ul>' + '</dd>' + '<dd>' + '<ul>' + '<li>擅长英雄：</li>' + '<li>' + '<ol>' + '<li>' + '<img src="images/repo_yxtx_cs.png" />' + '</li>' + '<li>' + '<img src="images/repo_yxtx_cs.png" />' + '</li>' + '<li>' + '<img src="images/repo_yxtx_cs.png" />' + '</li>' + '<li>' + '<img src="images/repo_yxtx_cs.png" />' + '</li>' + '</ol>' + '</li>' + '</ul>' + '</dd>' + '<dd>' + '<a href="revtProcessTmct.html?'+ arry[i].userId+'">'+'<button>预约老师</button>'+'</a>' + '</dd>' + '</dl>' + '</div>' + '</div>' + '<div class="clear"></div>' + '</div>' + '</section>'+ '</div>'
+                        section1 += '<div class="chat">'+'<section>' + '<div class="revpros_chta_cont revpros_chta_cont' + i + '">' + '<div class="revpros_chta_pic_wrap">' + '<div class="revpros_chta_pic">' + '<div class="revcp_cot">' + '<div class="revcp_cott">' + '<img src="images/revcp_teach_cs1.png">' + '</div>' + '</div>' + '</div>' + '</div>' + '<div class="revpros_chta_cnt_wrap">' + '<div class="revpros_chta_cnt">' + '<dl>' + '<dt>' + '<ul>' + '<li>' + arry[i].name + '</li>' + '<li>明天可约</li>' + '</ul>' + '</dt>' + '<dd class="revpros_chta_cnt_d1">' + '<ul>' + '<li>授课范围：</li>' + '<li class="revcp_cott_jx' + i + '">' + arry[i].teachRange + '</li>' + '</ul>' + '</dd>' + '<dd>' + '<ul>' + '<li>累计完成：</li>' + '<li>378次一对一教学</li>' + '</ul>' + '</dd>' + '<dd>' + '<ul>' + '<li>擅长英雄：</li>' + '<li>' + '<ol>' + '<li>' + '<img src="images/repo_yxtx_cs.png" />' + '</li>' + '<li>' + '<img src="images/repo_yxtx_cs.png" />' + '</li>' + '<li>' + '<img src="images/repo_yxtx_cs.png" />' + '</li>' + '<li>' + '<img src="images/repo_yxtx_cs.png" />' + '</li>' + '</ol>' + '</li>' + '</ul>' + '</dd>' + '<dd>' + '<a href="ssjservice.html?'+ arry[i].userId+'">'+'<button>预约老师</button>'+'</a>' + '</dd>' + '</dl>' + '</div>' + '</div>' + '<div class="clear"></div>' + '</div>' + '</section>'+ '</div>'
 
                         sections += section1;
 
@@ -113,7 +113,7 @@ $(function () {
             getRevtProcessChta2()
         }else if($("#ssel").find("option:selected").text()=="上路"){
             function getRevtProcessChta2() {
-                $.get(bMock.getFace("revtProcessChta"), function (data, status) {
+                $.get(bMock.getFace("ssjProcessChta"), function (data, status) {
                     var sections = "";
                     var arry=[];
                     var u=0;
@@ -126,7 +126,7 @@ $(function () {
                     $.each(arry, function (i, v) {
                         console.log(arry);
                         var section1 = "";
-                        section1 += '<div class="chat">'+'<section>' + '<div class="revpros_chta_cont revpros_chta_cont' + i + '">' + '<div class="revpros_chta_pic_wrap">' + '<div class="revpros_chta_pic">' + '<div class="revcp_cot">' + '<div class="revcp_cott">' + '<img src="images/revcp_teach_cs1.png">' + '</div>' + '</div>' + '</div>' + '</div>' + '<div class="revpros_chta_cnt_wrap">' + '<div class="revpros_chta_cnt">' + '<dl>' + '<dt>' + '<ul>' + '<li>' + arry[i].name + '</li>' + '<li>明天可约</li>' + '</ul>' + '</dt>' + '<dd class="revpros_chta_cnt_d1">' + '<ul>' + '<li>授课范围：</li>' + '<li class="revcp_cott_jx' + i + '">' + arry[i].teachRange + '</li>' + '</ul>' + '</dd>' + '<dd>' + '<ul>' + '<li>累计完成：</li>' + '<li>378次一对一教学</li>' + '</ul>' + '</dd>' + '<dd>' + '<ul>' + '<li>擅长英雄：</li>' + '<li>' + '<ol>' + '<li>' + '<img src="images/repo_yxtx_cs.png" />' + '</li>' + '<li>' + '<img src="images/repo_yxtx_cs.png" />' + '</li>' + '<li>' + '<img src="images/repo_yxtx_cs.png" />' + '</li>' + '<li>' + '<img src="images/repo_yxtx_cs.png" />' + '</li>' + '</ol>' + '</li>' + '</ul>' + '</dd>' + '<dd>' + '<a href="revtProcessTmct.html?'+ arry[i].userId+'">'+'<button>预约老师</button>'+'</a>' + '</dd>' + '</dl>' + '</div>' + '</div>' + '<div class="clear"></div>' + '</div>' + '</section>'+ '</div>'
+                        section1 += '<div class="chat">'+'<section>' + '<div class="revpros_chta_cont revpros_chta_cont' + i + '">' + '<div class="revpros_chta_pic_wrap">' + '<div class="revpros_chta_pic">' + '<div class="revcp_cot">' + '<div class="revcp_cott">' + '<img src="images/revcp_teach_cs1.png">' + '</div>' + '</div>' + '</div>' + '</div>' + '<div class="revpros_chta_cnt_wrap">' + '<div class="revpros_chta_cnt">' + '<dl>' + '<dt>' + '<ul>' + '<li>' + arry[i].name + '</li>' + '<li>明天可约</li>' + '</ul>' + '</dt>' + '<dd class="revpros_chta_cnt_d1">' + '<ul>' + '<li>授课范围：</li>' + '<li class="revcp_cott_jx' + i + '">' + arry[i].teachRange + '</li>' + '</ul>' + '</dd>' + '<dd>' + '<ul>' + '<li>累计完成：</li>' + '<li>378次一对一教学</li>' + '</ul>' + '</dd>' + '<dd>' + '<ul>' + '<li>擅长英雄：</li>' + '<li>' + '<ol>' + '<li>' + '<img src="images/repo_yxtx_cs.png" />' + '</li>' + '<li>' + '<img src="images/repo_yxtx_cs.png" />' + '</li>' + '<li>' + '<img src="images/repo_yxtx_cs.png" />' + '</li>' + '<li>' + '<img src="images/repo_yxtx_cs.png" />' + '</li>' + '</ol>' + '</li>' + '</ul>' + '</dd>' + '<dd>' + '<a href="ssjservice.html?'+ arry[i].userId+'">'+'<button>预约老师</button>'+'</a>' + '</dd>' + '</dl>' + '</div>' + '</div>' + '<div class="clear"></div>' + '</div>' + '</section>'+ '</div>'
 
                         sections += section1;
 
@@ -138,7 +138,7 @@ $(function () {
             getRevtProcessChta2()
         }else if($("#ssel").find("option:selected").text()=="下路"){
             function getRevtProcessChta2() {
-                $.get(bMock.getFace("revtProcessChta"), function (data, status) {
+                $.get(bMock.getFace("ssjProcessChta"), function (data, status) {
                     var sections = "";
                     var arry=[];
                     var u=0;
@@ -151,7 +151,7 @@ $(function () {
                     $.each(arry, function (i, v) {
                         console.log(arry);
                         var section1 = "";
-                        section1 += '<div class="chat">'+'<section>' + '<div class="revpros_chta_cont revpros_chta_cont' + i + '">' + '<div class="revpros_chta_pic_wrap">' + '<div class="revpros_chta_pic">' + '<div class="revcp_cot">' + '<div class="revcp_cott">' + '<img src="images/revcp_teach_cs1.png">' + '</div>' + '</div>' + '</div>' + '</div>' + '<div class="revpros_chta_cnt_wrap">' + '<div class="revpros_chta_cnt">' + '<dl>' + '<dt>' + '<ul>' + '<li>' + arry[i].name + '</li>' + '<li>明天可约</li>' + '</ul>' + '</dt>' + '<dd class="revpros_chta_cnt_d1">' + '<ul>' + '<li>授课范围：</li>' + '<li class="revcp_cott_jx' + i + '">' + arry[i].teachRange + '</li>' + '</ul>' + '</dd>' + '<dd>' + '<ul>' + '<li>累计完成：</li>' + '<li>378次一对一教学</li>' + '</ul>' + '</dd>' + '<dd>' + '<ul>' + '<li>擅长英雄：</li>' + '<li>' + '<ol>' + '<li>' + '<img src="images/repo_yxtx_cs.png" />' + '</li>' + '<li>' + '<img src="images/repo_yxtx_cs.png" />' + '</li>' + '<li>' + '<img src="images/repo_yxtx_cs.png" />' + '</li>' + '<li>' + '<img src="images/repo_yxtx_cs.png" />' + '</li>' + '</ol>' + '</li>' + '</ul>' + '</dd>' + '<dd>' + '<a href="revtProcessTmct.html?'+ arry[i].userId+'">'+'<button>预约老师</button>'+'</a>' + '</dd>' + '</dl>' + '</div>' + '</div>' + '<div class="clear"></div>' + '</div>' + '</section>'+ '</div>'
+                        section1 += '<div class="chat">'+'<section>' + '<div class="revpros_chta_cont revpros_chta_cont' + i + '">' + '<div class="revpros_chta_pic_wrap">' + '<div class="revpros_chta_pic">' + '<div class="revcp_cot">' + '<div class="revcp_cott">' + '<img src="images/revcp_teach_cs1.png">' + '</div>' + '</div>' + '</div>' + '</div>' + '<div class="revpros_chta_cnt_wrap">' + '<div class="revpros_chta_cnt">' + '<dl>' + '<dt>' + '<ul>' + '<li>' + arry[i].name + '</li>' + '<li>明天可约</li>' + '</ul>' + '</dt>' + '<dd class="revpros_chta_cnt_d1">' + '<ul>' + '<li>授课范围：</li>' + '<li class="revcp_cott_jx' + i + '">' + arry[i].teachRange + '</li>' + '</ul>' + '</dd>' + '<dd>' + '<ul>' + '<li>累计完成：</li>' + '<li>378次一对一教学</li>' + '</ul>' + '</dd>' + '<dd>' + '<ul>' + '<li>擅长英雄：</li>' + '<li>' + '<ol>' + '<li>' + '<img src="images/repo_yxtx_cs.png" />' + '</li>' + '<li>' + '<img src="images/repo_yxtx_cs.png" />' + '</li>' + '<li>' + '<img src="images/repo_yxtx_cs.png" />' + '</li>' + '<li>' + '<img src="images/repo_yxtx_cs.png" />' + '</li>' + '</ol>' + '</li>' + '</ul>' + '</dd>' + '<dd>' + '<a href="ssjservice.html?'+ arry[i].userId+'">'+'<button>预约老师</button>'+'</a>' + '</dd>' + '</dl>' + '</div>' + '</div>' + '<div class="clear"></div>' + '</div>' + '</section>'+ '</div>'
 
                         sections += section1;
 
@@ -162,13 +162,13 @@ $(function () {
             }
             getRevtProcessChta2()
         }else if($("#ssel").find("option:selected").text()=="按分路筛选"){
-            $.get(bMock.getFace("revtProcessChta"), function (data, status) {
+            $.get(bMock.getFace("ssjProcessChta"), function (data, status) {
                 console.log(data.data);
                 var sections="";
                 var obj1={};
                 $.each(data.data,function(i,v){
                     var section1="";
-                    section1+= '<div class="chat">'+'<section>'+'<div class="revpros_chta_cont revpros_chta_cont'+i+'">'+'<div class="revpros_chta_pic_wrap">'+'<div class="revpros_chta_pic">'+'<div class="revcp_cot">'+'<div class="revcp_cott">'+'<img src="images/revcp_teach_cs1.png">'+'</div>'+'</div>'+'</div>'+'</div>'+'<div class="revpros_chta_cnt_wrap">'+'<div class="revpros_chta_cnt">'+'<dl>'+'<dt>'+'<ul>'+'<li>'+data.data[i].name+'</li>'+'<li>明天可约</li>'+'</ul>'+'</dt>'+'<dd class="revpros_chta_cnt_d1">'+'<ul>'+'<li>授课范围：</li>'+'<li class="revcp_cott_jx'+i+'">'+data.data[i].teachRange+'</li>'+'</ul>'+'</dd>'+'<dd>'+'<ul>'+'<li>累计完成：</li>'+'<li>378次一对一教学</li>'+'</ul>'+'</dd>'+'<dd>'+'<ul>'+'<li>擅长英雄：</li>'+'<li>'+'<ol>'+'<li>'+'<img src="images/repo_yxtx_cs.png" />'+'</li>'+'<li>'+'<img src="images/repo_yxtx_cs.png" />'+'</li>'+'<li>'+'<img src="images/repo_yxtx_cs.png" />'+'</li>'+'<li>'+'<img src="images/repo_yxtx_cs.png" />'+'</li>'+'</ol>'+'</li>'+'</ul>'+'</dd>'+'<dd>'+'<a href="revtProcessTmct.html?'+ data.data[i].userId+'">'+'<button>预约老师</button>'+'</a>'+'</dd>'+'</dl>'+'</div>'+'</div>'+'<div class="clear"></div>'+'</div>'+'</section>'+'</div>'
+                    section1+= '<div class="chat">'+'<section>'+'<div class="revpros_chta_cont revpros_chta_cont'+i+'">'+'<div class="revpros_chta_pic_wrap">'+'<div class="revpros_chta_pic">'+'<div class="revcp_cot">'+'<div class="revcp_cott">'+'<img src="images/revcp_teach_cs1.png">'+'</div>'+'</div>'+'</div>'+'</div>'+'<div class="revpros_chta_cnt_wrap">'+'<div class="revpros_chta_cnt">'+'<dl>'+'<dt>'+'<ul>'+'<li>'+data.data[i].name+'</li>'+'<li>明天可约</li>'+'</ul>'+'</dt>'+'<dd class="revpros_chta_cnt_d1">'+'<ul>'+'<li>授课范围：</li>'+'<li class="revcp_cott_jx'+i+'">'+data.data[i].teachRange+'</li>'+'</ul>'+'</dd>'+'<dd>'+'<ul>'+'<li>累计完成：</li>'+'<li>378次一对一教学</li>'+'</ul>'+'</dd>'+'<dd>'+'<ul>'+'<li>擅长英雄：</li>'+'<li>'+'<ol>'+'<li>'+'<img src="images/repo_yxtx_cs.png" />'+'</li>'+'<li>'+'<img src="images/repo_yxtx_cs.png" />'+'</li>'+'<li>'+'<img src="images/repo_yxtx_cs.png" />'+'</li>'+'<li>'+'<img src="images/repo_yxtx_cs.png" />'+'</li>'+'</ol>'+'</li>'+'</ul>'+'</dd>'+'<dd>'+'<a href="ssjservice.html?'+ data.data[i].userId+'">'+'<button>预约老师</button>'+'</a>'+'</dd>'+'</dl>'+'</div>'+'</div>'+'<div class="clear"></div>'+'</div>'+'</section>'+'</div>'
                     obj1.i=i;
                     sections+=section1;
 
@@ -182,7 +182,7 @@ $(function () {
 
 
     //getStatus();
-    getRevtProcessChta();
+    getSsjProcessChta();
 
 
 

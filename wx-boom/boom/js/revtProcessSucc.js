@@ -1,14 +1,4 @@
 $(function(){
-	//我的预约下拉框
-	$(".resucap_nav a").toggle(
-        function(){
-        	$(".rencp_dotel").slideDown();
-        },
-        function(){
-            $(".rencp_dotel").slideUp();
-        }
-    );
-
     //mock
     var thisApi = {
         statue: {
@@ -16,7 +6,7 @@ $(function(){
             test: "http://192.168.1.150:9000/wx/school/v1.0/oto/lol/hasNeedEvaluate?studentNum=666",
             product: "/wx/school/v1.0/statue"
         },
-    	evaluate: {
+        evaluate: {
             dev: "mock/evaluate.json",
             test: "http://192.168.1.150:9000/wx/school/v1.0/oto/lol/hasNeedEvaluate",
             product: "/wx/school/v1.0/evaluate"
@@ -34,6 +24,120 @@ $(function(){
     bMock.setFace(thisApi);
     bMock.setEnv("dev");
     console.log(bMock.getFace("revtProcessChta"));
+
+    //时间戳转换
+    function formatDate(now) {
+        var month = now.getMonth() + 1;
+        var date = now.getDate();
+        var week = now.getDay();
+        var weekDay = ["周日", "周一", "周二", "周三", "周四", "周五", "周六"];
+        var hour = now.getHours();
+        var minute = now.getMinutes();
+        return month + "月" + date + "日" + " ( " + weekDay[week] + " ) " + hour + ":" + minute;
+    }
+
+    //时间戳转换
+    function formatDate1(now) {
+        var month = now.getMonth() + 1;
+        var date = now.getDate();
+        var week = now.getDay();
+        var weekDay = ["周日", "周一", "周二", "周三", "周四", "周五", "周六"];
+        var hour = now.getHours();
+        var minute = now.getMinutes();
+        return month + "-" + date + " " +  hour + ":" + minute;
+    }
+
+    //获取当前系统时间
+    var localtime;
+    function getlocaltime(){
+        localtime = formatDate1(new Date());
+        //localtime = formatDate(new Date());
+    }
+
+    //预约时间查询
+    var thisApontime;
+    function getApontime() {
+        $.ajax
+            ({
+                async: false,
+                url: bMock.getFace("appointSuccess"),
+                success: function (data) {
+                thisApontime = formatDate1(new Date(data.data.applyTime));
+                //thisApontime = data.data.applyTime;
+            }
+        });
+    }
+
+    //判断CD状态
+    function judgeCD(){
+        //系统时间
+        getlocaltime();
+        //console.log(localtime);
+        //预约时间
+        getApontime();
+        //console.log(thisApontime);
+        var DateStrEnd = localtime;
+        var  DateStrStart= thisApontime;
+
+        var srtHours = GetDateDif(DateStrStart, DateStrEnd);
+        console.log(srtHours);
+        if(srtHours > 8760){
+            $(".cancel_reservation_cont p").html("取消预约后会有15天cd时间。");
+        }else if(srtHours < 3){
+            $(".cancel_reservation_cont p").html("取消预约后会有7天cd时间。");
+        }else{
+            $(".cancel_reservation_cont p").css("display","none");
+        }
+
+        function GetDateDif(DateStrStart, DateStrEnd) {
+            var DateStart = new Date(DateStrStart);
+            var DateEnd = new Date(DateStrEnd);
+
+            if (DateStart < DateEnd) {
+            } else {
+                DateStart = new Date("1999-" + DateStrStart);
+                DateEnd = new Date("2000-" + DateStrEnd);
+            }
+
+            var ResultDate = DateEnd.getTime() - DateStart.getTime();
+            var second = ResultDate / 1000;//秒
+            var Minute = second / 60;//分
+            var hours = Minute / 60;//时
+            var day = hours / 24;//天
+
+            return hours;
+        }
+    }
+
+    function tip(){
+        //我的预约下拉框
+        $(".resucap_nav a").toggle(
+            function(){
+                $(".rencp_dotel").slideDown();
+            },
+            function(){
+                $(".rencp_dotel").slideUp();
+            }
+        );
+
+        //提交反馈
+        $(".rencp_dotel .noret_btn").click(function(){
+            $(".rencp_feedback").fadeIn();
+            $(".rencp_dotel").slideUp();
+        });
+        $(".bomb-box-btn .submit").click(function(){
+            $(".rencp_feedback").fadeOut();
+        });
+
+        //确认取消
+        $(".rencp_dotel .cancel_btn").click(function(){
+            $(".cancel_reservation").fadeIn();
+            $(".rencp_dotel").slideUp();
+        });
+        $(".bomb-box-btn .submit").click(function(){
+            $(".cancel_reservation").fadeOut();
+        });
+    }
 
     //学员userId查询
     var thisStudent;
@@ -58,17 +162,6 @@ $(function(){
                 console.log("登录成功！");
             }
         });
-    }
-
-    //时间戳转换
-    function formatDate(now) {
-        var month = now.getMonth() + 1;
-        var date = now.getDate();
-        var week = now.getDay();
-        var weekDay = ["周日", "周一", "周二", "周三", "周四", "周五", "周六"];
-        var hour = now.getHours();
-        var minute = now.getMinutes();
-        return month + "月" + date + "日" + " ( " + weekDay[week] + " ) " + "&nbsp;&nbsp;" + hour + ":" + minute;
     }
 
     //获取我的预约成功返回的信息
@@ -139,8 +232,13 @@ $(function(){
                 $(".revpros_tbx span").text("预约失败");
             },
         });
+
+
     }  
 
+    
     getStatus();
     appointSuccess();
+    judgeCD();
+    tip();
 });
