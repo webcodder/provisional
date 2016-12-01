@@ -246,6 +246,7 @@ section.protmc_teacher{
 
 section.protmc_time{
     width: 100%;
+    position: relative;
 }
 
 .protmc_time_nav{
@@ -263,11 +264,11 @@ section.protmc_time{
     margin-left: 3%;
 }
 
-.protmc_time_nav ul li a{
+.protmc_time_nav ul li span{
     color: #4a9bff;
 }
 
-.protmc_time_nav ul li:first-child a{
+.protmc_time_nav ul li:first-child span{
     color: #d9d9d9;
 }
 
@@ -423,6 +424,25 @@ section.protmc_txt{
     color: #fff;
     font-size: 1.4rem;
 }
+.protmc_time_cont2{
+    display: none;
+    width: 100%;
+    position: absolute;
+    top: 28px;
+    left: 0px;
+    background: rgba(255,255,255,0.5);
+}
+.protmc_time_cont2 span{
+    width: 100%;
+    display: block;
+    height: 110px;
+    line-height: 110px;
+    text-align: center;
+}
+
+
+
+
 /* revpros_btn e */
 
 /* iphone 4 s */

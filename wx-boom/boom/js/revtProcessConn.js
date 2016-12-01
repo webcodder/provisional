@@ -18,7 +18,7 @@ $(function(){
         },
     };
     bMock.setFace(thisApi);
-    bMock.setEnv("product");
+    bMock.setEnv("test");
     console.log(bMock.getFace("statue"));
 
     //获取登录状态

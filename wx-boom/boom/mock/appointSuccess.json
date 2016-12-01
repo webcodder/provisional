@@ -1,10 +1,24 @@
 {
     "error":false,
-    "msg":"获取用户信息成功！",
+    "msg":"",
     "data":{
-        "time":1479782512409,
-        "course":"德玛西亚 上路 VN  SOLO教学",
-        "teacher":"银时老师"
+        "id":1,
+        "studentNum":"666",
+        "teacherId":3,
+        "serviceType":1,
+        "applyTime":1479781821000,
+        "teachFinishTime":1479781844000,
+        "closeTime":1480397863384,
+        "hopeTeachTime":1479781825000,
+        "stage":"end",
+        "step":"watched",
+        "certify":"11",
+        "mark":null,
+        "now":1480397863821,
+        "whatStudy":null,
+        "howTeach":null,
+        "evaluateDetailDto":null,
+        "boomServiceTeacherEvaluateDto":null
     },
     "length":null,
     "rtCode":null

@@ -1,0 +1,17 @@
+{
+  "error": false,
+  "msg": "ok!",
+  "data": {
+    "date": 1479952800000,
+    "slotStatue": [
+      true,
+      false,
+      true,
+      false,
+      true,
+      false
+    ]
+  },
+  "lengt": null,
+  "rtCode": null
+}

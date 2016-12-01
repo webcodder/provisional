@@ -171,11 +171,11 @@
             if($(".appointment>a").text()!="正在进行"){
                 if($(".more-box").css("display")=="none" ){
 //                $(".more-box").css("display","block");
-                    $(".more-box").show(1000);
+                    $(".more-box").slideDown();
                     $(this).text("取消");
                 }else{
 //                $(".more-box").css("display","none")
-                    $(".more-box").hide(1000);
+                    $(".more-box").slideUp();
                     $(this).text("更多");
                 }
             }
@@ -191,7 +191,7 @@
 //    点击取消显示
         $(".submit").click(function(){
             $(".bomb").fadeOut(1000);
-            $(".more-box").hide(1000);
+            $(".more-box").slideUp();
             $(".appointment>a").text("更多");
         })
 

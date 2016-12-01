@@ -1,0 +1,364 @@
+/*OTOneService s*/
+
+body{
+    background-color: #fff;
+}
+/*头部评价模块*/
+.evaluate{
+    width: 100%;
+    padding-top: 10px;
+    background: #F2F2F2;
+}
+.evaluate>div{
+    width: 92%;
+    margin: 0 auto;
+}
+/*生死局助阵说明*/
+.explain{
+    position: relative;
+    border-bottom: 1px solid #EFEFEF;
+    border-top: 1px solid #F5F5F5;
+    border-top: 9px solid #F5F5F5;
+}
+
+.explain1{
+    height:40px;
+    line-height: 40px;
+    width: 92%;
+    margin:0 auto;
+}
+
+.explain1 span{
+    float:left;
+    font-size: 1.4rem;
+}
+.explain1::before{
+    content: "";
+    width: 4px;
+    height: 17px;
+    position: absolute;
+    left: 0px;
+    top: 12px;
+    background: #499BFF;
+}
+.explain2{
+    width: 92%;
+    margin:0 auto;
+    font-size:1.2rem;
+    line-height: 2;
+    position: relative;
+padding:15px 0 15px 0;
+}
+.explain2 .explain2-one span:nth-child(1){
+    position: absolute;
+    top:15px;
+    left:0px;
+}
+.explain2 .explain2-one span:nth-child(2){
+    position: absolute;
+    top:64px;
+    left:0px;
+}
+.explain2 .explain2-one span:nth-child(3){
+    position: absolute;
+    top:112px;
+    left:0px;
+}
+.explain2 .explain2-one span:nth-child(4){
+    position: absolute;
+    top:135px;
+    left:0px;
+}
+.explain2 .explain2-two{
+    padding-left: 20px;
+}
+
+
+
+
+
+
+/*我的预约栏模块 /优秀老师栏模块*/
+.appoint{
+    position: relative;
+    border-bottom: 1px solid #EFEFEF;
+    border-top: 1px solid #F5F5F5;
+    border-top: 9px solid #F5F5F5;
+}
+.appointment,.teacher,.dynamic{
+    height:40px;
+    line-height: 40px;
+    width: 92%;
+    margin:0 auto;
+}
+.appointment a{
+    color:#A6A6A6;
+    float:right;
+    padding-right:20px;
+    font-size: 1.4rem;
+    background: url("../images/app1.gif") right no-repeat;
+}
+.teacher a{
+    color:#A6A6A6;
+    float:right;
+    padding-right:20px;
+    font-size: 1.4rem;
+    background: url("../images/app2.gif") right no-repeat;
+}
+.appointment span,.teacher span,.dynamic span{
+    float:left;
+    font-size: 1.4rem;
+}
+.appointment::before,.teacher::before,.dynamic::before{
+    content: "";
+    width: 4px;
+    height: 17px;
+    position: absolute;
+    left: 0px;
+    top: 12px;
+    background: #499BFF;
+}
+.deta{
+    /*border-bottom: 10px solid #F5F5F5;*/
+    position: relative;
+}
+.detailed{
+    height:80px;
+    width:92%;
+    margin:0 auto;
+    padding-top:15px;
+    padding-bottom: 15px;
+}
+.detailed-one {
+    position: relative;
+    width: 6rem;
+}
+.detailed-one span{
+    position: absolute;
+    left: 0px;
+    top:55px;
+    font-size:1.2rem;
+}
+.detailed  img{
+    height:4.5rem;
+    width:4rem;
+    float:left;
+    padding-left:5px;
+}
+.detailed div{
+    float:left;
+    font-size: 1.2rem;
+}
+.detailed .timer{
+    font-weight: 600;
+    margin-left:0.5rem;
+    line-height: 2;
+}
+.detailed .timer-two{
+    margin-left:10px;
+    line-height:2;
+}
+.teac{
+    border-bottom: 1px solid #EFEFEF;
+}
+/*.teac2{*/
+/*border-bottom: 1px solid #F5F5F5;*/
+/*}*/
+.teacher-in{
+    height: 180px;
+    width: 92%;
+    margin:0 auto;
+    margin-top: 15px;
+}
+.teacher-in>img{
+    width: 6rem;
+    height: 6rem;
+    float:left;
+    border: 5px solid #39B0F7;
+    -moz-border-radius: 55px; /* Firefox */
+    -webkit-border-radius: 55px; /* Safari 和 Chrome */
+    border-radius: 55px; /* Opera 10.5+, 以及使用了IE-CSS3的IE浏览器 */
+}
+.teacher-in .introduce{
+    float:left;
+    margin-left:0.8rem;
+    margin-top:10px;
+    font-size: 1.2rem;
+}
+.teacherInt{
+    line-height: 2rem;
+    height: 2rem;
+}
+.teacherInt h3{
+    float:left;
+    margin-left:10px;
+}
+.teacher-in .introduce-p{
+    margin-top:20px;
+}
+.teacher-in .introduce-th{
+    color: #4A9BFF;
+    position: absolute;
+    right:100px;
+    padding: 5px;
+}
+.teacherInt a{
+    float:right;
+    color:#FFB43D;
+}
+.introduce div{
+    float:left;
+}
+.introduce .introduce-one{
+    line-height: 2;
+    font-weight: 700;
+}
+.introduce .introduce-two{
+    line-height:2;
+    margin-left:10px;
+}
+.introduce-two .in-img{
+    width: 2.5rem;
+    height: 2.5rem;
+}
+/*最新动态栏模块*/
+.dynamices{
+    width: 92%;
+    margin:0 auto;
+}
+.dynamic-fir{
+    margin-top:14px;
+    font-size:1.2rem;
+}
+
+.dynamices .firsta{
+    float:right;
+    color:#A6A6A6;
+}
+.dynamic-two{
+    height: 80px;
+    margin-top:20px;
+}
+.dynamic-two2{
+    margin-top:0px;
+}
+.dynamic-two img{
+    width: 5.5rem;
+    height: 5.5rem;
+    float:left;
+}
+.dynamic-two div{
+    float:left;
+    margin-left:20px;
+    margin-top:10px;
+    width: 60%;
+}
+.dynamic-two h3{
+    height:1.9rem;
+}
+
+/*点击更多显示模块*/
+.more-box{
+    display: none;
+    background-color: #fff;
+    width:100%;
+    position: absolute;
+    top:0px;
+    left:0;
+    height: 70px;
+    border-bottom: 1px solid #EFEFEF;
+    -moz-box-shadow: 0px 4px 5px #E1E1E1; /* Firefox */
+    -webkit-box-shadow: 0px 4px 5px #E1E1E1; /* Safari 和 Chrome */
+    box-shadow: 0px 4px 5px #E1E1E1; /* Opera 10.5+, 以及使用了IE-CSS3的IE浏览器 */
+}
+.more{
+    width: 92%;
+    margin:0 auto;
+    margin-top:15px;
+}
+.more .more1{
+    font-size:1.6rem;
+    background-color: #F44242;
+    color:#4A9BFF;
+    height: 3.3rem;
+    line-height: 3.3rem;
+    width:44.5%;
+    display: block;
+    float:left;
+    text-align: center;
+    -moz-border-radius: 8px; /* Firefox */
+    -webkit-border-radius: 8px; /* Safari 和 Chrome */
+    border-radius: 8px; /* Opera 10.5+, 以及使用了IE-CSS3的IE浏览器 */
+
+}
+.more .more2{
+    text-align: center;
+    font-size:1.6rem;
+    background-color: #F44242;
+    color:#fff;
+    height: 3.3rem;
+    line-height: 3.3rem;
+    width:44.5%;
+    display: block;
+    float: right;
+    -moz-border-radius: 8px; /* Firefox */
+    -webkit-border-radius: 8px; /* Safari 和 Chrome */
+    border-radius: 8px; /* Opera 10.5+, 以及使用了IE-CSS3的IE浏览器 */
+}
+
+/*点击弹出模块*/
+.bomb{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: none;
+}
+.bomb .bomb-box{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%,-50%);    /* for Chrome || Safari */
+    -moz-transform: translate(-50%,-50%);       /* for Firefox */
+    -ms-transform: translate(-50%,-50%);        /* for IE */
+    -o-transform: translate(-50%,-50%);         /* for Opera */
+    transform: translate(-50%,-50%);
+    background: #fff;
+    width: 72%;
+    border-radius: 10px;
+}
+.bomb .bomb-box h3{
+    font-size: 1.4rem;
+    text-align: center;
+    line-height: 50px;
+}
+.bomb .bomb-box p{
+    font-size: 1.2rem;
+    text-align: center;
+    height: 60px;
+    width: 80%;
+    margin: 0 auto;
+}
+.bomb .bomb-box-btn{
+    border-top: 1px solid #ccc;
+}
+.bomb .bomb-box-btn a{
+    width: 50%;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    font-size: 1.6rem;
+    float: left;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    color: #4A9BFF;
+}
+.bomb .bomb-box-btn .cancel{
+    color: #4A9BFF;
+    border-right: 1px solid #ccc;
+}
+.bomb .bomb-box-btn .submit{
+}
