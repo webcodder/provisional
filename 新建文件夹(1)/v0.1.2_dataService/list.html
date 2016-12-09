@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../libs/jquery.js"></script>
+    <script src="../libs/angular.js"></script>
+    <script src="../libs/bootstrap/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="../libs/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="basic.css">
+    <style>
+
+    </style>
+</head>
+<body ng-app="nl.list">
+<div class="header">
+    <h1>聚餐邀请</h1>
+</div>
+<div class="my-nav">
+    <div class="content">
+        <ul class="nav nav-pills" role="tablist">
+            <li role="presentation" ng-class="{active:data.currentTab == 'list'}">
+                <a href="#" ng-click="actions.setCurrentTab('list')">邀请名单</a>
+            </li>
+            <li role="presentation" ng-class="{active:data.currentTab == 'detail'}">
+                <a href="#" ng-click="actions.setCurrentTab('detail')">嘉宾信息</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div ng-if="data.currentTab == 'list'" id="list" class="content" ng-controller="ListController">
+    <div class="invite-bar">
+        邀请新嘉宾：
+        <input type="text" ng-model="data.newGuest.name">
+        <span>，手机号：</span>
+        <input type="text" ng-model="data.newGuest.tel">
+        <button ng-click="actions.invite()"
+                class="btn btn-sm btn-default">邀请 <i class="glyphicon glyphicon-ok"></i></button>
+    </div>
+    <div>
+        <div style="float: right;">
+            <label for="mode">开启确认模式：</label>
+            <input id="mode" ng-model="data.mode" type="checkbox">
+        </div>
+    </div>
+    <div>
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>受邀请人</th>
+                <th>联系方式</th>
+                <th>邀请状态</th>
+                <th>可用操作</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr ng-if=" (!data.mode) || guest.state == '未确认'" ng-repeat="guest in data.list">
+                <td>
+                    <a ng-click="actions.gotoDetail(guest)">{{guest.name}}</a>
+                </td>
+                <td ng-bind="guest.tel"></td>
+                <td ng-bind="guest.state"></td>
+                <td class="my-actions">
+                    <a ng-click="actions.accept(guest)"
+                       ng-if="guest.state == '未确认'" class="btn-default btn-sm">接受<i
+                            class="glyphicon glyphicon-check"></i></a>
+                    <a ng-click="actions.reject(guest)"
+                       ng-if="guest.state == '未确认'" class="btn-default btn-sm">拒绝<i
+                            class="glyphicon glyphicon-log-out"></i></a>
+                    <a ng-click="actions.remove(guest)"
+                       class="btn-default btn-sm">清除记录 <i class="glyphicon glyphicon-remove"></i></a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div ng-if="data.currentTab == 'detail'" id="detail" ng-controller="DetailController" class="content">
+    <div>姓名：{{data.guestInfo.name}}</div>
+    <div>联系方式：{{data.guestInfo.tel}}</div>
+    <div>受邀状态：{{data.guestInfo.state}}</div>
+</div>
+<script>
+    var app = angular.module('nl.list', []);
+
+    app.factory('DataService', function () {
+        // data 是我们的服务对象，最后我们会把它返回出去。
+        var data = {};
+        // 存储了所有的受邀嘉宾
+        data.list = [
+            {'name': '张三', 'tel': '18699999999', 'state': '未确认'},
+            {'name': '李四', 'tel': '18966666666', 'state': '已接受'},
+            {'name': '王五', 'tel': '13333333333', 'state': '已拒绝'},
+        ];
+        // 和新嘉宾的信息做绑定的对象
+        data.newGuest = {};
+        // 是否进入确认模式的标记
+        data.mode = true;
+        data.currentGuest = {};
+        return data;
+    });
+
+    app.run(function ($rootScope) {
+        var data = $rootScope.data = {};
+        // 这里是当前标签页
+        data.currentTab = 'list';
+
+        var actions = $rootScope.actions = {};
+        // 设置页面状态的行为
+        actions.setCurrentTab = function (tabName) {
+            data.currentTab = tabName;
+        }
+    });
+    // 这个控制器能够初始化列表的数据
+    app.controller('ListController', function ($scope, DataService, $rootScope) {
+// 我们的程序，数据对象上通常分成两部分：数据和行为。
+        var data = $scope.data = DataService;
+        var actions = $scope.actions = {};
+        // 邀请按钮的点击事件
+        actions.invite = function () {
+            // 如果用户没有输入嘉宾的名字或者电话，则放弃这次添加
+            if ((!data.newGuest.name) || (!data.newGuest.tel)) {
+                return;
+            }
+            data.list.push({
+                name: data.newGuest.name,
+                tel: data.newGuest.tel,
+                state: '未确认'
+            });
+            data.newGuest = {};
+        };
+        // 从列表中移除指定的嘉宾
+        actions.remove = function (guestInfo) {
+            var index = data.list.indexOf(guestInfo);
+            data.list.splice(index, 1);
+        };
+        // 设置嘉宾的状态
+        actions.accept = function (guestInfo) {
+            guestInfo.state = '已接受';
+        };
+        actions.reject = function (guestInfo) {
+            guestInfo.state = '已拒绝';
+        };
+        // 跳转到详情页的行为
+        actions.gotoDetail = function (guestInfo) {
+            data.currentGuest = guestInfo;
+            $rootScope.data.currentTab = 'detail';
+        }
+    });
+    // 这个控制器能初始化个人信息的数据
+    app.controller('DetailController', function ($scope, DataService) {
+        var data = $scope.data = {};
+        data.guestInfo = DataService.currentGuest;
+
+    })
+
+
+</script>
+</body>
+</html>
