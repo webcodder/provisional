@@ -44,6 +44,7 @@ li {
 a {
     text-decoration: none;
     color: #333;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .clear {

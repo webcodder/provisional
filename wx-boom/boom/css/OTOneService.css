@@ -8,7 +8,6 @@ body{
     width: 100%;
     padding-top: 10px;
     background: #F2F2F4;
-    padding-bottom: 10px;
 }
 .evaluate>div{
     width: 92%;
@@ -163,6 +162,7 @@ a:active{
 .introduce-two .in-img{
     width: 2.5rem;
     height: 2.5rem;
+    padding-right: 3px;
 }
 /*最新动态栏模块*/
 .dynamices{
@@ -206,7 +206,7 @@ a:active{
     background-color: #fff;
     width:100%;
     position: absolute;
-    top:0px;
+    top:42px;
     left:0;
     height: 70px;
     border-bottom: 1px solid #EFEFEF;
@@ -219,9 +219,10 @@ a:active{
     margin:0 auto;
    margin-top:15px;
 }
+
 .more .more1{
     font-size:1.6rem;
-    background-color: #F44242;
+    border: solid 1px #4A9BFF;
     color:#4A9BFF;
     height: 3.3rem;
     line-height: 3.3rem;
@@ -304,4 +305,76 @@ a:active{
     border-right: 1px solid #ccc;
 }
 .bomb .bomb-box-btn .submit{
+}
+
+.cancel_reservation{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: none;
+    z-index: 2;    
+}
+
+.cancel_reservation_cont{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    background: #fff;
+    width: 72%;
+    border-radius: 10px;
+}
+
+.cancel_reservation_cont h3{
+    font-size: 1.4rem;
+    text-align: center;
+    line-height: 50px;
+}
+
+.cancel_reservation_cont p{
+    font-size: 1.2rem;
+    text-align: center;
+    height: 60px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.cancel_reservation_cont .bomb-box-btn a {
+    width: 50%;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    font-size: 1.6rem;
+    float: left;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    color: #4A9BFF;
+}
+
+.cancel_reservation_cont .bomb-box-btn {
+    border-top: 1px solid #ccc;
+}
+
+.resdtght_new{
+    height: 78px;
+    line-height: 78px;
+    color: #666;
+    margin-left: 27px;
+}
+
+.bomb-box-btn .commit{
+    color: #4A9BFF;
+    border-right: 1px solid #ccc;
+}
+
+.cancel_reservation_cont .bomb-box-btn .submit {
+    border-left: solid 1px #e5e5e5;
 }

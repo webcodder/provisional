@@ -3,54 +3,59 @@ $(function(){
     var thisApi = {
         statue: {
             dev: "mock/statue.json",
-            test: "http://192.168.1.150:9000/wx/school/v1.0/oto/lol/hasNeedEvaluate?studentNum=666",
+            test: "http://192.168.1.150:9000/wx/school/v1.0/statue",
             product: "/wx/school/v1.0/statue"
         },
-    	evaluate: {
-            dev: "mock/evaluate.json",
-            test: "http://192.168.1.150:9000/wx/school/v1.0/oto/lol/hasNeedEvaluate",
-            product: "/wx/school/v1.0/evaluate"
-        },
+        // evaluate: {
+        //     dev: "mock/evaluate.json",
+        //     test: "http://192.168.1.150:9000/wx/school/v1.0/ssj/lol/hasNeedEvaluate",
+        //     product: "/wx/school/v1.0/ssj/lol/hasNeedEvaluate"
+        // },
         getStudents: {
             dev: "mock/getStudents.json",
             test: "http://192.168.1.150:9000/wx/school/v1.0/getUserInfo",
+            product: "/wx/school/v1.0/getUserInfo"
+        },
+        //更新学员信息
+        updateUserInfo: {
+            dev: "http://192.168.1.150:9000/wx/school/v1.0/updateUserInfo",
+            test: "http://192.168.1.150:9000/wx/school/v1.0/updateUserInfo",
             product: "/wx/school/v1.0/updateUserInfo"
         },
     };
     bMock.setFace(thisApi);
-    bMock.setEnv("test");
+    bMock.setEnv("product");
     console.log(bMock.getFace("statue"));
 
     //获取登录状态
     function getStatus() {
-        $.get(bMock.getFace("evaluate"), function (data, status) {
-            //console.log(data);
+        $.get(bMock.getFace("statue"), function (data, status) {
             if (!data.data) {
+                console.log("登录失败！");
                 window.location.href = "index.html?" + window.location.pathname + window.location.search;
             } else {
-                //console.log("登录成功！");
+                console.log("登录成功！");
             }
         });
     }
 
     //学员userId查询
-    var thisStudent;
+    var userId;
     function getStudent() {
         $.ajax
             ({
                 async: false,
                 url: bMock.getFace("statue"),
                 success: function (data) {
-                thisStudent = data.data.studentId;
+                    userId = data.data.userInfo.userId;
             }
         });
-        console.log(thisStudent);
     }
-    getStudent();
 
     //获取学员信息
     function getStudents() {
-        $.get(bMock.getFace("getStudents") +"?userId=" + thisStudent , function (data, status) {
+        console.log(userId);
+        $.get(bMock.getFace("getStudents") +"?userId=" + userId , function (data, status) {
         //$.get(bMock.getFace("getStudents") , function (data, status) {
             if(data.data == null){
                 $("#students_info").append(`
@@ -75,26 +80,31 @@ $(function(){
                 `);
                 /*$(".revpros_btn button").addClass("revpros_btn_off").attr({"href":true});*/
                 $(".revpros_btn a").addClass("revpros_btn_off").attr({"href":"javascript:;"});
-       
+                //console.log(userId);
                 var ok1 = false;
                 var ok2 = false;
                 var ok3 = false;
                 function isRight(){
+                    function GetJsonData() {
+                        var json = {
+                            "userId": userId,
+                            "phone": $('input[name="studentphone"]').val(),
+                            "qq": $('input[name="studentqq"]').val(),
+                            "yy": $('input[name="studentyy"]').val(),
+                        };
+                        return json;
+                    }
                     if(ok1 && ok2 && ok3){
-                        /*$(".revpros_btn button").removeClass("revpros_btn_off").attr({"disabled":false});*/
-                        //$(".revpros_btn a").removeClass("revpros_btn_off").attr({"href":"revtProcessChta.html"});
                         $.ajax({
-                            type: "POST",
-                            url: "/wx/school/v1.0/updateUserInfo", 
-                            data: {
-                                studentphone: $('input[name="studentphone"]').val(),
-                                studentqq: $('input[name="studentqq"]').val(),
-                                studentyy: $('input[name="studentyy"]').val()
-                            },
+                            //url: bMock.getFace("updateUserInfo") + "?userId=" + userId,
+                            url: bMock.getFace("updateUserInfo"),
+                            type:"post",
+                            contentType: "application/json; charset=utf-8",
+                            data: JSON.stringify(GetJsonData()),
                             dataType: "json",
-                            success: function (){
+                            success: function(){
                                 $(".revpros_btn a").removeClass("revpros_btn_off").attr({"href":"revtProcessChta.html"});
-                            }
+                            },
                         });
                     }
                 }
@@ -171,5 +181,7 @@ $(function(){
     }
 
     getStatus();
+    getStudent();
     getStudents();
+    
 });

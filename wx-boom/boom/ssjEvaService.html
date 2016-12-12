@@ -18,27 +18,27 @@
 </div>
 
 <!--我的预约栏模块-->
-<div class="appoint">
+<div class="appoint appoint1">
     <div class="appointment">
         <span>我的预约</span>
         <a href="#">更多</a>
     </div>
 </div>
-<div class="deta">
-    <div class="detailed">
-        <div class="detailed-one">
-            <img src="images/ssjEvaluate1.gif" >
-            <span>生死局助阵</span>
-        </div>
-        <div class="timer">
-            <p>时间:</p>
-            <p>预约课程:</p>
-            <p>预约导师:</p>
-        </div>
-        <div class="timer-two">
-            <p>11月01日（周二） 20：00</p><p>艾欧尼亚（电信一）</p><p>银时老师</p>
-        </div>
-    </div>
+<!--<div class="deta">-->
+    <!--<div class="detailed">-->
+        <!--<div class="detailed-one">-->
+            <!--<img src="images/ssjEvaluate1.gif" >-->
+            <!--<span>生死局助阵</span>-->
+        <!--</div>-->
+        <!--<div class="timer">-->
+            <!--<p>时间:</p>-->
+            <!--<p>预约课程:</p>-->
+            <!--<p>预约导师:</p>-->
+        <!--</div>-->
+        <!--<div class="timer-two">-->
+            <!--<p>11月01日（周二） 20：00</p><p>艾欧尼亚（电信一）</p><p>银时老师</p>-->
+        <!--</div>-->
+    <!--</div>-->
     <!--点击更多显示模块-->
     <div class="more-box">
         <div class="more">
@@ -46,11 +46,11 @@
             <a class="more2" href="#">取消预约</a>
         </div>
     </div>
-</div>
+<!--</div>-->
 
 <!--生死局助阵说明-->
 
-<div>
+<div class="explains">
     <div class="explain">
         <div class="explain1">
             <span>生死局助阵说明</span>
@@ -143,32 +143,32 @@
     <!--</div>-->
 
 <!--最新动态栏模块-->
-<div class="new-dyn">
-    <div class="appoint">
+<div class="new-dyn ">
+    <div class="appoint appoint3">
         <div class="dynamic">
             <span>最新动态</span>
         </div>
     </div>
-    <div class="dynamices">
-        <div class="dynamic-fir">
-            <span>银时老师和8036学院完成一对一训练。</span>
-            <a class="firsta" href="javascript:;">36分钟前</a>
-        </div>
-        <div class="dynamic-two1 dynamic-two">
-            <img src="images/inn.png" >
-            <div >
-                <h3>银时老师</h3>
-                <span>顺利拿下胜利。</span>
-            </div>
-        </div>
-        <div class="dynamic-two2 dynamic-two">
-            <img src="images/inn.png" >
-            <div>
-                <h3>女王大人葵</h3>
-                <span>老师讲解很细，细节处理上简直完美，大局上思路清晰，很有收获！</span>
-            </div>
-        </div>
-    </div>
+    <!--<div class="dynamices">-->
+        <!--<div class="dynamic-fir">-->
+            <!--<span>银时老师和8036学院完成一对一训练。</span>-->
+            <!--<a class="firsta" href="javascript:;">36分钟前</a>-->
+        <!--</div>-->
+        <!--<div class="dynamic-two1 dynamic-two">-->
+            <!--<img src="images/inn.png" >-->
+            <!--<div >-->
+                <!--<h3>银时老师</h3>-->
+                <!--<span>顺利拿下胜利。</span>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="dynamic-two2 dynamic-two">-->
+            <!--<img src="images/inn.png" >-->
+            <!--<div>-->
+                <!--<h3>女王大人葵</h3>-->
+                <!--<span>老师讲解很细，细节处理上简直完美，大局上思路清晰，很有收获！</span>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
 </div>
 
 <!--点击弹出模块-->
@@ -186,43 +186,9 @@
 </body>
 
 
-<script src="../mockface/b-mock.js"></script>
+<script src="mockface/b-mock.js"></script>
 <script src="js/lib/jquery1.8.3.min.js"></script>
 <script src="js/ssjEvaService.js"></script>
-<!--页面js交互-->
-<script>
-    //    点击更多显示
-    $(function(){
-        $(".appointment>a").click(function(){
-            if($(".appointment>a").text()!="正在进行"){
-                if($(".more-box").css("display")=="none" ){
-//                $(".more-box").css("display","block");
-                    $(".more-box").show(1000);
-                    $(this).text("取消");
-                }else{
-//                $(".more-box").css("display","none")
-                    $(".more-box").hide(1000);
-                    $(this).text("更多");
-                }
-            }
 
-        })
-
-//     点击显示模态框
-        $(".more1").click(function(){
-//            $(".bomb").show();
-            $(".bomb").fadeIn(1000)
-        });
-
-//    点击取消显示
-        $(".submit").click(function(){
-            $(".bomb").fadeOut(1000);
-            $(".more-box").hide(1000);
-            $(".appointment>a").text("更多");
-        })
-
-    });
-
-</script>
 
 </html>

@@ -11,11 +11,11 @@ jQuery(document).ready(function () {
             test: "http://192.168.1.150:9000/wx/school/v1.0/serviceStatue",
             product: "/wx/school/v1.0/serviceStatue"
         },
-        teacher: {dev: "mock/teacher.json", test: "http://192.168.1.150:9000/wx/school/v1.0/teacher/", product: "/wx/school/v1.0/teacher/"}
+        teacher: {dev: "mock/teacher.json", test: "http://192.168.1.150:9000/wx/school/v1.0/oto/lol/allTeacher", product: "/wx/school/v1.0/oto/lol/allTeacher"}
     };
     bMock.setFace(thisApi);
 
-    bMock.setEnv("dev");
+    bMock.setEnv("product");
 
 
     //时间戳转换

@@ -11,7 +11,7 @@
       "canApply": true,
       "num": 1,
       "now": 1479957409256,
-      "imgs":"images/repo_yxtx_cs.png"
+      "imgs":["images/repo_yxtx_cs.png","images/repo_yxtx_cs.png"]
     },
     {
       "name": "222",
@@ -22,7 +22,7 @@
       "canApply": true,
       "num": 0,
       "now": 1479957409265,
-      "imgs":"images/repo_yxtx_cs.png"
+      "imgs":["images/repo_yxtx_cs.png","images/repo_yxtx_cs.png","images/repo_yxtx_cs.png"]
     }
   ],
   "length": 2,

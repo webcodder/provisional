@@ -1,0 +1,125 @@
+.revtProcessTmct_bomx{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    /* display: none; */
+    z-index: 3;
+}
+
+.revtProcessTmct_cont{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    /* background: #fff; */
+    width: 88%;
+    /* border-radius: 10px; */
+    height: 95%;
+}
+
+.repoTmct_top{
+    width: 100%;
+    height: 40px;
+    border-bottom: solid 1px #cccccc;
+    line-height: 40px;
+    text-align: center;
+    display: block;
+    background: #fff;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+
+.repoTmct_list{
+    background: #f5f5f5;
+    height: 86%;
+    overflow: auto;
+}
+
+.revtProcessTmct_cont ul{
+    margin-left: -3px;
+    padding-bottom: 12px;
+}
+
+.revtProcessTmct_cont li:first-child{
+    padding-top: 12px;
+}
+
+.revtProcessTmct_cont li{
+    width: 90%;
+    margin: 0 auto;
+}
+
+.revtProcessTmct_cont dl{
+    width: 100%;
+    display: -webkit-inline-box;
+    -webkit-box-pack: justify;
+}
+
+.revtProcessTmct_cont dd{
+    width: 52px;
+    height: 70px;
+}
+
+.tmct_hreo_pic{
+    width: 40px;
+    height: 40px;
+    margin: 5px auto 0;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.tmct_hreo_pic img{
+    margin-bottom: -3px
+}
+
+.tmct_hreo_name{
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-top: 3px;
+    color: #8c8c8c;
+}
+
+.repoTmct_btn{
+    width: 100%;
+    height: 35px;
+    background: -webkit-linear-gradient(left, #e62a32, #e22454);
+    margin-top: 2%;
+    text-align: center;
+    line-height: 35px;
+    color: #fff;
+    border-radius: 6px;
+    letter-spacing: 1.5px;
+    font-size: 1.4rem;
+}
+
+@media screen and (min-width: 768px) and (orientation:portrait){
+    .revtProcessTmct_cont dd {
+        width: 120px;
+        height: 100px;
+    }
+
+    .tmct_hreo_pic {
+        width: 70px;
+        height: 70px;
+    }
+}
+
+@media screen and (min-width: 768px) and (orientation:landscape){
+    .revtProcessTmct_cont dd {
+        width: 120px;
+        height: 100px;
+    }
+
+    .tmct_hreo_pic {
+        width: 70px;
+        height: 70px;
+    }
+}

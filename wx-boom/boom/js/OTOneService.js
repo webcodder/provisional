@@ -4,43 +4,50 @@
 $(function () {
 
     var thisApi = {
-        statue: {dev: "mock/statue.json",
+        statue: {
+            dev: "mock/statue.json",
             test: "http://192.168.1.150:9000/wx/school/v1.0/statue",
             product: "/wx/school/v1.0/statue"
         },
         //是否显示评论的接口
         evaluate: {
             dev: "mock/evaluate.json",
-            test: "http://192.168.1.150:9000/wx/school/v1.0/oto/lol/hasNeedEvaluate?studentNum=666",
-            product: "/wx/school/v1.0/evaluate"
+            test: "http://192.168.1.150:9000/wx/school/v1.0/oto/lol/hasNeedEvaluate",
+            product: "/wx/school/v1.0/oto/lol/hasNeedEvaluate"
+        },
+
+        teacher: {
+            dev: "mock/teacher.json",
+            test: "http://192.168.1.150:9000/wx/school/v1.0/oto/lol/allTeacher",
+            product: "/wx/school/v1.0/ssj /lol/allTeacher"
         },
         //获取我的预约信息接口
         appoint: {
             dev: "mock/appoint.json",
             test: "http://192.168.1.150:9000/wx/school/v1.0/oto/lol/statue",
-            product: "/wx/school/v1.0/appoint"
+            product: "/wx/school/v1.0/oto/lol/statue"
         },
 
         //获取推荐老师的接口
         recommend: {
             dev: "mock/recommend.json",
             test: "http://192.168.1.150:9000/wx/school/v1.0/oto/lol/recommend",
-            product: "/wx/school/v1.0/recommend/"
+            product: "/wx/school/v1.0/oto/lol/recommend"
         },
         //获取最新动态的接口
         dynamics: {
             dev: "mock/dynamics.json",
             test: "http://192.168.1.150:9000/wx/school/v1.0/oto/lol/latestDynamics",
-            product: "/wx/school/v1.0/dynamics"
+            product: "/wx/school/v1.0/oto/lol/latestDynamics"
         }
     };
     bMock.setFace(thisApi);
-    bMock.setEnv("dev")
+    bMock.setEnv("product");
 
 
     //获取登录状态
     function getStatus() {
-        $.get(bMock.getFace("evaluate"), function (data, status) {
+        $.get(bMock.getFace("statue"), function (data, status) {
             if (!data.data) {
                 window.location.href = "index.html?" + window.location.pathname + window.location.search;
             } else {
@@ -48,6 +55,29 @@ $(function () {
             }
         });
     }
+
+    //学员userId查询
+    var studentId;
+    var studentNum;
+
+    function getStudent() {
+        $.ajax
+        ({
+            async: false,
+            url: bMock.getFace("statue"),
+            success: function (data) {
+                if (!data.data) {
+                    window.location.href = "index.html";
+                    return;
+                }
+                studentId = data.data.userInfo.userId;
+                studentNum = data.data.student.studentNum;
+            }
+        });
+    }
+
+    getStudent();
+
 
     //时间戳转换
     function formatDate(now) {
@@ -60,92 +90,237 @@ $(function () {
         return month + " 月 " + date + " 日 " + " ( " + weekDay[week] + " ) " + hour + ":" + minute;
     }
 
-    //老师信息查询
+    //时间戳转换1
+    function formatDate1(now) {
+        var month = now.getMonth() + 1;
+        var date = now.getDate();
+        var week = now.getDay();
+        var weekDay = ["周日", "周一", "周二", "周三", "周四", "周五", "周六"];
+        var hour = now.getHours();
+        var minute = now.getMinutes();
+        return month + "-" + date + " " + hour + ":" + minute;
+    }
+
+    //获取我的预约成功返回的信息
+    //var appointTime;
+    //var teachRange;
+    //var teacher;
+    //function appointSuccess() {
+    //    $.ajax({
+    //        url: bMock.getFace("appoint"),
+    //        async: false,
+    //        type:"get",
+    //        dataType: "json",
+    //        success: function(data, status){
+    //            appointTime = formatDate1(new Date(data.data.lolServiceApplyDetailResponse.appointTime));
+    //            teachRange = data.data.lolServiceApplyDetailResponse.teachRange;
+    //            teacher = data.data.lolServiceApplyDetailResponse.teacher;
+    //
+    //            // console.log(teachRange);
+    //            // console.log(teacher);
+    //            // console.log(appointTime);
+    //        }
+    //    });
+    //}
+
+    //获取当前系统时间
+    var localtime;
+
+    function getlocaltime() {
+        localtime = formatDate1(new Date());
+    }
+
+    //判断CD状态
+    function judgeCD() {
+        //系统时间
+        //console.log(localtime);
+        //预约时间
+        //console.log(appointTime);
+
+        var DateStrEnd = localtime;
+        var DateStrStart = appointTime;
+
+        var srtHours = GetDateDif(DateStrStart, DateStrEnd);
+        console.log(srtHours);
+        if (srtHours > 8760) {
+            $(".cancel_reservation_cont p").html("取消预约后会有15天cd时间。");
+        } else if (srtHours < 3) {
+            $(".cancel_reservation_cont p").html("取消预约后会有7天cd时间。");
+        } else {
+            $(".cancel_reservation_cont p").css("display", "none");
+        }
+
+        function GetDateDif(DateStrStart, DateStrEnd) {
+            var DateStart = new Date(DateStrStart);
+            var DateEnd = new Date(DateStrEnd);
+
+            if (DateStart < DateEnd) {
+            } else {
+                DateStart = new Date("1999-" + DateStrStart);
+                DateEnd = new Date("2000-" + DateStrEnd);
+            }
+
+            var ResultDate = DateEnd.getTime() - DateStart.getTime();
+            var second = ResultDate / 1000;//秒
+            var Minute = second / 60;//分
+            var hours = Minute / 60;//时
+            var day = hours / 24;//天
+
+            return hours;
+        }
+    }
+
+    //确认取消
+    function confirmCel() {
+        // console.log(teachRange);
+        // console.log(teacher);
+        // console.log(appointTime);
+        $(".bomb-box-btn .cancel").click(function () {
+            $.ajax({
+                url: "",
+                type: "POST",
+                dataType: "json",
+                data: {
+                    teacher: teacher,
+                    teachRange: teachRange,
+                    appointTime: appointTime,
+                },
+                success: function (data) {
+                    console.log("true");
+                    //确认取消
+                    $(".cancel_reservation").fadeOut();
+                    $(".resucap_dtl_right").html('<p class= "resdtght_new" > 已取消预约 </p>');
+                    ;
+                },
+                error: function () {
+                    console.log("false");
+                    $(".cancel_reservation").fadeOut();
+                    alert("取消失败");
+                    console.log(data);
+                }
+            });
+        });
+    }
+
+    function tip() {
+        //取消预约
+        $(".more .more2").click(function () {
+            $(".cancel_reservation").fadeIn();
+            $(".more-box").slideUp();
+        });
+        $(".bomb-box-btn .submit").click(function () {
+            $(".cancel_reservation").fadeOut();
+        });
+
+        //暂不取消
+        $(".bomb-box-btn .submit").click(function () {
+            $(".cancel_reservation").fadeOut();
+        });
+    }
+
+
+    //获取老师信息
+
+    var selectTeacher;
+
     function getTeacher(value) {
         var thisTeacher;
         $.ajax({
             async: false,
             url: bMock.getFace("teacher"),
             success: function (data, status) {
-                thisTeacher = data.data;
+                for (var i = 0; i < data.data.length; i++) {
+                    if (data.data[i].userId === Number(value)) {
+                        thisTeacher = data.data[i];
+                        selectTeacher = thisTeacher;
+                    }
+                }
             }
         });
         return thisTeacher;
     }
 
-    //获取预约信息
-    function getReserve(){
-        $.get("wx/school/v1.0/statue", function (data, status) {
-            if (!data.data) {
-                window.location.href = "index.html?" + window.location.pathname + window.location.search;
-            } else {
-                console.log("登录成功！");
-            }
-        });
-    }
 
     //获取评论信息
     function getEvaluate() {
-        $.get(bMock.getFace("evaluate"), function (data, status) {
+        $.get(bMock.getFace("evaluate") + '?' + 'studentNum=' + studentNum, function (data, status) {
             console.log(data.data);
             var thisEvaluateStatus = data.data;
-            if(thisEvaluateStatus.length===0){
+            if (thisEvaluateStatus.length === 0) {
                 console.log("data中没有数据");
-                $(".evaluate").show();
-            }else{
-                console.log("data中有数据");
                 $(".evaluate").hide();
+            } else {
+                console.log("data中有数据");
+                $(".evaluate").show();
             }
         });
     }
 
     //获取我的预约信息
-    function getAppoint(){
-        $.get(bMock.getFace("appoint"), function (data, status) {
+    function getAppoint() {
+        $.get(bMock.getFace("appoint") + '?' + 'studentNum=' + studentNum, function (data, status) {
+            console.log(data.data.lolServiceApplyDetailResponse);
             switch (data.data.statue) {
                 case "apply" :
                     console.log('无预约，隐藏预约模块');
-                    $(".appoint").hide()
+                    $(".appoint1").hide()
                     $(".deta").hide()
                     break;
                 case "wait" :
                     console.log('已经有申请，需要等待');
-                    var appointTime=data.data.lolServiceApplyDetailResponse.appointTime;
-                    var nowTime=new Date().getTime()
-                    if(nowTime-appointTime<=0){
+
+                    var sections = "";
+                    //$.each(data.data,function(i,v){
+                    var apTime = formatDate(new Date(data.data.lolServiceApplyDetailResponse.hopeTeachTime));
+                    var apRange = eval("(" + data.data.lolServiceApplyDetailResponse.whatStudy.whatStudy + ")").position + ' ' + data.data.lolServiceApplyDetailResponse.howTeach.howTeach + ' ' + eval("(" + data.data.lolServiceApplyDetailResponse.whatStudy.whatStudy + ")").hero.substring(0, 4);
+                    var apname = getTeacher(data.data.lolServiceApplyDetailResponse.teacherId).name;
+                    var section1 = "";
+                    section1 += '<div class="deta">' + '<div class="detailed">' + '<div class="detailed-one">' + '<img src="images/det1.gif" >' + '<span>一对一教学</span>' + '</div>' + '<div class="resucap_dtl_right">' + '<div class="timer">' + '<p>时间:</p>' + '<p>预约课程:</p>' + '<p>预约导师:</p>' + '</div>' + '<div class="timer-two">' + '<p>' + apTime + '</p><p>' + apRange + '</p><p>' + apname + '</p>' + '</div>' + '</div>' + '</div>'
+                    //
+                    sections += section1;
+
+                    //})
+                    $(".appoint1").append(sections);
+
+                    //function tim(){
+                    //    $.each(data.data.lolServiceApplyDetailResponse,function(i,v){
+                    //        return appointTime=data.data.lolServiceApplyDetailResponse[i].appointTime;
+                    //    })
+                    //    return appointTime
+                    //}
+                    //tim();
+
+                    var nowTime = new Date().getTime()
+                    if (nowTime - data.data.lolServiceApplyDetailResponse.hopeTeachTime >= 0) {
                         console.log("更改（更多==》正在进行）,渲染数据");
                         $(".appointment>a").text("正在进行");
+                        //var apTime = formatDate(new Date(data.data.lolServiceApplyDetailResponse.hopeTeachTime));
+                        //var apRange = data.data.lolServiceApplyDetailResponse.teachRange;
+                        //var apname = data.data.lolServiceApplyDetailResponse.teacher;
 
-                    }else{
+                    } else {
                         console.log("直接渲染数据");
-                        $(".timer-two p:nth-child(1)")
-                            .text(formatDate(new Date(data.data.lolServiceApplyDetailResponse.appointTime)));
 
-
-                         //    点击更多显示
-                        $(".appointment>a").click(function(){
-                            if($(".appointment>a").text()!="正在进行"){
-                                if($(".more-box").css("display")=="none" ){
-//                $(".more-box").css("display","block");
-                                    $(".more-box").show(1000);
+                        //    点击更多显示
+                        $(".appointment>a").click(function () {
+                            if ($(".appointment>a").text() != "正在进行") {
+                                if ($(".more-box").css("display") === "none") {
+                                    $(".more-box").slideDown();
                                     $(this).text("取消");
-                                }else{
-//                $(".more-box").css("display","none")
-                                    $(".more-box").hide(1000);
+                                } else {
+                                    $(".more-box").slideUp();
                                     $(this).text("更多");
                                 }
                             }
 
                         });
                         //     点击显示模态框
-                        $(".more1").click(function(){
-//            $(".bomb").show();
-                            $(".bomb").fadeIn(1000)
+                        $(".more1").click(function () {
+                            $(".bomb").fadeIn()
                         });
-                        //    点击取消显示
-                        $(".submit").click(function(){
-                            $(".bomb").fadeOut(1000);
-                            $(".more-box").hide(1000);
+                        $(".submit").click(function () {
+                            $(".bomb").fadeOut();
+                            $(".more-box").slideUp();
                             $(".appointment>a").text("更多");
                         })
 
@@ -156,56 +331,1278 @@ $(function () {
                 case "end" :
                     console.log('进入cd期');
 
-                    var sday=Math.floor(data.data.waitDays/24);
-                    var stime=data.data.waitDays-sday*24;
-                    console.log("还剩"+sday+"天"+stime+"时");
-                    $(".detailed").text("进入cd期，"+"还剩"+sday+"天"+stime+"时"+"后可以进行下次一对一教学")
-                        .css({"text-align": "center","line-height": "80px"})
+                    var sday = Math.floor(data.data.waitDays / 24);
+                    var stime = data.data.waitDays - sday * 24;
+                    console.log("还剩" + sday + "天" + stime + "时");
+                    $(".detailed").text("进入cd期，" + "还剩" + sday + "天" + stime + "时" + "后可以进行下次一对一教学")
+                        .css({"text-align": "center", "line-height": "80px"})
                     break;
                 default:
                     console.log('一对一其他状态');
-            };
+            }
+            ;
 
         });
     }
 
     //获取优秀老师信息
+    var hero = {
+        "error": false,
+        "msg": "",
+        "data": [{
+            "version": 0,
+            "disable": false,
+            "id": -1,
+            "championId": -1,
+            "ename": "无英雄",
+            "title": "无英雄",
+            "cname": "无英雄",
+            "pic": "无英雄"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 1,
+            "championId": 1,
+            "ename": "Annie",
+            "title": "黑暗之女",
+            "cname": "安妮",
+            "pic": "annie_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 2,
+            "championId": 2,
+            "ename": "Olaf",
+            "title": "狂战士",
+            "cname": "奥拉夫",
+            "pic": "olaf_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 3,
+            "championId": 3,
+            "ename": "Galio",
+            "title": "哨兵之殇",
+            "cname": "加里奥",
+            "pic": "galio_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 4,
+            "championId": 4,
+            "ename": "TwistedFate",
+            "title": "卡牌大师",
+            "cname": "崔斯特",
+            "pic": "twistedfate_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 5,
+            "championId": 5,
+            "ename": "XinZhao",
+            "title": "德邦总管",
+            "cname": "赵信",
+            "pic": "xinzhao_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 6,
+            "championId": 6,
+            "ename": "Urgot",
+            "title": "首领之傲",
+            "cname": "厄加特",
+            "pic": "urgot_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 7,
+            "championId": 7,
+            "ename": "Leblanc",
+            "title": "诡术妖姬",
+            "cname": "乐芙兰",
+            "pic": "leblanc_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 8,
+            "championId": 8,
+            "ename": "Vladimir",
+            "title": "猩红收割者",
+            "cname": "弗拉基米尔",
+            "pic": "vladimir_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 9,
+            "championId": 9,
+            "ename": "FiddleSticks",
+            "title": "末日使者",
+            "cname": "费德提克",
+            "pic": "fiddlesticks_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 10,
+            "championId": 10,
+            "ename": "Kayle",
+            "title": "审判天使",
+            "cname": "凯尔",
+            "pic": "kayle_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 11,
+            "championId": 11,
+            "ename": "MasterYi",
+            "title": "无极剑圣",
+            "cname": "易",
+            "pic": "masteryi_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 12,
+            "championId": 12,
+            "ename": "Alistar",
+            "title": "牛头酋长",
+            "cname": "阿利斯塔",
+            "pic": "alistar_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 13,
+            "championId": 13,
+            "ename": "Ryze",
+            "title": "流浪法师",
+            "cname": "瑞兹",
+            "pic": "ryze_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 14,
+            "championId": 14,
+            "ename": "Sion",
+            "title": "亡灵战神",
+            "cname": "赛恩",
+            "pic": "sion_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 15,
+            "championId": 15,
+            "ename": "Sivir",
+            "title": "战争女神",
+            "cname": "希维尔",
+            "pic": "sivir_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 16,
+            "championId": 16,
+            "ename": "Soraka",
+            "title": "众星之子",
+            "cname": "索拉卡",
+            "pic": "soraka_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 17,
+            "championId": 17,
+            "ename": "Teemo",
+            "title": "迅捷斥候",
+            "cname": "提莫",
+            "pic": "teemo_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 18,
+            "championId": 18,
+            "ename": "Tristana",
+            "title": "麦林炮手",
+            "cname": "崔丝塔娜",
+            "pic": "tristana_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 19,
+            "championId": 19,
+            "ename": "Warwick",
+            "title": "嗜血猎手",
+            "cname": "沃里克",
+            "pic": "warwick_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 20,
+            "championId": 20,
+            "ename": "Nunu",
+            "title": "雪人骑士",
+            "cname": "努努",
+            "pic": "nunu_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 21,
+            "championId": 21,
+            "ename": "MissFortune",
+            "title": "赏金猎人",
+            "cname": "厄运小姐",
+            "pic": "missfortune_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 22,
+            "championId": 22,
+            "ename": "Ashe",
+            "title": "寒冰射手",
+            "cname": "艾希",
+            "pic": "ashe_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 23,
+            "championId": 23,
+            "ename": "Tryndamere",
+            "title": "蛮族之王",
+            "cname": "泰达米尔",
+            "pic": "tryndamere_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 24,
+            "championId": 24,
+            "ename": "Jax",
+            "title": "武器大师",
+            "cname": "贾克斯",
+            "pic": "jax_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 25,
+            "championId": 25,
+            "ename": "Morgana",
+            "title": "堕落天使",
+            "cname": "莫甘娜",
+            "pic": "morgana_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 26,
+            "championId": 26,
+            "ename": "Zilean",
+            "title": "时光守护者",
+            "cname": "基兰",
+            "pic": "zilean_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 27,
+            "championId": 27,
+            "ename": "Singed",
+            "title": "炼金术士",
+            "cname": "辛吉德",
+            "pic": "singed_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 28,
+            "championId": 28,
+            "ename": "Evelynn",
+            "title": "寡妇制造者",
+            "cname": "伊芙琳",
+            "pic": "evelynn_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 29,
+            "championId": 29,
+            "ename": "Twitch",
+            "title": "瘟疫之源",
+            "cname": "图奇",
+            "pic": "twitch_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 30,
+            "championId": 30,
+            "ename": "Karthus",
+            "title": "死亡颂唱者",
+            "cname": "卡尔萨斯",
+            "pic": "karthus_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 31,
+            "championId": 31,
+            "ename": "Chogath",
+            "title": "虚空恐惧",
+            "cname": "科'加斯",
+            "pic": "chogath_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 32,
+            "championId": 32,
+            "ename": "Amumu",
+            "title": "殇之木乃伊",
+            "cname": "阿木木",
+            "pic": "amumu_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 33,
+            "championId": 33,
+            "ename": "Rammus",
+            "title": "披甲龙龟",
+            "cname": "拉莫斯",
+            "pic": "rammus_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 34,
+            "championId": 34,
+            "ename": "Anivia",
+            "title": "冰晶凤凰",
+            "cname": "艾尼维亚",
+            "pic": "anivia_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 35,
+            "championId": 35,
+            "ename": "Shaco",
+            "title": "恶魔小丑",
+            "cname": "萨科",
+            "pic": "shaco_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 36,
+            "championId": 36,
+            "ename": "DrMundo",
+            "title": "祖安狂人",
+            "cname": "蒙多医生",
+            "pic": "drmundo_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 37,
+            "championId": 37,
+            "ename": "Sona",
+            "title": "琴瑟仙女",
+            "cname": "娑娜",
+            "pic": "sona_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 38,
+            "championId": 38,
+            "ename": "Kassadin",
+            "title": "虚空行者",
+            "cname": "卡萨丁",
+            "pic": "kassadin_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 39,
+            "championId": 39,
+            "ename": "Irelia",
+            "title": "刀锋意志",
+            "cname": "艾瑞莉娅",
+            "pic": "irelia_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 40,
+            "championId": 40,
+            "ename": "Janna",
+            "title": "风暴之怒",
+            "cname": "迦娜",
+            "pic": "janna_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 41,
+            "championId": 41,
+            "ename": "Gangplank",
+            "title": "海洋之灾",
+            "cname": "普朗克",
+            "pic": "gangplank_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 42,
+            "championId": 42,
+            "ename": "Corki",
+            "title": "英勇投弹手",
+            "cname": "库奇",
+            "pic": "corki_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 43,
+            "championId": 43,
+            "ename": "Karma",
+            "title": "天启者",
+            "cname": "卡尔玛",
+            "pic": "karma_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 44,
+            "championId": 44,
+            "ename": "Taric",
+            "title": "宝石骑士",
+            "cname": "塔里克",
+            "pic": "taric_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 45,
+            "championId": 45,
+            "ename": "Veigar",
+            "title": "邪恶小法师",
+            "cname": "维迦",
+            "pic": "veigar_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 48,
+            "championId": 48,
+            "ename": "Trundle",
+            "title": "巨魔之王",
+            "cname": "特朗德尔",
+            "pic": "trundle_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 50,
+            "championId": 50,
+            "ename": "Swain",
+            "title": "策士统领",
+            "cname": "斯维因",
+            "pic": "swain_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 51,
+            "championId": 51,
+            "ename": "Caitlyn",
+            "title": "皮城女警",
+            "cname": "凯特琳",
+            "pic": "caitlyn_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 53,
+            "championId": 53,
+            "ename": "Blitzcrank",
+            "title": "蒸汽机器人",
+            "cname": "布里茨",
+            "pic": "blitzcrank_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 54,
+            "championId": 54,
+            "ename": "Malphite",
+            "title": "熔岩巨兽",
+            "cname": "墨菲特",
+            "pic": "malphite_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 55,
+            "championId": 55,
+            "ename": "Katarina",
+            "title": "不祥之刃",
+            "cname": "卡特琳娜",
+            "pic": "katarina_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 56,
+            "championId": 56,
+            "ename": "Nocturne",
+            "title": "永恒梦魇",
+            "cname": "魔腾",
+            "pic": "nocturne_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 57,
+            "championId": 57,
+            "ename": "Maokai",
+            "title": "扭曲树精",
+            "cname": "茂凯",
+            "pic": "maokai_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 58,
+            "championId": 58,
+            "ename": "Renekton",
+            "title": "荒漠屠夫",
+            "cname": "雷克顿",
+            "pic": "renekton_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 59,
+            "championId": 59,
+            "ename": "JarvanIV",
+            "title": "德玛西亚皇子",
+            "cname": "嘉文四世",
+            "pic": "jarvaniv_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 60,
+            "championId": 60,
+            "ename": "Elise",
+            "title": "蜘蛛女皇",
+            "cname": "伊莉丝",
+            "pic": "elise_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 61,
+            "championId": 61,
+            "ename": "Orianna",
+            "title": "发条魔灵",
+            "cname": "奥莉安娜",
+            "pic": "orianna_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 62,
+            "championId": 62,
+            "ename": "MonkeyKing",
+            "title": "齐天大圣",
+            "cname": "孙悟空",
+            "pic": "monkeyking_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 63,
+            "championId": 63,
+            "ename": "Brand",
+            "title": "复仇焰魂",
+            "cname": "布兰德",
+            "pic": "brand_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 64,
+            "championId": 64,
+            "ename": "LeeSin",
+            "title": "盲僧",
+            "cname": "李青",
+            "pic": "leesin_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 67,
+            "championId": 67,
+            "ename": "Vayne",
+            "title": "暗夜猎手",
+            "cname": "薇恩",
+            "pic": "vayne_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 68,
+            "championId": 68,
+            "ename": "Rumble",
+            "title": "机械公敌",
+            "cname": "兰博",
+            "pic": "rumble_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 69,
+            "championId": 69,
+            "ename": "Cassiopeia",
+            "title": "魔蛇之拥",
+            "cname": "卡西奥佩娅",
+            "pic": "cassiopeia_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 72,
+            "championId": 72,
+            "ename": "Skarner",
+            "title": "水晶先锋",
+            "cname": "斯卡纳",
+            "pic": "skarner_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 74,
+            "championId": 74,
+            "ename": "Heimerdinger",
+            "title": "大发明家",
+            "cname": "黑默丁格",
+            "pic": "heimerdinger_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 75,
+            "championId": 75,
+            "ename": "Nasus",
+            "title": "沙漠死神",
+            "cname": "内瑟斯",
+            "pic": "nasus_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 76,
+            "championId": 76,
+            "ename": "Nidalee",
+            "title": "狂野女猎手",
+            "cname": "奈德丽",
+            "pic": "nidalee_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 77,
+            "championId": 77,
+            "ename": "Udyr",
+            "title": "兽灵行者",
+            "cname": "乌迪尔",
+            "pic": "udyr_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 78,
+            "championId": 78,
+            "ename": "Poppy",
+            "title": "圣锤之毅",
+            "cname": "波比",
+            "pic": "poppy_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 79,
+            "championId": 79,
+            "ename": "Gragas",
+            "title": "酒桶",
+            "cname": "古拉加斯",
+            "pic": "gragas_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 80,
+            "championId": 80,
+            "ename": "Pantheon",
+            "title": "战争之王",
+            "cname": "潘森",
+            "pic": "pantheon_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 81,
+            "championId": 81,
+            "ename": "Ezreal",
+            "title": "探险家",
+            "cname": "伊泽瑞尔",
+            "pic": "ezreal_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 82,
+            "championId": 82,
+            "ename": "Mordekaiser",
+            "title": "金属大师",
+            "cname": "莫德凯撒",
+            "pic": "mordekaiser_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 83,
+            "championId": 83,
+            "ename": "Yorick",
+            "title": "掘墓者",
+            "cname": "约里克",
+            "pic": "yorick_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 84,
+            "championId": 84,
+            "ename": "Akali",
+            "title": "暗影之拳",
+            "cname": "阿卡丽",
+            "pic": "akali_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 85,
+            "championId": 85,
+            "ename": "Kennen",
+            "title": "狂暴之心",
+            "cname": "凯南",
+            "pic": "kennen_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 86,
+            "championId": 86,
+            "ename": "Garen",
+            "title": "德玛西亚之力",
+            "cname": "盖伦",
+            "pic": "garen_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 89,
+            "championId": 89,
+            "ename": "Leona",
+            "title": "曙光女神",
+            "cname": "蕾欧娜",
+            "pic": "leona_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 90,
+            "championId": 90,
+            "ename": "Malzahar",
+            "title": "虚空先知",
+            "cname": "玛尔扎哈",
+            "pic": "malzahar_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 91,
+            "championId": 91,
+            "ename": "Talon",
+            "title": "刀锋之影",
+            "cname": "泰隆",
+            "pic": "talon_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 92,
+            "championId": 92,
+            "ename": "Riven",
+            "title": "放逐之刃",
+            "cname": "锐雯",
+            "pic": "riven_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 96,
+            "championId": 96,
+            "ename": "KogMaw",
+            "title": "深渊巨口",
+            "cname": "克格'莫",
+            "pic": "kogmaw_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 98,
+            "championId": 98,
+            "ename": "Shen",
+            "title": "暮光之眼",
+            "cname": "慎",
+            "pic": "shen_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 99,
+            "championId": 99,
+            "ename": "Lux",
+            "title": "光辉女郎",
+            "cname": "拉克丝",
+            "pic": "lux_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 101,
+            "championId": 101,
+            "ename": "Xerath",
+            "title": "远古巫灵",
+            "cname": "泽拉斯",
+            "pic": "xerath_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 102,
+            "championId": 102,
+            "ename": "Shyvana",
+            "title": "龙血武姬",
+            "cname": "希瓦娜",
+            "pic": "shyvana_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 103,
+            "championId": 103,
+            "ename": "Ahri",
+            "title": "九尾妖狐",
+            "cname": "阿狸",
+            "pic": "ahri_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 104,
+            "championId": 104,
+            "ename": "Graves",
+            "title": "法外狂徒",
+            "cname": "格雷福斯",
+            "pic": "graves_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 105,
+            "championId": 105,
+            "ename": "Fizz",
+            "title": "潮汐海灵",
+            "cname": "菲兹",
+            "pic": "fizz_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 106,
+            "championId": 106,
+            "ename": "Volibear",
+            "title": "雷霆咆哮",
+            "cname": "沃利贝尔",
+            "pic": "volibear_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 107,
+            "championId": 107,
+            "ename": "Rengar",
+            "title": "傲之追猎者",
+            "cname": "雷恩加尔",
+            "pic": "rengar_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 110,
+            "championId": 110,
+            "ename": "Varus",
+            "title": "惩戒之箭",
+            "cname": "韦鲁斯",
+            "pic": "varus_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 111,
+            "championId": 111,
+            "ename": "Nautilus",
+            "title": "深海泰坦",
+            "cname": "诺提勒斯",
+            "pic": "nautilus_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 112,
+            "championId": 112,
+            "ename": "Viktor",
+            "title": "机械先驱",
+            "cname": "维克托",
+            "pic": "viktor_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 113,
+            "championId": 113,
+            "ename": "Sejuani",
+            "title": "凛冬之怒",
+            "cname": "瑟庄妮",
+            "pic": "sejuani_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 114,
+            "championId": 114,
+            "ename": "Fiora",
+            "title": "无双剑姬",
+            "cname": "菲奥娜",
+            "pic": "fiora_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 115,
+            "championId": 115,
+            "ename": "Ziggs",
+            "title": "爆破鬼才",
+            "cname": "吉格斯",
+            "pic": "ziggs_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 117,
+            "championId": 117,
+            "ename": "Lulu",
+            "title": "仙灵女巫",
+            "cname": "璐璐",
+            "pic": "lulu_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 119,
+            "championId": 119,
+            "ename": "Draven",
+            "title": "荣耀行刑官",
+            "cname": "德莱文",
+            "pic": "draven_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 120,
+            "championId": 120,
+            "ename": "Hecarim",
+            "title": "战争之影",
+            "cname": "赫卡里姆",
+            "pic": "hecarim_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 121,
+            "championId": 121,
+            "ename": "Khazix",
+            "title": "虚空掠夺者",
+            "cname": "卡兹克",
+            "pic": "khazix_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 122,
+            "championId": 122,
+            "ename": "Darius",
+            "title": "诺克萨斯之手",
+            "cname": "德莱厄斯",
+            "pic": "darius_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 126,
+            "championId": 126,
+            "ename": "Jayce",
+            "title": "未来守护者",
+            "cname": "杰斯",
+            "pic": "jayce_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 127,
+            "championId": 127,
+            "ename": "Lissandra",
+            "title": "冰霜女巫",
+            "cname": "丽桑卓",
+            "pic": "lissandra_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 131,
+            "championId": 131,
+            "ename": "Diana",
+            "title": "皎月女神",
+            "cname": "黛安娜",
+            "pic": "diana_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 133,
+            "championId": 133,
+            "ename": "Quinn",
+            "title": "德玛西亚之翼",
+            "cname": "奎因",
+            "pic": "quinn_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 134,
+            "championId": 134,
+            "ename": "Syndra",
+            "title": "暗黑元首",
+            "cname": "辛德拉",
+            "pic": "syndra_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 136,
+            "championId": 136,
+            "ename": "AurelionSol",
+            "title": "铸星龙王",
+            "cname": "奥瑞利安索尔",
+            "pic": "AurelionSol_Square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 143,
+            "championId": 143,
+            "ename": "Zyra",
+            "title": "荆棘之兴",
+            "cname": "婕拉",
+            "pic": "zyra_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 150,
+            "championId": 150,
+            "ename": "Gnar",
+            "title": "迷失之牙",
+            "cname": "纳尔",
+            "pic": "gnar_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 154,
+            "championId": 154,
+            "ename": "Zac",
+            "title": "生化魔人",
+            "cname": "扎克",
+            "pic": "zac_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 157,
+            "championId": 157,
+            "ename": "Yasuo",
+            "title": "疾风剑豪",
+            "cname": "亚索",
+            "pic": "yasuo_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 161,
+            "championId": 161,
+            "ename": "Velkoz",
+            "title": "虚空之眼",
+            "cname": "维克兹",
+            "pic": "velkoz_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 163,
+            "championId": 163,
+            "ename": "Taliyah",
+            "title": "岩雀",
+            "cname": "塔莉垭",
+            "pic": "Taliyah_Square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 201,
+            "championId": 201,
+            "ename": "Braum",
+            "title": "弗雷尔卓德之心",
+            "cname": "布隆",
+            "pic": "braum_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 202,
+            "championId": 202,
+            "ename": "Jhin",
+            "title": "戏命师",
+            "cname": "烬",
+            "pic": "Jhin_Square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 203,
+            "championId": 203,
+            "ename": "Kindred",
+            "title": "永猎双子",
+            "cname": "千珏",
+            "pic": "Kindred_Square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 222,
+            "championId": 222,
+            "ename": "Jinx",
+            "title": "暴走萝莉",
+            "cname": "金克丝",
+            "pic": "jinx_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 223,
+            "championId": 223,
+            "ename": "TahmKench",
+            "title": "河流之王",
+            "cname": "塔姆",
+            "pic": "TahmKench_Square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 236,
+            "championId": 236,
+            "ename": "Lucian",
+            "title": "圣枪游侠",
+            "cname": "卢锡安",
+            "pic": "lucian_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 238,
+            "championId": 238,
+            "ename": "Zed",
+            "title": "影流之主",
+            "cname": "劫",
+            "pic": "zed_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 245,
+            "championId": 245,
+            "ename": "Ekko",
+            "title": "时间刺客",
+            "cname": "艾克",
+            "pic": "Ekko_Square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 254,
+            "championId": 254,
+            "ename": "Vi",
+            "title": "皮城执法官",
+            "cname": "蔚",
+            "pic": "vi_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 266,
+            "championId": 266,
+            "ename": "Aatrox",
+            "title": "暗裔剑魔",
+            "cname": "亚托克斯",
+            "pic": "aatrox_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 267,
+            "championId": 267,
+            "ename": "Nami",
+            "title": "唤潮鲛姬",
+            "cname": "娜美",
+            "pic": "nami_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 268,
+            "championId": 268,
+            "ename": "Azir",
+            "title": "沙漠皇帝",
+            "cname": "阿兹尔",
+            "pic": "azir_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 412,
+            "championId": 412,
+            "ename": "Thresh",
+            "title": "魂锁典狱长",
+            "cname": "锤石",
+            "pic": "thresh_square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 420,
+            "championId": 420,
+            "ename": "Illaoi",
+            "title": "海兽祭司",
+            "cname": "俄洛伊",
+            "pic": "illaoi_Square_0.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 421,
+            "championId": 421,
+            "ename": "RekSai",
+            "title": "虚空遁地兽",
+            "cname": "雷克塞",
+            "pic": "RekSai.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 429,
+            "championId": 429,
+            "ename": "Kalista",
+            "title": "复仇之矛",
+            "cname": "卡莉丝塔",
+            "pic": "Kalista.png"
+        }, {
+            "version": 0,
+            "disable": false,
+            "id": 432,
+            "championId": 432,
+            "ename": "Bard",
+            "title": "星界游神",
+            "cname": "巴德",
+            "pic": "Bard_Square_0.png"
+        }],
+        "length": 132,
+        "rtCode": null
+    }
+
+
+
+
     function getRecommend() {
         $.get(bMock.getFace("recommend"), function (data, status) {
             console.log(data.data);
-            var sections="";
-            $.each(data.data,function(i,v){
-                var section1="";
-                section1+= '<div class="teac2 teac">'+'<div class="teacher-in">'+'<img src="images/teacher.png" >'+'<div class="teacherInt2 teacherInt">'+'<h3>'+data.data[i].name+'</h3>'+'<a href="javascript:;">明天预约</a>'+'</div>'+'<div class="introduce">'+'<div class="introduce-one">'+'<p>授课范围:</p>'+'<p>累计完成:</p>'+'<p>擅长英雄:</p>'+'</div>'+'<div class="introduce-two2 introduce-two">'+'<p>'+data.data[i].teachRange+'</p>'+'<p>378次一对一教学</p>'+'<p>'+'<img class="in-img" src="'+data.data[i].imgs+'" >'+'<img class="in-img" src="images/in.png" >'+'<img class="in-img" src="images/in.png" >'+'<img class="in-img" src="images/in.png" >'+'<img class="in-img" src="images/in.png" >'+'</p>'+'</div>'+'</div>'+'<div class="clear"></div>'+'<p class="introduce-p">'+'<a class="introduce-th" href="revtProcessTmct.html?'+data.data[i].userId+'">预约老师</a>'+'</p>'+'</div>'+'</div>'
 
-                sections+=section1;
+            var sections = "";
+            $.each(data.data, function (i, v) {
+                console.log(getTeacher(data.data[i].userId));
+                //selectTeacher
+                var imgages = "";
+                //$.each(data.data[i].imgs,function(k,v){
+                //    var images1="";
+                //    images1+='<img class="in-img" src="'+data.data[i].imgs[k]+'" >';
+                //    imgages+=images1;
+                //});
+
+                var pp = imgages;
+
+                var section1 = "";
+                section1 += '<div class="teac2 teac">' + '<div class="teacher-in">' + '<img src="images/teacher.png" >' + '<div class="teacherInt2 teacherInt">' + '<h3>' + data.data[i].name + '</h3>' + '<a href="javascript:;">明天预约</a>' + '</div>' + '<div class="introduce">' + '<div class="introduce-one">' + '<p>授课范围:</p>' + '<p>累计完成:</p>' + '<p>擅长英雄:</p>' + '</div>' + '<div class="introduce-two2 introduce-two">' + '<p class="imags">' + data.data[i].teachRange + '</p>' + '<p>' + data.data[i].teachRange + '</p>' + '<p >' + pp + '</p>' + '</div>' + '</div>' + '<div class="clear"></div>' + '<p class="introduce-p">' + '<a class="introduce-th" href="revtProcessTmct.html?' + data.data[i].userId + '">预约老师</a>' + '</p>' + '</div>' + '</div>'
+
+                sections += section1;
 
             })
             $(".appointt").append(sections)
-
-        });
-    };
-
-
-
-
-
-    //获取最新动态信息
-    function getDynamics(){
-        $.get(bMock.getFace("dynamics"), function (data, status) {
-            console.log(data.data);
-            var thisDynamicsStatus = data.data;
-            $(".firsta").text((new Date(thisDynamicsStatus[0].teachFinishTime).getMinutes())+"分钟前");
-            //studentEvaluate
-            $(".dynamic-two1>div>span").text(thisDynamicsStatus[0].evaluateDetailDto.studentEvaluate);
-            $(".dynamic-two2>div>span").text(thisDynamicsStatus[0].boomServiceTeacherEvaluateDto.teacherEvaluate);
 
 
         });
     }
 
 
+    //获取最新动态信息
+    function getDynamics() {
+        $.get(bMock.getFace("dynamics"), function (data, status) {
+            console.log(data.data);
+            if (data.data.length < 1) {
 
+                $(".appoint3").append("<p>后台无最新动态数据</p>")
+            } else {
+                var longtime = (new Date(data.data[0].teachFinishTime).getMinutes()) + "分钟前";
+                var teahsay = data.data[0].boomServiceTeacherEvaluateDto.teacherEvaluate;
+                var stusay = data.data[0].evaluateDetailDto.studentEvaluate;
+
+
+                var sections = "";
+                $.each(data.data, function (i, v) {
+
+                    var section1 = "";
+                    section1 += '<div class="dynamices">' + '<div class="dynamic-fir">' + '<span>银时老师和8036学院完成一对一训练。</span>' + '<a class="firsta" href="javascript:;">' + longtime + '</a>' + '</div>' + '<div class="dynamic-two1 dynamic-two">' + '<img src="images/inn.png" >' + '<div>' + '<h3>银时老师</h3>' + '<span>' + teahsay + '</span>' + '</div>' + '</div>' + '<div class="dynamic-two2 dynamic-two">' + '<img src="images/inn.png" >' + '<div>' + '<h3>女王大人葵</h3>' + '<span>' + stusay + '</span>' + '</div>' + '</div>'
+
+                    sections += section1;
+
+                })
+                $(".appoint3").append(sections);
+            }
+
+
+        });
+    }
 
 
     getStatus();
@@ -213,5 +1610,10 @@ $(function () {
     getAppoint();
     getRecommend();
     getDynamics();
+    //appointSuccess();
+    //getlocaltime();
+    //judgeCD();
+    //confirmCel();
+    //tip();
 
 })

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="b-mock.js"></script>
+</head>
+<body>
+<script>
+    bMock.setFace({login: {dev: "/login.json", test: "/login", product: "/login", t: "/ttttt"}})
+    bMock.setEnv("dev")
+    alert(bMock.getFace("login"))
+</script>
+</body>
+</html>

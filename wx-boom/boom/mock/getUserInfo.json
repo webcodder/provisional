@@ -1,0 +1,20 @@
+{
+  "error": false,
+  "msg": "获取用户信息成功！",
+  "data": {
+    "version": 1,
+    "disable": false,
+    "id": 1,
+    "userId": 1,
+    "age": 1,
+    "sex": "1",
+    "province": "1",
+    "city": "1",
+    "area": "1",
+    "phone": "1",
+    "qq": "1",
+    "yy": "1"
+  },
+  "length": null,
+  "rtCode": null
+}

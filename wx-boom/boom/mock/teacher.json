@@ -11,10 +11,11 @@
       "canApply": true,
       "num": 1,
       "now": 1479957409256,
-      "teacherName":"风雨老师1"
+      "teacherName":"风雨老师1",
+      "imgs":["images/repo_yxtx_cs.png","images/repo_yxtx_cs.png"]
     },
     {
-      "name": "111",
+      "name": "222",
       "teachRange": "我是个很厉害的人2",
       "goodAtChampions": [],
       "userId": 2,
@@ -22,9 +23,34 @@
       "canApply": true,
       "num": 0,
       "now": 1479957409265,
-      "teacherName":"风雨老师2"
+      "teacherName":"风雨老师2",
+      "imgs":["images/repo_yxtx_cs.png"]
+    },
+    {
+      "name": "333",
+      "teachRange": "我是个很厉害的人3",
+      "goodAtChampions": [],
+      "userId": 3,
+      "canApplyDate": 1479957409265,
+      "canApply": true,
+      "num": 0,
+      "now": 1479957409265,
+      "teacherName":"风雨老师3",
+      "imgs":["images/repo_yxtx_cs.png"]
+    },
+    {
+      "name": "444",
+      "teachRange": "我是个很厉害的人4",
+      "goodAtChampions": [],
+      "userId": 4,
+      "canApplyDate": 1479957409265,
+      "canApply": true,
+      "num": 0,
+      "now": 1479957409265,
+      "teacherName":"风雨老师4",
+      "imgs":["images/repo_yxtx_cs.png"]
     }
   ],
-  "length": 2,
+  "length": 3,
   "rtCode": null
 }

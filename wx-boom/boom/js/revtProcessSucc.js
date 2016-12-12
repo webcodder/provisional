@@ -3,27 +3,56 @@ $(function(){
     var thisApi = {
         statue: {
             dev: "mock/statue.json",
-            test: "http://192.168.1.150:9000/wx/school/v1.0/oto/lol/hasNeedEvaluate?studentNum=666",
+            test: "http://192.168.1.150:9000/wx/school/v1.0/statue",
             product: "/wx/school/v1.0/statue"
         },
-        evaluate: {
-            dev: "mock/evaluate.json",
-            test: "http://192.168.1.150:9000/wx/school/v1.0/oto/lol/hasNeedEvaluate",
-            product: "/wx/school/v1.0/evaluate"
+        teacher: {
+            dev: "mock/teacher.json",
+            test: "http://192.168.1.150:9000/wx/school/v1.0/ssj /lol/allTeacher",
+            product: "/wx/school/v1.0/ssj /lol/allTeacher"
         },
         revtProcessChta: {
             dev: "mock/revtProcessChta.json",
-            test: "http://192.168.1.150:9000/wx/school/v1.0/oto /lol/allTeacher",
-            product: "/wx/school/v1.0/evaluate"
+            test: "http://192.168.1.150:9000/wx/school/v1.0/oto/lol/allTeacher",
+            product: "/wx/school/v1.0/oto/lol/allTeacher"
         },
         appointSuccess: {
             dev: "mock/appointSuccess.json",
-            test: "http://192.168.1.150:9000/wx/school/v1.0/oto/lol/watch",
+            test: "http://192.168.1.150:9000/wx/school/v1.0/serviceStatue",
+            product: "/wx/school/v1.0/serviceStatue"
         },
     };
     bMock.setFace(thisApi);
-    bMock.setEnv("dev");
-    console.log(bMock.getFace("revtProcessChta"));
+    bMock.setEnv("product");
+    //console.log(bMock.getFace("revtProcessChta"));
+
+    //获取登录状态
+    function getStatus() {
+        $.get(bMock.getFace("statue"), function (data, status) {
+            if (!data.data) {
+                console.log("登录失败！");
+                window.location.href = "index.html?" + window.location.pathname + window.location.search;
+            } else {
+                console.log("登录成功！");
+            }
+        });
+    }
+
+    //学员applyId查询
+    var applyId;
+    var studentNum;
+    function getStudent() {
+        $.ajax
+            ({
+                async: false,
+                url: bMock.getFace("statue"),
+                success: function (data) {
+                    applyId = data.data.student.studentId;
+                    studentNum = data.data.student.studentNum;
+                    //console.log(studentNum);
+            }
+        });
+    }
 
     //时间戳转换
     function formatDate(now) {
@@ -36,7 +65,7 @@ $(function(){
         return month + "月" + date + "日" + " ( " + weekDay[week] + " ) " + hour + ":" + minute;
     }
 
-    //时间戳转换
+    //时间戳转换1
     function formatDate1(now) {
         var month = now.getMonth() + 1;
         var date = now.getDate();
@@ -51,7 +80,6 @@ $(function(){
     var localtime;
     function getlocaltime(){
         localtime = formatDate1(new Date());
-        //localtime = formatDate(new Date());
     }
 
     //预约时间查询
@@ -60,10 +88,9 @@ $(function(){
         $.ajax
             ({
                 async: false,
-                url: bMock.getFace("appointSuccess"),
+                url: bMock.getFace("appointSuccess") + "?studentNum=" + studentNum ,
                 success: function (data) {
-                thisApontime = formatDate1(new Date(data.data.applyTime));
-                //thisApontime = data.data.applyTime;
+                thisApontime = formatDate1(new Date(data.data.oto.lolServiceApplyDetailResponse.applyTime));
             }
         });
     }
@@ -72,10 +99,10 @@ $(function(){
     function judgeCD(){
         //系统时间
         getlocaltime();
-        //console.log(localtime);
+        console.log(localtime);
         //预约时间
         getApontime();
-        //console.log(thisApontime);
+        console.log(thisApontime);
         var DateStrEnd = localtime;
         var  DateStrStart= thisApontime;
 
@@ -109,6 +136,67 @@ $(function(){
         }
     }
 
+    //确认取消
+    function confirmCel(){
+        // console.log(teacherName);
+        // console.log(whatStudy);
+        // console.log(tt);
+        // console.log(applyId);
+        // console.log(applyId);
+        $(".bomb-box-btn .cancel").click(function(){  
+            $.ajax({
+                url: "/wx/school/v1.0/oto/lol/cancel?applyId=" + applyId,
+                type: "POST",
+                dataType: "json",
+                data:{
+                    teacherName: teacherName,
+                    whatStudy: whatStudy,
+                    applyTime: tt,
+                },
+                success: function(data){
+                    console.log("true");
+                    //确认取消
+                    $(".cancel_reservation").fadeOut();
+                    $(".resucap_dtl_right").html(`
+                        <p class="resdtght_new">已取消预约</p>
+                    `);
+                },
+                error: function(){
+                    console.log("false");
+                    $(".cancel_reservation").fadeOut();
+                    alert("取消失败");
+                }
+            });
+        });
+    }    
+
+    //提交反馈
+    function submitFeedback(){
+        $(".bomb-box-btn .commit").click(function(){
+            // console.log(applyId);
+            // console.log(studentNum);
+            // console.log("/wx/school/v1.0/submitBranch?applyId="+applyId+"&"+"studentNum="+studentNum);
+            $.ajax({
+                url: "/wx/school/v1.0/submitBranch?applyId="+applyId+"&"+"studentNum="+studentNum,
+                type: "POST",
+                dataType: "json",
+                date: {
+                    applyId: applyId,
+                    studentNum: studentNum,
+                },
+                success: function(){
+                    //console.log("true");
+                    alert("提交成功");
+                },
+                error: function(){
+                    //console.log("false");
+                    alert("提交失败");
+                }
+            });
+            $(".rencp_feedback").fadeOut();
+        });
+    }
+
     function tip(){
         //我的预约下拉框
         $(".resucap_nav a").toggle(
@@ -120,7 +208,6 @@ $(function(){
             }
         );
 
-        //提交反馈
         $(".rencp_dotel .noret_btn").click(function(){
             $(".rencp_feedback").fadeIn();
             $(".rencp_dotel").slideUp();
@@ -129,7 +216,7 @@ $(function(){
             $(".rencp_feedback").fadeOut();
         });
 
-        //确认取消
+        //暂不取消
         $(".rencp_dotel .cancel_btn").click(function(){
             $(".cancel_reservation").fadeIn();
             $(".rencp_dotel").slideUp();
@@ -139,44 +226,26 @@ $(function(){
         });
     }
 
-    //学员userId查询
-    var thisStudent;
-    function getStudent() {
-        $.ajax
-            ({
-                async: false,
-                url: bMock.getFace("statue"),
-                success: function (data) {
-                applyId = data.data.studentId;
-            }
-        });
-    }
-    getStudent();
-
-    //获取登录状态
-    function getStatus() {
-        $.get(bMock.getFace("evaluate"), function (data, status) {
-            if (!data.data) {
-                window.location.href = "index.html?" + window.location.pathname + window.location.search;
-            } else {
-                console.log("登录成功！");
-            }
-        });
-    }
-
     //获取我的预约成功返回的信息
+    var teacherId;
+    var teacherName;
+    var whatStudy;
     function appointSuccess() {
-        var teacherId;
-        var teacherName;
-
         //获取teacherId
+        //获取课程
+        //获取预约时间
         $.ajax({
-            url: bMock.getFace("appointSuccess"),
+            url: bMock.getFace("appointSuccess") + "?studentNum=" + studentNum ,
             async: false,
             type:"get",
             dataType: "json",
             success: function(data, status){
-                teacherId = data.data.teacherId;
+                teacherId = data.data.oto.lolServiceApplyDetailResponse.teacherId;
+                console.log(teacherId);
+                // whatStudy = data.data.whatStudy;
+                // tt = formatDate(new Date(data.data.applyTime));
+                // studentNum = data.data.studentNum;
+                // console.log(data.data.studentNum);
             }
         });
 
@@ -187,21 +256,30 @@ $(function(){
             url: bMock.getFace("revtProcessChta"),
             success: function (data) 
             {
+                // console.log(data.data.length);
+                // console.log(teacherId);
                 for(var i=0 ; i<data.data.length ; i++){
                     if(teacherId == data.data[i].userId){
                         teacherName = data.data[i].name;
                     }
                 }
+                console.log(teacherName);
             }
         });
 
         $.ajax({
-            url: bMock.getFace("appointSuccess") + "?applyId=" + applyId,
+            url: bMock.getFace("appointSuccess") + "?studentNum=" + studentNum ,
             type:"get",
             dataType: "json",
             success: function(data, status){
-                teacherId = data.data.teacherId;
-                var tt = formatDate(new Date(data.data.applyTime));
+                var tt = formatDate(new Date(data.data.oto.lolServiceApplyDetailResponse.hopeTeachTime));
+                var whatStudy = eval("("+data.data.oto.lolServiceApplyDetailResponse.whatStudy.whatStudy+")").position+' '+data.data.oto.lolServiceApplyDetailResponse.howTeach.howTeach+' '+eval("("+data.data.oto.lolServiceApplyDetailResponse.whatStudy.whatStudy+")").hero.substring(0,4);
+
+                // console.log(tt);
+                // console.log(data.data.whatStudy);
+                console.log(teacherName);
+                console.log(data.data.oto.lolServiceApplyDetailResponse.applyTime);
+                console.log(data.data.oto.lolServiceApplyDetailResponse.whatStudy.whatStudy);
                 $(".resucap_dtl_right").append(`
                     <ul>
                         <li>
@@ -214,7 +292,7 @@ $(function(){
                         <li>
                             <dl>
                                 <dd>预约课程：</dd>
-                                <dd>${data.data.whatStudy}</dd>
+                                <dd>${whatStudy}</dd>
                                 <div class="clear"></div>
                             </dl>
                         </li>
@@ -232,13 +310,13 @@ $(function(){
                 $(".revpros_tbx span").text("预约失败");
             },
         });
-
-
     }  
 
-    
     getStatus();
+    getStudent();
+    tip();
     appointSuccess();
     judgeCD();
-    tip();
+    confirmCel();
+    submitFeedback();
 });

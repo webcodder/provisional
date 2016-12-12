@@ -131,6 +131,11 @@
 .resucap_nav a{
     color: #999;
     display: block;
+    position: absolute;
+    width: 65px;
+    right: -16px;
+    z-index: 3;
+    text-align: center;
 }
 
 .resucap_nav li{
@@ -142,7 +147,8 @@
     position: absolute;
     width: 12px;
     top: 1px;
-    right: -17px;
+    right: -13px;
+    z-index: 1;
 }
 
 .rencp_dotel{
@@ -198,7 +204,7 @@
     height: 100%;
     background: rgba(0,0,0,0.5);
     display: none;
-    z-index: 2;
+    z-index: 3;
 }
 
 .rencp_feedback_cont{
@@ -262,7 +268,7 @@
     height: 100%;
     background: rgba(0,0,0,0.5);
     display: none;
-    z-index: 2;    
+    z-index: 3;    
 }
 
 .cancel_reservation_cont{
@@ -343,6 +349,17 @@
 .resucap_dtl_left li:first-child{
     width: 45px;
     margin-left: 6px;
+}
+
+.resdtght_new{
+    height: 100px;
+    line-height: 100px;
+    color: #666;
+}
+
+.bomb-box-btn .commit{
+    color: #4A9BFF;
+    border-right: 1px solid #ccc;
 }
 
 .resucap_dtl_right{
@@ -449,6 +466,7 @@
     top: 50%;
     transform: translate(-50%,-50%);
     box-shadow: inset 1px 1px 1px 1px #b3b2b2;
+    z-index: 1;
 }
 
 .sss_picbox:after{

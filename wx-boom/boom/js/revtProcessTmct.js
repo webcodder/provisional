@@ -1,18 +1,53 @@
 $(function(){
 
     var thisApi = {
-        statue: {dev: "mock/statue.json", test: "http://192.168.1.150:9000/wx/school/v1.0/statue", product: "/wx/school/v1.0/statue"},
-        teacher: {dev: "mock/teacher.json", test: "http://192.168.1.150:9000/wx/school/v1.0/oto /lol/allTeacher", product: "/wx/school/v1.0/teacher/"},
-        canApplyStudent: {dev: "mock/canApplyStudent.json", test: "http://192.168.1.150:9000/wx/school/v1.0/oto/lol/canApply?studentNum=666&date=2016-11-22-14", product: "/wx/school/v1.0/canApplyStudent/"},
-        canApplyStudent1: {dev: "mock/canApplyStudent1.json", test: "http://192.168.1.150:9000/wx/school/v1.0/oto/lol/canApply?studentNum=666&date=2016-11-22-14", product: "/wx/school/v1.0/canApplyStudent/"},
-        teacherSlots: {dev: "mock/teacherSlots.json", test: "http://192.168.1.150:9000/wx/school/v1.0/teacherSlots?teacherId=1&slotDay=2016-11-24-10", product: "/wx/school/v1.0/canApplyStudent/"},
-        teacherSlots1: {dev: "mock/teacherSlots1.json", test: "http://192.168.1.150:9000/wx/school/v1.0/teacherSlots?teacherId=1&slotDay=2016-11-24-10", product: "/wx/school/v1.0/canApplyStudent/"},
-        ceshi: {dev: "mock/ceshi.json", test: "http://192.168.1.150:9000/wx/school/v1.0/teacherSlots?teacherId=1&slotDay=2016-11-24-10", product: "/wx/school/v1.0/canApplyStudent/"}
+        statue: {dev: "mock/statue.json",
+            test: "http://192.168.1.150:9000/wx/school/v1.0/statue",
+            product: "/wx/school/v1.0/statue"
+        },
+        teacher: {dev: "mock/teacher.json",
+            test: "http://192.168.1.150:9000/wx/school/v1.0/oto /lol/allTeacher",
+            product: "/wx/school/v1.0/oto /lol/allTeacher"
+        },
+        canApplyStudent: {dev: "mock/canApplyStudent.json",
+            test: "http://192.168.1.150:9000/wx/school/v1.0/oto/lol/canApply",
+            product: "/wx/school/v1.0/oto/lol/canApply"
+        },
+        teacherSlots: {dev: "mock/teacherSlots.json",
+            test: "http://192.168.1.150:9000/wx/school/v1.0/teacherSlots",
+            product: "/wx/school/v1.0/teacherSlots"
+        },
+        getUser: {
+            dev: "mock/getUserInfo.json",
+            test: "http://192.168.1.150:9000/wx/school/v1.0/getUserInfo",
+            product: "/wx/school/v1.0/getUserInfo"
+        }
 
     };
     bMock.setFace(thisApi);
 
-    bMock.setEnv("dev");
+    bMock.setEnv("product");
+
+
+    //学员userId查询
+    var studentId;
+    var studentNum;
+    function getStudent() {
+        $.ajax
+        ({
+            async: false,
+            url: bMock.getFace("statue"),
+            success: function (data) {
+                studentId = data.data.userInfo.userId;
+                studentNum = data.data.student.studentNum;
+                console.log(studentNum);
+            }
+        });
+    }
+    getStudent();
+
+
+
 //验证老师ID
 //    function getTeacher() {
 //        $.get(bMock.getFace("teacher"), function (data, status) {
@@ -27,9 +62,8 @@ $(function(){
         var date = now.getDate();
         var week = now.getDay();
         var weekDay = ["周日", "周一", "周二", "周三", "周四", "周五", "周六"];
-        return month + "-" + date+" " +weekDay[week]
+        return month + "-" + date+" "+weekDay[week]
     }
-
 
     //下一天时间转换 变成11-30 周三
     function getNextDay(d){
@@ -42,7 +76,7 @@ $(function(){
     }
 
     function getNextDDay(d,s){
-        d = d + (1000*60*60*24)*s;
+        d = d+ (1000*60*60*24)*s;
         return d;
     }
     //转换成2016-11-30-21格式
@@ -52,7 +86,6 @@ $(function(){
         d = new Date(d);
         return d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate()+"-"+d.getHours();
     }
-
 
     //获取登录状态
     var revtStudentData={};
@@ -68,6 +101,35 @@ $(function(){
             }
         });
     }
+
+
+    //判断学生信息（电话，QQ，邮箱）
+    var qq;
+    var phone;
+
+    function getUserInfo(){
+        $.get(bMock.getFace("getUser")+'?'+'userId='+studentId, function (data, status) {
+            if(data.data){
+                if (data.data.phone || data.data.qq || data.data.yy ) {
+                    console.log("可以预约老师！");
+                    console.log(data);
+                    qq=data.data.qq;
+                    phone=data.data.phone;
+
+                } else {
+                    window.open("revtProcessConn.html");
+                    console.log("没有学生联系方式，跳转到联系页面");
+                }
+            }else{
+                //window.open("revtProcessConn.html");
+                console.log("没有学生联系方式，跳转到联系页面");
+
+            }
+        });
+    };
+
+    getUserInfo();
+
 
 
 //获取老师信息
@@ -92,64 +154,74 @@ $(function(){
 //    console.log(getTeacher(window.location.search.substring(1)));
     //console.log(window.location.search.substring(1));
     //得到老师数据，渲染到页面
-    $(".protmc_teh_cnt dt li:first-child span:last-child").text(getTeacher(window.location.search.substring(1)).teacherName);
-    $(".frange > li:last-child").text(getTeacher(window.location.search.substring(1)).teachRange);
+    var teacherinfo=getTeacher(window.location.search.substring(1));
+    $(".protmc_teh_cnt dt li:first-child span:last-child").text(teacherinfo.name);
+    $(".frange > li:last-child").text(teacherinfo.teachRange);
+    var imgages="";
+    //$.each(teacherinfo.imgs,function(k,v){
+    //    var images1="";
+    //    images1+='<li>'+'<img src="'+teacherinfo.imgs[k]+'">'+'</li>';
+    //    imgages+=images1;
+    //});
+
+     $(".protmc_teh_cnt > dl > dd > ul > li > ol ").append(imgages);
+
 
     //获取老师空闲时间
     function getTeacherSlots() {
-        $.get(bMock.getFace("teacherSlots"), function (data, status) {
+        $.get(bMock.getFace("teacherSlots")+'?'+'teacherId='+revtTeacherData.teacherID+'&slotDay='+getNextYearDay(new Date().getTime(),0), function (data, status) {
             console.log(data.data.slotStatue);
 
             switch (data.data.slotStatue[0]) {
-                case false :
+                case true :
                     $(".protmc_time_cont > ul > li:nth-child(1) > dl > dd > ol > li:nth-child(1)").removeClass("protmc_time_active");
                     break;
-                case true :
+                case false :
                     $(".protmc_time_cont > ul > li:nth-child(1) > dl > dd > ol > li:nth-child(1)").addClass("protmc_time_active");
                     break;
             };
             switch (data.data.slotStatue[1]) {
-                case false :
+                case true :
                     $(".protmc_time_cont > ul > li:nth-child(1) > dl > dd > ol > li:nth-child(2)").removeClass("protmc_time_active");
                     break;
-                case true :
+                case false :
                     $(".protmc_time_cont > ul > li:nth-child(1) > dl > dd > ol > li:nth-child(2)").addClass("protmc_time_active");
                     break;
             };
             switch (data.data.slotStatue[2]) {
-                case false :
+                case true :
                     $(".protmc_time_cont > ul > li:nth-child(1) > dl > dd > ol > li:nth-child(3)").removeClass("protmc_time_active");
                     break;
-                case true :
+                case false :
                     $(".protmc_time_cont > ul > li:nth-child(1) > dl > dd > ol > li:nth-child(3)").addClass("protmc_time_active");
                     break;
             };
             switch (data.data.slotStatue[3]) {
-                case false :
+                case true :
                     $(".protmc_time_cont > ul > li:nth-child(2) > dl > dd > ol > li:nth-child(1)").removeClass("protmc_time_active");
                     break;
-                case true :
+                case false :
                     $(".protmc_time_cont > ul > li:nth-child(2) > dl > dd > ol > li:nth-child(1)").addClass("protmc_time_active");
                     break;
             };
             switch (data.data.slotStatue[4]) {
-                case false :
+                case true :
                     $(".protmc_time_cont > ul > li:nth-child(2) > dl > dd > ol > li:nth-child(2)").removeClass("protmc_time_active");
                     break;
-                case true :
+                case false :
                     $(".protmc_time_cont > ul > li:nth-child(2) > dl > dd > ol > li:nth-child(2)").addClass("protmc_time_active");
                     break;
             };
             switch (data.data.slotStatue[5]) {
-                case false :
+                case true  :
                     $(".protmc_time_cont > ul > li:nth-child(2) > dl > dd > ol > li:nth-child(3)").removeClass("protmc_time_active");
                     break;
-                case true :
+                case false :
                     $(".protmc_time_cont > ul > li:nth-child(2) > dl > dd > ol > li:nth-child(3)").addClass("protmc_time_active");
                     break;
             };
 
-                    console.log(getNextYearDay(data.data.date,0));
+                    //console.log(getNextYearDay(data.data.date,0));
 
             //点击时间选中（变蓝色）
             $(".protmc_time_cont > ul > li > dl > dd > ol > li.protmc_time_active").click(function(){
@@ -165,7 +237,7 @@ $(function(){
 
 //获取学生时间
     function getApplyStudent() {
-        $.get(bMock.getFace("canApplyStudent"), function (data, status) {
+        $.get(bMock.getFace("canApplyStudent")+'?'+'studentNum='+studentNum+'&date='+getNextYearDay(new Date().getTime(),0), function (data, status) {
             if(data.data!=true){
                 $(".protmc_time_cont2").css("display","block");
                 $(".protmc_time_cont").hide()
@@ -175,26 +247,27 @@ $(function(){
             };
         });
 
+    };
 
+    //预约时间模块(上一天，下一天）
 
-//预约时间模块(上一天，下一天）
-        ;(function getLastLowerDay(){
-            var u=0;
-            (function(){
-                $(".protmc_time_nav ul li:nth-child(2) span ").text(formatDate(new Date(new Date().getTime())));
-                var ttin=new Date().getTime();
-                $(".protmc_time_nav ul li:nth-child(3) span ").click(function(){
+    ;(function getLastLowerDay(){
+        var u=0;
+        (function(){
+            $(".protmc_time_nav ul li:nth-child(2) span ").text(formatDate(new Date(new Date().getTime())));
+            var ttin=new Date().getTime();
+            //下一天
+            $(".protmc_time_nav ul li:nth-child(3) span ").click(function(){
+                if(u<=2){
+
                     $(".protmc_time_nav ul li:nth-child(2) span ").text(getNextDay(getNextDDay(ttin,u)));
                     $(".protmc_time_nav ul li:nth-child(1) span ").css("color", "#4a9bff");
                     $(".protmc_time_cont ul li").removeClass("protmc_time_on");
-                    //console.log(getNextYearDay(ttin,u));
-                    revtStudentData.revtData=getNextYearDay(ttin,u);
-                    revtTeacherData.revtData=getNextYearDay(ttin,u);
-                    canApplyStudentURL=bMock.getFace("canApplyStudent1").split("?")[0]+"?"+"studentNum="+revtStudentData.revtStudentNum+"&"+"date="+revtStudentData.revtData;
+                    canApplyStudentURL=bMock.getFace("canApplyStudent").split("?")[0]+"?"+"studentNum="+studentNum+"&"+"date="+getNextYearDay(new Date().getTime(),u+1);
                     //console.log(bMock.getFace("canApplyStudent1").split("?")[0]+"?"+"studentNum="+revtStudentData.revtStudentNum+"&"+"date="+revtStudentData.revtData);
 
                     //判断学生
-                    $.get(bMock.getFace("canApplyStudent1"),function(data,status){
+                    $.get(canApplyStudentURL,function(data,status){
                         if(data.data!=true){
                             $(".protmc_time_cont2").css("display","block");
                             $(".protmc_time_cont").hide()
@@ -204,59 +277,58 @@ $(function(){
                         };
                     });
                     //判断老师
-                    canApplyteacherURL=bMock.getFace("teacherSlots1").split("?")[0]+"?"+"teacherId="+revtTeacherData.teacherID+"&"+"date="+revtTeacherData.revtData;
+                    canApplyteacherURL=bMock.getFace("teacherSlots").split("?")[0]+"?"+"teacherId="+revtTeacherData.teacherID+"&"+"slotDay="+getNextYearDay(new Date().getTime(),u+1);
 
-                    $.get(bMock.getFace("teacherSlots1"), function (data, status) {
+                    $.get(canApplyteacherURL, function (data, status) {
                         console.log(data.data.slotStatue);
                         switch (data.data.slotStatue[0]) {
-                            case false :
+                            case true :
                                 $(".protmc_time_cont > ul > li:nth-child(1) > dl > dd > ol > li:nth-child(1)").removeClass("protmc_time_active");
                                 break;
-                            case true :
+                            case false :
                                 $(".protmc_time_cont > ul > li:nth-child(1) > dl > dd > ol > li:nth-child(1)").addClass("protmc_time_active");
                                 break;
                         };
                         switch (data.data.slotStatue[1]) {
-                            case false :
+                            case true :
                                 $(".protmc_time_cont > ul > li:nth-child(1) > dl > dd > ol > li:nth-child(2)").removeClass("protmc_time_active");
                                 break;
-                            case true :
+                            case false :
                                 $(".protmc_time_cont > ul > li:nth-child(1) > dl > dd > ol > li:nth-child(2)").addClass("protmc_time_active");
                                 break;
                         };
                         switch (data.data.slotStatue[2]) {
-                            case false :
+                            case true :
                                 $(".protmc_time_cont > ul > li:nth-child(1) > dl > dd > ol > li:nth-child(3)").removeClass("protmc_time_active");
                                 break;
-                            case true :
+                            case false :
                                 $(".protmc_time_cont > ul > li:nth-child(1) > dl > dd > ol > li:nth-child(3)").addClass("protmc_time_active");
                                 break;
                         };
                         switch (data.data.slotStatue[3]) {
-                            case false :
+                            case true :
                                 $(".protmc_time_cont > ul > li:nth-child(2) > dl > dd > ol > li:nth-child(1)").removeClass("protmc_time_active");
                                 break;
-                            case true :
+                            case false :
                                 $(".protmc_time_cont > ul > li:nth-child(2) > dl > dd > ol > li:nth-child(1)").addClass("protmc_time_active");
                                 break;
                         };
                         switch (data.data.slotStatue[4]) {
-                            case false :
+                            case true :
                                 $(".protmc_time_cont > ul > li:nth-child(2) > dl > dd > ol > li:nth-child(2)").removeClass("protmc_time_active");
                                 break;
-                            case true :
+                            case false :
                                 $(".protmc_time_cont > ul > li:nth-child(2) > dl > dd > ol > li:nth-child(2)").addClass("protmc_time_active");
                                 break;
                         };
                         switch (data.data.slotStatue[5]) {
-                            case false :
+                            case true  :
                                 $(".protmc_time_cont > ul > li:nth-child(2) > dl > dd > ol > li:nth-child(3)").removeClass("protmc_time_active");
                                 break;
-                            case true :
+                            case false :
                                 $(".protmc_time_cont > ul > li:nth-child(2) > dl > dd > ol > li:nth-child(3)").addClass("protmc_time_active");
                                 break;
                         };
-
                         console.log(getNextYearDay(data.data.date,0));
 
                         //点击时间选中（变蓝色）
@@ -272,208 +344,234 @@ $(function(){
                     });
 
                     u++;
+                }else {
+                    $(".protmc_time_nav ul li:nth-child(3) span ").css("color", "#d9d9d9");
+                }
 
-                });
-                $(".protmc_time_nav ul li:nth-child(1) span ").click(function(){
-                    y=--u-1;
-                    if(ttin<= getNextDDay(ttin,u)){
-                        $(".protmc_time_nav ul li:nth-child(2) span ").text(getNextDay(getNextDDay(ttin,y)));
-                        revtStudentData.revtData=getNextYearDay(ttin,y);
-                        revtTeacherData.revtData=getNextYearDay(ttin,y);
-                        $(".protmc_time_cont ul li").removeClass("protmc_time_on");
-                        canApplyStudentURL=bMock.getFace("canApplyStudent1").split("?")[0]+"?"+"studentNum="+revtStudentData.revtStudentNum+"&"+"date="+revtStudentData.revtData;
-                        //console.log(bMock.getFace("canApplyStudent1").split("?")[0]+"?"+"studentNum="+revtStudentData.revtStudentNum+"&"+"date="+revtStudentData.revtData);
+            });
 
-                        //判断学生
-                        $.get(bMock.getFace("canApplyStudent1"),function(data,status){
-                            if(data.data!=true){
-                                $(".protmc_time_cont2").css("display","block");
-                                $(".protmc_time_cont").hide()
+
+            //上一天
+            $(".protmc_time_nav ul li:nth-child(1) span ").click(function(){
+                $(".protmc_time_nav ul li:nth-child(3) span ").css("color", "#4a9bff");
+                y=--u-1;
+                if(ttin<= getNextDDay(ttin,u)){
+                    $(".protmc_time_nav ul li:nth-child(2) span ").text(getNextDay(getNextDDay(ttin,y)));
+                    revtStudentData.revtData=getNextYearDay(ttin,y);
+                    revtTeacherData.revtData=getNextYearDay(ttin,y);
+                    $(".protmc_time_cont ul li").removeClass("protmc_time_on");
+                    canApplyStudentURL=bMock.getFace("canApplyStudent").split("?")[0]+"?"+"studentNum="+studentNum+"&"+"date="+getNextYearDay(new Date().getTime(),y);
+
+                    //判断学生
+                    $.get(canApplyStudentURL,function(data,status){
+                        if(data.data!=true){
+                            $(".protmc_time_cont2").css("display","block");
+                            $(".protmc_time_cont").hide()
+                        }else{
+                            $(".protmc_time_cont2").css("display","none");
+                            $(".protmc_time_cont").show()
+                        }
+                    });
+                    //判断老师
+                    //canApplyteacherURL=bMock.getFace("teacherSlots1").split("?")[0]+"?"+"teacherId="+revtTeacherData.teacherID+"&"+"date="+revtTeacherData.revtData;
+                    canApplyteacherURL=bMock.getFace("teacherSlots").split("?")[0]+"?"+"teacherId="+revtTeacherData.teacherID+"&"+"slotDay="+getNextYearDay(new Date().getTime(),u+1);
+
+                    $.get(canApplyteacherURL, function (data, status) {
+                        console.log(data.data.slotStatue);
+                        switch (data.data.slotStatue[0]) {
+                            case true :
+                                $(".protmc_time_cont > ul > li:nth-child(1) > dl > dd > ol > li:nth-child(1)").removeClass("protmc_time_active");
+                                break;
+                            case false :
+                                $(".protmc_time_cont > ul > li:nth-child(1) > dl > dd > ol > li:nth-child(1)").addClass("protmc_time_active");
+                                break;
+                        };
+                        switch (data.data.slotStatue[1]) {
+                            case true :
+                                $(".protmc_time_cont > ul > li:nth-child(1) > dl > dd > ol > li:nth-child(2)").removeClass("protmc_time_active");
+                                break;
+                            case false :
+                                $(".protmc_time_cont > ul > li:nth-child(1) > dl > dd > ol > li:nth-child(2)").addClass("protmc_time_active");
+                                break;
+                        };
+                        switch (data.data.slotStatue[2]) {
+                            case true :
+                                $(".protmc_time_cont > ul > li:nth-child(1) > dl > dd > ol > li:nth-child(3)").removeClass("protmc_time_active");
+                                break;
+                            case false :
+                                $(".protmc_time_cont > ul > li:nth-child(1) > dl > dd > ol > li:nth-child(3)").addClass("protmc_time_active");
+                                break;
+                        };
+                        switch (data.data.slotStatue[3]) {
+                            case true :
+                                $(".protmc_time_cont > ul > li:nth-child(2) > dl > dd > ol > li:nth-child(1)").removeClass("protmc_time_active");
+                                break;
+                            case false :
+                                $(".protmc_time_cont > ul > li:nth-child(2) > dl > dd > ol > li:nth-child(1)").addClass("protmc_time_active");
+                                break;
+                        };
+                        switch (data.data.slotStatue[4]) {
+                            case true :
+                                $(".protmc_time_cont > ul > li:nth-child(2) > dl > dd > ol > li:nth-child(2)").removeClass("protmc_time_active");
+                                break;
+                            case false :
+                                $(".protmc_time_cont > ul > li:nth-child(2) > dl > dd > ol > li:nth-child(2)").addClass("protmc_time_active");
+                                break;
+                        };
+                        switch (data.data.slotStatue[5]) {
+                            case true  :
+                                $(".protmc_time_cont > ul > li:nth-child(2) > dl > dd > ol > li:nth-child(3)").removeClass("protmc_time_active");
+                                break;
+                            case false :
+                                $(".protmc_time_cont > ul > li:nth-child(2) > dl > dd > ol > li:nth-child(3)").addClass("protmc_time_active");
+                                break;
+                        };
+
+                        console.log(getNextYearDay(data.data.date,0));
+                        //$(".protmc_time_cont > ul > li:nth-child(1) > dl > dd > ol > li:nth-child(ii)").removeClass("protmc_time_active");
+
+                        $(".protmc_time_cont > ul > li > dl > dd > ol > li.protmc_time_active").click(function(){
+                            $(".protmc_time_cont > ul > li > dl > dd > ol > li").removeClass("protmc_time_on");
+                            if($(this).hasClass("protmc_time_active")){
+                                $(this).addClass("protmc_time_on")
                             }else{
-                                $(".protmc_time_cont2").css("display","none");
-                                $(".protmc_time_cont").show()
+                                $(this).unbind("click")
                             }
-                        });
-                        //判断老师
-                        canApplyteacherURL=bMock.getFace("teacherSlots1").split("?")[0]+"?"+"teacherId="+revtTeacherData.teacherID+"&"+"date="+revtTeacherData.revtData;
+                        })
 
-                        $.get(bMock.getFace("teacherSlots1"), function (data, status) {
-                            console.log(data.data.slotStatue);
-                            switch (data.data.slotStatue[0]) {
-                                case false :
-                                    $(".protmc_time_cont > ul > li:nth-child(1) > dl > dd > ol > li:nth-child(1)").removeClass("protmc_time_active");
-                                    break;
-                                case true :
-                                    $(".protmc_time_cont > ul > li:nth-child(1) > dl > dd > ol > li:nth-child(1)").addClass("protmc_time_active");
-                                    break;
-                            };
-                            switch (data.data.slotStatue[1]) {
-                                case false :
-                                    $(".protmc_time_cont > ul > li:nth-child(1) > dl > dd > ol > li:nth-child(2)").removeClass("protmc_time_active");
-                                    break;
-                                case true :
-                                    $(".protmc_time_cont > ul > li:nth-child(1) > dl > dd > ol > li:nth-child(2)").addClass("protmc_time_active");
-                                    break;
-                            };
-                            switch (data.data.slotStatue[2]) {
-                                case false :
-                                    $(".protmc_time_cont > ul > li:nth-child(1) > dl > dd > ol > li:nth-child(3)").removeClass("protmc_time_active");
-                                    break;
-                                case true :
-                                    $(".protmc_time_cont > ul > li:nth-child(1) > dl > dd > ol > li:nth-child(3)").addClass("protmc_time_active");
-                                    break;
-                            };
-                            switch (data.data.slotStatue[3]) {
-                                case false :
-                                    $(".protmc_time_cont > ul > li:nth-child(2) > dl > dd > ol > li:nth-child(1)").removeClass("protmc_time_active");
-                                    break;
-                                case true :
-                                    $(".protmc_time_cont > ul > li:nth-child(2) > dl > dd > ol > li:nth-child(1)").addClass("protmc_time_active");
-                                    break;
-                            };
-                            switch (data.data.slotStatue[4]) {
-                                case false :
-                                    $(".protmc_time_cont > ul > li:nth-child(2) > dl > dd > ol > li:nth-child(2)").removeClass("protmc_time_active");
-                                    break;
-                                case true :
-                                    $(".protmc_time_cont > ul > li:nth-child(2) > dl > dd > ol > li:nth-child(2)").addClass("protmc_time_active");
-                                    break;
-                            };
-                            switch (data.data.slotStatue[5]) {
-                                case false :
-                                    $(".protmc_time_cont > ul > li:nth-child(2) > dl > dd > ol > li:nth-child(3)").removeClass("protmc_time_active");
-                                    break;
-                                case true :
-                                    $(".protmc_time_cont > ul > li:nth-child(2) > dl > dd > ol > li:nth-child(3)").addClass("protmc_time_active");
-                                    break;
-                            };
+                    });
+                };
+                if(y===-1){
+                    //判断学生
+                    $.get(bMock.getFace("canApplyStudent")+'?'+'studentNum='+studentNum+'&date='+getNextYearDay(new Date().getTime(),0),function(data){
+                        if(data.data!=true){
+                            $(".protmc_time_cont2").css("display","block");
+                            $(".protmc_time_cont").hide()
+                        }else{
+                            $(".protmc_time_cont2").css("display","none");
+                            $(".protmc_time_cont").show()
+                        }
+                    });
 
-                            console.log(getNextYearDay(data.data.date,0));
-                            //$(".protmc_time_cont > ul > li:nth-child(1) > dl > dd > ol > li:nth-child(ii)").removeClass("protmc_time_active");
 
-                            $(".protmc_time_cont > ul > li > dl > dd > ol > li.protmc_time_active").click(function(){
-                                $(".protmc_time_cont > ul > li > dl > dd > ol > li").removeClass("protmc_time_on");
-                                if($(this).hasClass("protmc_time_active")){
-                                    $(this).addClass("protmc_time_on")
-                                }else{
-                                    $(this).unbind("click")
-                                }
-                            })
+                    //判断老师
+                    $.get(bMock.getFace("teacherSlots")+'?'+'teacherId='+revtTeacherData.teacherID+'&slotDay='+getNextYearDay(new Date().getTime(),0), function (data, status) {
+                        console.log(data.data.slotStatue);
+                        switch (data.data.slotStatue[0]) {
+                            case true :
+                                $(".protmc_time_cont > ul > li:nth-child(1) > dl > dd > ol > li:nth-child(1)").removeClass("protmc_time_active");
+                                break;
+                            case false :
+                                $(".protmc_time_cont > ul > li:nth-child(1) > dl > dd > ol > li:nth-child(1)").addClass("protmc_time_active");
+                                break;
+                        };
+                        switch (data.data.slotStatue[1]) {
+                            case true :
+                                $(".protmc_time_cont > ul > li:nth-child(1) > dl > dd > ol > li:nth-child(2)").removeClass("protmc_time_active");
+                                break;
+                            case false :
+                                $(".protmc_time_cont > ul > li:nth-child(1) > dl > dd > ol > li:nth-child(2)").addClass("protmc_time_active");
+                                break;
+                        };
+                        switch (data.data.slotStatue[2]) {
+                            case true :
+                                $(".protmc_time_cont > ul > li:nth-child(1) > dl > dd > ol > li:nth-child(3)").removeClass("protmc_time_active");
+                                break;
+                            case false :
+                                $(".protmc_time_cont > ul > li:nth-child(1) > dl > dd > ol > li:nth-child(3)").addClass("protmc_time_active");
+                                break;
+                        };
+                        switch (data.data.slotStatue[3]) {
+                            case true :
+                                $(".protmc_time_cont > ul > li:nth-child(2) > dl > dd > ol > li:nth-child(1)").removeClass("protmc_time_active");
+                                break;
+                            case false :
+                                $(".protmc_time_cont > ul > li:nth-child(2) > dl > dd > ol > li:nth-child(1)").addClass("protmc_time_active");
+                                break;
+                        };
+                        switch (data.data.slotStatue[4]) {
+                            case true :
+                                $(".protmc_time_cont > ul > li:nth-child(2) > dl > dd > ol > li:nth-child(2)").removeClass("protmc_time_active");
+                                break;
+                            case false :
+                                $(".protmc_time_cont > ul > li:nth-child(2) > dl > dd > ol > li:nth-child(2)").addClass("protmc_time_active");
+                                break;
+                        };
+                        switch (data.data.slotStatue[5]) {
+                            case true  :
+                                $(".protmc_time_cont > ul > li:nth-child(2) > dl > dd > ol > li:nth-child(3)").removeClass("protmc_time_active");
+                                break;
+                            case false :
+                                $(".protmc_time_cont > ul > li:nth-child(2) > dl > dd > ol > li:nth-child(3)").addClass("protmc_time_active");
+                                break;
+                        };
 
-                        });
-                    };
-                    if(y===-1){
-                        //判断学生
-                        $.get(bMock.getFace("canApplyStudent"),function(data){
-                            if(data.data!=true){
-                                $(".protmc_time_cont2").css("display","block");
-                                $(".protmc_time_cont").hide()
+                        console.log(getNextYearDay(data.data.date,0));
+                        //$(".protmc_time_cont > ul > li:nth-child(1) > dl > dd > ol > li:nth-child(ii)").removeClass("protmc_time_active");
+
+                        $(".protmc_time_cont > ul > li > dl > dd > ol > li.protmc_time_active").click(function(){
+                            $(".protmc_time_cont > ul > li > dl > dd > ol > li").removeClass("protmc_time_on");
+                            if($(this).hasClass("protmc_time_active")){
+                                $(this).addClass("protmc_time_on")
                             }else{
-                                $(".protmc_time_cont2").css("display","none");
-                                $(".protmc_time_cont").show()
+                                $(this).unbind("click")
                             }
-                        });
+                        })
 
-                        //判断老师
-                        $.get(bMock.getFace("teacherSlots"), function (data, status) {
-                            console.log(data.data.slotStatue);
-                            switch (data.data.slotStatue[0]) {
-                                case false :
-                                    $(".protmc_time_cont > ul > li:nth-child(1) > dl > dd > ol > li:nth-child(1)").removeClass("protmc_time_active");
-                                    break;
-                                case true :
-                                    $(".protmc_time_cont > ul > li:nth-child(1) > dl > dd > ol > li:nth-child(1)").addClass("protmc_time_active");
-                                    break;
-                            };
-                            switch (data.data.slotStatue[1]) {
-                                case false :
-                                    $(".protmc_time_cont > ul > li:nth-child(1) > dl > dd > ol > li:nth-child(2)").removeClass("protmc_time_active");
-                                    break;
-                                case true :
-                                    $(".protmc_time_cont > ul > li:nth-child(1) > dl > dd > ol > li:nth-child(2)").addClass("protmc_time_active");
-                                    break;
-                            };
-                            switch (data.data.slotStatue[2]) {
-                                case false :
-                                    $(".protmc_time_cont > ul > li:nth-child(1) > dl > dd > ol > li:nth-child(3)").removeClass("protmc_time_active");
-                                    break;
-                                case true :
-                                    $(".protmc_time_cont > ul > li:nth-child(1) > dl > dd > ol > li:nth-child(3)").addClass("protmc_time_active");
-                                    break;
-                            };
-                            switch (data.data.slotStatue[3]) {
-                                case false :
-                                    $(".protmc_time_cont > ul > li:nth-child(2) > dl > dd > ol > li:nth-child(1)").removeClass("protmc_time_active");
-                                    break;
-                                case true :
-                                    $(".protmc_time_cont > ul > li:nth-child(2) > dl > dd > ol > li:nth-child(1)").addClass("protmc_time_active");
-                                    break;
-                            };
-                            switch (data.data.slotStatue[4]) {
-                                case false :
-                                    $(".protmc_time_cont > ul > li:nth-child(2) > dl > dd > ol > li:nth-child(2)").removeClass("protmc_time_active");
-                                    break;
-                                case true :
-                                    $(".protmc_time_cont > ul > li:nth-child(2) > dl > dd > ol > li:nth-child(2)").addClass("protmc_time_active");
-                                    break;
-                            };
-                            switch (data.data.slotStatue[5]) {
-                                case false :
-                                    $(".protmc_time_cont > ul > li:nth-child(2) > dl > dd > ol > li:nth-child(3)").removeClass("protmc_time_active");
-                                    break;
-                                case true :
-                                    $(".protmc_time_cont > ul > li:nth-child(2) > dl > dd > ol > li:nth-child(3)").addClass("protmc_time_active");
-                                    break;
-                            };
+                    });
 
-                            console.log(getNextYearDay(data.data.date,0));
-                            //$(".protmc_time_cont > ul > li:nth-child(1) > dl > dd > ol > li:nth-child(ii)").removeClass("protmc_time_active");
+                    $(".protmc_time_nav ul li:nth-child(1) span ").css("color", "#d9d9d9");
 
-                            $(".protmc_time_cont > ul > li > dl > dd > ol > li.protmc_time_active").click(function(){
-                                $(".protmc_time_cont > ul > li > dl > dd > ol > li").removeClass("protmc_time_on");
-                                if($(this).hasClass("protmc_time_active")){
-                                    $(this).addClass("protmc_time_on")
-                                }else{
-                                    $(this).unbind("click")
-                                }
-                            })
 
-                        });
+                }
+            });
 
-                        $(".protmc_time_nav ul li:nth-child(1) span ").css("color", "#d9d9d9");
-
-                        $(".protmc_time_nav ul li:nth-child(1) span ").unbind("click")
-                    }
-                });
-
-            })();
         })();
-    };
+    })();
+
+
+
+//得到时间的index
+    console.log(Number($(".protmc_time_cont > ul > li > dl > dd > ol > li.protmc_time_on").attr("id")));
 
 
     //点击提交按钮 提交数据
     $(".revpros_btn button").click(function(){
+          var yeayy;
+       if($(".protmc_time_nav ul li:nth-child(2) span").text().split(" ")[0].split("-")!=12) {
+           yeayy=2016
+       }else{
+           yeayy=2017
+       }
 
-        ceshidata={
-            teacherId:window.location.search.substring(1),
-            appointDay:$(".protmc_time_nav ul li:nth-child(2) span").text().split(" ")[0],
-            appointTime:$(".protmc_time_cont > ul > li > dl > dd > ol > li.protmc_time_on").text().split("-")[0],
-            LearnPosition:$(".protmc_time_sele > ul > li:nth-child(1) > dl dd select").val(),
-            HeroFocus:$(".protmc_time_sele > ul > li:nth-child(2) > dl dd select").val(),
-            teachModel:$(".protmc_time_sele > ul > li:nth-child(3) > dl dd select").val(),
-            AppointmentNotes:$(".protmc_txt_cont textarea").val()
-        };
 
-        console.log(ceshidata);
+        function GetJsonData() {
+            var json = {
+                "studentNum":studentNum,
+                "qq":qq,
+                "phone":phone,
+                "teacherId": window.location.search.substring(1),
+                "timeIndex":Number($(".protmc_time_cont > ul > li > dl > dd > ol > li.protmc_time_on").attr("id")),
+                "hopeTeachTime":yeayy+'-'+$(".protmc_time_nav ul li:nth-child(2) span").text().split(" ")[0]+' '+' '+$(".protmc_time_cont > ul > li > dl > dd > ol > li.protmc_time_on").text().split("-")[0]+":00",
+                "whatStudy":JSON.stringify({
+                    position:$(".protmc_time_sele > ul > li:nth-child(1) > dl dd select").val(),
+                    hero:$(".protmc_time_sele > ul > li:nth-child(2) > dl dd select").val()
+                            }) ,
+                "howTeach":$(".protmc_time_sele > ul > li:nth-child(3) > dl dd select").val(),
+                "mark":$(".protmc_txt_cont textarea").val(),
+
+            };
+            return json;
+        }
 
 
         $.ajax({
-            async: true,
-            url: bMock.getFace("ceshi"),
-            type:"POST",
-            data:{
-               data: ceshidata
-            },
+            async: false,
+            url: "/wx/school/v1.0/oto/lol/submitOto",
+            type:"post",
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify(GetJsonData()),
+            dataType: "json",
             success: function (data, status) {
                 console.log(data)
                 window.location.href="revtProcessSucc.html";
