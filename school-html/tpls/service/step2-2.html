@@ -1,0 +1,23 @@
+        				<!-- skillstudy -->
+						<div class="skillstudy">
+							<form  class="skillstudyform" name="skillstudyform"  > 
+ 
+								<label ng-repeat="skillstudy in skillstudyArr">
+
+									<input name="skillstudy" type="radio"        
+									 ng-value="skillstudy.value"
+									 ng-click="skillstudyFunction(skillstudy.value)"
+
+			           				/>
+									{{skillstudy.value}}
+
+								</label> 
+								<div class="textarea">					
+									<textarea name="skillTeachOther"  cols="30" rows="10" placeholder="说出你想学习的内容吧！" maxlength="20" ng-model="skillTeachOther" 
+									ng-disabled="textareaDisable" ></textarea>
+									<p class="tip"><span>{{skillTeachOtherLen}}</span>/20</p>
+								</div>
+								<p>{{skillstudy}}</p>
+
+							</form> 
+						</div>

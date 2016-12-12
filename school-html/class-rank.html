@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<!--
+    88888888ba     ,ad8888ba,      ,ad8888ba,    8D          B8
+    88      "8b   d8"'    `"8b    d8"'    `"8b   888b       d88
+    88     ,8P   d8'        `8b  d8'        `8b  88`8b     d8"8
+    888888888a   88          88  88          88  88 `8b   d8 88
+    88      "8b  Y8,        ,8P  Y8,        ,8P  88  `8b d8  88
+    88      ,8P   Y8a.    .a8P    Y8a.    .a8P   88   `8VP   88
+    88888888P"     `"Y8888Y"'      `"Y8888Y"'    88    `8'   88
+        
+        Copyright © 2015 BoomRen All rights reserved.
+-->
+<html lang="zh" class="app">
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" content="布姆电竞学院" />
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="apple-touch-icon-precomposed" href="images/public/favicon/favicon.png" sizes="60x60">
+    <link rel="shortcut icon" href="images/public/favicon/favicon.ico" />
+    <!-- public-css -->
+    <link rel="stylesheet" href="css/public/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="css/public/animate.css" type="text/css" />
+    <link rel="stylesheet" href="css/public/font-awesome.min.css" type="text/css" />
+    <link rel="stylesheet" href="css/public/simple-line-icons.css" type="text/css" />
+    <link rel="stylesheet" href="css/public/font.css" type="text/css" />
+    <link rel="stylesheet" href="css/public/app.css" type="text/css" />
+    <!-- lib-css -->
+    <link rel="stylesheet" href="css/lib/base.css" type="text/css" />
+
+
+
+	<!-- class-rank -->
+	<link rel="stylesheet" href="css/lib/class-rank.css?time=1470285739632.css" />
+	<title>风云榜</title>
+    <!--[if lt IE 9]>
+        <script src="js/public/ie/html5shiv.js"></script>
+        <script src="js/public/ie/respond.min.js"></script>
+        <script src="js/public/ie/excanvas.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="http://tajs.qq.com/stats?sId=54172786" charset="UTF-8"></script>
+    <!--Groing IO 接口-->
+    <script type='text/javascript'>
+        var _vds = _vds || [];
+        window._vds = _vds;
+        (function(){
+            _vds.push(['setAccountId', '8c3c10f33c5d91ee']);
+            (function() {
+                var vds = document.createElement('script');
+                vds.type='text/javascript';
+                vds.async = true;
+                vds.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'dn-growing.qbox.me/vds.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(vds, s);
+            })();
+        })();
+    </script>
+</head>
+<body class="" ng-app='mainApp' ng-controller="gotop"
+    my-Touchstart="touchStart()" 
+    my-Touchend="touchEnd()"
+    my-TouchMove="touchMove()"
+>
+    <section class="vbox">
+        <header class="bg-white-only header header-md navbar navbar-fixed-top-xs">
+            <div class="navbar-header aside bg-info dk">
+                <!-- ieBtn -->
+                <a href="javascript:void(0)" class="btn btn-link mobilepart iepart-btn" id="ieBtn">
+                    <i class="icon-list"></i>
+                </a>
+                <!-- ieBtn -->
+                <a href="javascript:void(0)" class="btn btn-link  visible-xs" data-toggle="class:nav-off-screen,open" data-target="#nav,html">
+                    <i class="icon-list"></i>
+                </a>
+                <a href="javascript:void(0)" class="navbar-brand text-lt">
+                    <i class="fa fa-gamepad"></i>
+                    <span class="hidden-nav-xs m-l-sm">BoomGame</span>
+                </a>
+                <a class="btn btn-link visible-xs" href="javascript:void(0)" data-toggle="dropdown" data-target=".user">
+                    <i class="icon-user"></i>
+                </a>
+            </div>
+            <ul class="nav navbar-nav hidden-xs">
+                <!-- hidden-xs -->
+                <li>
+                    <a href="#nav,.navbar-header" data-toggle="class:nav-xs,nav-xs" class="text-muted">
+                        <i class="fa fa-indent text"></i>
+                        <i class="fa fa-dedent text-active"></i>
+                    </a>
+                </li>
+            </ul>
+            <p id="pagetitle" class="hidden-xs"><i></i><span></span></p>
+            <div class="navbar-right ">
+                <ul class="nav navbar-nav m-n hidden-xs nav-user user">
+                    <li class="dropdown" id="topheadimg">
+                        <a href="javascript:void(0)" class="dropdown-toggle bg clear" data-toggle="dropdown">
+                            <span class="thumb-sm avatar pull-right m-t-n-sm m-b-n-sm m-l-sm">
+                <img class="myheadico" src="" alt="...">
+              </span><b class="myname"></b> <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu animated fadeInRight">
+                            <li>
+                                <span class="arrow top"></span>
+                                <a class="tomyhome" href="javascript:void(0)">
+                                    <i class="icon-user"></i>
+                                    <span>我的主页</span>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a class="tostudy-record" href="study-record.html">
+                                    <i class="fa fa-list-ol"></i>
+                                    <span>学习记录</span>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a class="tomypwd" data-toggle="modal" data-target="#pwdModal" href="javascript:void(0)">
+                                    <i class="icon-lock"></i>
+                                    <span>修改密码</span>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a class="tologin" href="javascript:void(0)">
+                                    <i class="icon-logout"></i>
+                                    <span>退出登录</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </header>
+        <div ie-nav class="ienavout" id="ieNav">
+            
+            <ul class="iepart-nav" >
+
+                <!-- <li class="iepart-nav-li " ie-navli  ng-class="$index==navIndex?'active':''" ng-repeat="li in navData" ng-click="navIndexFn($index)">
+                    <a href="{{li.href}}" target="{{li.target||'_self'}}" class="auto">
+                        <i class="{{li.icon_css}}"></i>
+                        <span class="s_item1" ng-bind="li.name"></span>
+                        
+                    </a>
+                </li> -->
+
+                <li class="iepart-nav-li "  >
+                    <a href="class-notice.html"  class="auto">
+                       
+                        <span class="s_item1" >公告</span>
+                        
+                    </a>
+                </li> 
+                <li class="iepart-nav-li "  >
+                    <a href="class-list.html"  class="auto">
+                        
+                        <span class="s_item1" >课程目录</span>
+                        
+                    </a>
+                </li>
+                <li class="iepart-nav-li isIe"  >
+                    <a href="class-service.html"  class="auto">
+                        
+                        <span class="s_item1" >布姆服务</span>
+                        
+                    </a>
+                </li>
+                <li class="iepart-nav-li isIe"  >
+                    <a href="small-game.html"  class="auto">
+                        
+                        <span class="s_item1" >训练小游戏</span>
+                        
+                    </a>
+                </li>
+                <li class="iepart-nav-li isIe"  >
+                    <a href="class-rank.html"  class="auto">
+                        
+                        <span class="s_item1" >风云榜</span>
+                        
+                    </a>
+                </li>
+                <li class="iepart-nav-li "  >
+                    <a href="http://soft.iboom.tv/boomBox.exe"  target='_blank' class="auto">
+                        
+                        <span class="s_item1" >布姆盒子</span>
+                        
+                    </a>
+                </li>
+                <li class="iepart-nav-li "  id="growthLi" style="display:none;">
+                    <a href="growth.html"  class="auto">
+                        
+                        <span class="s_item1" >提升计划</span>
+                        
+                    </a>
+                </li>        
+            </ul>
+        </div>        <section>
+            <section class="hbox stretch">
+                <!-- .aside -->
+                <aside class="bg-black dk aside hidden-print hidden-xs" id="nav">
+                    <section class="vbox">
+			            <section class="w-f-md scrollable">
+			              <div class="slim-scroll" data-height="auto" data-disable-fade-out="true" data-distance="0" data-size="10px" data-railOpacity="0.2">
+
+
+<!--  nav  -->
+<nav class="nav-primary hidden-xs">
+  <ul data-ride="collapse" class="nav">
+    <li code="class-notice" class="nav1"><a href="class-notice.html" txt="公告" target="_self" class="auto"><i class="fa fa-calendar "></i><span class="s_item1">公告</span><span class="pull-right text-muted "><i class="fa fa-angle-left text"></i><i class="fa fa-angle-down text-active"></i></span></a>
+      <!--list1-->
+      <ul class="nav dk text-sm">
+      </ul>
+    </li>
+    <li code="class-list" class="nav1"><a href="class-list.html" txt="课程目录" target="_self" class="auto"><i class="fa fa-book  "></i><span class="s_item1">课程目录</span><span class="pull-right text-muted "><i class="fa fa-angle-left text"></i><i class="fa fa-angle-down text-active"></i></span></a>
+      <!--list1-->
+      <ul class="nav dk text-sm">
+      </ul>
+    </li>
+    <li code="class-service" class="nav1"><a href="class-service.html" txt="布姆服务" target="_self" class="auto"><i class="fa fa-tachometer  "></i><span class="s_item1">布姆服务</span><span class="pull-right text-muted "><i class="fa fa-angle-left text"></i><i class="fa fa-angle-down text-active"></i></span></a>
+      <!--list1-->
+      <ul class="nav dk text-sm">
+      </ul>
+    </li>
+    <li code="small-game" class="nav1"><a href="small-game.html" txt="训练小游戏" target="_self" class="auto"><i class=" icon-game-controller  "></i><span class="s_item1">训练小游戏</span><span class="pull-right text-muted "><i class="fa fa-angle-left text"></i><i class="fa fa-angle-down text-active"></i></span></a>
+      <!--list1-->
+      <ul class="nav dk text-sm">
+      </ul>
+    </li>
+    <li code="class-rank" class="nav1"><a href="class-rank.html" txt="风云榜" target="_self" class="auto"><i class="fa fa-users  "></i><span class="s_item1">风云榜</span><span class="pull-right text-muted "><i class="fa fa-angle-left text"></i><i class="fa fa-angle-down text-active"></i></span></a>
+      <!--list1-->
+      <ul class="nav dk text-sm">
+      </ul>
+    </li>
+    <li code="hezi" class="nav1"><a href="http://soft.iboom.tv/boomBox.exe" txt="布姆盒子" target="_blank" class="auto"><i class="fa fa-cloud-download"></i><span class="s_item1">布姆盒子</span><span class="pull-right text-muted "><i class="fa fa-angle-left text"></i><i class="fa fa-angle-down text-active"></i></span></a>
+      <!--list1-->
+      <ul class="nav dk text-sm">
+      </ul>
+    </li>
+      <li  class="nav1"><a href="class-live-show.html" txt="直播间" target="_blank" class="auto"><i class="fa fa-cloud-download"></i><span class="s_item1">直播间</span><span class="pull-right text-muted "><i class="fa fa-angle-left text"></i><i class="fa fa-angle-down text-active"></i></span></a>
+          <!--list1-->
+          <ul class="nav dk text-sm">
+          </ul>
+      </li>
+    <li code="growth" class="nav1"><a href="growth.html" txt="提升计划" target="_self" class="auto"><i class="fa fa-signal"></i><span class="s_item1">提升计划</span><span class="pull-right text-muted "><i class="fa fa-angle-left text"></i><i class="fa fa-angle-down text-active"></i></span></a>
+      <!--list1-->
+      <ul class="nav dk text-sm">
+      </ul>
+    </li>
+  </ul>
+  <!--  nav   -->
+</nav>
+<!-- .nav  -->
+
+</div>
+</section>
+
+<!-- / nav -->
+<footer class="footer hidden-xs no-padder text-center-nav-xs">
+    <div class="hidden ">
+        <div class="dropdown dropup wrapper-sm clearfix">
+            <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
+                <span class="thumb-sm avatar pull-left m-l-xs">                        
+                        <img src="" class="myheadico dker" alt="...">
+                        <i class="on b-black hidden"></i>
+                      </span>
+                <span class="hidden-nav-xs clear">
+                        <span class="block m-l">
+                          <strong class="myname font-bold text-lt "></strong> 
+                          <b class="caret"></b>
+                        </span>
+                <span class="myarea text-muted text-xs block m-l"> </span>
+                </span>
+            </a>
+            <ul class="dropdown-menu animated fadeInRight aside text-left">
+                <li>
+                    <span class="arrow bottom"></span>
+                    <a class="tomyhome" href="javascript:void(0)">
+                        <i class="icon-user"></i>
+                        <span>我的主页</span>
+                    </a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <a class="tomypwd" data-toggle="modal" data-target="#pwdModal" href="javascript:void(0)">
+                        <i class="icon-lock"></i>
+                        <span>修改密码</span>
+                    </a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <a class="tologin" href="javascript:void(0)">
+                        <i class="icon-logout"></i>
+                        <span>退出登录</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+                    <a class="tologin footerloginout " href="javascript:void(0)">
+                        <i class="icon-logout"></i>
+                        <span>退出登录</span>
+                    </a>
+</footer>
+</section>
+
+
+</aside>
+<!-- /.aside -->
+<section id="content">
+    <section  class="vbox"  >
+
+<!-- mates -->
+<section class="scrollable padder scrollfunc " ng-controller="color">
+    <div id="pc" class="clearfix">
+        <div class="rankControl col-lg-10 col-lg-offset-1 ">
+        	<div ng-click="changeType($event.target)">
+            <ul class="rtopc row " >
+                <li ng-class="nav1[0]"  type='gwt'>成长榜</li>
+                <li ng-class="nav1[1]"  type='rc'>段位榜</li>
+                <li ng-class="nav1[2]"  type='cwt'>场次榜</li>
+                <li ng-class="nav1[3]"  type='champion'>英雄榜</li>
+            </ul>
+            <!-- rtopc -->
+            <div class="rmidc ">
+                <ul class="rmul ">
+                    <li class="rmli " ng-show="nav2Show[0]">
+                        <ul class="rmul1 ">
+                            <li class="rmli1 row">
+                                <span class="rmspan2">时间：</span>
+                                <ul class="rmul2">
+                                    <li class="rmli2" type="gwt" ng-class="nav2Css[0]">周</li>
+                                    <li class="rmli2" type="gmt" ng-class="nav2Css[1]">月</li>
+                                    <li class="rmli2" type="gqt" ng-class="nav2Css[2]">季</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul class="rmul1 " >
+                            <li class="rmli1 row">
+                                <span class="rmspan2">类型：</span>
+                                <ul class="rmul2" >
+                                    <li class="li3" ng-class="nav3[0]" top=0 >Top10</li>
+                                    <li class="li3" ng-class="nav3[1]" top=1 >Last10</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- 成长榜 -->
+                    <li class="rmli " ng-show="nav2Show[1]">
+                        <ul class="rmul1 ">
+                            <li class="rmli1 row">
+                                <span class="rmspan2">范围：</span>
+                                <ul class="rmul2" >
+                                    <li class="rmli2" type="rc" ng-class="nav2Css[0]">本班</li>
+                                    <li class="rmli2" type="rs" ng-class="nav2Css[1]">全校</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul class="rmul1 " style="display:none">
+                            <li class="rmli1 row">
+                                <span class="nowindex pull-right text-right  hidden-xs">当前排名:<b ng-bind="nowIndex"></b></span>
+                                <span class="rmspan2">大区：</span>
+                                <ul class="">
+                                    <li class="rmli3 ">
+                                        <div class="li3c"
+                                        	ng-click="areaShowFn()">
+                                            <span ng-bind="nowArea"></span>
+                                            <i class="fa fa-caret-down"></i>
+                                        </div>
+                                        <div class="li3uout scrollable " ng-show="areaShow">
+                                            <ul class="li3u" ng-click="areaCheck($event.target)">
+                                                <li ng-repeat="li in area" ng-bind="li.name" ng-class="li.css" areaCode={{li.id}} areaIndex={{li.index}}></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- 段位榜 -->
+                    <li class="rmli " ng-show="nav2Show[2]">
+                        <ul class="rmul1 ">
+                            <li class="rmli1 row">
+                                <span class="rmspan2">时间：</span>
+                                <ul class="rmul2" >
+                                    <li class="rmli2" ng-class="nav2Css[0]" type="cwt" >周</li>
+                                    <li class="rmli2" ng-class="nav2Css[1]" type="cmt" >月</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul class="rmul1 ">
+                            <li class="rmli1 row">
+                                <span class="rmspan2">类型：</span>
+                                <ul class="rmul2" >
+                                    <li class=" li3" ng-class="nav3[0]" top=0>Top10</li>
+                                    <li class=" li3" ng-class="nav3[1]" top=1>Last10</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- 场次榜 -->
+                    <li class="rmli " ng-show="nav2Show[3]">
+                    </li>
+                    <!-- 英雄榜 -->
+                    <!-- rmli -->
+                </ul>
+                <!-- rmul -->
+            </div>
+            <!-- rmidc -->
+        	</div>
+        </div>
+
+        <span class="nowindex  text-right visible-xs-inline">当前排名:<b></b></span>
+        <!-- rankControl -->
+        <div class="rankContent col-lg-10 col-lg-offset-1" >
+            <div class="table-responsive tabout scrollable">
+                <table class="table table-condensed ranktab">
+                    <thead class="rankthead ">
+                        <tr class="rtheadtr">
+                            <th ng-show="pc[0]">排名</th>
+                            <th ng-show="pc[1]">召唤师同学</th>
+                            <th ng-show="pc[2]">班级</th>
+                            <th ng-show="pc[3]">学号</th>
+                            <th ng-show="pc[4]">胜点/段位</th>
+                            <th ng-show="pc[5]" class="thsc">变化</th>
+                            <th ng-show="pc[6]">现水平</th>
+                            <th ng-show="pc[7]">原水平</th>
+                            <th ng-show="pc[8]">变化</th>
+                            <th ng-show="pc[9]">场次</th>
+                            <th ng-show="pc[10]">英雄</th>
+                            <th ng-show="pc[11]">登场率</th>
+                            <th ng-show="pc[12]">胜率</th>
+                            <th ng-show="pc[13]">KDA|杀/死/助</th>
+                            <th ng-show="pc[14]">补兵/分</th>
+                            <th ng-show="pc[15]">金钱/分</th>
+                        </tr>
+                    </thead>
+                    <!-- rankthead -->
+                    <tbody class="ranktbody">
+                        <tr class="rtbodytr {{row.self}}" data-ng-repeat="row in rows">
+                            <td class="rank_num text-center lh" ng-show="pc[0]">
+                                <span ng-bind="row.index"></span>
+                                <span class="top3" ng-class="row.topIcon"></span>
+                            </td>
+                            <!-- rank_num -->
+                            <td class="rank_summor " ng-show="pc[1]">
+                                <a href="class-myhomepage.html?his={{row.studentId}}" class="summor ">
+                                    <div class="imgpart">
+                                        <img class="img" src="{{row.simg}}">
+                                        <div class="sex {{row.sex1}}"></div>
+                                    </div>
+                                    <div class="namepart">
+                                        <span ng-bind="row.summoner"> </span>
+                                    </div>
+                                </a>
+                            </td>
+                            <!-- rank_summor -->
+                            <td class="rank_class " ng-show="pc[2]">
+                                <span ng-bind="row.className"></span>
+                            </td>
+                            <!-- rank_class -->
+                            <td class="rank_studentnum" ng-show="pc[3]">
+                                <span ng-bind="row.studentNum"></span>
+                            </td>
+                            <!-- rank_studentnum -->
+                            <td class="rank_winPoint" ng-show="pc[4]">
+                                <span ng-bind="row.dan"></span><b ng-bind="row.winPoint"></b><span>点</span>
+                            </td>
+                            <td class="rank_change tdsc" ng-show="pc[5]">
+                                <div class="up " ng-class="row.growChangeClass[0]">
+                                    <span ng-bind="row.change">1</span>
+                                    <i class="fa  fa-long-arrow-up"></i>
+                                </div>
+                                <!-- up -->
+                                <div class="down " ng-class="row.growChangeClass[1]">
+                                    <span ng-bind="row.change">1</span>
+                                    <i class="fa  fa-long-arrow-down"></i>
+                                </div>
+                                <!-- down -->
+                                <div class="nochange " ng-class="row.growChangeClass[2]">
+                                    <span>无变化</span>
+                                </div>
+                                <div class="nodan " ng-class="row.growChangeClass[3]">
+                                    <span>——</span>
+                                </div>
+                            </td>
+                            <!-- rank_change -->
+                            <!-- rank_winPoint -->
+                            <td class="rank_winPoint rank_winPoint_n " ng-show="pc[6]">
+                                <span ng-bind="row.danNow"></span><b ng-bind="row.winPointNow"></b><span>点</span>
+                            </td>
+                            <!-- rank_winPoint 现水平 -->
+                            <td class="rank_winPoint rank_winPoint_o " ng-show="pc[7]">
+                                <span ng-bind="row.danOld"></span><b ng-bind="row.winPointBefore"></b><span>点</span>
+                            </td>
+                            <!-- rank_winPoint 原水平-->
+                            <td class=" rank_grow_change " ng-show="pc[8]">
+                                <div class="up " ng-class="row.growChangeClass[0]">
+                                    <span ng-bind="row.change"></span>
+                                    <i class="fa  fa-long-arrow-up"></i>
+                                </div>
+                                <!-- up -->
+                                <div class="down " ng-class="row.growChangeClass[1]">
+                                    <span ng-bind="row.change"></span>
+                                    <i class="fa  fa-long-arrow-down"></i>
+                                </div>
+                                <!-- down -->
+                                <div class="nochange " ng-class="row.growChangeClass[2]">
+                                    <span>无变化</span>
+                                </div>
+                                <div class="nodan " ng-class="row.growChangeClass[3]">
+                                    <span>——</span>
+                                </div>
+                            </td>
+                            <!-- rank_grow_change -->
+                            <td class="rank_counts " ng-show="pc[9]">
+                                <span ng-bind="row.count"></span>
+                            </td>
+                            <!-- rank_counts -->
+                            <td class="rank_summor rank_champion " ng-show="pc[10]">
+                                <div class="summor ">
+                                    <div class="imgpart">
+                                        <img class="img" src="{{row.img}}">
+                                    </div>
+                                    <div class="namepart">
+                                        <span ng-bind="row.name"></span>
+                                    </div>
+                                </div>
+                            </td>
+                            <!-- rank_champion -->
+                            <td class="rank_userate " ng-show="pc[11]">
+                                <span ng-bind="row.useRate"></span>
+                            </td>
+                            <!-- rank_userate -->
+                            <td class="rank_winrate " ng-show="pc[12]">
+                                <span ng-bind="row.winRate"></span>
+                            </td>
+                            <!-- rank_winrate -->
+                            <td class="rank_KDA " ng-show="pc[13]">
+                                <b ng-bind="row.KDA"></b>
+                                <span ng-bind="row.k_d_a"></span>
+                            </td>
+                            <!-- rank_KDA -->
+                            <td class="rank_creeps " ng-show="pc[14]">
+                                <span ng-bind="row.creeps"></span>
+                            </td>
+                            <!-- rank_creeps -->
+                            <td class="rank_money " ng-show="pc[15]">
+                                <span ng-bind="row.money"></span>
+                            </td>
+                            <!-- rank_money -->
+                        </tr>
+                    </tbody>
+                    <!-- ranktbody -->
+                </table>
+                <!-- ranktab 班级		 -->
+            </div>
+            <ul class="paging center-block text-center " ng-show="page.show" ng-click="pageFn($event.target)">
+                <li class="to_p"   href="#top" add="-1" nowPage={{page.nowPage}}>«</li>
+                <li class="pagecheckout">
+                    <input type="text" class="pagecheck" ng-model="page.nowPage">
+                </li>
+                <li class="totalpage">/<span ng-bind="page.pages"></span></li>
+                <li class="go_p" add="0" nowPage={{page.nowPage}}>GO</li>
+                <li class="to_n" add="1" nowPage={{page.nowPage}}>»</li>
+            </ul>
+        </div>
+        <!-- rankContent -->
+    </div>
+    <!--             #pc	           -->
+    <!--               #phone                 -->
+    <div id="phone" class="clearfix">
+        <div class="phone ">
+            <nav ng-click="changeType($event.target)">
+                <ul class="pct1" ng-click='control1($event)'>
+	                <li ng-class="nav1[0]" type='gwt'>成长榜</li>
+	                <li ng-class="nav1[1]" type='rc'>段位榜</li>
+	                <li ng-class="nav1[2]" type='cwt'>场次榜</li>
+	                <li ng-class="nav1[3]" type='champion'>英雄榜</li>
+                </ul>
+                <div class="pct2">
+                    <ul ng-show="nav2Show[0]">
+                        <li class="left" >
+                            <span class="w33" ng-class="nav2Css[0]" type="gwt" >周</span>
+                            <span class="w33" ng-class="nav2Css[1]" type="gmt" >月</span>
+                            <span class="w34" ng-class="nav2Css[2]" type="gqt" >季</span>
+                        </li>
+                        <!-- 周月季 -->
+                        <li class="right" >
+                            <span class=" w50" ng-class="nav3[0]" top=0>top10</span>
+                            <span class=" w50" ng-class="nav3[1]" top=1>last10</span>
+                        </li>
+                        <!-- top10 last10 -->
+                    </ul>
+                    <!-- 成长榜 -->
+                    <ul ng-show="nav2Show[1]" >
+                        <li class="left" >
+                            <span class=" w50" ng-class="nav2Css[0]" type="rc" >本班</span>
+                            <span class=" w50" ng-class="nav2Css[1]" type="rs" >学校</span>
+                        </li>
+                        <li class="right areaSelect" ng-click="areaShowFn()">
+                            <div class="area">
+                                <p ng-bind="nowArea"></p>
+                                <i class="fa fa-caret-down"></i>
+                            </div>
+                        </li>
+                    </ul>
+                    <!-- 段位榜 -->
+                    <ul ng-show="nav2Show[2]">
+                        <li class="left" >
+                            <span class=" w50" ng-class="nav2Css[0]" type="cwt" >周</span>
+                            <span class=" w50" ng-class="nav2Css[1]" type="cmt" >月</span>
+                        </li>
+                        <li class="right" >
+                            <span class=" w50" ng-class="nav3[0]" top=0>top10</span>
+                            <span class=" w50" ng-class="nav3[1]" top=1>last10</span>
+                        </li>
+                    </ul>
+                    <!-- 场次榜 -->
+                    <ul ng-show="nav2Show[3]" ng-click="championClick($event.target)">
+                        <li>
+                            <span class=" w20" ng-class="championNav[0]" championType="0">登场率</span>
+                            <span class=" w20" ng-class="championNav[1]" championType="1">胜率</span>
+                            <span class=" w20" ng-class="championNav[2]" championType="2">KDA</span>
+                            <span class=" w20" ng-class="championNav[3]" championType="3">补兵</span>
+                            <span class=" w20" ng-class="championNav[4]" championType="4">金钱</span>
+                        </li>
+                    </ul>
+                    <!-- 英雄榜 -->
+                </div>
+            </nav>
+            <ul class=" row areas" ng-click="areaCheck($event.target)" ng-show="areaShow">
+                <li ng-repeat="li in area" ng-bind="li.name" ng-class="li.css" areaCode={{li.id}} areaIndex={{li.index}}></li>
+            </ul>
+            <div class="table table-responsive ptab">
+                <table class="table table-condensed">
+                    <thead>
+                        <tr>
+                            <th ng-show="mobile[0]">排名</th>
+                            <th ng-show="mobile[1]">召唤师同学</th>
+                            <th ng-show="mobile[2]">英雄</th>
+                            <th ng-show="mobile[3]">变化</th>
+                            <th ng-show="mobile[4]">段位胜点</th>
+                            <th ng-show="mobile[5]">场次</th>
+                            <th ng-show="mobile[6]">登场率</th>
+                            <th ng-show="mobile[7]">胜率</th>
+                            <th ng-show="mobile[8]">KDA</th>
+                            <th ng-show="mobile[9]">补兵</th>
+                            <th ng-show="mobile[10]">金钱</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="row in rows">
+                            <td  class="rownum"
+                            ng-show="mobile[0]">
+                                <span ng-bind="row.index"></span>
+                                <div class="numclass" style="background-position:{{(row.index-1)*-24}}px 0;" ></div>
+                            </td>
+                            <td class="summor " 
+                            ng-show="mobile[1]">
+                                <a href="class-myhomepage.html?his={{row.studentId}}">
+                                    <div class="imgpart">
+                                        <img class="img" src="{{row.simg}}">
+                                        <div class="sex {{row.sex1}}"></div>
+                                    </div>
+                                    <div class="namepart">
+                                        <span ng-bind="row.summoner"> </span>
+                                    </div>
+                                </a>
+                            </td>
+                            <td class="champion " 
+                            ng-show="mobile[2]">
+                                <a href="#">
+                                    <div class="imgpart">
+                                        <img class="img" src="{{row.img}}">
+                                    </div>
+                                    <div class="namepart">
+                                        <span ng-bind="row.name"> </span>
+                                    </div>
+                                </a>
+                            </td>
+                            <td class="grow" 
+                            ng-show="mobile[3]">
+                                <div class="up none" ng-class="row.growChangeClass[0]">
+                                    <span ng-bind="row.change"></span>
+                                    <i class="fa  fa-long-arrow-up"></i>
+                                </div>
+                                <!-- up -->
+                                <div class="down none" ng-class="row.growChangeClass[1]">
+                                    <span ng-bind="row.change"></span>
+                                    <i class="fa  fa-long-arrow-down"></i>
+                                </div>
+                                <!-- down -->
+                                <div class="nochange none" ng-class="row.growChangeClass[2]">
+                                    <span>无变化</span>
+                                </div>
+                                <div class="nodan none" ng-class="row.growChangeClass[3]">
+                                    <span>——</span>
+                                </div>
+                            </td>
+                            <td class="rank" 
+                            ng-show="mobile[4]">
+                                <span ng-bind="row.dan"></span>
+                                <b ng-bind="row.winPoint"></b>
+                                <span>点</span>
+                            </td>
+
+                            <td class="count" 
+                            ng-show="mobile[5]">
+                                 <span ng-bind="row.count"></span>
+                            </td>
+                            <td class="userate" 
+                            ng-show="mobile[6]">
+                                <span ng-bind="row.useRate"></span>
+                            </td>
+                            <td class="winrate" 
+                            ng-show="mobile[7]">
+                                <span ng-bind="row.winRate"></span>
+                            </td>
+                            <td class="kda" 
+                            ng-show="mobile[8]">
+                                <b ng-bind="row.KDA"></b>
+                                <span ng-bind="row.k_d_a"></span>
+                            </td>
+                            <td class="creeps" 
+                            ng-show="mobile[9]">
+                                <span ng-bind="row.creeps"></span>
+                            </td>
+                            <td class="money" 
+                            ng-show="mobile[10]">
+                                <span ng-bind="row.money"></span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <ul class="phonepaging center-block text-center " ng-show="page.show" ng-click="pageFn($event.target)" >
+                <li class="" add="-1" nowPage={{page.nowPage}}>«</li>
+                <li class="">
+                    <input type="text" ng-model="page.nowPage"  class="">
+                </li>
+                <li class="">/<span ng-bind="page.pages"></span></li>
+                <li class="" add="0" nowPage={{page.nowPage}}>GO</li>
+                <li class="" add="1" nowPage={{page.nowPage}}>»</li>
+            </ul>
+        </div>
+        <!-- phone -->
+    </div>
+    <!--               #phone                -->
+    <!-- copyright  -->
+    <section class="hbox  copyright">
+        <div class="text-center ">
+            <a href="http://www.beianbeian.com/beianxinxi/6f9a3be6-f7f7-4445-b5bb-d7b78cb4a3a0.html" target="_blank">浙ICP备14039924号-1</a>  
+            <a href="http://www.miitbeian.gov.cn/publish/query/indexFirst.action" target="_blank">工信部备案查询</a>
+        </div>
+    </section>
+    <!-- copyright  -->
+</section>
+
+
+                  </section>
+                  <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen,open" data-target="#nav,html"></a>
+                </section>
+              </section>
+            </section>    
+          </section>
+
+<div class="modal fade" id="pwdModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header user-select">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+        <h4 class="modal-title">修改密码<i id="eyepwd" class="fa fa-eye"></i></h4>
+        
+      </div>
+      <div class="modal-body" style="padding:5px 15px;">
+        <form class="form-horizontal" >
+          <div class="form-group">
+            <label for="oldpwd" class="col-sm-2 control-label">原密码:</label>
+            <div class="col-sm-10">
+              <input type="password" class="form-control text-center" id="oldpwd" maxlength="20" placeholder="输入原密码">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="n1pwd" class="col-sm-2 control-label">新密码:</label>
+            <div class="col-sm-10">
+              <input type="password" class="form-control text-center" id="n1pwd" maxlength="20" placeholder="输入新密码">
+            </div>
+          </div>
+
+
+          <div class="form-group">
+            <label for="n2pwd" class="col-sm-2 control-label">确认密码:</label>
+
+            <div class="col-sm-10 ">
+              <input type="password" class="form-control text-center" id="n2pwd" maxlength="20" placeholder="再次输入新密码">
+            </div>
+          </div>
+          <div class="form-group" style="margin-bottom: 0;">
+            <div class="">
+
+              <p id="errorpwd" class="text-center"> </p>
+
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+              <button id="cancelpwd" type="button" class="btn btn-default pull-right " data-dismiss="modal">取消</button>
+              <button id="comfirmpwd" type="submit" class="btn btn-danger disabled pull-right m-r" title="新密码长度少于6位">确认修改</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!-- 修改密码 pwdModal -->
+
+<div class="gotopPart hidden" >
+  <div class="gotopback" ng-show="topObj.topTopshow" ></div>
+  <div class="gotop" ng-show="topObj.topTopshow" ng-click="gotop() " ></div>
+
+</div>
+<!-- gotopPart -->
+
+        <!-- jqurey -->
+        <script type="text/javascript"  src="js/public/jquery.min.js"></script>
+        
+        <!-- angular -->
+        <script type="text/javascript" src="js/public/angular.js"></script>
+        <script type="text/javascript" src="js/public/angular-animate.min.js"></script>
+        <script type="text/javascript" src="js/public/angular-ui-router.min.js"></script>
+        <!-- Bootstrap -->
+        <script src="js/public/bootstrap.js"></script>
+        <!-- App -->
+        <script src="js/public/app.js"></script>
+        <script src="js/public/slimscroll/jquery.slimscroll.min.js"></script>
+        <!-- app.plugin -->
+        <script src="js/public/app.plugin.js"></script>
+        <!--CNZZ接口-->
+
+
+        <!-- lib -->
+        <script src="js/lib/base.js?time=New Date()" charset="utf-8"></script>
+        <script src="http://logging.iboom.tv/loggingSDK.js" async></script>   
+         
+        <div id="scriptbox"></div>
+	<!-- class-rank -->
+	<script type="text/javascript" src="js/lib/charts/flot/jquery.flot.min.js?time=1469070414094.js" charset="utf-8"></script>
+	<script type="text/javascript" src="js/lib/charts/flot/jquery.flot.tooltip.min.js?time=1469070414094.js" charset="utf-8"></script>
+	<script type="text/javascript" src="js/lib/charts/flot/jquery.flot.resize.js?time=1469070414094.js" charset="utf-8"></script>
+	<script type="text/javascript" src="js/lib/charts/flot/jquery.flot.orderBars.js?time=1469070414094.js" charset="utf-8"></script>
+	<script type="text/javascript" src="js/lib/charts/flot/jquery.flot.pie.min.js?time=1469070414094.js" charset="utf-8"></script>
+	<script type="text/javascript" src="js/lib/charts/flot/jquery.flot.grow.js?time=1469070414094.js" charset="utf-8"></script>
+	<script type="text/javascript" src="js/lib/ChinaAreaData.js?time=1469070414094.js" charset="utf-8"></script>
+	<script type="text/javascript" src="js/lib/class-rank-color.js?time=1469070414094.js" charset="utf-8"></script>
+	<script type="text/javascript" src="js/lib/class-rank-line.js?time=1469070414094.js" charset="utf-8"></script>
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1260161989'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1260161989' type='text/javascript'%3E%3C/script%3E"));</script>
+	<script type="text/javascript" src="js/lib/baidutongji.js?time=1469070414094.js" charset="utf-8"></script>
+	
+		<div id="flotTip" style="display: none; position: absolute;"></div>
+	</body>
+</html>
+<!--  author:liaohs/1013211628@qq.com/159***5880 -->

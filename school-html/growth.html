@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<!--
+    88888888ba     ,ad8888ba,      ,ad8888ba,    8D          B8
+    88      "8b   d8"'    `"8b    d8"'    `"8b   888b       d88
+    88     ,8P   d8'        `8b  d8'        `8b  88`8b     d8"8
+    888888888a   88          88  88          88  88 `8b   d8 88
+    88      "8b  Y8,        ,8P  Y8,        ,8P  88  `8b d8  88
+    88      ,8P   Y8a.    .a8P    Y8a.    .a8P   88   `8VP   88
+    88888888P"     `"Y8888Y"'      `"Y8888Y"'    88    `8'   88
+        
+        Copyright © 2015 BoomRen All rights reserved.
+-->
+<html lang="zh" class="app">
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" content="布姆电竞学院" />
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="apple-touch-icon-precomposed" href="images/public/favicon/favicon.png" sizes="60x60">
+    <link rel="shortcut icon" href="images/public/favicon/favicon.ico" />
+    <!-- public-css -->
+    <link rel="stylesheet" href="css/public/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="css/public/animate.css" type="text/css" />
+    <link rel="stylesheet" href="css/public/font-awesome.min.css" type="text/css" />
+    <link rel="stylesheet" href="css/public/simple-line-icons.css" type="text/css" />
+    <link rel="stylesheet" href="css/public/font.css" type="text/css" />
+    <link rel="stylesheet" href="css/public/app.css" type="text/css" />
+    <!-- lib-css -->
+    <link rel="stylesheet" href="css/lib/base.css" type="text/css" />
+
+
+
+	<!-- growth -->
+	<link rel="stylesheet" href="css/lib/growth.css?time=1470285739633.css" />
+	<title>提升计划</title>
+    <!--[if lt IE 9]>
+        <script src="js/public/ie/html5shiv.js"></script>
+        <script src="js/public/ie/respond.min.js"></script>
+        <script src="js/public/ie/excanvas.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="http://tajs.qq.com/stats?sId=54172786" charset="UTF-8"></script>
+	<!--Groing IO 接口-->
+	<script type='text/javascript'>
+		var _vds = _vds || [];
+		window._vds = _vds;
+		(function(){
+			_vds.push(['setAccountId', '8c3c10f33c5d91ee']);
+			(function() {
+				var vds = document.createElement('script');
+				vds.type='text/javascript';
+				vds.async = true;
+				vds.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'dn-growing.qbox.me/vds.js';
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(vds, s);
+			})();
+		})();
+	</script>
+</head>
+<body class="" ng-app='mainApp' ng-controller="gotop"
+    my-Touchstart="touchStart()" 
+    my-Touchend="touchEnd()"
+    my-TouchMove="touchMove()"
+>
+    <section class="vbox">
+        <header class="bg-white-only header header-md navbar navbar-fixed-top-xs">
+            <div class="navbar-header aside bg-info dk">
+                <!-- ieBtn -->
+                <a href="javascript:void(0)" class="btn btn-link mobilepart iepart-btn" id="ieBtn">
+                    <i class="icon-list"></i>
+                </a>
+                <!-- ieBtn -->
+                <a href="javascript:void(0)" class="btn btn-link  visible-xs" data-toggle="class:nav-off-screen,open" data-target="#nav,html">
+                    <i class="icon-list"></i>
+                </a>
+                <a href="javascript:void(0)" class="navbar-brand text-lt">
+                    <i class="fa fa-gamepad"></i>
+                    <span class="hidden-nav-xs m-l-sm">BoomGame</span>
+                </a>
+                <a class="btn btn-link visible-xs" href="javascript:void(0)" data-toggle="dropdown" data-target=".user">
+                    <i class="icon-user"></i>
+                </a>
+            </div>
+            <ul class="nav navbar-nav hidden-xs">
+                <!-- hidden-xs -->
+                <li>
+                    <a href="#nav,.navbar-header" data-toggle="class:nav-xs,nav-xs" class="text-muted">
+                        <i class="fa fa-indent text"></i>
+                        <i class="fa fa-dedent text-active"></i>
+                    </a>
+                </li>
+            </ul>
+            <p id="pagetitle" class="hidden-xs"><i></i><span></span></p>
+            <div class="navbar-right ">
+                <ul class="nav navbar-nav m-n hidden-xs nav-user user">
+                    <li class="dropdown" id="topheadimg">
+                        <a href="javascript:void(0)" class="dropdown-toggle bg clear" data-toggle="dropdown">
+                            <span class="thumb-sm avatar pull-right m-t-n-sm m-b-n-sm m-l-sm">
+                <img class="myheadico" src="" alt="...">
+              </span><b class="myname"></b> <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu animated fadeInRight">
+                            <li>
+                                <span class="arrow top"></span>
+                                <a class="tomyhome" href="javascript:void(0)">
+                                    <i class="icon-user"></i>
+                                    <span>我的主页</span>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a class="tostudy-record" href="study-record.html">
+                                    <i class="fa fa-list-ol"></i>
+                                    <span>学习记录</span>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a class="tomypwd" data-toggle="modal" data-target="#pwdModal" href="javascript:void(0)">
+                                    <i class="icon-lock"></i>
+                                    <span>修改密码</span>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a class="tologin" href="javascript:void(0)">
+                                    <i class="icon-logout"></i>
+                                    <span>退出登录</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </header>
+        <div ie-nav class="ienavout" id="ieNav">
+            
+            <ul class="iepart-nav" >
+
+                <!-- <li class="iepart-nav-li " ie-navli  ng-class="$index==navIndex?'active':''" ng-repeat="li in navData" ng-click="navIndexFn($index)">
+                    <a href="{{li.href}}" target="{{li.target||'_self'}}" class="auto">
+                        <i class="{{li.icon_css}}"></i>
+                        <span class="s_item1" ng-bind="li.name"></span>
+                        
+                    </a>
+                </li> -->
+
+                <li class="iepart-nav-li "  >
+                    <a href="class-notice.html"  class="auto">
+                       
+                        <span class="s_item1" >公告</span>
+                        
+                    </a>
+                </li> 
+                <li class="iepart-nav-li "  >
+                    <a href="class-list.html"  class="auto">
+                        
+                        <span class="s_item1" >课程目录</span>
+                        
+                    </a>
+                </li>
+                <li class="iepart-nav-li isIe"  >
+                    <a href="class-service.html"  class="auto">
+                        
+                        <span class="s_item1" >布姆服务</span>
+                        
+                    </a>
+                </li>
+                <li class="iepart-nav-li isIe"  >
+                    <a href="small-game.html"  class="auto">
+                        
+                        <span class="s_item1" >训练小游戏</span>
+                        
+                    </a>
+                </li>
+                <li class="iepart-nav-li isIe"  >
+                    <a href="class-rank.html"  class="auto">
+                        
+                        <span class="s_item1" >风云榜</span>
+                        
+                    </a>
+                </li>
+                <li class="iepart-nav-li "  >
+                    <a href="http://soft.iboom.tv/boomBox.exe"  target='_blank' class="auto">
+                        
+                        <span class="s_item1" >布姆盒子</span>
+                        
+                    </a>
+                </li>
+                <li class="iepart-nav-li "  id="growthLi" style="display:none;">
+                    <a href="growth.html"  class="auto">
+                        
+                        <span class="s_item1" >提升计划</span>
+                        
+                    </a>
+                </li>        
+            </ul>
+        </div>        <section>
+            <section class="hbox stretch">
+                <!-- .aside -->
+                <aside class="bg-black dk aside hidden-print hidden-xs" id="nav">
+                    <section class="vbox">
+			            <section class="w-f-md scrollable">
+			              <div class="slim-scroll" data-height="auto" data-disable-fade-out="true" data-distance="0" data-size="10px" data-railOpacity="0.2">
+
+
+<!--  nav  -->
+<nav class="nav-primary hidden-xs">
+  <ul data-ride="collapse" class="nav">
+    <li code="class-notice" class="nav1"><a href="class-notice.html" txt="公告" target="_self" class="auto"><i class="fa fa-calendar "></i><span class="s_item1">公告</span><span class="pull-right text-muted "><i class="fa fa-angle-left text"></i><i class="fa fa-angle-down text-active"></i></span></a>
+      <!--list1-->
+      <ul class="nav dk text-sm">
+      </ul>
+    </li>
+    <li code="class-list" class="nav1"><a href="class-list.html" txt="课程目录" target="_self" class="auto"><i class="fa fa-book  "></i><span class="s_item1">课程目录</span><span class="pull-right text-muted "><i class="fa fa-angle-left text"></i><i class="fa fa-angle-down text-active"></i></span></a>
+      <!--list1-->
+      <ul class="nav dk text-sm">
+      </ul>
+    </li>
+    <li code="class-service" class="nav1"><a href="class-service.html" txt="布姆服务" target="_self" class="auto"><i class="fa fa-tachometer  "></i><span class="s_item1">布姆服务</span><span class="pull-right text-muted "><i class="fa fa-angle-left text"></i><i class="fa fa-angle-down text-active"></i></span></a>
+      <!--list1-->
+      <ul class="nav dk text-sm">
+      </ul>
+    </li>
+    <li code="small-game" class="nav1"><a href="small-game.html" txt="训练小游戏" target="_self" class="auto"><i class=" icon-game-controller  "></i><span class="s_item1">训练小游戏</span><span class="pull-right text-muted "><i class="fa fa-angle-left text"></i><i class="fa fa-angle-down text-active"></i></span></a>
+      <!--list1-->
+      <ul class="nav dk text-sm">
+      </ul>
+    </li>
+    <li code="class-rank" class="nav1"><a href="class-rank.html" txt="风云榜" target="_self" class="auto"><i class="fa fa-users  "></i><span class="s_item1">风云榜</span><span class="pull-right text-muted "><i class="fa fa-angle-left text"></i><i class="fa fa-angle-down text-active"></i></span></a>
+      <!--list1-->
+      <ul class="nav dk text-sm">
+      </ul>
+    </li>
+    <li code="hezi" class="nav1"><a href="http://soft.iboom.tv/boomBox.exe" txt="布姆盒子" target="_blank" class="auto"><i class="fa fa-cloud-download"></i><span class="s_item1">布姆盒子</span><span class="pull-right text-muted "><i class="fa fa-angle-left text"></i><i class="fa fa-angle-down text-active"></i></span></a>
+      <!--list1-->
+      <ul class="nav dk text-sm">
+      </ul>
+    </li>
+	  <li  class="nav1"><a href="class-live-show.html" txt="直播间" target="_blank" class="auto"><i class="fa fa-cloud-download"></i><span class="s_item1">直播间</span><span class="pull-right text-muted "><i class="fa fa-angle-left text"></i><i class="fa fa-angle-down text-active"></i></span></a>
+		  <!--list1-->
+		  <ul class="nav dk text-sm">
+		  </ul>
+	  </li>
+    <li code="growth" class="nav1"><a href="growth.html" txt="提升计划" target="_self" class="auto"><i class="fa fa-signal"></i><span class="s_item1">提升计划</span><span class="pull-right text-muted "><i class="fa fa-angle-left text"></i><i class="fa fa-angle-down text-active"></i></span></a>
+      <!--list1-->
+      <ul class="nav dk text-sm">
+      </ul>
+    </li>
+  </ul>
+  <!--  nav   -->
+</nav>
+<!-- .nav  -->
+
+</div>
+</section>
+
+<!-- / nav -->
+<footer class="footer hidden-xs no-padder text-center-nav-xs">
+    <div class="hidden ">
+        <div class="dropdown dropup wrapper-sm clearfix">
+            <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
+                <span class="thumb-sm avatar pull-left m-l-xs">                        
+                        <img src="" class="myheadico dker" alt="...">
+                        <i class="on b-black hidden"></i>
+                      </span>
+                <span class="hidden-nav-xs clear">
+                        <span class="block m-l">
+                          <strong class="myname font-bold text-lt "></strong> 
+                          <b class="caret"></b>
+                        </span>
+                <span class="myarea text-muted text-xs block m-l"> </span>
+                </span>
+            </a>
+            <ul class="dropdown-menu animated fadeInRight aside text-left">
+                <li>
+                    <span class="arrow bottom"></span>
+                    <a class="tomyhome" href="javascript:void(0)">
+                        <i class="icon-user"></i>
+                        <span>我的主页</span>
+                    </a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <a class="tomypwd" data-toggle="modal" data-target="#pwdModal" href="javascript:void(0)">
+                        <i class="icon-lock"></i>
+                        <span>修改密码</span>
+                    </a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <a class="tologin" href="javascript:void(0)">
+                        <i class="icon-logout"></i>
+                        <span>退出登录</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+                    <a class="tologin footerloginout " href="javascript:void(0)">
+                        <i class="icon-logout"></i>
+                        <span>退出登录</span>
+                    </a>
+</footer>
+</section>
+
+
+</aside>
+<!-- /.aside -->
+<section id="content">
+    <section  class="vbox"  >
+
+
+<section class="scrollable padder scrollable1 " ng-controller="color">
+	<div class="box clearfix">
+		<div class="contentPart top-signal ">
+			<div class="title">
+				<p class="subtext text-center">布姆电竞学院</p>
+				<p class="maintext text-center">学员提升计划</p>
+			</div>
+			<div class="student-info text-center">
+				<div class="headimg" style="background-image:url({{myInfo.headimg}})"></div>
+				<p class="name text-center" ng-bind="myInfo.summoner"></p>
+				<div class="otherInfo">
+					<span>学号：<span ng-bind="myInfo.studentNum"></span></span>|
+					<span>大区: <span ng-bind="myInfo.areaName"></span></span>
+				</div>
+			</div>
+		</div>
+
+		<div class="Error hidden">
+			<p class="text-danger text-center">暂无数据，
+			<span >请重刷</span></p>
+		</div>
+
+		<div class="notError" >	
+		<div class="contentPart grow-signal ">
+			<div class="content-in">
+				<div class="content-in-top">
+					<p>学员能力成长</p>
+					<i class="icon triangle-up" 
+					ng-class="{true: 'icon-down', false: 'icon-up'}[item1]"
+					item-show item="item1"
+					ng-show="overallGrowths"></i>
+				</div>
+
+				<div class="content-in-details" >
+					<div class="growth-list">
+						<div class="growth-line">
+						
+							<div class="rankProgressClass">
+								<div class="barout">
+									
+									<div class="greenCircle" style="left: {{beginRank.left}}%;"></div>
+									<div class="beginInfo" style="left: {{beginRank.left}}%;" ng-show="overallGrowths">
+										<span>{{beginRank.name}}</span>
+										<p>起始段位</p>
+									</div>
+
+									<div class="barin" style="width:{{recentRank.left}}%;"></div>
+									<div class="greenCircle" style="left:{{recentRank.left}}%;"></div>
+									<div class="tip" style="left: {{recentRank.left}}%;">
+										<p>{{recentRank.name}}</p>
+									</div>
+
+									<div class="championImg img1 img11 img01">
+										<div class="rankInfo">
+											<span>青铜Ⅴ</span>
+											<p></p>
+										</div>
+									</div>
+									<div class="championImg img2 img12  " 
+									ng-class="recentRank.tier<=4?'img02':''"></div>
+
+									<div class="championImg img3 img13 "
+									ng-class="recentRank.tier<=3?'img03':''"></div>
+
+									<div class="championImg img4 img14 "
+									ng-class="recentRank.tier<=2?'img04':''">
+										<div class="rankInfo">
+											<span>铂金</span>
+											<p>目标段位</p>
+										</div>
+									</div>
+								</div>
+
+
+							</div>
+
+
+						</div>
+
+						
+					</div>
+				</div>
+
+				<div class="content-in-details canvas-out noDataOut"  ng-show="!item1 && overallGrowths" >
+					<div class="row">
+						<div class="col-xs-6">
+							<div id="fillKnife" class="canvas"></div>
+						</div>
+						<div class="col-xs-6">
+							<div id="groupRate" class="canvas"></div>
+						</div>
+						<div class="col-xs-6">
+							<div id="death" class="canvas"></div>
+						</div>
+						<div class="col-xs-6">
+							<div id="hurtRate" class="canvas"></div>
+						</div>
+					</div>
+					<div class="noData" ng-show="growthNotData">
+						<div class="bgOpacity"></div>
+						<div class="bgContent"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="contentPart main-champin " ng-show="championStages">
+			<div class="content-in">
+				<div class="content-in-top">
+					<p>主练英雄</p>
+					<i class="icon triangle-up" 
+					ng-class="{true: 'icon-down', false: 'icon-up'}[item2]"
+					item-show item="item2"></i>
+				</div>
+
+				<div class="content-in-details" ng-hide="item2">
+					<div class="row content-in-details-center">
+						<div class="selectClass pull-left" ng-click="championChange(0)">
+							<div class="imgPart">
+								<div class="imgPart-in">
+
+									<div class="champinImg" style="background-image: url('images/public/champion/{{championInfos[championIds[0]].imgSplash}}');"></div>
+								</div>
+								<div class="imgPart-in">
+									<div class="imgPart-floor " 
+									ng-class="championIndex==0?'selectClass-selected':'selectClass-notSelected'"></div>
+								</div>
+							</div>
+							<p class="main-text">
+								{{championInfos[championIds[0]].name}}
+							</p>
+							<p class="sub-text">
+								{{championInfos[championIds[0]].title}}
+							</p>
+						</div>
+						<div class="selectClass pull-right"  ng-click="championChange(1)"
+						ng-show="championIds.length>1">
+							<div class="imgPart">
+								<div class="imgPart-in">
+									<div class="champinImg" style="background-image: url('images/public/champion/{{championInfos[championIds[1]].imgSplash}}');"></div>
+								</div>
+								<div class="imgPart-in">
+									<div class="imgPart-floor "
+									ng-class="championIndex==1?'selectClass-selected':'selectClass-notSelected'"></div>
+								</div>
+							</div>
+							<p class="main-text">
+								{{championInfos[championIds[1]].name}}
+							</p>
+							<p class="sub-text">
+								{{championInfos[championIds[1]].title}}
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="content-in-details" ng-hide="item2">
+					<div class="content-in-details-center">
+						<ul class="list-group right-group">
+						  
+
+						  <li class="list-group-item" ng-repeat="item in championVideos[championIds[championIndex]]">
+						  
+						  	<span class="subtext">
+						  		参考训练视频
+						  	</span>
+						  	<p class="maintext">
+						  		<a target="_blank" href="boomTv.html?{{item.videoUrl}}">
+						  			
+							  		<i class="fa fa-play-circle-o" ></i>
+									<span>{{item.videoName}}</span>
+						  		</a>
+						  	</p>
+						  </li>
+						  <li class="list-group-item hidden">
+					
+							  	<span class="subtext">
+							  		参考训练视频
+							  	</span>
+							  	<p class="maintext">
+									<span>基础课</span>
+							  	</p>
+						  </li>
+						</ul>
+					</div>
+				</div>
+				<div class="content-in-details canvas-out noDataOut" ng-hide="item2">
+					<div class="row">
+						<div class="col-xs-6">
+							<div class="canvas" id="champinCanvas1"></div>
+						</div>
+						<div class="col-xs-6">
+							<div class="canvas" id="champinCanvas2"></div>
+						</div>
+						<div class="col-xs-6">
+							<div class="canvas" id="champinCanvas3"></div>
+						</div>
+						<div class="col-xs-6">
+							<div class="canvas" id="champinCanvas4"></div>
+						</div>
+					</div>
+					<div class="noData" ng-hide="champinNotData[championIds[championIndex]]">
+						<div class="bgOpacity"></div>
+						<div class="bgContent"></div>
+					</div>
+
+				</div>				
+			</div>
+		</div>
+		<div class="contentPart fill-knife " >
+			<div class="content-in">
+				<div class="content-in-top">
+					<div class="contentTitle">
+						<span>补刀练习</span>
+						<div class="title_icon" ng-show="budaoStatus.total.status==1"></div>
+					</div>
+					<i class="icon triangle-up" 
+					ng-class="{true: 'icon-down', false: 'icon-up'}[item3]"
+					item-show item="item3"></i>
+				</div>
+
+				<div class="content-in-details" ng-hide="item3">
+						<div class="btnClass" >
+							<div class="btnClass-btn " 
+							select-class index="budaoIndex" len="budaoLen"
+							ng-class="budaoIndex>0?'btn-prev-true':'btn-prev-false'"
+
+							add=-1></div>
+							<p class="btnClass-text">
+								{{budaoInfos[budaoIndex].title}}
+							</p>
+							<div class="btnClass-btn " 
+							select-class index="budaoIndex" len="budaoLen"
+							ng-class="budaoIndex<budaoLen-1?'btn-next-true':'btn-next-false'"
+							add=1></div>
+						</div>
+
+				</div>
+
+
+				<div class="content-in-details" ng-hide="item3">
+					<div class="growth-list">
+						<div class="growth-line">
+							<div class="progressBarClass">
+								
+								<div class="progressBarClass-bg">
+									
+									<div class="progressBarClass-in"
+									style="width:100%;"></div>
+									<div class="progressBar-circle">
+										<p>30</p>
+									</div>
+									<div class="progressBar-circle" style="left:60%;">
+										<p>60</p>
+									</div>
+
+									<div class="progressBar-ico index1">
+										<p class="main-text">远程法师</p>
+									</div>
+									<div class="progressBar-ico index2">
+										<p class="main-text">近战</p>
+									</div>
+									<div class="progressBar-ico index3">
+										<p class="main-text">ADC</p>
+									</div>
+
+								</div>
+								
+							</div>
+							
+						</div>
+					</div>
+				</div>	
+				<div class=" row content-in-details " ng-hide="item3">
+					<div class="content-in-left">
+						<p class="span" ng-bind-html="budao1" ng-show="(budaoIndex==0)?true:false"></p>
+						<p class="span" ng-bind-html="budao2" ng-show="(budaoIndex==1)?true:false"></p>
+						<p class="span" ng-bind-html="budao3" ng-show="(budaoIndex==2)?true:false"></p>
+
+						<p ng-show="budaoStatus[budaoIndex+1].status==1">已达成</p>
+					</div>
+					<div class="content-in-right ">
+						<ul class="list-group right-group">
+						  <li class="list-group-item">
+						  	<span class="subtext">
+						  		参考训练视频
+						  	</span>
+						  	<p class="maintext">
+						  		<a target="_blank" href="boomTv.html?fiyztsskze&a991ec4f22"
+                                 >
+						  			
+							  		<i class="fa fa-play-circle-o" ></i>
+									<span>基础课—走砍补刀课</span>
+						  		</a>
+						  	</p>
+						  </li>
+						  <li class="list-group-item">
+					
+							  	<span class="subtext">
+							  		关键点
+							  	</span>
+							  	<p class="maintext">
+									<span>塔补和技能补刀</span>
+							  	</p>
+						  </li>
+						</ul>
+						<a  class="yuyuebtn" href="tencent://message/?uin={{teacherQQ}}&amp;Site=&amp;Menu=yes">
+							<i class=" icon-eyeglasses"></i>
+							<span>预约导师检查</span>
+
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="contentPart zoukan " >
+			<div class="content-in">
+				<div class="content-in-top">
+					<div class="contentTitle">
+						<span>走砍练习</span>
+
+						<div class="title_icon " ng-show="zoukanStatus"></div>
+					</div>
+					<i class="icon triangle-up" 
+					ng-class="{true: 'icon-down', false: 'icon-up'}[item4]"
+					item-show item="item4"></i>
+				</div>
+				<div class=" row content-in-details " ng-hide="item4">
+					<div class="content-in-left">
+						<p class="span">
+							近战和ADC走砍，必须有平A之后取消后摇和移动两个步骤，中间不能有卡顿
+							<br/>
+							远程法师走砍，必须有平A之接技能和移动两个步骤，中间同样不能有卡顿。
+						</p>
+						<p class="title">
+							自定义练习
+						</p>
+						<p class="span">
+							自定义开游戏，利用河蟹进行走砍的练习，可添加电脑
+							<br/>除了技能型法师之外，其他英雄都可以选择击杀电脑来获取装备（只能出攻速装备）
+							<br/>击杀电脑的同时也要进行走砍击杀
+							<br/>符文天赋都选用正常对局中的符文天赋，不可进行修改。
+						</p>
+						<p class="title">
+							实战练习
+						</p>
+						<p class="span">
+							实战中练习走砍
+							<br/>ADC在1.5攻速以下走砍不能出现卡顿。
+						</p>
+
+					</div>
+					<div class="content-in-right ">
+						<ul class="list-group right-group">
+						  <li class="list-group-item">
+						  	<span class="subtext">
+						  		参考训练视频
+						  	</span>
+						  	<p class="maintext">
+						  		<a target="_blank" href="boomTv.html?fiyztsskze&a991ec4f22"
+                                 >
+						  			
+							  		<i class="fa fa-play-circle-o" ></i>
+									<span>基础课—走砍补刀课</span>
+						  		</a>
+						  	</p>
+						  </li>
+						  <li class="list-group-item">
+					
+							  	<span class="subtext">
+							  		关键点
+							  	</span>
+							  	<p class="maintext">
+									<span>塔补和技能补刀</span>
+							  	</p>
+						  </li>
+						</ul>
+						<a  class="yuyuebtn" href="tencent://message/?uin={{teacherQQ}}&amp;Site=&amp;Menu=yes">
+							<i class=" icon-eyeglasses"></i>
+							<span>预约导师检查</span>
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="contentPart kongxian " >
+
+			<div class="content-in">
+				<div class="content-in-top">
+
+					<div class="contentTitle">
+						<span>控线练习</span>
+						<div class="title_icon" ng-show="kongxianStatus.total.status==1"></div>
+					</div>
+					<i class="icon triangle-up" 
+					ng-class="{true: 'icon-down', false: 'icon-up'}[item5]"
+					item-show item="item5"></i>
+				</div>
+				<div class="content-in-details" ng-hide="item5">
+					<div class="btnClass" >
+						<div class="btnClass-btn " 
+						select-class index="kongxianIndex" len="kongxianLen"
+						ng-class="kongxianIndex>0?'btn-prev-true':'btn-prev-false'"
+
+						add=-1></div>
+						<p class="btnClass-text">
+							{{kongxianInfos[kongxianIndex].title}}
+						</p>
+						<div class="btnClass-btn " 
+						select-class index="kongxianIndex" len="kongxianLen"
+						ng-class="kongxianIndex<kongxianLen-1?'btn-next-true':'btn-next-false'"
+						add=1></div>
+					</div>
+				</div>
+				<div class=" row content-in-details " ng-hide="item5">
+					<div class="content-in-left">
+
+						<p class="span" ng-bind-html="kongxian1" ng-show="kongxianIndex==0"></p>
+						<p class="span" ng-bind-html="kongxian2" ng-show="kongxianIndex==1"></p>
+						<p class="span" ng-bind-html="kongxian3" ng-show="kongxianIndex==2"></p>
+
+						<p ng-show="kongxianStatus[kongxianIndex+1].status==1">已达成</p>
+						
+					</div>
+					<div class="content-in-right ">
+						<ul class="list-group right-group">
+						  <li class="list-group-item">
+						  	<span class="subtext">
+						  		参考训练视频
+						  	</span>
+						  	<p class="maintext">
+						  		<a target="_blank" href="boomTv.html?fiyztsskze&a991ec4f22"
+                                 >
+						  			
+							  		<i class="fa fa-play-circle-o" ></i>
+									<span>基础课程—兵线课</span>
+						  		</a>
+						  	</p>
+						  </li>
+						  <li class="list-group-item">
+					
+							  	<span class="subtext">
+							  		关键点
+							  	</span>
+							  	<p class="maintext">
+									<span>观察小兵数量，利用技能和身体阻止小兵进塔</span>
+							  	</p>
+						  </li>
+						</ul>
+						<a  class="yuyuebtn" href="tencent://message/?uin={{teacherQQ}}&amp;Site=&amp;Menu=yes">							<i class=" icon-eyeglasses"></i>
+							<span>预约导师检查</span>
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="contentPart evaluate " ng-show="evaluateShow">
+			<div class="content-in">
+				<div class="content-in-top"></div>
+				<div class=" row content-in-details ">
+					<form name="EvaluatesForm" novalidate>
+						<div class="l-r">
+							<div class="evaluateClass ">
+								<div class="evaluateTitle">
+									<p>我对学院成长计划的评价:</p>
+								</div>
+								<div class="evaluateSelect">
+									<label class="radio-inline">
+									  <input type="radio" name="planScore"  value=3
+									  ng-model="Evaluates.planScore"> 
+
+									  <div class="imgPart fellings1"></div>
+									</label>
+									<label class="radio-inline">
+									  <input type="radio" name="planScore" value=2
+									  ng-model="Evaluates.planScore"> 
+									  <div class="imgPart fellings2"></div>
+									</label>
+									<label class="radio-inline">
+									  <input type="radio" name="planScore" value=1
+									  ng-model="Evaluates.planScore">
+									  <div class="imgPart fellings3"></div>
+									</label>
+								</div>
+								<div class="evaluateTextarea">
+									<textarea  rows="3" placeholder="说点什么..." 
+									type="text"
+									max-length=150
+									ng-model="Evaluates.planMsg"
+
+
+									></textarea>
+									<p>还可输入<b>{{150-Evaluates.planMsg.length}}</b>字</p>
+									
+								</div>
+								
+							</div>
+						</div>
+
+						<div class="l-r">
+							<div class="evaluateClass ">
+								<div class="evaluateTitle">
+									<p>我对导师服务的评价:</p>
+								</div>
+								<div class="evaluateSelect">
+									<label class="radio-inline">
+									  <input type="radio" name="teacherServiceScore" value=3
+									  ng-model="Evaluates.teacherServiceScore"> 
+
+									  <div class="imgPart fellings1"></div>
+									</label>
+									<label class="radio-inline">
+									  <input type="radio" name="teacherServiceScore" value=2
+									  ng-model="Evaluates.teacherServiceScore"> 
+									  <div class="imgPart fellings2"></div>
+									</label>
+									<label class="radio-inline">
+									  <input type="radio" name="teacherServiceScore" value=1
+									  ng-model="Evaluates.teacherServiceScore"
+									  >
+									  <div class="imgPart fellings3"></div>
+									</label>
+								</div>
+								<div class="evaluateTextarea">
+									<textarea  rows="3" placeholder="说点什么..."
+									type="text"
+									max-length=150
+									ng-model="Evaluates.teacherServiceMsg"
+									></textarea>
+									<p>还可输入<b>{{150-Evaluates.teacherServiceMsg.length}}</b>字</p>
+									
+								</div>
+								
+							</div>
+						</div>				
+					</form>
+				</div>
+				<div class="content-in-bottom">
+					<button class="yuyuebtn subBtn" style="margin-top:20px;" type="button" ng-disabled="EvaluatesSubmit" 
+					ng-class="{true:'disabled',false:''}[EvaluatesSubmit]"
+					ng-click="postEvaluates()"
+					>
+							
+							<span>提交评价</span>
+						
+					</button>
+				</div>
+			</div>
+		</div>
+		</div>
+		
+	</div>
+    <!-- copyright  -->
+    <section class="hbox  copyright">
+        <div class="text-center ">
+            <a href="http://www.beianbeian.com/beianxinxi/6f9a3be6-f7f7-4445-b5bb-d7b78cb4a3a0.html" target="_blank">浙ICP备14039924号-1</a>  
+            <a href="http://www.miitbeian.gov.cn/publish/query/indexFirst.action" target="_blank">工信部备案查询</a>
+        </div>
+    </section>
+    <!-- copyright  -->
+
+</section>
+
+                  </section>
+                  <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen,open" data-target="#nav,html"></a>
+                </section>
+              </section>
+            </section>    
+          </section>
+
+<div class="modal fade" id="pwdModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header user-select">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+        <h4 class="modal-title">修改密码<i id="eyepwd" class="fa fa-eye"></i></h4>
+        
+      </div>
+      <div class="modal-body" style="padding:5px 15px;">
+        <form class="form-horizontal" >
+          <div class="form-group">
+            <label for="oldpwd" class="col-sm-2 control-label">原密码:</label>
+            <div class="col-sm-10">
+              <input type="password" class="form-control text-center" id="oldpwd" maxlength="20" placeholder="输入原密码">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="n1pwd" class="col-sm-2 control-label">新密码:</label>
+            <div class="col-sm-10">
+              <input type="password" class="form-control text-center" id="n1pwd" maxlength="20" placeholder="输入新密码">
+            </div>
+          </div>
+
+
+          <div class="form-group">
+            <label for="n2pwd" class="col-sm-2 control-label">确认密码:</label>
+
+            <div class="col-sm-10 ">
+              <input type="password" class="form-control text-center" id="n2pwd" maxlength="20" placeholder="再次输入新密码">
+            </div>
+          </div>
+          <div class="form-group" style="margin-bottom: 0;">
+            <div class="">
+
+              <p id="errorpwd" class="text-center"> </p>
+
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+              <button id="cancelpwd" type="button" class="btn btn-default pull-right " data-dismiss="modal">取消</button>
+              <button id="comfirmpwd" type="submit" class="btn btn-danger disabled pull-right m-r" title="新密码长度少于6位">确认修改</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!-- 修改密码 pwdModal -->
+
+<div class="gotopPart hidden" >
+  <div class="gotopback" ng-show="topObj.topTopshow" ></div>
+  <div class="gotop" ng-show="topObj.topTopshow" ng-click="gotop() " ></div>
+
+</div>
+<!-- gotopPart -->
+
+        <!-- jqurey -->
+        <script type="text/javascript"  src="js/public/jquery.min.js"></script>
+        
+        <!-- angular -->
+        <script type="text/javascript" src="js/public/angular.js"></script>
+        <script type="text/javascript" src="js/public/angular-animate.min.js"></script>
+        <script type="text/javascript" src="js/public/angular-ui-router.min.js"></script>
+        <!-- Bootstrap -->
+        <script src="js/public/bootstrap.js"></script>
+        <!-- App -->
+        <script src="js/public/app.js"></script>
+        <script src="js/public/slimscroll/jquery.slimscroll.min.js"></script>
+        <!-- app.plugin -->
+        <script src="js/public/app.plugin.js"></script>
+		<!--CNZZ接口-->
+		<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1260161989'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1260161989' type='text/javascript'%3E%3C/script%3E"));</script>
+
+        <!-- lib -->
+        <script src="js/lib/base.js?time=New Date()" charset="utf-8"></script>
+        <script src="http://logging.iboom.tv/loggingSDK.js" async></script>   
+         
+        <div id="scriptbox"></div>
+	<!-- growth -->
+	<script type="text/javascript" src="js/lib/echarts/build/dist/echarts.js?time=1469070414094.js" charset="utf-8"></script>
+	<script type="text/javascript" src="js/lib/echarts/application/growth-echarts.js?time=1469070414094.js" charset="utf-8"></script>
+	<script type="text/javascript" src="js/lib/growth-color.js?time=1469070414094.js" charset="utf-8"></script>
+	<script type="text/javascript" src="js/lib/baidutongji.js?time=1469070414094.js" charset="utf-8"></script>
+	
+		<div id="flotTip" style="display: none; position: absolute;"></div>
+	</body>
+</html>
+<!--  author:liaohs/1013211628@qq.com/159***5880 -->

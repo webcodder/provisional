@@ -1,0 +1,875 @@
+.font-red {
+  color: #d9534f;
+}
+.font-green {
+  color: #5cb85c;
+}
+.font-dark-blue {
+  color: #2b3944;
+}
+.font-light {
+  color: #e8eff0;
+}
+.font-gray {
+  color: #666;
+}
+.user-select {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+p {
+  margin-bottom: 0;
+}
+.f40 {
+  font-size: 40px;
+}
+.f38 {
+  font-size: 38px;
+}
+.f32 {
+  font-size: 32px;
+}
+.f30 {
+  font-size: 30px;
+}
+.f28 {
+  font-size: 28px;
+}
+.f26 {
+  font-size: 26px;
+}
+.f24 {
+  font-size: 24px;
+}
+.f22 {
+  font-size: 22px;
+}
+.f20 {
+  font-size: 20px;
+}
+.f18 {
+  font-size: 18px;
+}
+.f16 {
+  font-size: 16px;
+}
+.f14 {
+  font-size: 14px;
+}
+.f12 {
+  font-size: 12px;
+}
+.f10 {
+  font-size: 10px;
+}
+.bold {
+  font-weight: bold;
+}
+.ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.clip {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: clip ;
+}
+.text-bold {
+  font-weight: bold;
+}
+.text-center {
+  text-align: center;
+}
+.bg-transparent {
+  background: transparent;
+  border: none;
+}
+.p170 {
+  width: 170px;
+  margin: 0 auto;
+}
+.mb20 {
+  margin-bottom: 20px;
+}
+.relative {
+  position: relative;
+}
+.absolute {
+  position: absolute;
+}
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+.scrollable1 {
+  overflow-x: auto;
+  overflow-y: auto;
+}
+.box {
+  width: 1020px;
+  margin: 30px auto;
+  padding: 0 10px;
+}
+.contentPart {
+  background: #fff;
+  margin-bottom: 20px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  border: #d6d6d6 1px solid;
+}
+.content-in {
+  width: 860px;
+  margin: 0 auto;
+  padding: 30px 0;
+  overflow-y: hidden;
+}
+.content-in-top {
+  position: relative;
+}
+.content-in-top p {
+  font-size: 26px;
+  position: relative;
+}
+.content-in-top p .title_icon {
+  width: 80px;
+  height: 80px;
+  background: url("../img/wancheng.png") no-repeat;
+}
+.content-in-top .contentTitle {
+  position: relative;
+}
+.content-in-top .contentTitle span {
+  font-size: 26px;
+}
+.content-in-top .contentTitle .title_icon {
+  width: 80px;
+  height: 80px;
+  background: url("../img/wancheng.png") no-repeat;
+  position: absolute;
+  top: -38px;
+  left: 89px;
+  transform: rotate(35deg);
+}
+.content-in-top i {
+  font-size: 26px;
+  display: block;
+  position: absolute;
+  right: 0px;
+  top: 5px;
+  text-align: center;
+  cursor: pointer;
+  transition: all .2s;
+  transform: rotate(0deg);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.content-in-top .icon-up {
+  transform: rotate(0deg);
+}
+.content-in-top .icon-down {
+  transform: rotate(180deg);
+}
+.content-in-details {
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 30px;
+}
+.content-in-left {
+  width: 580px;
+  float: left;
+  color: #5a6a79;
+}
+.content-in-left p.span {
+  font-size: 14px;
+  color: #939393;
+  margin-bottom: 15px;
+}
+.content-in-left p.title {
+  font-size: 22px;
+  font-weight: 600;
+}
+.content-in-right {
+  width: 240px;
+  float: right;
+}
+.content-in-details-center {
+  width: 470px;
+  margin: 0 auto;
+}
+.Error span {
+  cursor: pointer;
+}
+/* ----------------- 组件 ------------- */
+.triangle-up {
+  width: 0;
+  height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 10px solid #5a6a7a;
+}
+.triangle-down {
+  width: 0;
+  height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 10px solid #5a6a7a;
+}
+.selectClass {
+  width: 186px;
+  margin-bottom: 20px;
+}
+.selectClass .imgPart {
+  width: 186px;
+  height: 186px;
+  position: relative;
+}
+.selectClass .imgPart-in {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 186px;
+  height: 186px;
+}
+.selectClass .imgPart-in .champinImg {
+  width: 180px;
+  height: 180px;
+  background-position: 50% 50%;
+  background-size: 180px 180px;
+  background-repeat: no-repeat;
+  border-radius: 3px;
+  margin: 3px;
+}
+.selectClass .imgPart-in .imgPart-floor {
+  width: 186px;
+  height: 186px;
+  background-repeat: no-repeat;
+  background-image: url('../img/selectClass.png');
+  background-position: 1px -2px;
+  background-position: -186px -2px;
+}
+.selectClass .imgPart-in .selectClass-selected {
+  background-position: -186px -2px;
+}
+.selectClass .imgPart-in .selectClass-notSelected {
+  background-position: 1px -2px;
+  cursor: pointer;
+}
+.selectClass .main-text {
+  text-align: center;
+  color: #5a6a79;
+  font-size: 15px;
+  line-height: 30px;
+}
+.selectClass .sub-text {
+  text-align: center;
+  color: #A9ADB0;
+}
+.progressBarClass {
+  width: 750px;
+  margin: 0 auto;
+  margin-top: 75px;
+}
+.progressBarClass .progressBarClass-bg {
+  background: #c3c3c3;
+  height: 15px;
+  position: relative;
+}
+.progressBarClass .progressBarClass-in {
+  height: 15px;
+  background: -webkit-linear-gradient(left, #7cf079, #3dd53a);
+  /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(right, #7cf079, #3dd53a);
+  /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(right, #7cf079, #3dd53a);
+  /* Firefox 3.6 - 15 */
+  background: linear-gradient(to right, #7cf079, #3dd53a);
+  /* 标准的语法 */
+}
+.progressBarClass .progressBar-circle {
+  position: absolute;
+  border: #3dd53a 2px solid;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  border-radius: 100%;
+  width: 28px;
+  height: 28px;
+  z-index: 1;
+  background: #fff;
+  color: #3dd53a;
+  line-height: 26px;
+  text-align: center;
+  top: -6px;
+  margin-left: -10px;
+}
+.progressBarClass .progressBar-ico {
+  position: absolute;
+  width: 66px;
+  height: 66px;
+  background-image: url('../img/progressBarClass.png');
+  background-repeat: no-repeat;
+  margin-left: -33px;
+  top: -35px;
+  z-index: 2;
+}
+.progressBarClass .progressBar-ico .main-text {
+  font-size: 12px;
+  text-align: center;
+  position: absolute;
+  bottom: -26px;
+  width: 66px;
+  color: #A09E9E;
+}
+.progressBarClass .index1 {
+  left: 60%;
+  background-position: 0 0;
+}
+.progressBarClass .index2 {
+  left: 80%;
+  background-position: -66px 0;
+}
+.progressBarClass .index3 {
+  left: 100%;
+  background-position: -132px 0;
+}
+.rankProgressClass .barout {
+  height: 12px;
+  background: #c3c3c3;
+  position: relative;
+  width: 750px;
+  margin: 0 auto;
+  margin-top: 75px;
+}
+.rankProgressClass .barin {
+  height: 12px;
+  background: -webkit-linear-gradient(left, #7cf079, #3dd53a);
+  /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(right, #7cf079, #3dd53a);
+  /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(right, #7cf079, #3dd53a);
+  /* Firefox 3.6 - 15 */
+  background: linear-gradient(to right, #7cf079, #3dd53a);
+  /* 标准的语法 */
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.rankProgressClass .greenCircle {
+  width: 26px;
+  height: 26px;
+  background: #4be328;
+  border: #fff 4px solid;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  border-radius: 100%;
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: -7px;
+  margin-left: -13px;
+}
+.rankProgressClass .beginInfo {
+  width: 70px;
+  text-align: center;
+  position: absolute;
+  top: 40px;
+  margin-left: -33px;
+}
+.rankProgressClass .beginInfo span {
+  font-size: 12px;
+}
+.rankProgressClass .beginInfo p {
+  font-size: 14px;
+  color: #333;
+}
+.rankProgressClass .tip {
+  width: 83px;
+  height: 43px;
+  background-image: url('../img/tip.png');
+  background-repeat: no-repeat;
+  background-position: -2px;
+  position: absolute;
+  margin-top: -50px;
+  margin-left: -40px;
+  z-index: 5;
+  display: none;
+}
+.rankProgressClass .tip p {
+  text-align: center;
+  font-size: 12px;
+  line-height: 33px;
+}
+.rankProgressClass .championImg {
+  width: 65px;
+  height: 65px;
+  background-image: url('../img/growth.png');
+  background-repeat: no-repeat;
+  background-position: -10px -10px;
+  position: absolute;
+  top: 0;
+  margin-left: -32.5px;
+  margin-top: -30px;
+  z-index: 3;
+}
+.rankProgressClass .championImg .rankInfo {
+  width: 70px;
+  text-align: center;
+  margin-top: 70px;
+}
+.rankProgressClass .championImg .rankInfo span {
+  font-size: 12px;
+}
+.rankProgressClass .championImg .rankInfo p {
+  font-size: 14px;
+  color: #333;
+}
+.rankProgressClass .img1 {
+  left: 0;
+}
+.rankProgressClass .img2 {
+  left: 33.3333%;
+}
+.rankProgressClass .img3 {
+  left: 66.6666%;
+}
+.rankProgressClass .img4 {
+  left: 100%;
+}
+.rankProgressClass .img11 {
+  background-position: -10px -90px;
+}
+.rankProgressClass .img12 {
+  background-position: -95px -90px;
+}
+.rankProgressClass .img13 {
+  background-position: -180px -90px;
+}
+.rankProgressClass .img14 {
+  background-position: -265px -90px;
+}
+.rankProgressClass .img01 {
+  background-position: -10px -10px;
+}
+.rankProgressClass .img02 {
+  background-position: -95px -10px;
+}
+.rankProgressClass .img03 {
+  background-position: -180px -10px;
+}
+.rankProgressClass .img04 {
+  background-position: -265px -10px;
+}
+.rankProgressClass:hover .tip {
+  display: block;
+}
+.evaluateClass .evaluateTitle {
+  font-size: 14px;
+  color: #5a6a7a;
+  margin-bottom: 20px;
+}
+.evaluateClass .evaluateSelect {
+  margin-bottom: 20px;
+}
+.evaluateClass .evaluateSelect input {
+  width: 16px;
+  height: 16px;
+  margin-top: 9px;
+}
+.evaluateClass .evaluateSelect .imgPart {
+  width: 32px;
+  height: 32px;
+  background-image: url('../img/feelings.png');
+  background-repeat: no-repeat;
+  background-position: -2px -2px;
+  margin-left: 10px;
+}
+.evaluateClass .evaluateSelect .fellings1 {
+  background-position: -2px -2px;
+}
+.evaluateClass .evaluateSelect .fellings2 {
+  background-position: -38px -2px;
+}
+.evaluateClass .evaluateSelect .fellings3 {
+  background-position: -74px -2px;
+}
+.evaluateClass .evaluateSelect label {
+  display: inline-block;
+  margin-right: 50px;
+}
+.evaluateClass .evaluateTextarea textarea {
+  border: #e2e2e2 1px solid;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  width: 100%;
+  resize: none;
+  height: 120px;
+  padding: 5px 14px;
+  outline: none;
+}
+.evaluateClass .evaluateTextarea p {
+  text-align: right;
+}
+.evaluateClass .evaluateTextarea p b {
+  color: #3eb9d1;
+  font-size: 16px;
+}
+.noDataOut {
+  position: relative;
+}
+.noDataOut .noData {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.noDataOut .noData .bgOpacity {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.85);
+}
+.noDataOut .noData .bgContent {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: url("../img/noData.png") no-repeat center;
+}
+.blur {
+  filter: url(blur.svg#blur);
+  /* FireFox, Chrome, Opera */
+  -webkit-filter: blur(10px);
+  /* Chrome, Opera */
+  -moz-filter: blur(10px);
+  -ms-filter: blur(10px);
+  filter: blur(10px);
+  filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=10, MakeShadow=false);
+  /* IE6~IE9 */
+}
+/* ----------------- 组件 ------------- */
+.right-group li {
+  border: #e7ebef 1px solid;
+  padding: 20px;
+}
+.right-group .subtext {
+  font-size: 14px;
+  color: #A6A6A6;
+}
+.right-group .maintext .fa {
+  color: #3eb8d0;
+  font-size: 20px;
+  line-height: 30px;
+  display: inline-block;
+  margin-right: 4px;
+}
+.right-group .maintext a {
+  cursor: pointer;
+}
+.right-group .maintext span {
+  color: #5a6a79;
+  line-height: 30px;
+  display: inline-block;
+  font-size: 16px;
+}
+.yuyuebtn {
+  height: 38px;
+  background: #3eb8d0;
+  color: #fff;
+  display: block;
+  line-height: 38px;
+  cursor: pointer;
+  text-align: center;
+  font-size: 0;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  margin: 0 auto;
+  outline: none;
+  border: none;
+}
+.yuyuebtn:hover {
+  color: #fff;
+}
+.yuyuebtn i {
+  font-size: 20px;
+  display: inline-block;
+  margin-right: 16px;
+  font-weight: lighter;
+  line-height: 35px;
+  position: relative;
+  top: 2px;
+}
+.yuyuebtn span {
+  font-size: 16px;
+  display: inline-block;
+}
+.subBtn {
+  width: 236px;
+}
+.subBtn.disabled {
+  cursor: not-allowed;
+  opacity: .8;
+}
+.btnClass {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  width: 156px;
+  height: 28px;
+  margin: 30px auto;
+  font-size: 0;
+}
+.btnClass .btnClass-btn {
+  width: 28px;
+  height: 28px;
+  display: inline-block;
+  background-image: url('../img/growth-btn.png');
+  background-repeat: no-repeat;
+  cursor: pointer;
+  float: left;
+}
+.btnClass .btnClass-text {
+  width: 100px;
+  text-align: center;
+  font-size: 14px;
+  color: #5a6a79;
+  display: inline-block;
+  height: 28px;
+  line-height: 28px;
+  float: left;
+}
+.btnClass .btn-prev-true {
+  background-position: -106px 0;
+}
+.btnClass .btn-prev-false {
+  background-position: -10px 0;
+}
+.btnClass .btn-next-true {
+  background-position: -154px 0;
+}
+.btnClass .btn-next-false {
+  background-position: -57px 0;
+}
+/* -----------  detailCss --------------- */
+.top-signal {
+  width: 100%;
+  border: none;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  height: 335px;
+  background-image: url('../img/growth-top-bg.jpg');
+  background-position: 50% 50%;
+  position: relative;
+  color: #fff;
+}
+.top-signal > .title {
+  padding-top: 30px;
+  line-height: 1.2;
+}
+.top-signal > .title .subtext {
+  font-size: 26px;
+}
+.top-signal > .title .maintext {
+  font-size: 38px;
+  font-weight: bold;
+}
+.student-info {
+  margin-top: 40px;
+}
+.student-info .headimg {
+  width: 80px;
+  height: 80px;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  border-radius: 100%;
+  border: #fff 4px solid;
+  margin: 0 auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  background-size: 72px 72px;
+}
+.student-info .name {
+  font-size: 16px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+.student-info .otherInfo > span {
+  display: inline-block;
+  margin-right: 10px;
+}
+.growth-line {
+  height: 180px;
+  background: #f6f8fa;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  border: #d6d6d6 1px solid;
+  position: relative;
+}
+.growth-line-out {
+  width: 776px;
+  height: 60px;
+  margin: 75px auto;
+  position: relative;
+  overflow: hidden;
+}
+.growth-line-in {
+  width: 1526px;
+  height: 26px;
+  position: absolute;
+}
+.growth-line-ul {
+  width: 750px;
+  height: 26px;
+  margin: 0;
+  position: absolute;
+}
+.green-circle {
+  width: 26px;
+  height: 26px;
+  background: #4be328;
+  border: #fff 4px solid;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  border-radius: 100%;
+  position: absolute;
+  top: 0;
+  left: 750px;
+}
+.green-circle p {
+  position: absolute;
+  top: 23px;
+  text-align: center;
+  width: 60px;
+  margin-left: -20px;
+}
+.growth-line-gray {
+  top: 0;
+  left: 776px;
+}
+.growth-line-green > li {
+  width: 75px;
+  float: left;
+  height: 26px;
+  position: relative;
+}
+.growth-line-green > li .bg-green {
+  width: 26px;
+  height: 26px;
+  background: #4be328;
+  border: #fff 4px solid;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  border-radius: 100%;
+  position: absolute;
+  z-index: 1;
+  left: 0;
+}
+.growth-line-green > li .bg-line {
+  position: absolute;
+  height: 4px;
+  background-color: #4be328;
+  width: 100%;
+  z-index: 0;
+  top: 11px;
+}
+.growth-line-gray > li {
+  width: 75px;
+  float: left;
+  height: 26px;
+  position: relative;
+}
+.growth-line-gray > li .bg-gray {
+  width: 26px;
+  height: 26px;
+  background: #c3c3c3;
+  border: #f6f8fa 4px solid;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  border-radius: 100%;
+  position: absolute;
+  z-index: 1;
+  right: 0;
+}
+.growth-line-gray > li .bg-line {
+  position: absolute;
+  height: 4px;
+  background-color: #c3c3c3;
+  width: 100%;
+  z-index: 0;
+  top: 11px;
+}
+.growth-img {
+  width: 800px;
+  margin: 0 auto;
+  position: relative;
+  height: 65px;
+}
+.growth-img > .part {
+  width: 65px;
+  height: 65px;
+  background-image: url('../img/growth.png');
+  background-repeat: no-repeat;
+  background-position: -10px -10px;
+  position: absolute;
+  top: 0;
+}
+.growth-img > .part1 {
+  left: -6px;
+}
+.growth-img > .part2 {
+  left: 50%;
+  margin-left: -26px;
+}
+.growth-img > .part3 {
+  right: -6px;
+}
+.growth-list {
+  position: relative;
+}
+.growth-img {
+  position: absolute;
+  top: 56px;
+  left: 30px;
+  z-index: 2;
+}
+.growth-img {
+  text-align: center;
+}
+.growth-img p {
+  margin-top: 60px;
+}
+.growth-line-in-move {
+  left: -600px;
+}
+.canvas-out {
+  margin-top: 30px;
+}
+.canvas-out .col-xs-6 {
+  margin: 0;
+}
+.canvas-out .canvas {
+  height: 300px;
+  margin-bottom: 20px;
+}
+.l-r {
+  width: 50%;
+  padding: 20px 40px;
+  border-bottom: #e2e2e2 1px solid;
+  float: left;
+}
+.l-r:first-child {
+  padding-left: 0;
+  border-right: #e2e2e2 1px solid;
+}
+.l-r:last-child {
+  padding-right: 0;
+}
+/* -----------  detailCss --------------- */

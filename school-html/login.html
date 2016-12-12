@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<!--
+    88888888ba     ,ad8888ba,      ,ad8888ba,    8D          B8
+    88      "8b   d8"'    `"8b    d8"'    `"8b   888b       d88
+    88     ,8P   d8'        `8b  d8'        `8b  88`8b     d8"8
+    888888888a   88          88  88          88  88 `8b   d8 88
+    88      "8b  Y8,        ,8P  Y8,        ,8P  88  `8b d8  88
+    88      ,8P   Y8a.    .a8P    Y8a.    .a8P   88   `8VP   88
+    88888888P"     `"Y8888Y"'      `"Y8888Y"'    88    `8'   88
+        
+        Copyright © 2015 BoomRen All rights reserved.
+-->
+<html lang="zh" class="app">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" content="布姆电竞学院" />
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="apple-touch-icon-precomposed" href="images/public/favicon/favicon.png" sizes="60x60">
+    <link rel="shortcut icon" href="images/public/favicon/favicon.ico" />
+    <!-- <link rel="stylesheet" href="css/public/bootstrap.min.css" type="text/css"> -->
+    <!-- load -->
+    <link rel="stylesheet" href="css/lib/login-styles.css" />
+    <link rel="stylesheet" href="css/lib/login.css" />
+    <title>登录</title>
+
+    <!--[if lt IE 9]>
+        <script src="js/public/ie/html5shiv.js"></script>
+        <script src="js/public/ie/respond.min.js"></script>
+        <script src="js/public/ie/excanvas.js"></script>
+    <![endif]-->
+    <!--Groing IO 接口-->
+    <script type='text/javascript'>
+        var _vds = _vds || [];
+        window._vds = _vds;
+        (function(){
+            _vds.push(['setAccountId', '8c3c10f33c5d91ee']);
+            (function() {
+                var vds = document.createElement('script');
+                vds.type='text/javascript';
+                vds.async = true;
+                vds.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'dn-growing.qbox.me/vds.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(vds, s);
+            })();
+        })();
+    </script>
+</head>
+
+<body class="" ng-app='mainApp'>
+    <div class="htmleaf-container">
+        <div class="wrapper">
+            <div class="container">
+                <h1><img src="images/l1.png" class="img-responsive center-block" alt=""></h1>
+                <form class="form">
+                    <input type="text" maxlength="20" placeholder="账号">
+                    <input type="password" maxlength="20" placeholder="密码">
+                    <p class="verror"></p>
+                    <button type="button" id="login-button">登录</button>
+                    <div class="forgot-grid">
+                        <!-- <label><input type="checkbox" name="checkbox"><i></i>记住我</label>
+                        <a href="tencent://message/?uin=3250344107&amp;Menu=yes">联系客服</a> -->
+                        <a href=""  class="willjoin toqq" >
+                        <span>我要报名</span>
+                        </a>
+                    </div>
+                </form>
+            </div>
+            <ul class="bg-bubbles">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+    <div id="scriptbox"></div>
+    <!-- jqurey -->
+    <script src="js/public/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            resize()
+            $(window).resize(function() {
+                resize()
+            })
+            function resize() {
+                var h = $(window).height();
+                $(".wrapper").height(h)
+            }
+        })   
+    </script>
+
+
+    <script src="http://logging.iboom.tv/loggingSDK.js" async></script>
+
+    <!-- load -->
+    <script src="js/lib/base.js" charset="utf-8"></script>
+    <script src="js/lib/login.js" charset="utf-8"></script>
+
+    <!--CNZZ接口-->
+	<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1260161989'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1260161989' type='text/javascript'%3E%3C/script%3E"));</script>
+    <script> window.ppSettings = {app_uuid:'be5b99f4-60f5-11e6-b4b8-02287b8c0ebf'};(function(){var w=window,d=document;function l(){var a=d.createElement('script');a.type='text/javascript';a.async=!0;a.src='https://ppmessage.com/ppcom/assets/pp-library.min.js';var b=d.getElementsByTagName('script')[0];b.parentNode.insertBefore(a,b)}w.attachEvent?w.attachEvent('onload',l):w.addEventListener('load',l,!1);})()</script>
+
+</body>
+
+</html>
+<!--  author:liaohs/1013211628@qq.com/159***5880 -->

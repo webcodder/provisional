@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<!--
+    88888888ba     ,ad8888ba,      ,ad8888ba,    8D          B8
+    88      "8b   d8"'    `"8b    d8"'    `"8b   888b       d88
+    88     ,8P   d8'        `8b  d8'        `8b  88`8b     d8"8
+    888888888a   88          88  88          88  88 `8b   d8 88
+    88      "8b  Y8,        ,8P  Y8,        ,8P  88  `8b d8  88
+    88      ,8P   Y8a.    .a8P    Y8a.    .a8P   88   `8VP   88
+    88888888P"     `"Y8888Y"'      `"Y8888Y"'    88    `8'   88
+        
+        Copyright © 2015 BoomRen All rights reserved.
+-->
+<html lang="zh" class="app">
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" content="布姆电竞学院" />
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="apple-touch-icon-precomposed" href="images/public/favicon/favicon.png" sizes="60x60">
+    <link rel="shortcut icon" href="images/public/favicon/favicon.ico" />
+    <!-- public-css -->
+    <link rel="stylesheet" href="css/public/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="css/public/animate.css" type="text/css" />
+    <link rel="stylesheet" href="css/public/font-awesome.min.css" type="text/css" />
+    <link rel="stylesheet" href="css/public/simple-line-icons.css" type="text/css" />
+    <link rel="stylesheet" href="css/public/font.css" type="text/css" />
+    <link rel="stylesheet" href="css/public/app.css" type="text/css" />
+    <!-- lib-css -->
+    <link rel="stylesheet" href="css/lib/base.css" type="text/css" />
+
+
+	<!-- class-myhomepage -->
+	<link rel="stylesheet" href="css/lib/class-myhomepage.css?time=1457947708222.css" />
+	<title>我的主页</title>
+    <!--[if lt IE 9]>
+        <script src="js/public/ie/html5shiv.js"></script>
+        <script src="js/public/ie/respond.min.js"></script>
+        <script src="js/public/ie/excanvas.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="http://tajs.qq.com/stats?sId=54172786" charset="UTF-8"></script> 
+</head>
+<body class="" ng-app='mainApp' ng-controller="gotop"
+    my-Touchstart="touchStart()" 
+    my-Touchend="touchEnd()"
+    my-TouchMove="touchMove()"
+>
+    <section class="vbox">
+        <header class="bg-white-only header header-md navbar navbar-fixed-top-xs">
+            <div class="navbar-header aside bg-info dk">
+                <a href="javascript:void(0)" class="btn btn-link  visible-xs" data-toggle="class:nav-off-screen,open" data-target="#nav,html">
+                    <i class="icon-list"></i>
+                </a>
+                <a href="javascript:void(0)" class="navbar-brand text-lt">
+                    <i class="fa fa-gamepad"></i>
+                    <span class="hidden-nav-xs m-l-sm">BoomGame</span>
+                </a>
+                <a class="btn btn-link visible-xs" href="javascript:void(0)" data-toggle="dropdown" data-target=".user">
+                    <i class="icon-user"></i>
+                </a>
+            </div>
+            <ul class="nav navbar-nav hidden-xs">
+                <!-- hidden-xs -->
+                <li>
+                    <a href="#nav,.navbar-header" data-toggle="class:nav-xs,nav-xs" class="text-muted">
+                        <i class="fa fa-indent text"></i>
+                        <i class="fa fa-dedent text-active"></i>
+                    </a>
+                </li>
+            </ul>
+            <p id="pagetitle" class="hidden-xs"><i></i><span></span></p>
+            <div class="navbar-right ">
+                <ul class="nav navbar-nav m-n hidden-xs nav-user user">
+                    <li class="dropdown" id="topheadimg">
+                        <a href="javascript:void(0)" class="dropdown-toggle bg clear" data-toggle="dropdown">
+                            <span class="thumb-sm avatar pull-right m-t-n-sm m-b-n-sm m-l-sm">
+                <img class="myheadico" src="" alt="...">
+              </span><b class="myname"></b> <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu animated fadeInRight">
+                            <li>
+                                <span class="arrow top"></span>
+                                <a class="tomyhome" href="javascript:void(0)">
+                                    <i class="icon-user"></i>
+                                    <span>我的主页</span>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a class="tostudy-record" href="study-record.html">
+                                    <i class="fa fa-list-ol"></i>
+                                    <span>学习记录</span>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a class="tomypwd" data-toggle="modal" data-target="#pwdModal" href="javascript:void(0)">
+                                    <i class="icon-lock"></i>
+                                    <span>修改密码</span>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a class="tologin" href="javascript:void(0)">
+                                    <i class="icon-logout"></i>
+                                    <span>退出登录</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </header>
+        <section>
+            <section class="hbox stretch">
+                <!-- .aside -->
+                <aside class="bg-black dk aside hidden-print hidden-xs" id="nav">
+                    <section class="vbox">
+			            <section class="w-f-md scrollable">
+			              <div class="slim-scroll" data-height="auto" data-disable-fade-out="true" data-distance="0" data-size="10px" data-railOpacity="0.2">
+
+
+<!--  nav  -->
+<nav class="nav-primary hidden-xs">
+  <ul data-ride="collapse" class="nav">
+    <li code="class-notice" class="nav1"><a href="class-notice.html" txt="公告" target="_self" class="auto"><i class="fa fa-calendar text-success"></i><span class="s_item1 font-bold">公告</span><span class="pull-right text-muted "><i class="fa fa-angle-left text"></i><i class="fa fa-angle-down text-active"></i></span></a>
+      <!--list1-->
+      <ul class="nav dk text-sm">
+      </ul>
+    </li>
+    <li code="class-list" class="nav1"><a href="class-list.html" txt="课程目录" target="_blank" class="auto"><i class="fa fa-book text-primary "></i><span class="s_item1 font-bold">课程目录</span><span class="pull-right text-muted "><i class="fa fa-angle-left text"></i><i class="fa fa-angle-down text-active"></i></span></a>
+      <!--list1-->
+      <ul class="nav dk text-sm">
+      </ul>
+    </li>
+    <li code="class-service" class="nav1"><a href="class-service.html" txt="布姆服务" target="_blank" class="auto"><i class="fa fa-tachometer text-success "></i><span class="s_item1 font-bold">布姆服务</span><span class="pull-right text-muted "><i class="fa fa-angle-left text"></i><i class="fa fa-angle-down text-active"></i></span></a>
+      <!--list1-->
+      <ul class="nav dk text-sm">
+      </ul>
+    </li>
+    <li code="class-rank" class="nav1"><a href="class-rank.html" txt="风云榜" target="_blank" class="auto"><i class="fa fa-users text-primary "></i><span class="s_item1 font-bold">风云榜</span><span class="pull-right text-muted "><i class="fa fa-angle-left text"></i><i class="fa fa-angle-down text-active"></i></span></a>
+      <!--list1-->
+      <ul class="nav dk text-sm">
+      </ul>
+    </li>
+    <li code="feedback" class="nav1"><a href="http://bbs.iboom.tv/forum.php?mod=forumdisplay&amp;fid=37" txt="意见反馈" target="_blank" class="auto"><i class="fa fa-edit text-white "></i><span class="s_item1 font-bold">意见反馈</span><span class="pull-right text-muted "><i class="fa fa-angle-left text"></i><i class="fa fa-angle-down text-active"></i></span></a>
+      <!--list1-->
+      <ul class="nav dk text-sm">
+      </ul>
+    </li>
+  </ul>
+  <!--  nav   -->
+</nav>
+<!-- .nav  -->
+
+</div>
+</section>
+<!-- / nav -->
+<footer class="footer hidden-xs no-padder text-center-nav-xs">
+    <div class="hidden ">
+        <div class="dropdown dropup wrapper-sm clearfix">
+            <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
+                <span class="thumb-sm avatar pull-left m-l-xs">                        
+                        <img src="" class="myheadico dker" alt="...">
+                        <i class="on b-black hidden"></i>
+                      </span>
+                <span class="hidden-nav-xs clear">
+                        <span class="block m-l">
+                          <strong class="myname font-bold text-lt "></strong> 
+                          <b class="caret"></b>
+                        </span>
+                <span class="myarea text-muted text-xs block m-l"> </span>
+                </span>
+            </a>
+            <ul class="dropdown-menu animated fadeInRight aside text-left">
+                <li>
+                    <span class="arrow bottom"></span>
+                    <a class="tomyhome" href="javascript:void(0)">
+                        <i class="icon-user"></i>
+                        <span>我的主页</span>
+                    </a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <a class="tomypwd" data-toggle="modal" data-target="#pwdModal" href="javascript:void(0)">
+                        <i class="icon-lock"></i>
+                        <span>修改密码</span>
+                    </a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <a class="tologin" href="javascript:void(0)">
+                        <i class="icon-logout"></i>
+                        <span>退出登录</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+                    <a class="tologin footerloginout " href="javascript:void(0)">
+                        <i class="icon-logout"></i>
+                        <span>退出登录</span>
+                    </a>
+</footer>
+</section>
+
+
+</aside>
+<!-- /.aside -->
+<section id="content">
+    <section  class="vbox"  >
+
+<!-- homepage -->
+<section class="scrollable " ng-controller="color">
+    <section class="hbox stretch">
+        <aside class="aside-lg aside1">
+            <div class=" personal-sign">
+
+                <div class="pc-class-info ">
+                    <div class="class-info">
+                        <p class="hidden-xs">
+                            <b ng-bind="classNum"></b>班
+                            <span ng-bind="studentCount"></span>人
+                        </p>
+                        <p class="hidden-xs">班主任 
+                        <span ng-bind="headTeacherName"></span></p>
+                        <div class="visible-xs-block">
+                            <p><span ng-bind="classNum"></span>班</p>
+                            <p><span ng-bind="studentCount"></span>人</p>
+                            <p ng-bind="headTeacherName"></p>      
+                        </div>
+
+
+                    </div>
+                </div> 
+                <div class="text-center m-b m-t my-info">
+                        <a href="javascript:void(0)" class="personal-ico">
+                            <b class="badge bg-danger zannum hidden">0</b>
+                            <img src="{{baseInfo.headimg}}" class="aside1-headimg img-circle">
+                        </a>
+                        <div>
+                        <a class=" zanbtn " id="addpraise">
+                            <span class="fa fa-thumbs-o-up" aria-hidden="true"></span> 赞
+                            <p class="text-center" id="addpraiserequire"></p>
+                        </a>
+                        <div class="h3 m-t-xs m-b-xs font-bold summonername">
+                        <span ng-bind="baseInfo.summoner"></span>
+                        </div>
+                        <p class="summonerarea" ng-bind="baseInfo.areaName"></p>
+                    </div>
+                </div>
+                <div class="hidden row text-dark text-center m-b m-l m-r">
+                    <span ng-bind="baseInfo.remark"></span>
+                </div>
+                <div class=" baseinfo3">
+                    <div class=" text-center personal-sign-base">
+                        <div class="c3  ">
+                            <p class="c31">
+                                <span ng-bind="baseInfo.studentNum"></span>
+                            </p>
+                            <p class="c32">学号</p>
+                        </div>
+                        <div class="c3  ">
+                            <p class="c30">
+                                <span  ng-bind="baseInfo.nowIndex"></span>
+                            </p>
+                            <p class="c32">排名</p>
+                        </div>
+                        <div class="c3">
+                            <p class="c30">
+                                <span ng-bind="baseInfo.praise" id="getpraise"></span>
+                            </p>
+                            <p class="c32">收获赞</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="baseinfo5">
+                    <div class="boom_achievement">
+                        <p class="btitle">布姆成绩</p>
+                        <p class="crank">
+                            班级排名: 
+                            <span ng-bind="baseInfo.nowIndex"></span>
+                            
+                            <span class="baseinfo_up " ng-show="baseInfo.change.up">
+                                <span ng-bind="baseInfo.change.d"></span>
+                                <i class="fa  fa-long-arrow-up"></i>
+                            </span>
+                            <!-- up -->
+                            <span class="baseinfo_down " ng-show="baseInfo.change.down">
+                                <span ng-bind="baseInfo.change.d"></span>
+                                <i class="fa  fa-long-arrow-down"></i>
+                            </span>
+                            <!-- down -->
+
+                            
+                        </p>
+                        <div class="cgrow">
+                            <div class="lgrow">
+                                <p>成长情况:</p>
+                            </div>
+                            <div class="rgrow">
+                                <p>现水平</p>
+                                <p>
+                                    <span ng-bind="nowTqwa.rank"></span>
+                                    <b ng-bind="nowTqwa.winPoint"></b>
+                                    <span>点</span>                                    
+                                </p>
+                                <p>原水平</p>
+                                <p>
+                                    <span ng-bind="oldTqwa.rank">荣耀黄金IV</span>
+                                    <b ng-bind="oldTqwa.winPoint">50</b>
+                                    <span>点</span>                 
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        <aside class="aside2">
+            <section class="vbox">
+        <!--         <header class="header bg-light lt">
+                    <p class="h4 font-bold col-xs-6" ng-bind="baseInfo.summoner"></p>
+                </header> -->
+                <section class="scrollable aside2-1">
+                    <!-- 基本信息 -->
+                    <section class="panel panel-default panel1 baseinfo" >
+                        <div class="panel-body " >
+                            <div class="row">
+                                <div class="col-sm-6 visible-xs">
+                                    <div class="personal-dan">
+                                        <div class="pd center-block">
+                                            <img src="{{nowTqwa.img}}" class="pdimg">
+                                            <div class="pds">
+                                                <p class="danname" ng-bind="nowTqwa.rank"></p>
+                                                <p class="dansd"><span ng-bind="nowTqwa.winPoint"></span>点</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 ">
+                                    <!-- dl -->
+                                    <div class="col-md-3 col-sm-6" style="padding:0 10px;" data-ng-repeat="killInfo in killInfos" >
+                                        <div class="baseinfo-kill">
+                                            <div class="hidden-xs text-center">
+                                                <p class="p1" ng-bind="killInfo.name"></p>
+                                                <p class="p2" ng-bind="killInfo.num"></p>
+                                            </div>
+                                            <div class="visible-xs-block text-center">
+                                                <p class="p3 " ng-bind="killInfo.name+':'+killInfo.num"></p>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <!-- dl -->
+                       
+                                </div>
+                                <div class="col-md-6 hidden-xs">
+                                    <div class="baseinfo-rank">
+                                        <div class="rankimg">
+                                            <img src="{{nowTqwa.img}}">
+                                        </div>
+                                        <div class="ranktxt">
+                                            <p class="rp1" ng-bind="nowTqwa.rank"></p>
+                                            <p class="rp2"><span ng-bind="nowTqwa.winPoint"></span>点</p>
+                                        </div>
+                                    </div>
+<!-- 
+                                    <div class="personal-dan">
+                                        <div class="pd pull-right">
+                                            <img src="{{nowTqwa.img}}" class="pdimg">
+                                            <div class="pds">
+                                                <p class="danname" ng-bind="nowTqwa.rank"></p>
+                                                <p class="dansd"><span ng-bind="nowTqwa.winPoint"></span>点</p>
+                                            </div>
+                                        </div>
+                                    </div> -->
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- 基本信息 -->
+                    <!-- 成长图 -->
+                    <section class="panel panel-default panel1">
+                        <header >
+                            <h4>成长图</h4>
+                        </header>
+                        <div class="panel-body panel1-body">
+                            <div class="row">
+                                <p class="col-xs-6">能力值</p>
+                                <p class="col-xs-6 text-right">近
+                                <span id="nearlydays">0</span>
+                                天数据</p>
+                            </div>
+                            <div id="linearea" style="height:240px"></div>
+                        </div>
+                    </section>
+                    <!-- 分数 -->
+                    <section class="panel panel-default panel1">
+                        <header class="">
+                            <h4>近20场</h4>
+                        </header>
+                        <div class="panel-body panel1-body">
+                            <!-- 常用英雄 -->
+                            <div class="row clearfix">
+                                <div class=" col-md-6">
+                                    <ul class="list-unstyled row lastheroul">
+                                        <li ng-repeat="hero in useheros" class="  col-xs-3 text-center ">
+                                            <a href="javascript:void(0)" class="text-center sign-list-out">
+                                                <img class="   " src="images/public/champion/{{hero.img}}" alt="">
+                                                <div class="slo1 "></div>
+                                                <ol class="sign-list colorfff">
+                                                    <li class="clearfix f14">
+                                                        <p class="text-center wl60 fw"
+                                                        ng-bind="hero.killCount"></p>
+                                                        <p class="text-left w40">杀</p>
+                                                    </li>
+                                                    <li class="clearfix f14 ">
+                                                        <p class="text-center wl60 fw"
+                                                        ng-bind="hero.dieCount"></p>
+                                                        <p class="text-left w40">死</p>
+                                                    </li>
+                                                    <li class="clearfix f14">
+                                                        <p class="text-center wl60 fw"
+                                                        ng-bind="hero.assistsCount"></p>
+                                                        <p class="text-left w40">助</p>
+                                                    </li>
+                                                    <li class="clearfix f14">
+                                                        <p class="text-center wl50 fw text-success text-overflow text-center"
+                                                        ng-bind="hero.winCount"></p>
+                                                        <p class="text-left w50 fw text-danger text-overflow text-center"
+                                                        ng-bind="hero.failCount">
+                                                        </p>
+                                                    </li>
+                                                </ol>
+                                            </a>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                                <div class=" col-md-6">
+                                    <ul>
+                                        <li ng-repeat="day in dayInfos" class="clearfix">
+                                            <strong class=" col-xs-2 text-overflow text-center abilityname">
+                                                <span ng-bind="day.name"></span>
+                                            </strong>
+                                            <div class="progressbox">
+                                                <div class="progress bg-light  col-offset-md-8">
+                                                    <div class="progress-bar progress-bar-success progress-bar-striped" style="width: {{day.winper}}">
+                                                        <span class="sr-only">{{day.winper}} Complete (success)</span>
+                                                        <span ng-bind='"胜"+day.winNum+"("+day.winper+")"'></span>
+                                                        
+                                                    </div>
+                                                    <div class="progress-bar progress-bar-danger progress-bar-striped" style="width: {{day.failper}}">
+                                                        <span class="sr-only">{{day.failper}} Complete (danger)</span>
+                                                        <span ng-bind='"负"+day.failNum+"("+day.failper+")"'></span>
+                                                        
+                                                    </div>
+                                                    <!-- <span class="text-overflow ">出场 18(44.3%)</span> -->
+                                                    <div class="tooltip-arrow"></div>
+                                                </div>
+                                                <div class="progresstip">
+                                                    <p class="font-green" 
+                                                    ng-bind='day.winNum+"("+day.winper+")"'></p>
+                                                    <p class="font-red"
+                                                    ng-bind='day.failNum+"("+day.failper+")"'></p>
+                                                    <p class="font-light"
+                                                    ng-bind='day.useNum'></p>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!--  统计 -->
+                    <section class="panel panel-default mp0 panel1 statistics">
+                        <div class="panel-body mp0" style="background: transparent;">
+                            <!-- 比赛统计 -->
+                            <section class="panel panel-default rankmatch mp0 pr10"   >
+                                <header class="panel-heading font-bold" >
+                                    <h4>比赛统计</h4>
+                                </header>
+                                <div class="panel-body" id="aside2pb1" >
+                                    <ul ng-repeat="game in game_statistics" class="col-xs-4 mp0 text-center ulcount border-bottom-gray">
+                                        <li class="lead text-uppercase "
+                                            ng-bind="game.name"></li>
+                                        <li>
+                                            <img class="rankimgs" src="images/public/rank/{{game.img}}">
+                                        </li>
+                                        <li class="h3 text-uppercase">
+                                            <p class="countp1"
+                                                ng-bind="game.rank"></p>
+                                        </li>
+                                        <li>
+                                            <span ng-bind="game.win_point"></span>胜点
+                                        </li>
+                                        <li>
+                                            总场次
+                                            <span ng-bind="game.total_num-game.leave_num"></span>
+                                        </li>
+                                        <li>
+                                            <table class="table1 " >
+                                                <tr>
+                                                    <th style="width:45%;">
+                                                        <p class="countp2l "
+                                                        ng-bind="game.win_num"></p>
+                                                    </th>
+                                                    <th style="width:10%;"></th>
+                                                    <th style="width:45%;">
+                                                        <p class="countp2r text-left"
+                                                        ng-bind="game.lose_num"></p>
+                                                    </th>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-right" style="width:45%;">
+                                                        <p class="f14">胜</p>
+                                                    </td>
+                                                    <th style="width:10%;"></th>
+                                                    <td class="text-left" style="width:45%;">
+                                                        <p class="f14">负</p>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </li>
+                                    </ul>
+
+
+                                </div>
+                            </section>
+                            <!-- 数据统计 -->
+                            <section class="panel panel-default datastatistics mp0 pl10" >
+                                <header class="panel-heading font-bold">
+                                    <h4>数据统计<small>近<span ng-bind="boomC.sceneCount"></span>场数据统计</small></h4>
+                                </header>
+                                <div class="panel-body " style="padding:0;">
+                                    <div class="table-responsive" id="aside2pb2">
+                                        <table class="table  table-hover text-center tabdatacount" style="margin-bottom: 0;">
+                                            <thead>
+                                                <tr>
+                                                    <th>指标</th>
+                                                    <th>场均</th>
+                                                    <th>总计</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody  >
+                                                <tr>
+                                                    <td>胜场</td>
+                                                    <td></td>
+                                                    <td ng-bind="boomC.winCount"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>胜率</td>
+                                                    <td></td>
+                                                    <td ng-bind="boomC.winCountAverage+'%'"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>KDA</td>
+                                                    <td ng-bind="boomC.KDA"></td>
+                                                    <td ng-bind=""></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>击杀</td>
+                                                    <td ng-bind="boomC.killCountAverage"></td>
+                                                    <td ng-bind="boomC.killCount"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>死亡</td>
+                                                    <td ng-bind="boomC.dieCountAverage"></td>
+                                                    <td ng-bind="boomC.dieCount"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>助攻</td>
+                                                    <td ng-bind="boomC.assistsCountAverage"></td>
+                                                    <td ng-bind="boomC.assistsCount"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>补兵</td>
+                                                    <td ng-bind="boomC.creepsCountAverage"></td>
+                                                    <td ng-bind="boomC.creepsCount"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>金钱</td>
+                                                    <td ng-bind="boomC.moneyAverage"></td>
+                                                    <td ng-bind="boomC.money"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>推塔</td>
+                                                    <td ng-bind="boomC.pushTowerAverage"></td>
+                                                    <td ng-bind="boomC.pushTower"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>输出伤害</td>
+                                                    <td ng-bind="boomC.hurtAverage"></td>
+                                                    <td ng-bind="boomC.hurt"></td>
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </section>
+                    <!--  常用英雄 -->
+                    <section class="panel panel-default panel1">
+                        <header class="">
+                            <h4>常用英雄</h4>
+                        </header>
+                        <div class="panel-body panel1-body">
+                            <div class="hidden-sm hidden-xs">
+                                <div style="padding:0 5%;">
+                                    <div id="flot-bar" style="height:180px;"></div>
+                                </div>
+                                <ul class="imgheroul">
+                                    <li ng-repeat="uselol in uselols" on-finish-render-filters>
+                                    <img class="img-responsive" 
+                                    src="{{uselol.img}}" 
+                                    alt="{{uselol.code}}"
+                                    title="{{uselol.name}}" >
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="visible-xs-block visible-sm-block">
+                                <ul class="imgheroul2">
+                                    <li ng-repeat="uselol in uselols" on-finish-render-filters>
+                                        <img src="{{uselol.img}}" 
+                                            alt="{{uselol.code}}"
+                                            title="{{uselol.name}}">
+                                        <p class="text-dark">出场:
+                                        <b ng-bind="uselol.use_num"></b></p>
+                                        <p class="text-success">胜场:
+                                        <b ng-bind="uselol.win_num"></b></p>
+                                        <p class="text-danger">负场:
+                                        <b ng-bind="uselol.use_num-uselol.win_num"></b></p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+                </section>
+        </aside>
+        </section>
+    </section>
+</section>
+
+
+                  </section>
+                  <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen,open" data-target="#nav,html"></a>
+                </section>
+              </section>
+            </section>    
+          </section>
+
+<div class="modal fade" id="pwdModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header user-select">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+        <h4 class="modal-title">修改密码<i id="eyepwd" class="fa fa-eye"></i></h4>
+        
+      </div>
+      <div class="modal-body" style="padding:5px 15px;">
+        <form class="form-horizontal" >
+          <div class="form-group">
+            <label for="oldpwd" class="col-sm-2 control-label">原密码:</label>
+            <div class="col-sm-10">
+              <input type="password" class="form-control text-center" id="oldpwd" maxlength="20" placeholder="输入原密码">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="n1pwd" class="col-sm-2 control-label">新密码:</label>
+            <div class="col-sm-10">
+              <input type="password" class="form-control text-center" id="n1pwd" maxlength="20" placeholder="输入新密码">
+            </div>
+          </div>
+
+
+          <div class="form-group">
+            <label for="n2pwd" class="col-sm-2 control-label">确认密码:</label>
+
+            <div class="col-sm-10 ">
+              <input type="password" class="form-control text-center" id="n2pwd" maxlength="20" placeholder="再次输入新密码">
+            </div>
+          </div>
+          <div class="form-group" style="margin-bottom: 0;">
+            <div class="">
+
+              <p id="errorpwd" class="text-center"> </p>
+
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+              <button id="cancelpwd" type="button" class="btn btn-default pull-right " data-dismiss="modal">取消</button>
+              <button id="comfirmpwd" type="submit" class="btn btn-danger disabled pull-right m-r" title="新密码长度少于6位">确认修改</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!-- 修改密码 pwdModal -->
+
+<div class="gotopPart hidden" >
+  <div class="gotopback" ng-show="topObj.topTopshow" ></div>
+  <div class="gotop" ng-show="topObj.topTopshow" ng-click="gotop() " ></div>
+
+</div>
+<!-- gotopPart -->
+
+        <!-- jqurey -->
+        <script src="js/public/jquery.min.js"></script>
+        <script src="http://error.iboom.tv/errorSDK.js"></script>   
+       <script type="text/javascript">
+
+               ErrorLogging.push(function () {
+              
+          })
+
+       </script> 
+
+
+        <!-- angular -->
+        <script type="text/javascript" src="js/public/angular.js"></script>
+        <script type="text/javascript" src="js/public/angular-animate.min.js"></script>
+        <script type="text/javascript" src="js/public/angular-ui-router.min.js"></script>
+        <!-- Bootstrap -->
+        <script src="js/public/bootstrap.js"></script>
+        <!-- App -->
+        <script src="js/public/app.js"></script>
+        <script src="js/public/slimscroll/jquery.slimscroll.min.js"></script>
+        <!-- app.plugin -->
+        <script src="js/public/app.plugin.js"></script>
+        <script src="http://logging.iboom.tv/loggingSDK.js"></script>   
+
+
+        <!-- lib -->
+        <script src="js/lib/base.js?time=New Date()" charset="utf-8"></script>
+         
+        <div id="scriptbox"></div>
+	<!-- class-myhomepage -->
+	<script type="text/javascript" src="js/lib/charts/flot/jquery.flot.min.js?time=1458531396739.js" charset="utf-8"></script>
+	<script type="text/javascript" src="js/lib/charts/flot/jquery.flot.tooltip.min.js?time=1458531396739.js" charset="utf-8"></script>
+	<script type="text/javascript" src="js/lib/charts/flot/jquery.flot.resize.js?time=1458531396739.js" charset="utf-8"></script>
+	<script type="text/javascript" src="js/lib/charts/flot/jquery.flot.orderBars.js?time=1458531396739.js" charset="utf-8"></script>
+	<script type="text/javascript" src="js/lib/charts/flot/jquery.flot.pie.min.js?time=1458531396739.js" charset="utf-8"></script>
+	<script type="text/javascript" src="js/lib/charts/flot/jquery.flot.grow.js?time=1458531396739.js" charset="utf-8"></script>
+	<script type="text/javascript" src="js/lib/class-myhomepage-bar.js?time=1458531396739.js" charset="utf-8"></script>
+	<script type="text/javascript" src="js/lib/class-mates-line.js?time=1458531396739.js" charset="utf-8"></script>
+	<script type="text/javascript" src="js/lib/class-myhomepage-color.js?time=1458531396739.js" charset="utf-8"></script>
+	<script type="text/javascript" src="js/lib/baidutongji.js?time=1458531396739.js" charset="utf-8"></script>
+	
+		<div id="flotTip" style="display: none; position: absolute;"></div>
+	</body>
+</html>
+<!--  author:liaohs/1013211628@qq.com/159***5880 -->

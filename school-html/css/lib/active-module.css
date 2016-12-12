@@ -1,0 +1,174 @@
+.font-red {
+  color: #d9534f;
+}
+.font-green {
+  color: #5cb85c;
+}
+.font-dark-blue {
+  color: #2b3944;
+}
+.font-light {
+  color: #e8eff0;
+}
+.font-gray {
+  color: #666;
+}
+.user-select {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+p {
+  margin-bottom: 0;
+}
+.f40 {
+  font-size: 40px;
+}
+.f38 {
+  font-size: 38px;
+}
+.f32 {
+  font-size: 32px;
+}
+.f30 {
+  font-size: 30px;
+}
+.f28 {
+  font-size: 28px;
+}
+.f26 {
+  font-size: 26px;
+}
+.f24 {
+  font-size: 24px;
+}
+.f22 {
+  font-size: 22px;
+}
+.f20 {
+  font-size: 20px;
+}
+.f18 {
+  font-size: 18px;
+}
+.f16 {
+  font-size: 16px;
+}
+.f14 {
+  font-size: 14px;
+}
+.f12 {
+  font-size: 12px;
+}
+.f10 {
+  font-size: 10px;
+}
+.bold {
+  font-weight: bold;
+}
+.ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.clip {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: clip ;
+}
+.text-bold {
+  font-weight: bold;
+}
+.text-center {
+  text-align: center;
+}
+.bg-transparent {
+  background: transparent;
+  border: none;
+}
+.p170 {
+  width: 170px;
+  margin: 0 auto;
+}
+.mb20 {
+  margin-bottom: 20px;
+}
+.relative {
+  position: relative;
+}
+.absolute {
+  position: absolute;
+}
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+.activity {
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+.activity .atitle {
+  margin: 10px 0;
+  margin-bottom: 20px;
+}
+.activity .atitle .attitle {
+  font-size: 22px;
+  font-weight: bold;
+  text-indent: 5px;
+  color: #5a6a79;
+  margin-right: 10px;
+}
+.activity .atitle .attime {
+  font-size: 16px;
+  color: #aaa;
+}
+.activity .aci {
+  background: #fff;
+  border: #d6d6d6 1px solid;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+.activity .acontent {
+  padding: 40px;
+}
+.activity .aimgs {
+  padding-bottom: 20px;
+}
+.activity .aimgs li {
+  padding: 0 60px;
+  margin-bottom: 20px;
+}
+.activity .aimgs li img {
+  width: 100%;
+  display: block;
+}
+@media (max-width: 768px) {
+  .activity {
+    padding: 0 ;
+  }
+  .activity .atitle {
+    margin: 10px 0;
+    margin-bottom: 10px;
+  }
+  .activity .atitle .attitle {
+    font-size: 16px;
+    font-weight: bold;
+    text-indent: 5px;
+    color: #5a6a79;
+    margin-right: 10px;
+  }
+  .activity .atitle .attime {
+    font-size: 14px;
+    color: #aaa;
+  }
+  .activity .acontent {
+    padding: 10px;
+  }
+  .activity .aimgs li {
+    padding: 0px 24px;
+    margin-bottom: 10px;
+  }
+}

@@ -1,0 +1,24 @@
+        		<div class="step step4">
+					<p class="title">教学模式</p>
+					<form  class="studymodel"  > 
+					
+			
+						<label ng-repeat="teachMode in teachModeArr">
+							<input name="study" type="checkbox"   
+							ng-model="teachMode.check"
+	           				ng-value="teachMode.value"
+	           				ng-disabled="teachMode.disabled"
+	           				 />
+							{{teachMode.value}}
+						</label> 
+
+	
+					</form> 
+						<p class="error">{{step4msg}}</p>
+        			<div class="btns row">
+        				<button class="btn-public prev" ui-sref="part3.step3">上一步</button>
+        	<!-- 			<button class="btn-public next" ui-sref="part4" ng-disabled="nextdisabled">提交</button> -->
+        				 <button class="btn-public next" ng-click="applyOne()" ng-disabled="nextdisabled">下一步</button>
+        			</div>
+        		</div>
+        		

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<!--
+    88888888ba     ,ad8888ba,      ,ad8888ba,    8D          B8
+    88      "8b   d8"'    `"8b    d8"'    `"8b   888b       d88
+    88     ,8P   d8'        `8b  d8'        `8b  88`8b     d8"8
+    888888888a   88          88  88          88  88 `8b   d8 88
+    88      "8b  Y8,        ,8P  Y8,        ,8P  88  `8b d8  88
+    88      ,8P   Y8a.    .a8P    Y8a.    .a8P   88   `8VP   88
+    88888888P"     `"Y8888Y"'      `"Y8888Y"'    88    `8'   88
+        
+        Copyright © 2015 BoomRen All rights reserved.
+-->
+<html lang="zh" class="app">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" content="布姆电竞学院" />
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="apple-touch-icon-precomposed" href="images/public/favicon/favicon.png" sizes="60x60">
+    <link rel="shortcut icon" href="images/public/favicon/favicon.ico" />
+    <!-- public-css -->
+    <link rel="stylesheet" href="css/public/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="css/public/animate.css" type="text/css" />
+    <link rel="stylesheet" href="css/public/font-awesome.min.css" type="text/css" />
+    <link rel="stylesheet" href="css/public/simple-line-icons.css" type="text/css" />
+    <link rel="stylesheet" href="css/public/font.css" type="text/css" />
+    <!-- lib-css -->
+    <link rel="stylesheet" href="css/lib/base.css" type="text/css" />
+    <!-- about -->
+    <link rel="stylesheet" href="css/lib/boomTv.css" />
+    <title>boomTv</title>
+    <!--[if lt IE 9]>
+        <script src="js/public/ie/html5shiv.js"></script>
+        <script src="js/public/ie/respond.min.js"></script>
+        <script src="js/public/ie/excanvas.js"></script>
+    <![endif]-->
+    <!--Groing IO 接口-->
+    <script type='text/javascript'>
+        var _vds = _vds || [];
+        window._vds = _vds;
+        (function(){
+            _vds.push(['setAccountId', '8c3c10f33c5d91ee']);
+            (function() {
+                var vds = document.createElement('script');
+                vds.type='text/javascript';
+                vds.async = true;
+                vds.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'dn-growing.qbox.me/vds.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(vds, s);
+            })();
+        })();
+    </script>
+</head>
+
+<body class="">
+
+    <!-- jqurey -->
+    <script src="js/public/jquery.min.js"></script>
+    <!-- angular -->
+    <script type="text/javascript" src="js/public/angular.js"></script>
+    <!-- Bootstrap -->
+    <script src="js/public/bootstrap.js"></script>
+    <!-- App -->
+    <script src="js/public/app.js"></script>
+    <script src="js/public/slimscroll/jquery.slimscroll.min.js"></script>
+    <!-- lib -->
+     <script type="text/javascript">
+
+        </script>
+    <script src="js/lib/base.js" charset="utf-8"></script>
+    <script src="js/lib/boomTv.js" charset="utf-8"></script>
+    <div class="tv">
+        <script type="text/javascript">
+        var tv = window.location.href.split("?")[1]
+
+        var tv_uu = tv.split("&")[0]
+        var tv_vu = tv.split("&")[1]
+        var w = window.innerWidth;
+        var h = Math.floor((w * 9) / 16)
+        var boomtvObj = {
+            "uu": tv_uu,
+            "vu": tv_vu,
+            "auto_play": 1,
+            "gpcflag": 1,
+            "height": h,
+            "width": w,
+            "rate":"1080P",
+            "resetVideoScale":true
+
+
+        };
+        $(".tv").css({
+            "margin-top":-(h/2)
+        })
+        </script>
+        <script type="text/javascript">
+        var letvcloud_player_conf = boomtvObj
+        </script>
+        <script type="text/javascript" src="http://yuntv.letv.com/bcloud.js"></script>
+    </div>
+    <div id="scriptbox">
+    </div>
+    <!-- fload -->
+    <div id="flotTip" style="display: none; position: absolute;"></div>
+
+    <!--CNZZ接口-->
+    <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1260161989'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1260161989' type='text/javascript'%3E%3C/script%3E"));</script>
+</body>
+
+</html>
+<!--  author:liaohs/1013211628@qq.com/159***5880 -->

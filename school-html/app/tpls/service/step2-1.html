@@ -1,0 +1,35 @@
+						<!-- herostudy -->
+        				<div class="herostudy">
+	        				<div class="row row1">
+	        					<span class="title">位置学习:</span>
+	        					<div class="group-select group-select2">
+	        						<input type="text" readonly="" 
+	        						ng-repeat="desrieWay in desrieWays"
+	        						value="{{desrieWay.desrieWay}}" select-radio ng-click="desrieWayCheck(desrieWay.desrieWay)">
+	        					</div>
+	        				</div>
+	        				<div class="row row1">
+	        					<span class="title">英雄选择:</span>
+	        					<div class="group-select group-select3">
+	        						<div class="search">
+		        						<input type="text"   class="search-input" ng-model="heroname" placeholder="请输入英雄名称">
+		        						<i class="fa fa-search search-ico"></i>	
+	        						</div>
+	        					</div>
+	        				</div>
+	        				<div class="row row1">
+	        					<div class="heros-out ">
+									<ul class="heros scrollable">
+										<li ng-animate="'animate'" class="hero" ng-repeat="hero in heros|heroFilter:heroname:'name-title-code'" ng-click="championCheck(hero.name)" champion-check>
+											<div class="imgpart">
+												<img src="images/public/champion/{{hero.img}}" alt="" class="img" title="{{hero.title}}">
+												<div class="border border1" title="{{hero.title}}"></div>
+												<div class="border border2" title="{{hero.title}}"></div>
+											</div>
+											<p class="name">{{hero.name}}</p>
+										</li>
+
+									</ul>
+	        					</div>
+	        				</div>	
+        				</div>

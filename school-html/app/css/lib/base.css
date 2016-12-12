@@ -1,0 +1,135 @@
+/* 
+ *liaohs
+ *2015.12.31
+ *boomgame
+ */
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: tahoma, arial, 'microsoft yahei', sans-serif;
+}
+u,
+a {
+  text-decoration: none;
+}
+/*超级链接，无下划线*/
+ul,
+ol,
+li {
+  list-style: none;
+}
+a {
+  display: inline-block;
+}
+input[type="button"],
+button {
+  appearance: button;
+  -moz-appearance: button;
+  /* Firefox */
+  -webkit-appearance: button;
+  /* Safari 和 Chrome 处理ios圆角问题*/
+  webkit-appearance: button;
+  -webkit-appearance: none;
+  /*取消自带样式（无法渲染圆角）*/
+  -moz-appearance: none;
+  moz-appearance: none;
+}
+/*
+#content{
+    background:url("../img/bodybg.jpg") repeat center center;
+}
+*/
+/* navpart */
+#pagetitle {
+  float: left;
+  margin: 0;
+  margin-left: 20px;
+  line-height: 60px;
+  height: 60px;
+}
+#pagetitle i {
+  font-size: 18px;
+}
+#pagetitle span {
+  font-size: 18px;
+  margin-left: 5px;
+}
+#eyepwd {
+  margin-left: 10px;
+  cursor: pointer;
+}
+input[type="radio"] {
+  outline: medium;
+}
+.modal {
+  position: fixed;
+  top: 0px;
+  width: 90%;
+  margin: 0 auto;
+}
+@media (min-width: 768px) {
+  .modal {
+    position: fixed;
+    top: 50%;
+    margin-top: -300px;
+  }
+}
+html,
+body,
+#content {
+  background: url(../img/bodybg.png) repeat;
+}
+#pagetitle i {
+  font-size: 22px;
+}
+#pagetitle span {
+  font-size: 14px;
+  position: relative;
+  top: 0px;
+}
+#topheadimg {
+  padding-right: 10px;
+}
+#topheadimg b {
+  color: #5a6a79;
+}
+#topheadimg .caret {
+  zoom: 1.5;
+}
+.gotopPart {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  overflow: visible;
+}
+.gotopPart .gotopback {
+  width: 30px;
+  height: 30px;
+  background: #d2d2d2;
+  opacity: 0.8;
+  filter: alpha(opacity=80);
+}
+.gotopPart .gotop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url(../img/totop.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+  width: 30px;
+  height: 30px;
+}
+.gotopPart .gotop:active {
+  background-position: 0 -20px;
+}
+.footerloginout {
+  display: block;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+}

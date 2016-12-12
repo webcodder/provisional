@@ -1,0 +1,30 @@
+        <div class="part3 row" ng-if="otoo[0]">
+        	<div class="top">
+        		<p class="title">布姆学院1对1教学预约</p>
+        		<ul class="progress-bar1">
+        			<li ng-repeat="row in tops" class={{row.css}}>
+        				<b class="num">{{row.num}}</b>
+        				<span class="caption">{{row.txt}}</span>
+                        
+        			</li>
+        		</ul>
+        	</div>
+        	<div class="mid" >
+                <div ui-view></div>
+        	</div>
+        	<div class="bottom ">
+        		<p class="title">教学说明</p>
+        		<p class="li">服务时间：下午13点-晚上22点（上课时间除外）。</p>
+        		<p class="li">服务地址：学院YY66557438，语音方便我们的交流。</p>
+        		<p class="li">服务须知：请认真填写预约内容，填写完之后我们会根据提交顺序安排教学。请等待老师来联系你！每人每次教学约1小时！</p>
+
+        	</div>
+        </div>
+        <div class="part4 row" ng-if="otoo[1]">
+            <p class="title">布姆学院1对1教学预约</p>
+            <div class="result"></div>
+            <p class="result-tip">您已预约成功！</p>
+            <p class="result-p">您预约的1对1教学时间为</p>
+            <b class="result-time">{{postData.teachTime}}</b>
+            <p class="result-tip-bottom">如有特殊情况，请与老师及时沟通！</p>
+        </div>
