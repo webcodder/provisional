@@ -1,0 +1,22 @@
+iframe{
+	position:fixed;
+	width:100%;
+	height:100%;
+}
+iframe html{
+	width:100%;
+}
+iframe [id^="player"]{
+	display:none;
+}
+.tv{
+  position: absolute;
+  top: 50%;
+  width: 100%;
+
+}
+html,	
+body{
+	background:#000;
+	height:100%;
+}

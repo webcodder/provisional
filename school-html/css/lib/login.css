@@ -1,0 +1,164 @@
+/*
+ *Author:liaohs
+ *Date:2016.1.19
+ *Name:boomgame
+ */
+@keyframes zoom(0.8, 1, 10) {
+  0% {
+    transform: scale(0.8, 0.8);
+  }
+  50% {
+    transform: scale(1, 1);
+  }
+  100% {
+    transform: scale(10, 10);
+  }
+}
+@-moz-keyframes zoom(0.8, 1, 10) {
+  /* Firefox */
+  0% {
+    -moz-transform: scale(0.8, 0.8);
+  }
+  50% {
+    -moz-transform: scale(1, 1);
+  }
+  100% {
+    -moz-transform: scale(10, 10);
+  }
+}
+@-webkit-keyframes zoom(0.8, 1, 10) {
+  /* Safari and Chrome */
+  0% {
+    -webkit-transform: scale(0.8, 0.8);
+  }
+  50% {
+    -webkit-transform: scale(1, 1);
+  }
+  100% {
+    -webkit-transform: scale(10, 10);
+  }
+}
+@-o-keyframes zoom(0.8, 1, 10) {
+  /* Opera */
+  0% {
+    -o-transform: scale(0.8, 0.8);
+  }
+  50% {
+    -o-transform: scale(1, 1);
+  }
+  100% {
+    -o-transform: scale(10, 10);
+  }
+}
+@keyframes font-zoom {
+  0% {
+    font-size: 14px;
+  }
+  50% {
+    font-size: 12px;
+  }
+  100% {
+    font-size: 14px;
+  }
+}
+@-moz-keyframes font-zoom {
+  /* Firefox */
+  0% {
+    font-size: 14px;
+  }
+  50% {
+    font-size: 12px;
+  }
+  100% {
+    font-size: 14px;
+  }
+}
+@-webkit-keyframes font-zoom {
+  /* Safari and Chrome */
+  0% {
+    font-size: 14px;
+  }
+  50% {
+    font-size: 12px;
+  }
+  100% {
+    font-size: 14px;
+  }
+}
+@-o-keyframes font-zoom {
+  /* Opera */
+  0% {
+    font-size: 14px;
+  }
+  50% {
+    font-size: 12px;
+  }
+  100% {
+    font-size: 14px;
+  }
+}
+.animation-zoom {
+  -moz-animation: zoom 5s;
+  -webkit-animation: zoom 5s;
+  -o-animation: zoom 5s;
+  animation: zoom 5s;
+}
+.animation-font-zoom {
+  -moz-animation: font-zoom 6s linear infinite;
+  -webkit-animation: font-zoom 6s linear infinite;
+  -o-animation: font-zoom 6s linear infinite;
+  animation: font-zoom 6s linear infinite;
+}
+html,
+body,
+* {
+  font-family: tahoma, 'microsoft yahei';
+}
+.welcome {
+  display: none;
+}
+.forgot-grid {
+  width: 230px;
+  margin: 10px auto;
+  clear: both;
+}
+.forgot-grid label {
+  text-align: left ;
+  margin-right: 20px;
+}
+.forgot-grid a {
+  text-align: right ;
+  color: #fff;
+  margin-left: 20px;
+}
+.willjoin {
+  display: block;
+  text-decoration: none;
+  font-size: 16px;
+}
+.willjoin span {
+  animation: willjoin 3s linear .5s infinite alternate;
+  -webkit-animation: willjoin 3s linear .5s infinite alternate;
+}
+@keyframes willjoin {
+  50% {
+    text-shadow: #B6ECFF 0 0 0,#B6ECFF 0 0 0,#B6ECFF 0 0 0,#B6ECFF 0 0 0,#1A9B65 3px 2px 3px;
+  }
+  80% {
+    text-shadow: #B6ECFF 3px 0 3px, #B6ECFF 0px 3px 3px, #B6ECFF -3px 0px 3px, #B6ECFF 0px -3px 3px, #1A9B65 3px 3px 3px;
+  }
+  100% {
+    text-shadow: #B6ECFF 2px 0 2px, #B6ECFF 0px 2px 2px, #B6ECFF -2px 0px 2px, #B6ECFF 0px -2px 2px, #1A9B65 3px 2px 3px;
+  }
+}
+@-webkit-keyframes willjoin {
+  50% {
+    text-shadow: #B6ECFF 0 0 0,#B6ECFF 0 0 0,#B6ECFF 0 0 0,#B6ECFF 0 0 0,#1A9B65 3px 2px 3px;
+  }
+  80% {
+    text-shadow: #B6ECFF 3px 0 3px, #B6ECFF 0px 3px 3px, #B6ECFF -3px 0px 3px, #B6ECFF 0px -3px 3px, #1A9B65 3px 3px 3px;
+  }
+  100% {
+    text-shadow: #B6ECFF 2px 0 2px, #B6ECFF 0px 2px 2px, #B6ECFF -2px 0px 2px, #B6ECFF 0px -2px 2px, #1A9B65 3px 2px 3px;
+  }
+}

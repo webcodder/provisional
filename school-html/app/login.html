@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<!--
+    88888888ba     ,ad8888ba,      ,ad8888ba,    8D          B8
+    88      "8b   d8"'    `"8b    d8"'    `"8b   888b       d88
+    88     ,8P   d8'        `8b  d8'        `8b  88`8b     d8"8
+    888888888a   88          88  88          88  88 `8b   d8 88
+    88      "8b  Y8,        ,8P  Y8,        ,8P  88  `8b d8  88
+    88      ,8P   Y8a.    .a8P    Y8a.    .a8P   88   `8VP   88
+    88888888P"     `"Y8888Y"'      `"Y8888Y"'    88    `8'   88
+        
+        Copyright © 2015 BoomRen All rights reserved.
+-->
+<html lang="zh" class="app">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" content="布姆电竞学院" />
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="apple-touch-icon-precomposed" href="images/public/favicon/favicon.png" sizes="60x60">
+    <link rel="shortcut icon" href="images/public/favicon/favicon.ico" />
+    <!-- <link rel="stylesheet" href="css/public/bootstrap.min.css" type="text/css"> -->
+    <!-- load -->
+    <link rel="stylesheet" href="css/lib/login-styles.css" />
+    <link rel="stylesheet" href="css/lib/login.css" />
+    <title>登录</title>
+    <!--[if lt IE 9]>
+        <script src="js/public/ie/html5shiv.js"></script>
+        <script src="js/public/ie/respond.min.js"></script>
+        <script src="js/public/ie/excanvas.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="http://tajs.qq.com/stats?sId=54172786" charset="UTF-8"></script> 
+</head>
+
+<body class="" ng-app='mainApp'>
+    <div class="htmleaf-container">
+        <div class="wrapper">
+            <div class="container">
+                <h1><img src="images/l1.png" class="img-responsive center-block" alt=""></h1>
+                <form class="form">
+                    <input type="text" maxlength="20" placeholder="账号">
+                    <input type="password" maxlength="20" placeholder="密码">
+                    <p class="verror"></p>
+                    <button type="submit" id="login-button">登录</button>
+                    <div class="forgot-grid">
+                        <!-- <label><input type="checkbox" name="checkbox"><i></i>记住我</label>
+                        <a href="tencent://message/?uin=3250344107&amp;Menu=yes">联系客服</a> -->
+                        <a href="http://mp.weixin.qq.com/s?__biz=MzA4MDk4MzM5NQ==&mid=405055776&idx=2&sn=7981008580fb2c4bc688c12460c8cfac&scene=0#wechat_redirect" target="_blank" class="willjoin" >
+                        <span>我要报名</span>
+                        </a>
+                    </div>
+                </form>
+            </div>
+            <ul class="bg-bubbles">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+    <div id="scriptbox"></div>
+    <!-- jqurey -->
+    <script src="js/public/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            resize()
+            $(window).resize(function() {
+                resize()
+            })
+            function resize() {
+                var h = $(window).height();
+                $(".wrapper").height(h)
+            }
+        })   
+    </script>
+    <script src="http://error.iboom.tv/errorSDK.js"></script> 
+    <!-- angular -->
+    <script type="text/javascript" src="js/public/angular.js"></script>
+    <script type="text/javascript" src="js/public/angular-animate.min.js"></script>
+    <script type="text/javascript" src="js/public/angular-ui-router.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="js/public/bootstrap.js"></script>
+    <!-- App -->
+    <script src="js/public/app.js"></script>
+    <script src="js/public/slimscroll/jquery.slimscroll.min.js"></script>
+    <!-- app.plugin -->
+    <script src="js/public/app.plugin.js"></script>
+    <script src="http://logging.iboom.tv/loggingSDK.js"></script>
+    
+
+
+    <!-- lib -->
+    <script src="js/lib/base.js" charset="utf-8"></script>
+    <!-- load -->
+    <script src="js/lib/login.js" charset="utf-8"></script>
+    <script src="js/lib/baidutongji.js" charset="utf-8"></script>
+
+
+</body>
+
+</html>
+<!--  author:liaohs/1013211628@qq.com/159***5880 -->

@@ -1,0 +1,169 @@
+.font-red {
+  color: #d9534f;
+}
+.font-green {
+  color: #5cb85c;
+}
+.font-dark-blue {
+  color: #2b3944;
+}
+.font-light {
+  color: #e8eff0;
+}
+.font-gray {
+  color: #666;
+}
+.user-select {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+p {
+  margin-bottom: 0;
+}
+.f40 {
+  font-size: 40px;
+}
+.f38 {
+  font-size: 38px;
+}
+.f32 {
+  font-size: 32px;
+}
+.f30 {
+  font-size: 30px;
+}
+.f28 {
+  font-size: 28px;
+}
+.f26 {
+  font-size: 26px;
+}
+.f24 {
+  font-size: 24px;
+}
+.f22 {
+  font-size: 22px;
+}
+.f20 {
+  font-size: 20px;
+}
+.f18 {
+  font-size: 18px;
+}
+.f16 {
+  font-size: 16px;
+}
+.f14 {
+  font-size: 14px;
+}
+.f12 {
+  font-size: 12px;
+}
+.f10 {
+  font-size: 10px;
+}
+.bold {
+  font-weight: bold;
+}
+.ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.clip {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: clip ;
+}
+.text-bold {
+  font-weight: bold;
+}
+.text-center {
+  text-align: center;
+}
+.bg-transparent {
+  background: transparent;
+  border: none;
+}
+.p170 {
+  width: 170px;
+  margin: 0 auto;
+}
+.mb20 {
+  margin-bottom: 20px;
+}
+.relative {
+  position: relative;
+}
+.absolute {
+  position: absolute;
+}
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+.class-download {
+  border: #C0C0C0 1px solid;
+  margin: 20px 30px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+.class-download .listdown {
+  height: 70px;
+  padding: 0!important;
+  position: relative;
+}
+.class-download .listdown a .btn-xs {
+  position: relative;
+  top: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.class-download .lidp {
+  height: 70px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.class-download .lidp span {
+  font-size: 16px;
+  display: inline-block;
+  position: relative;
+  top: -5px;
+  color: #000;
+}
+.class-download .lidp .downloadliIco {
+  font-size: 28px;
+  margin-left: 20px;
+  margin-right: 10px;
+  line-height: 70px;
+}
+.class-download .downbtn {
+  position: absolute;
+  top: 20px;
+  right: 10px;
+}
+.class-download .downbtn button {
+  padding: 2px 20px;
+}
+.padder1 {
+  padding: 0!important;
+}
+.aside1 {
+  width: 360px;
+}
+.aside1 .class-download1 {
+  overflow: hidden;
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+.aside1 .class-download1 img {
+  position: absolute;
+  bottom: 0;
+  height: 100%;
+}

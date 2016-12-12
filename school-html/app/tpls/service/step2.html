@@ -1,0 +1,16 @@
+        		<div class="step step2 ">
+        			<div class="model-select">
+        				<div class="row row1">
+        					<span class="title">学习模式:</span>
+        					<div class="group-select group-select1">
+                                                        <input ng-repeat="input in studyModelSelect" type="button" readonly="" value="{{input.txt}}" class="{{input.css}}" ui-sref="{{input.ui}}" select-radio ng-click="teachModeTypeFunc(input.teachModeType)">
+        					</div>
+        				</div>
+                                        
+        				<div ui-view></div>
+        			</div>
+        			<div class="btns row">
+        				<button class="btn-public prev" ui-sref="part3.step1">上一步</button>
+        				<button class="btn-public next" ui-sref="part3.step3" ng-disabled="nextdisabled">下一步</button>
+        			</div>
+        		</div>

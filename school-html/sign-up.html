@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<!--
+    88888888ba     ,ad8888ba,      ,ad8888ba,    8D          B8
+    88      "8b   d8"'    `"8b    d8"'    `"8b   888b       d88
+    88     ,8P   d8'        `8b  d8'        `8b  88`8b     d8"8
+    888888888a   88          88  88          88  88 `8b   d8 88
+    88      "8b  Y8,        ,8P  Y8,        ,8P  88  `8b d8  88
+    88      ,8P   Y8a.    .a8P    Y8a.    .a8P   88   `8VP   88
+    88888888P"     `"Y8888Y"'      `"Y8888Y"'    88    `8'   88
+        
+        Copyright © 2015 BoomRen All rights reserved.
+-->
+<html lang="zh" class="app">
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" content="布姆电竞学院" />
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="apple-touch-icon-precomposed" href="images/public/favicon/favicon.png" sizes="60x60">
+    <link rel="shortcut icon" href="images/public/favicon/favicon.ico" />
+    <!-- public-css -->
+    <link rel="stylesheet" href="css/public/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="css/public/animate.css" type="text/css" />
+    <link rel="stylesheet" href="css/public/font-awesome.min.css" type="text/css" />
+    <link rel="stylesheet" href="css/public/simple-line-icons.css" type="text/css" />
+    <link rel="stylesheet" href="css/public/font.css" type="text/css" />
+    <link rel="stylesheet" href="css/public/app.css" type="text/css" />
+    <!-- lib-css -->
+    <link rel="stylesheet" href="css/lib/base.css" type="text/css" />
+
+
+
+	<!-- sign-up -->
+	<link rel="stylesheet" href="css/lib/class-service.css?time=1470285739632.css" />
+	<title>预约</title>
+    <!--[if lt IE 9]>
+        <script src="js/public/ie/html5shiv.js"></script>
+        <script src="js/public/ie/respond.min.js"></script>
+        <script src="js/public/ie/excanvas.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="http://tajs.qq.com/stats?sId=54172786" charset="UTF-8"></script>
+    <!--Groing IO 接口-->
+    <script type='text/javascript'>
+        var _vds = _vds || [];
+        window._vds = _vds;
+        (function(){
+            _vds.push(['setAccountId', '8c3c10f33c5d91ee']);
+            (function() {
+                var vds = document.createElement('script');
+                vds.type='text/javascript';
+                vds.async = true;
+                vds.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'dn-growing.qbox.me/vds.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(vds, s);
+            })();
+        })();
+    </script>
+</head>
+<body class="" ng-app='mainApp' ng-controller="gotop"
+    my-Touchstart="touchStart()" 
+    my-Touchend="touchEnd()"
+    my-TouchMove="touchMove()"
+>
+    <section class="vbox">
+        <header class="bg-white-only header header-md navbar navbar-fixed-top-xs">
+            <div class="navbar-header aside bg-info dk">
+                <!-- ieBtn -->
+                <a href="javascript:void(0)" class="btn btn-link mobilepart iepart-btn" id="ieBtn">
+                    <i class="icon-list"></i>
+                </a>
+                <!-- ieBtn -->
+                <a href="javascript:void(0)" class="btn btn-link  visible-xs" data-toggle="class:nav-off-screen,open" data-target="#nav,html">
+                    <i class="icon-list"></i>
+                </a>
+                <a href="javascript:void(0)" class="navbar-brand text-lt">
+                    <i class="fa fa-gamepad"></i>
+                    <span class="hidden-nav-xs m-l-sm">BoomGame</span>
+                </a>
+                <a class="btn btn-link visible-xs" href="javascript:void(0)" data-toggle="dropdown" data-target=".user">
+                    <i class="icon-user"></i>
+                </a>
+            </div>
+            <ul class="nav navbar-nav hidden-xs">
+                <!-- hidden-xs -->
+                <li>
+                    <a href="#nav,.navbar-header" data-toggle="class:nav-xs,nav-xs" class="text-muted">
+                        <i class="fa fa-indent text"></i>
+                        <i class="fa fa-dedent text-active"></i>
+                    </a>
+                </li>
+            </ul>
+            <p id="pagetitle" class="hidden-xs"><i></i><span></span></p>
+            <div class="navbar-right ">
+                <ul class="nav navbar-nav m-n hidden-xs nav-user user">
+                    <li class="dropdown" id="topheadimg">
+                        <a href="javascript:void(0)" class="dropdown-toggle bg clear" data-toggle="dropdown">
+                            <span class="thumb-sm avatar pull-right m-t-n-sm m-b-n-sm m-l-sm">
+                <img class="myheadico" src="" alt="...">
+              </span><b class="myname"></b> <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu animated fadeInRight">
+                            <li>
+                                <span class="arrow top"></span>
+                                <a class="tomyhome" href="javascript:void(0)">
+                                    <i class="icon-user"></i>
+                                    <span>我的主页</span>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a class="tostudy-record" href="study-record.html">
+                                    <i class="fa fa-list-ol"></i>
+                                    <span>学习记录</span>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a class="tomypwd" data-toggle="modal" data-target="#pwdModal" href="javascript:void(0)">
+                                    <i class="icon-lock"></i>
+                                    <span>修改密码</span>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a class="tologin" href="javascript:void(0)">
+                                    <i class="icon-logout"></i>
+                                    <span>退出登录</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </header>
+        <div ie-nav class="ienavout" id="ieNav">
+            
+            <ul class="iepart-nav" >
+
+                <!-- <li class="iepart-nav-li " ie-navli  ng-class="$index==navIndex?'active':''" ng-repeat="li in navData" ng-click="navIndexFn($index)">
+                    <a href="{{li.href}}" target="{{li.target||'_self'}}" class="auto">
+                        <i class="{{li.icon_css}}"></i>
+                        <span class="s_item1" ng-bind="li.name"></span>
+                        
+                    </a>
+                </li> -->
+
+                <li class="iepart-nav-li "  >
+                    <a href="class-notice.html"  class="auto">
+                       
+                        <span class="s_item1" >公告</span>
+                        
+                    </a>
+                </li> 
+                <li class="iepart-nav-li "  >
+                    <a href="class-list.html"  class="auto">
+                        
+                        <span class="s_item1" >课程目录</span>
+                        
+                    </a>
+                </li>
+                <li class="iepart-nav-li isIe"  >
+                    <a href="class-service.html"  class="auto">
+                        
+                        <span class="s_item1" >布姆服务</span>
+                        
+                    </a>
+                </li>
+                <li class="iepart-nav-li isIe"  >
+                    <a href="small-game.html"  class="auto">
+                        
+                        <span class="s_item1" >训练小游戏</span>
+                        
+                    </a>
+                </li>
+                <li class="iepart-nav-li isIe"  >
+                    <a href="class-rank.html"  class="auto">
+                        
+                        <span class="s_item1" >风云榜</span>
+                        
+                    </a>
+                </li>
+                <li class="iepart-nav-li "  >
+                    <a href="http://soft.iboom.tv/boomBox.rar"  target='_blank' class="auto">
+                        
+                        <span class="s_item1" >布姆盒子</span>
+                        
+                    </a>
+                </li>
+                <li class="iepart-nav-li "  id="growthLi" style="display:none;">
+                    <a href="growth.html"  class="auto">
+                        
+                        <span class="s_item1" >提升计划</span>
+                        
+                    </a>
+                </li>        
+            </ul>
+        </div>        <section>
+            <section class="hbox stretch">
+                <!-- .aside -->
+                <aside class="bg-black dk aside hidden-print hidden-xs" id="nav">
+                    <section class="vbox">
+			            <section class="w-f-md scrollable">
+			              <div class="slim-scroll" data-height="auto" data-disable-fade-out="true" data-distance="0" data-size="10px" data-railOpacity="0.2">
+
+
+<!--  nav  -->
+<nav class="nav-primary hidden-xs">
+  <ul data-ride="collapse" class="nav">
+    <li code="class-notice" class="nav1"><a href="class-notice.html" txt="公告" target="_self" class="auto"><i class="fa fa-calendar "></i><span class="s_item1">公告</span><span class="pull-right text-muted "><i class="fa fa-angle-left text"></i><i class="fa fa-angle-down text-active"></i></span></a>
+      <!--list1-->
+      <ul class="nav dk text-sm">
+      </ul>
+    </li>
+    <li code="class-list" class="nav1"><a href="class-list.html" txt="课程目录" target="_self" class="auto"><i class="fa fa-book  "></i><span class="s_item1">课程目录</span><span class="pull-right text-muted "><i class="fa fa-angle-left text"></i><i class="fa fa-angle-down text-active"></i></span></a>
+      <!--list1-->
+      <ul class="nav dk text-sm">
+      </ul>
+    </li>
+    <li code="class-service" class="nav1"><a href="class-service.html" txt="布姆服务" target="_self" class="auto"><i class="fa fa-tachometer  "></i><span class="s_item1">布姆服务</span><span class="pull-right text-muted "><i class="fa fa-angle-left text"></i><i class="fa fa-angle-down text-active"></i></span></a>
+      <!--list1-->
+      <ul class="nav dk text-sm">
+      </ul>
+    </li>
+    <li code="small-game" class="nav1"><a href="small-game.html" txt="训练小游戏" target="_self" class="auto"><i class=" icon-game-controller  "></i><span class="s_item1">训练小游戏</span><span class="pull-right text-muted "><i class="fa fa-angle-left text"></i><i class="fa fa-angle-down text-active"></i></span></a>
+      <!--list1-->
+      <ul class="nav dk text-sm">
+      </ul>
+    </li>
+    <li code="class-rank" class="nav1"><a href="class-rank.html" txt="风云榜" target="_self" class="auto"><i class="fa fa-users  "></i><span class="s_item1">风云榜</span><span class="pull-right text-muted "><i class="fa fa-angle-left text"></i><i class="fa fa-angle-down text-active"></i></span></a>
+      <!--list1-->
+      <ul class="nav dk text-sm">
+      </ul>
+    </li>
+    <li code="hezi" class="nav1"><a href="http://soft.iboom.tv/boomBox.rar" txt="布姆盒子" target="_blank" class="auto"><i class="fa fa-cloud-download"></i><span class="s_item1">布姆盒子</span><span class="pull-right text-muted "><i class="fa fa-angle-left text"></i><i class="fa fa-angle-down text-active"></i></span></a>
+      <!--list1-->
+      <ul class="nav dk text-sm">
+      </ul>
+    </li>
+      <li  class="nav1"><a href="class-live-show.html" txt="直播间" target="_blank" class="auto"><i class="fa fa-cloud-download"></i><span class="s_item1">直播间</span><span class="pull-right text-muted "><i class="fa fa-angle-left text"></i><i class="fa fa-angle-down text-active"></i></span></a>
+          <!--list1-->
+          <ul class="nav dk text-sm">
+          </ul>
+      </li>
+    <li code="growth" class="nav1"><a href="growth.html" txt="提升计划" target="_self" class="auto"><i class="fa fa-signal"></i><span class="s_item1">提升计划</span><span class="pull-right text-muted "><i class="fa fa-angle-left text"></i><i class="fa fa-angle-down text-active"></i></span></a>
+      <!--list1-->
+      <ul class="nav dk text-sm">
+      </ul>
+    </li>
+  </ul>
+  <!--  nav   -->
+</nav>
+<!-- .nav  -->
+
+</div>
+</section>
+
+<!-- / nav -->
+<footer class="footer hidden-xs no-padder text-center-nav-xs">
+    <div class="hidden ">
+        <div class="dropdown dropup wrapper-sm clearfix">
+            <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
+                <span class="thumb-sm avatar pull-left m-l-xs">                        
+                        <img src="" class="myheadico dker" alt="...">
+                        <i class="on b-black hidden"></i>
+                      </span>
+                <span class="hidden-nav-xs clear">
+                        <span class="block m-l">
+                          <strong class="myname font-bold text-lt "></strong> 
+                          <b class="caret"></b>
+                        </span>
+                <span class="myarea text-muted text-xs block m-l"> </span>
+                </span>
+            </a>
+            <ul class="dropdown-menu animated fadeInRight aside text-left">
+                <li>
+                    <span class="arrow bottom"></span>
+                    <a class="tomyhome" href="javascript:void(0)">
+                        <i class="icon-user"></i>
+                        <span>我的主页</span>
+                    </a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <a class="tomypwd" data-toggle="modal" data-target="#pwdModal" href="javascript:void(0)">
+                        <i class="icon-lock"></i>
+                        <span>修改密码</span>
+                    </a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <a class="tologin" href="javascript:void(0)">
+                        <i class="icon-logout"></i>
+                        <span>退出登录</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+                    <a class="tologin footerloginout " href="javascript:void(0)">
+                        <i class="icon-logout"></i>
+                        <span>退出登录</span>
+                    </a>
+</footer>
+</section>
+
+
+</aside>
+<!-- /.aside -->
+<section id="content">
+    <section  class="vbox"  >
+
+<section class="scrollable1 padder " ng-controller="color" select-list-hide-func selectlistshide="selectListShow">
+    <div class="w-1000 row" >
+        <div class="part3 row" ng-show="StepProgress">
+        	<div class="top">
+        		<p class="title">布姆学院1对1教学预约</p>
+                <div class="stepsTopOut">
+                    <ul class="barbg1"  style="right:{{nowStepRight}}%">
+                        <li class="barbg1li"></li>
+                        <li class="barbg1li"></li>
+                        <li class="barbg1li active"></li>
+                    </ul>
+                    <ul class="progress-bar1">
+                        <li ng-repeat="step in stepsTop">
+                            <b class="num" ng-bind="step.num"></b>
+                            <span class="caption" ng-bind="step.txt"></span>
+                        </li>
+                    </ul>  
+                </div>
+        	</div>
+        	<div class="mid animate-steps" >
+                <div class="animate-step" ng-show="stepsShowArr[0]">
+            		<div class="step step1 ">
+<!--             			<p class="title">游戏大区</p>
+            			<div class="select">
+            				<div class="selected">
+            					<span class="selected-txt" ng-bind="areaInit"></span>
+            					<span class="fa fa-caret-down custom-btn" ng-click="selectListToggleFunc($event)"></span>
+            				</div>
+            				<ul class="select-list scrollable " ng-show="selectListShow">
+            					<li class="select-li" ng-repeat="row in areaArr" area-id={{row.id}}
+                                ng-bind="row.name+'（'+row.code+'）'"
+                                ng-click="selectListFunc(row.name+'（'+row.code+'）',row.name)"
+                                ></li>
+            				</ul>
+            			</div> -->
+                        <div class="t-parts">
+                                <div class="oto-s1-btn oto-s1-btn-next" ng-click="tShowFunc(-1)"></div>
+                                <div class="oto-s1-btn oto-s1-btn-prev" ng-click="tShowFunc(1)"></div>
+                            <div class="slideboxout">   
+                                <div class="teacherpart row slidebox" ng-class="tShowIndex==$index?'toShow-'+tSd:'toHide-'+tSd" 
+                                ng-repeat="teacher in tArr"
+                                >
+                                    <div class="t-info">
+                                        
+                                        <div class="teacher-left">
+                                            <div class="imgb">
+                                                
+                                                <img src="http://static.iboom.tv/static/img/{{teacher.teacherInfo.header}}" alt="">
+                                            </div>
+                                            <a href="tencent://message/?uin={{teacher.teacherInfo.qq}}&amp;Site=&amp;Menu=yes" class="btn-blue">联系老师</a>
+                                            <p class="t-status t-status-1" ng-show="teacher.offerService&&!teacher.queueFull">
+                                                <i class="icon-check"></i> <span>可预约</span>
+                                            </p>
+                                            <p class="t-status t-status-2" ng-show="teacher.offerService&&teacher.queueFull">
+                                                <i class=" icon-close"></i> <span>队列已满</span>
+                                            </p>
+                                            <p class="t-status t-status-2" ng-show="!teacher.offerService">
+                                                <i class=" icon-close"></i> <span>暂不开放</span>
+                                            </p>
+                                        </div>
+                                        <div class="teacher-right">
+                                            <span class="name " ng-bind="teacher.teacherInfo.name"></span>
+                                            <span>好评度&nbsp;&nbsp;<b class="wellrate " ng-bind="teacher.praisePrecent+'%'" ></b></span>
+                                            <hr>
+                                            <p>
+                                                <span class="stitlt">段<span class="transparent">段位</span>位：</span><span ng-bind="teacher.teacherInfo.tier" ></span>
+                                            </p>
+                                            <p>
+                                                <span class="stitlt">擅长位置：</span><span  ng-bind="teacher.teacherInfo.goodAtWay"> </span>
+                                            </p>
+                                            <p class="row">
+                                                <span class="stitlt herol">擅长英雄：</span>
+                                                <span class="heros">
+
+                                                    <img  
+                                                    class="heroimg " 
+                                                    ng-repeat="hero in teacher.goodChampions"
+                                                    src="images/public/champion/{{hero.img}}" 
+                                                    alt="{{hero.name}}"
+                                                    title="{{hero.name}}"
+                                                    >
+                                                    
+                        
+                                                </span>
+                                            </p>
+                                        
+                                            <p class="row">
+                                               <span class="stitlt introl">老师简介：</span><span  class="intro "
+                                               ng-bind="teacher.teacherInfo.introduce"></span> 
+                                            </p>
+                                    </div>
+
+
+                                    </div>
+                                    <div class="t-row">
+                                        <p class="t-title">
+                                            <a href="teacher.html?{{teacher.teacherId}}" target="_blank">
+                                                评论<span >（<span ng-bind="teacher.endNum||0"></span>）</span>
+                                            </a>
+                                        </p>
+                                    </div>
+                                    <div class="t-row">
+                                        <p class="t-title">队列<span>（{{teacher.serviceQueuePosition}}/{{teacher.serviceQueueLength}}）</span></p>
+                                        <ul class="t-ul">
+                                            <li class="t-li" ng-repeat="li in teacher.doingApply|doApply:20">
+                                                <div class="t-li-img" style="background-image: url(images/public/champion/{{lolObj[li.championId].img||'oto-jiqiao.png'}})"
+                                                ng-show="!li.isEmpty"></div>
+                                                <div class="t-li-img" ng-show="li.isEmpty"></div>
+                                                <p class="t-li-p" ng-show="!li.isEmpty">{{li.studentNum}}</p>
+                                            </li>
+
+                                        </ul>
+                                    </div>
+                                </div>               
+                            </div>
+
+                        </div>
+
+
+
+
+            			<div class="btns">
+            				<div class="btn-public btn1" ng-show="nowTeacher.offerService&&!nowTeacher.queueFull" ng-click="stepsFunc(1)">
+                                <span >选择{{nowTeacher.teacherInfo.name||""}}老师</span>
+                            </div>
+                            <div class="btn-public btn1 btn-disabled" ng-show="!nowTeacher.offerService||nowTeacher.queueFull" ng-click="stepsFunc(0)">
+                                <span >{{nowTeacher.teacherInfo.name||""}}老师不可预约</span>
+                            </div>
+            			</div>
+            		</div>
+                </div>
+
+
+
+
+                <div class="animate-step" ng-show="stepsShowArr[1]"> 
+            		<div class="step step2 "
+                    >
+            			<div class="model-select">
+            				<div class="row row1">
+            					<span class="title">学习模式:</span>
+                                <div class="group-select group-select1">
+                                    <input ng-repeat="input in studyModelSelect" 
+                                    type="button" readonly=""
+                                     ng-value="input.txt" 
+                                     class="{{input.css}}"   ng-click="teachModeTypeFunc(input.teachModeType)">
+                                </div>
+            				</div>
+    						<!-- herostudy -->
+            				<div class="herostudy" ng-show="teachModeType[0]">
+    	        				<div class="row row1">
+    	        					<span class="title">位置学习:</span>
+    	        					<div class="group-select group-select2">
+                                        <input type="text" readonly="" 
+                                        ng-repeat="desrieWay in desrieWays"
+                                        ng-value="desrieWay.desrieWay"  
+                                        ng-click="desrieWayCheck(desrieWay.desrieWay)"
+                                        ng-class="desrieWay.css">
+    	        					</div>
+    	        				</div>
+    	        				<div class="row row1">
+    	        					<span class="title">英雄选择:</span>
+    	        					<div class="group-select group-select3">
+    	        						<div class="search">
+    		        						<input type="text"   class="search-input" ng-model="heroname" placeholder="请输入英雄名称">
+    		        						<i class="fa fa-search search-ico"></i>	
+    	        						</div>
+    	        					</div>
+    	        				</div>
+    	        				<div class="row row1">
+    	        					<div class="heros-out ">
+    									<ul class="heros scrollable">
+                                            <li ng-animate="'animate'" class="hero" ng-repeat="hero in heros|heroFilter:heroname:'name-title-code'" ng-click="championCheck(hero.name,hero.id)" champion-check>
+                                                <div class="imgpart">
+                                                    <img src="images/public/champion/{{hero.img}}" alt="" class="img" ng-title="{{hero.title}}">
+                                                    <div class="border border1" ng-class="hero.border1active"></div>
+                                                    <div class="border border2" ng-class="hero.css"></div>
+                                                </div>
+                                                <p class="name" ng-bind="hero.name" ng-class="hero.namecolor"></p>
+                                            </li>
+    									</ul>
+    	        					</div>
+    	        				</div>	
+            				</div>
+                            <!-- skillstudy -->
+                            <div class="skillstudy" ng-show="teachModeType[1]">
+                                <form  class="skillstudyform" name="skillstudyform"  > 
+     
+                                    <label ng-repeat="skillstudy in skillstudyArr"
+                                    ng-click="skillstudyFunction(skillstudy.index)"
+                                    >
+
+                                        <input name="{{skillstudy.name}}" type="{{skillstudy.type}}"         
+                                        ng-checked="skillstudy.checked"
+                                        />
+                                        <span ng-bind="skillstudy.value"></span>
+                                    </label> 
+
+
+                                    <div class="textarea">                
+                                        <textarea name=""  cols="30" rows="10" placeholder="说出你想学习的内容吧！" 
+                                        maxlength="20" 
+                                        ng-model="skillTeachOtherContent" 
+                                        ng-disabled="textareaDisable" ></textarea>
+                                        <p class="tip">
+                                        <span ng-bind="skillTeachOtherLen"></span>/20</p>
+                                    </div>
+
+                                </form> 
+                            </div>
+
+            			</div>
+            			<div class="btns row">
+            				<button class="btn-public prev" ng-click="stepsFunc(0)">上一步</button>
+            				<button class="btn-public next" ng-click="stepsFunc(2)" ng-disabled="teachModeTypeNext">下一步</button>
+            			</div>
+            		</div>
+                </div>
+
+                <div class="animate-step" ng-show="false">
+                    <div class="step step3 "
+                    >
+                        <p class="title">教学时间</p>
+                        <div class="weekSelects row">
+                            <button class="weekSelect" ng-click="getWeekCalendar(nextWeek)"
+                            ng-disabled="nweek">
+                                <p>下一周<i class="fa fa-angle-right "></i></p>
+                            </button>
+                            <button class="weekSelect" ng-click="getWeekCalendar(prevWeek)"
+                            ng-disabled="pweek"
+                            >
+                                <p><i class="fa fa-angle-left " ></i>上一周</p>
+                            </button>
+
+                        </div>
+                        <table class="studytab">
+                            <thead>
+                                <tr>
+                                    <th ng-repeat="th in tabtime.toptime">
+                                        <div class="bg">
+                                            <p ng-bind="th.name"></p>
+                                            <span ng-bind="th.day|date:'MM.dd'"></span>
+                                        </div>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat=" tr in tabtime.lists">
+                                    <td>
+                                        <div class="bg1">
+                                            <p ng-bind="tr[0].time" ></p>
+                                        </div>
+                                    </td>
+                                    <td ng-repeat=" td in tr" ng-click="teachTimeCheck(td)" teach-time-check >
+                                        <div class="bg {{td.date}} "  ng-class="td.css"></div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="btns row">
+                            <button class="btn-public prev"  ng-click="stepsFunc(1)">上一步</button>
+                            <button class="btn-public next"  ng-click="stepsFunc(3)" ng-disabled="teachTimeNext">下一步</button>
+                           
+                        </div>  
+                    </div>
+                </div>
+                <div class="animate-step" ng-show="stepsShowArr[2]">
+                    <div class="step step4 animate-step"
+                    >
+                        <p class="title">教学模式</p>
+
+                        <form  class="studymodel"  > 
+                            <label ng-repeat="teachMode in teachModeArr"  
+                            ng-click="teachModeCheck()">
+                                <input name="study" type="checkbox"   
+                                
+                                ng-value="teachMode.value"
+                                ng-disabled="teachMode.disabled"
+                                ng-model="teachMode.check"
+
+
+                                 />
+                                 <span ng-bind="teachMode.value"></span>
+                                
+                            </label> 
+
+        
+                        </form> 
+                        
+                        <p class="notep"> 注意：若选择录像教学，请提前准备好想要老师教导的游戏录像。录像可以通过LOL客户端的英雄时刻进行录像！
+                         </p>
+
+
+
+
+                            <p class="error" ng-bind="step4msg"></p>
+                        <div class="btns row">
+                            <button class="btn-public prev" ng-click="stepsFunc(1)">上一步</button>
+                             <button class="btn-public next" ng-click="applyOne()" ng-disabled="teachModeNext" ng-class="teachModeNext?'btn-disabled':''">提交</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        	<div class="bottom ">
+        		<p class="title">教学说明</p>
+        		<p class="li">服务时间：下午13点-晚上22点（上课时间除外）。</p>
+        		<p class="li">服务地址：学院YY66557438，语音方便我们的交流。</p>
+        		<p class="li">服务须知：请认真填写预约内容，填写完之后我们会根据提交顺序安排教学。请等待老师来联系你！每人每次教学约1小时！</p>
+        	</div>
+        </div>
+
+        <div class="part4 row" ng-show="StepResult">
+			<p class="title">布姆学院1对1教学预约</p>
+			<div class="result"></div>
+			<p class="result-tip">您已预约成功！</p>
+			<p class="result-p">您预约的1对1教学时间为</p>
+			<b class="result-time" ng-bind="applyData.teachTime"></b>
+			<p class="result-tip-bottom">如有特殊情况，请与老师及时沟通！</p>
+	
+        </div>
+    </div>
+    <!-- copyright  -->
+    <section class="hbox  copyright">
+        <div class="text-center ">
+            <a href="http://www.beianbeian.com/beianxinxi/6f9a3be6-f7f7-4445-b5bb-d7b78cb4a3a0.html" target="_blank">浙ICP备14039924号-1</a>  
+            <a href="http://www.miitbeian.gov.cn/publish/query/indexFirst.action" target="_blank">工信部备案查询</a>
+        </div>
+    </section>
+    <!-- copyright  -->
+</section>
+
+
+                  </section>
+                  <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen,open" data-target="#nav,html"></a>
+                </section>
+              </section>
+            </section>    
+          </section>
+
+<div class="modal fade" id="pwdModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header user-select">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+        <h4 class="modal-title">修改密码<i id="eyepwd" class="fa fa-eye"></i></h4>
+        
+      </div>
+      <div class="modal-body" style="padding:5px 15px;">
+        <form class="form-horizontal" >
+          <div class="form-group">
+            <label for="oldpwd" class="col-sm-2 control-label">原密码:</label>
+            <div class="col-sm-10">
+              <input type="password" class="form-control text-center" id="oldpwd" maxlength="20" placeholder="输入原密码">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="n1pwd" class="col-sm-2 control-label">新密码:</label>
+            <div class="col-sm-10">
+              <input type="password" class="form-control text-center" id="n1pwd" maxlength="20" placeholder="输入新密码">
+            </div>
+          </div>
+
+
+          <div class="form-group">
+            <label for="n2pwd" class="col-sm-2 control-label">确认密码:</label>
+
+            <div class="col-sm-10 ">
+              <input type="password" class="form-control text-center" id="n2pwd" maxlength="20" placeholder="再次输入新密码">
+            </div>
+          </div>
+          <div class="form-group" style="margin-bottom: 0;">
+            <div class="">
+
+              <p id="errorpwd" class="text-center"> </p>
+
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+              <button id="cancelpwd" type="button" class="btn btn-default pull-right " data-dismiss="modal">取消</button>
+              <button id="comfirmpwd" type="submit" class="btn btn-danger disabled pull-right m-r" title="新密码长度少于6位">确认修改</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!-- 修改密码 pwdModal -->
+
+<div class="gotopPart hidden" >
+  <div class="gotopback" ng-show="topObj.topTopshow" ></div>
+  <div class="gotop" ng-show="topObj.topTopshow" ng-click="gotop() " ></div>
+
+</div>
+<!-- gotopPart -->
+
+        <!-- jqurey -->
+        <script type="text/javascript"  src="js/public/jquery.min.js"></script>
+        
+        <!-- angular -->
+        <script type="text/javascript" src="js/public/angular.js"></script>
+        <script type="text/javascript" src="js/public/angular-animate.min.js"></script>
+        <script type="text/javascript" src="js/public/angular-ui-router.min.js"></script>
+        <!-- Bootstrap -->
+        <script src="js/public/bootstrap.js"></script>
+        <!-- App -->
+        <script src="js/public/app.js"></script>
+        <script src="js/public/slimscroll/jquery.slimscroll.min.js"></script>
+        <!-- app.plugin -->
+        <script src="js/public/app.plugin.js"></script>
+        <!--CNZZ接口-->
+        <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1260161989'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1260161989' type='text/javascript'%3E%3C/script%3E"));</script>
+
+        <!-- lib -->
+        <script src="js/lib/base.js?time=New Date()" charset="utf-8"></script>
+        <script src="http://logging.iboom.tv/loggingSDK.js" async></script>   
+         
+        <div id="scriptbox"></div>
+	<!-- sign-up -->
+	<script type="text/javascript" src="js/lib/sign-up.js?time=1469070414093.js" charset="utf-8"></script>
+	<script type="text/javascript" src="js/lib/baidutongji.js?time=1469070414093.js" charset="utf-8"></script>
+	
+		<div id="flotTip" style="display: none; position: absolute;"></div>
+	</body>
+</html>
+<!--  author:liaohs/1013211628@qq.com/159***5880 -->

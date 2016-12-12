@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<!--
+    88888888ba     ,ad8888ba,      ,ad8888ba,    8D          B8
+    88      "8b   d8"'    `"8b    d8"'    `"8b   888b       d88
+    88     ,8P   d8'        `8b  d8'        `8b  88`8b     d8"8
+    888888888a   88          88  88          88  88 `8b   d8 88
+    88      "8b  Y8,        ,8P  Y8,        ,8P  88  `8b d8  88
+    88      ,8P   Y8a.    .a8P    Y8a.    .a8P   88   `8VP   88
+    88888888P"     `"Y8888Y"'      `"Y8888Y"'    88    `8'   88
+        
+        Copyright © 2015 BoomRen All rights reserved.
+-->
+<html lang="zh" class="app">
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" content="布姆电竞学院" />
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="apple-touch-icon-precomposed" href="images/public/favicon/favicon.png" sizes="60x60">
+    <link rel="shortcut icon" href="images/public/favicon/favicon.ico" />
+    <!-- public-css -->
+    <link rel="stylesheet" href="css/public/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="css/public/animate.css" type="text/css" />
+    <link rel="stylesheet" href="css/public/font-awesome.min.css" type="text/css" />
+    <link rel="stylesheet" href="css/public/simple-line-icons.css" type="text/css" />
+    <link rel="stylesheet" href="css/public/font.css" type="text/css" />
+    <link rel="stylesheet" href="css/public/app.css" type="text/css" />
+    <!-- lib-css -->
+    <link rel="stylesheet" href="css/lib/base.css" type="text/css" />
+
+
+
+	<!-- ssj -->
+	<link rel="stylesheet" href="css/lib/class-service.css?time=1468913791703.css" />
+	<title>生死局</title>
+    <!--[if lt IE 9]>
+        <script src="js/public/ie/html5shiv.js"></script>
+        <script src="js/public/ie/respond.min.js"></script>
+        <script src="js/public/ie/excanvas.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="http://tajs.qq.com/stats?sId=54172786" charset="UTF-8"></script> 
+</head>
+<body class="" ng-app='mainApp' ng-controller="gotop"
+    my-Touchstart="touchStart()" 
+    my-Touchend="touchEnd()"
+    my-TouchMove="touchMove()"
+>
+    <section class="vbox">
+        <header class="bg-white-only header header-md navbar navbar-fixed-top-xs">
+            <div class="navbar-header aside bg-info dk">
+                <a href="javascript:void(0)" class="btn btn-link  visible-xs" data-toggle="class:nav-off-screen,open" data-target="#nav,html">
+                    <i class="icon-list"></i>
+                </a>
+                <a href="javascript:void(0)" class="navbar-brand text-lt">
+                    <i class="fa fa-gamepad"></i>
+                    <span class="hidden-nav-xs m-l-sm">BoomGame</span>
+                </a>
+                <a class="btn btn-link visible-xs" href="javascript:void(0)" data-toggle="dropdown" data-target=".user">
+                    <i class="icon-user"></i>
+                </a>
+            </div>
+            <ul class="nav navbar-nav hidden-xs">
+                <!-- hidden-xs -->
+                <li>
+                    <a href="#nav,.navbar-header" data-toggle="class:nav-xs,nav-xs" class="text-muted">
+                        <i class="fa fa-indent text"></i>
+                        <i class="fa fa-dedent text-active"></i>
+                    </a>
+                </li>
+            </ul>
+            <p id="pagetitle" class="hidden-xs"><i></i><span></span></p>
+            <div class="navbar-right ">
+                <ul class="nav navbar-nav m-n hidden-xs nav-user user">
+                    <li class="dropdown" id="topheadimg">
+                        <a href="javascript:void(0)" class="dropdown-toggle bg clear" data-toggle="dropdown">
+                            <span class="thumb-sm avatar pull-right m-t-n-sm m-b-n-sm m-l-sm">
+                <img class="myheadico" src="" alt="...">
+              </span><b class="myname"></b> <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu animated fadeInRight">
+                            <li>
+                                <span class="arrow top"></span>
+                                <a class="tomyhome" href="javascript:void(0)">
+                                    <i class="icon-user"></i>
+                                    <span>我的主页</span>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a class="tostudy-record" href="study-record.html">
+                                    <i class="fa fa-list-ol"></i>
+                                    <span>学习记录</span>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a class="tomypwd" data-toggle="modal" data-target="#pwdModal" href="javascript:void(0)">
+                                    <i class="icon-lock"></i>
+                                    <span>修改密码</span>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a class="tologin" href="javascript:void(0)">
+                                    <i class="icon-logout"></i>
+                                    <span>退出登录</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </header>
+        <section>
+            <section class="hbox stretch">
+                <!-- .aside -->
+                <aside class="bg-black dk aside hidden-print hidden-xs" id="nav">
+                    <section class="vbox">
+			            <section class="w-f-md scrollable">
+			              <div class="slim-scroll" data-height="auto" data-disable-fade-out="true" data-distance="0" data-size="10px" data-railOpacity="0.2">
+
+
+<!--  nav  -->
+<nav class="nav-primary hidden-xs">
+  <ul data-ride="collapse" class="nav">
+    <li code="class-notice" class="nav1"><a href="class-notice.html" txt="公告" target="_self" class="auto"><i class="fa fa-calendar "></i><span class="s_item1">公告</span><span class="pull-right text-muted "><i class="fa fa-angle-left text"></i><i class="fa fa-angle-down text-active"></i></span></a>
+      <!--list1-->
+      <ul class="nav dk text-sm">
+      </ul>
+    </li>
+    <li code="class-list" class="nav1"><a href="class-list.html" txt="课程目录" target="_self" class="auto"><i class="fa fa-book  "></i><span class="s_item1">课程目录</span><span class="pull-right text-muted "><i class="fa fa-angle-left text"></i><i class="fa fa-angle-down text-active"></i></span></a>
+      <!--list1-->
+      <ul class="nav dk text-sm">
+      </ul>
+    </li>
+    <li code="class-service" class="nav1"><a href="class-service.html" txt="布姆服务" target="_self" class="auto"><i class="fa fa-tachometer  "></i><span class="s_item1">布姆服务</span><span class="pull-right text-muted "><i class="fa fa-angle-left text"></i><i class="fa fa-angle-down text-active"></i></span></a>
+      <!--list1-->
+      <ul class="nav dk text-sm">
+      </ul>
+    </li>
+    <li code="small-game" class="nav1"><a href="small-game.html" txt="训练小游戏" target="_self" class="auto"><i class=" icon-game-controller  "></i><span class="s_item1">训练小游戏</span><span class="pull-right text-muted "><i class="fa fa-angle-left text"></i><i class="fa fa-angle-down text-active"></i></span></a>
+      <!--list1-->
+      <ul class="nav dk text-sm">
+      </ul>
+    </li>
+    <li code="class-rank" class="nav1"><a href="class-rank.html" txt="风云榜" target="_self" class="auto"><i class="fa fa-users  "></i><span class="s_item1">风云榜</span><span class="pull-right text-muted "><i class="fa fa-angle-left text"></i><i class="fa fa-angle-down text-active"></i></span></a>
+      <!--list1-->
+      <ul class="nav dk text-sm">
+      </ul>
+    </li>
+    <li code="feedback" class="nav1"><a href="http://bbs.iboom.tv/forum.php?mod=forumdisplay&amp;fid=37" txt="意见反馈" target="_blank" class="auto"><i class="fa fa-edit  "></i><span class="s_item1">意见反馈</span><span class="pull-right text-muted "><i class="fa fa-angle-left text"></i><i class="fa fa-angle-down text-active"></i></span></a>
+      <!--list1-->
+      <ul class="nav dk text-sm">
+      </ul>
+    </li>
+    <li code="growth" class="nav1"><a href="growth.html" txt="提升计划" target="_self" class="auto"><i class="fa fa-signal"></i><span class="s_item1">提升计划</span><span class="pull-right text-muted "><i class="fa fa-angle-left text"></i><i class="fa fa-angle-down text-active"></i></span></a>
+      <!--list1-->
+      <ul class="nav dk text-sm">
+      </ul>
+    </li>
+  </ul>
+  <!--  nav   -->
+</nav>
+<!-- .nav  -->
+
+</div>
+</section>
+
+<!-- / nav -->
+<footer class="footer hidden-xs no-padder text-center-nav-xs">
+    <div class="hidden ">
+        <div class="dropdown dropup wrapper-sm clearfix">
+            <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
+                <span class="thumb-sm avatar pull-left m-l-xs">                        
+                        <img src="" class="myheadico dker" alt="...">
+                        <i class="on b-black hidden"></i>
+                      </span>
+                <span class="hidden-nav-xs clear">
+                        <span class="block m-l">
+                          <strong class="myname font-bold text-lt "></strong> 
+                          <b class="caret"></b>
+                        </span>
+                <span class="myarea text-muted text-xs block m-l"> </span>
+                </span>
+            </a>
+            <ul class="dropdown-menu animated fadeInRight aside text-left">
+                <li>
+                    <span class="arrow bottom"></span>
+                    <a class="tomyhome" href="javascript:void(0)">
+                        <i class="icon-user"></i>
+                        <span>我的主页</span>
+                    </a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <a class="tomypwd" data-toggle="modal" data-target="#pwdModal" href="javascript:void(0)">
+                        <i class="icon-lock"></i>
+                        <span>修改密码</span>
+                    </a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <a class="tologin" href="javascript:void(0)">
+                        <i class="icon-logout"></i>
+                        <span>退出登录</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+                    <a class="tologin footerloginout " href="javascript:void(0)">
+                        <i class="icon-logout"></i>
+                        <span>退出登录</span>
+                    </a>
+</footer>
+</section>
+
+
+</aside>
+<!-- /.aside -->
+<section id="content">
+    <section  class="vbox"  >
+
+<section class="scrollable1 padder " ng-controller="color" select-list-hide-func selectlistshide="selectListShow">
+    <div class="w-1000 row" style="width:738px">
+        <div class="part3 row" >
+        	<div class="top">
+        		<p class="title">布姆学院生死局预约</p>
+
+        	</div>
+        	<div class="mid animate-steps " >
+
+                <!-- ===============================================
+                     选择大区 
+                -->
+                <!-- ng-show="applyStatue=='apply'" -->
+                <div class="animate-step pt0"  ng-show="applyStatue=='apply'">
+            		<div class="step step1 ">
+            			<p class="title">游戏大区</p>
+            			<div class="select">
+            				<div class="selected">
+            					<span class="selected-txt" ng-bind="areaInit"></span>
+            					<span class="fa fa-caret-down custom-btn" ng-click="selectListToggleFunc($event)"></span>
+            				</div>
+            				<ul class="select-list scrollable " ng-show="selectListShow">
+            					<li class="select-li" ng-repeat="row in areaArr" area-id={{row.id}}
+                                ng-bind="row.name+'（'+row.code+'）'"
+                                ng-click="selectListFunc(row.name+'（'+row.code+'）',row.name)"
+                                ></li>
+            				</ul>
+            			</div>
+            		</div>
+                    <div class="btns">
+                        <div class="btn-public btn1"  ng-click="applyFn()" style="width:226px">
+                            <span >确定预约</span>
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+                <!-- ===============================================
+                     预约成功 
+                -->
+                <!-- ng-show="applyStatue=='wait'" -->
+                <div class="part4 row" style="border:none;width:326px;" ng-show="applyStatue=='wait'">
+                    <div class="result"></div>
+                    <p class="result-tip">您已预约成功！</p>
+                    <p class="text-left p170">当前队列位置：<b ng-bind="waitDays"></b></p>
+                    <p class="text-left p170">游戏大区：<b ng-bind="applyDetail.areaName"></b></p>
+                    <p class="text-left p170">辅导老师：<b ng-bind="nowTeacher.name"></b></p>
+                    <p class="text-left p170">请联系导师沟通确定具体时间</p>
+                    <div class="btns">
+
+                        <a href="tencent://message/?uin={{nowTeacher.qq}}&amp;amp;Site=&amp;amp;Menu=yes" class="btn-public btn1 left"
+                        style="width:140px"
+                        >
+                            <span >联系导师</span>
+                        </a>
+                        <div class="btn-public btn1 right"  ng-click="ssjApplyCancelFn()" style="width:140px">
+                            <span >我要取消预约</span>
+                        </div>
+
+                    </div>
+            
+                </div>
+
+                <!-- ===============================================
+                     教学评论
+                -->
+                <!-- teached -->
+                <div class="w-1000 row comment" ng-show="applyStatue=='teached'">
+
+                    <div class="process" >
+                        
+                        <div class="commment-li row commment-li-2" style="border:none;width:730px; padding: 0 115px;">
+                            <div class="comment-top">
+                                <div class="ssj-icon"></div>
+                                <p class="mb20">您预约的生死局服务已 <b></b>  完成</p>
+                                <p class="score">
+                                    <span>请对服务导师作出评价   </span>&nbsp;&nbsp;&nbsp;
+                                    <span class="stars">
+
+
+                                        <i class="fa" ng-repeat="star in [0,1,2,3,4]" 
+                                        ng-class="score>star?'fa-star':'fa-star-o'"
+                                        ng-click="scoreFn($index)"></i>
+      
+                                    </span>
+
+                                </p>
+                                
+                            </div>
+
+                            
+                            <textarea 
+
+                            class="myComment" 
+                            placeholder="你觉得这个老师如何呢？大声的说出你的心声吧！"
+                            ng-model="myComment" 
+                            maxlength="300" 
+                            
+                            ></textarea>
+
+                            <div class="relative clearfix " style="padding-top:10px;height: 80px;margin-bottom: 50px;">
+                                
+                                <p class="tips text-right fr">还可以输入<span><b ng-bind="300-myComment.length">300</b></span>个字符</p>
+
+
+
+                                <form class="addImgPart fl" upload-img>
+
+                                    <label for="addImg" class="addImgInput fl"
+                                    ng-hide="addImgs.length==3"></label>
+                                    <p class="addimgtip fl" ng-hide="addimgtipHide">小提示： 请上传jpeg或jpg格式的图片，图片大小为5KB-1MB
+                                    </p> 
+
+                                    <input id="addImg" type ="file" name="file" class="hidden" />
+                                    <div class="preview-img fl" ng-repeat="img in addImgs">
+                                        <div class="preview-hover" ng-click="deleteImg($index)">
+                                            删除
+                                        </div>
+                                        <div class="preview-in">
+                                            
+                                            <img ng-src="{{img.smallimg}}">
+                                        </div>
+                                    </div>
+
+                                    <span class="imgsLen fl" ng-show="addImgs.length>0"><b ng-bind="addImgs.length">0</b>/3</span>
+                                                                   
+                                </form>
+
+                            </div>
+
+
+
+                            <button  class="btn-blue"  style="float:none;" 
+
+                            ng-click="myCommentApply()"
+                            
+                            >发表评论</button>
+                            <p class="text-center text-danger" ng-bind="mycommentTip"></p>
+                            
+                        </div>
+                    </div>
+                    
+
+                    <div class="part4 row hidden"  style="padding-bottom: 30px;"  >
+                    
+                        <div class="result"></div>
+                        <p class="result-tip">您已评论成功！</p>
+                
+                    </div>
+
+                </div>
+
+
+                <!-- ===============================================
+                     预约倒计时
+                -->
+                <div class="part4 row" style="border:none;width:326px;padding-bottom: 0;" ng-show="applyStatue=='end'">
+                    <div class="result" style="background-image: url(css/img/service-watch.png)"></div>
+                    <p class="result-tip">您的预约CD倒计时:</p>
+                    <div class="text-center"><b class="rspan" ng-bind="waitDays||3"></b><b class="rb">天</b></div>
+            
+                </div>
+
+            </div>
+        	<div class="bottom ">
+        		<p class="title">生死局预约说明</p>
+        		<p class="li">1. 生死局是晋级赛关键的一局，赢了则可以晋级，输了就失去晋级赛资格；</p>
+        		<p class="li">2. 学员预约后可以联系老师确定时间和提交截图确认为生死局，不符合条件的老师有权取消该预约；</p>
+        		<p class="li">3. 该服务完成后需要等待3天CD才可以预约下一次；</p>
+                <p class="li">4. 布姆学院前5000名学员终身享有生死局导师助阵的服务。</p>
+        	</div>
+        </div>
+
+        <div class="part4 row" ng-show="StepResult">
+			<p class="title">布姆学院1对1教学预约</p>
+			<div class="result"></div>
+			<p class="result-tip">您已预约成功！</p>
+			<p class="result-p">您预约的1对1教学时间为</p>
+			<b class="result-time" ng-bind="applyData.teachTime"></b>
+			<p class="result-tip-bottom">如有特殊情况，请与老师及时沟通！</p>
+	
+        </div>
+        <div class="part2">
+            <div class="w-750" style="width: 738px;">
+                
+                <div class="comment" style="width:100%">
+                    <div class="header1">
+                        <p>全部评价<span>（<b ng-bind="teachersComments.totalElement"></b>）</span></p>
+                    </div>
+
+                    <div class="main1">
+                        <div class="header2">
+                            <span class="pageshow">第 <span ng-bind="teachersComments.nowlists"></span>/<span ng-bind="teachersComments.totalElement"></span> 条</span>
+                            <div class="paging">
+                                <span class="fa fa-angle-left"
+                                ng-click="commentChange(pagesArr.prev)"></span>
+                                <span class="pagenow">第 <span ng-bind="teachersComments.nowpage"></span> 页</span>
+                                <span class="fa fa-angle-right"
+                                ng-click="commentChange(pagesArr.next)"></span>
+                                <span class="fa fa-caret-down"
+                                ng-click="pagesShowTottle1()"
+                                ></span>
+                                <div class="pages "
+                                 ng-show="pagesShow1">
+                                    <ul class="scrollable"
+                                   >
+                                        
+                                        <li 
+                                        ng-repeat="li in teachersComments.pageList"
+                                        ng-bind="li.num+1"
+                                        ng-class="li.css"
+                                        ng-click="commentChange(li.num)"
+                                        
+                                        ></li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="comment-lists" >
+                            <ul >
+                                <li ng-repeat=" list in listsData">
+
+                                    <div class="comment-li row">
+                                        <div class="imgpart">
+                                            <div class="headerimg" style="background-image: url({{list.oneToOneServiceApply.headimg}})"></div>
+                                        </div>
+                                        <div class="commentpart">
+                                            <p class="name" ng-bind="list.oneToOneServiceApply.name"></p>
+                                            <p class="contxt" ng-bind="list.oneToOneServiceApply.studentEvaluate">  
+                                            </p>
+                                            <div class="infos">
+                                                <span class="time" ng-bind="list.oneToOneServiceApply.timeBefore"></span>
+                                                <span class="teacher">@
+                                                <span ng-bind="list.oneToOneServiceApply.teacherName"></span></span>
+                                                <span class="zhichi">
+                                                    <span class="fa fa-thumbs-o-up"
+                                                    ng-click="applyPraise(student.studentNum,list.oneToOneServiceApply.id,list.$$hashKey)"
+                                                    ></span>
+                                                <span>（<span ng-bind="list.oneToOneServiceApply.praise"></span>）</span>
+                                                </span>
+                                            </div>
+                                            <div class="imgsShow clearfix" >
+                                                <div class="imgShow_out" ng-repeat="img in list.evaluatePhotoList"
+                                                img-show
+                                                active="0"
+                                                >
+                                                    <div class="imgShow_in" >
+                                                        <img ng-src="{{imgUrl+img.photo+'_40_40.jpg'}}">
+                                                    </div>
+                                                </div>
+
+
+         
+                                            </div>
+                                            <div class="bigimgShow">
+                                                <a href="" target="_blank">
+                                                    <img src="" class="bigimg">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr class="hr" size="1" style="margin-top:20px;">
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="footer1">
+                        <div class="bpaging">
+                            <ul class="pages scrollable"
+                            ng-show="pagesShow">
+                                <li 
+                                ng-repeat="li in teachersComments.pageList"
+                                ng-bind="li.num+1"
+                                ng-class="li.css"
+                                ng-click="commentChange(li.num)"
+
+                                ></li>
+                            </ul>
+                            <div class="prev"
+                            ng-click="commentChange(pagesArr.prev)">
+                                <span class="fa fa-angle-left"
+                                
+                                ></span>上一页
+                            </div>
+                            <div class="nowpage" ng-click="pagesShowTottle()">
+                                <span>第 <b ng-bind="teachersComments.nowpage"></b> 页</span>
+                                <span class="fa fa-caret-up"></span>
+                            </div>
+                            <div class="next"
+                            ng-click="commentChange(pagesArr.next)">
+                                下一页<span class="fa fa-angle-right"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="text-center">
+        <a href="http://www.beianbeian.com/beianxinxi/6f9a3be6-f7f7-4445-b5bb-d7b78cb4a3a0.html" target="_blank">浙ICP备14039924号-1</a>  
+        <a href="http://www.miitbeian.gov.cn/publish/query/indexFirst.action" target="_blank">工信部备案查询</a>
+    </div>  
+
+</section>
+
+
+                  </section>
+                  <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen,open" data-target="#nav,html"></a>
+                </section>
+              </section>
+            </section>    
+          </section>
+
+<div class="modal fade" id="pwdModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header user-select">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+        <h4 class="modal-title">修改密码<i id="eyepwd" class="fa fa-eye"></i></h4>
+        
+      </div>
+      <div class="modal-body" style="padding:5px 15px;">
+        <form class="form-horizontal" >
+          <div class="form-group">
+            <label for="oldpwd" class="col-sm-2 control-label">原密码:</label>
+            <div class="col-sm-10">
+              <input type="password" class="form-control text-center" id="oldpwd" maxlength="20" placeholder="输入原密码">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="n1pwd" class="col-sm-2 control-label">新密码:</label>
+            <div class="col-sm-10">
+              <input type="password" class="form-control text-center" id="n1pwd" maxlength="20" placeholder="输入新密码">
+            </div>
+          </div>
+
+
+          <div class="form-group">
+            <label for="n2pwd" class="col-sm-2 control-label">确认密码:</label>
+
+            <div class="col-sm-10 ">
+              <input type="password" class="form-control text-center" id="n2pwd" maxlength="20" placeholder="再次输入新密码">
+            </div>
+          </div>
+          <div class="form-group" style="margin-bottom: 0;">
+            <div class="">
+
+              <p id="errorpwd" class="text-center"> </p>
+
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+              <button id="cancelpwd" type="button" class="btn btn-default pull-right " data-dismiss="modal">取消</button>
+              <button id="comfirmpwd" type="submit" class="btn btn-danger disabled pull-right m-r" title="新密码长度少于6位">确认修改</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!-- 修改密码 pwdModal -->
+
+<div class="gotopPart hidden" >
+  <div class="gotopback" ng-show="topObj.topTopshow" ></div>
+  <div class="gotop" ng-show="topObj.topTopshow" ng-click="gotop() " ></div>
+
+</div>
+<!-- gotopPart -->
+
+        <!-- jqurey -->
+        <script type="text/javascript"  src="js/public/jquery.min.js"></script>
+        
+        <!-- angular -->
+        <script type="text/javascript" src="js/public/angular.js"></script>
+        <script type="text/javascript" src="js/public/angular-animate.min.js"></script>
+        <script type="text/javascript" src="js/public/angular-ui-router.min.js"></script>
+        <!-- Bootstrap -->
+        <script src="js/public/bootstrap.js"></script>
+        <!-- App -->
+        <script src="js/public/app.js"></script>
+        <script src="js/public/slimscroll/jquery.slimscroll.min.js"></script>
+        <!-- app.plugin -->
+        <script src="js/public/app.plugin.js"></script>
+
+
+
+        <!-- lib -->
+        <script src="js/lib/base.js?time=New Date()" charset="utf-8"></script>
+        <script src="http://logging.iboom.tv/loggingSDK.js" async></script>   
+         
+        <div id="scriptbox"></div>
+	<!-- ssj -->
+	<script type="text/javascript" src="js/lib/spark-md5.js?time=1469070414093.js" charset="utf-8"></script>
+	<script type="text/javascript" src="js/lib/ssj.js?time=1469070414093.js" charset="utf-8"></script>
+	<script type="text/javascript" src="js/lib/baidutongji.js?time=1469070414093.js" charset="utf-8"></script>
+	
+		<div id="flotTip" style="display: none; position: absolute;"></div>
+	</body>
+</html>
+<!--  author:liaohs/1013211628@qq.com/159***5880 -->

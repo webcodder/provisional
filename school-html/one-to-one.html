@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<!--
+    88888888ba     ,ad8888ba,      ,ad8888ba,    8D          B8
+    88      "8b   d8"'    `"8b    d8"'    `"8b   888b       d88
+    88     ,8P   d8'        `8b  d8'        `8b  88`8b     d8"8
+    888888888a   88          88  88          88  88 `8b   d8 88
+    88      "8b  Y8,        ,8P  Y8,        ,8P  88  `8b d8  88
+    88      ,8P   Y8a.    .a8P    Y8a.    .a8P   88   `8VP   88
+    88888888P"     `"Y8888Y"'      `"Y8888Y"'    88    `8'   88
+        
+        Copyright © 2015 BoomRen All rights reserved.
+-->
+<html lang="zh" class="app">
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" content="布姆电竞学院" />
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="apple-touch-icon-precomposed" href="images/public/favicon/favicon.png" sizes="60x60">
+    <link rel="shortcut icon" href="images/public/favicon/favicon.ico" />
+    <!-- public-css -->
+    <link rel="stylesheet" href="css/public/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="css/public/animate.css" type="text/css" />
+    <link rel="stylesheet" href="css/public/font-awesome.min.css" type="text/css" />
+    <link rel="stylesheet" href="css/public/simple-line-icons.css" type="text/css" />
+    <link rel="stylesheet" href="css/public/font.css" type="text/css" />
+    <link rel="stylesheet" href="css/public/app.css" type="text/css" />
+    <!-- lib-css -->
+    <link rel="stylesheet" href="css/lib/base.css" type="text/css" />
+
+
+
+	<!-- one-to-one -->
+	<link rel="stylesheet" href="css/lib/class-service.css?time=1470285739632.css" />
+	<title>一对一教学</title>
+    <!--[if lt IE 9]>
+        <script src="js/public/ie/html5shiv.js"></script>
+        <script src="js/public/ie/respond.min.js"></script>
+        <script src="js/public/ie/excanvas.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="http://tajs.qq.com/stats?sId=54172786" charset="UTF-8"></script>
+    <!--Groing IO 接口-->
+    <script type='text/javascript'>
+        var _vds = _vds || [];
+        window._vds = _vds;
+        (function(){
+            _vds.push(['setAccountId', '8c3c10f33c5d91ee']);
+            (function() {
+                var vds = document.createElement('script');
+                vds.type='text/javascript';
+                vds.async = true;
+                vds.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'dn-growing.qbox.me/vds.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(vds, s);
+            })();
+        })();
+    </script>
+</head>
+<body class="" ng-app='mainApp' ng-controller="gotop"
+    my-Touchstart="touchStart()" 
+    my-Touchend="touchEnd()"
+    my-TouchMove="touchMove()"
+>
+    <section class="vbox">
+        <header class="bg-white-only header header-md navbar navbar-fixed-top-xs">
+            <div class="navbar-header aside bg-info dk">
+                <!-- ieBtn -->
+                <a href="javascript:void(0)" class="btn btn-link mobilepart iepart-btn" id="ieBtn">
+                    <i class="icon-list"></i>
+                </a>
+                <!-- ieBtn -->
+                <a href="javascript:void(0)" class="btn btn-link  visible-xs" data-toggle="class:nav-off-screen,open" data-target="#nav,html">
+                    <i class="icon-list"></i>
+                </a>
+                <a href="javascript:void(0)" class="navbar-brand text-lt">
+                    <i class="fa fa-gamepad"></i>
+                    <span class="hidden-nav-xs m-l-sm">BoomGame</span>
+                </a>
+                <a class="btn btn-link visible-xs" href="javascript:void(0)" data-toggle="dropdown" data-target=".user">
+                    <i class="icon-user"></i>
+                </a>
+            </div>
+            <ul class="nav navbar-nav hidden-xs">
+                <!-- hidden-xs -->
+                <li>
+                    <a href="#nav,.navbar-header" data-toggle="class:nav-xs,nav-xs" class="text-muted">
+                        <i class="fa fa-indent text"></i>
+                        <i class="fa fa-dedent text-active"></i>
+                    </a>
+                </li>
+            </ul>
+            <p id="pagetitle" class="hidden-xs"><i></i><span></span></p>
+            <div class="navbar-right ">
+                <ul class="nav navbar-nav m-n hidden-xs nav-user user">
+                    <li class="dropdown" id="topheadimg">
+                        <a href="javascript:void(0)" class="dropdown-toggle bg clear" data-toggle="dropdown">
+                            <span class="thumb-sm avatar pull-right m-t-n-sm m-b-n-sm m-l-sm">
+                <img class="myheadico" src="" alt="...">
+              </span><b class="myname"></b> <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu animated fadeInRight">
+                            <li>
+                                <span class="arrow top"></span>
+                                <a class="tomyhome" href="javascript:void(0)">
+                                    <i class="icon-user"></i>
+                                    <span>我的主页</span>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a class="tostudy-record" href="study-record.html">
+                                    <i class="fa fa-list-ol"></i>
+                                    <span>学习记录</span>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a class="tomypwd" data-toggle="modal" data-target="#pwdModal" href="javascript:void(0)">
+                                    <i class="icon-lock"></i>
+                                    <span>修改密码</span>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a class="tologin" href="javascript:void(0)">
+                                    <i class="icon-logout"></i>
+                                    <span>退出登录</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </header>
+        <div ie-nav class="ienavout" id="ieNav">
+            
+            <ul class="iepart-nav" >
+
+                <!-- <li class="iepart-nav-li " ie-navli  ng-class="$index==navIndex?'active':''" ng-repeat="li in navData" ng-click="navIndexFn($index)">
+                    <a href="{{li.href}}" target="{{li.target||'_self'}}" class="auto">
+                        <i class="{{li.icon_css}}"></i>
+                        <span class="s_item1" ng-bind="li.name"></span>
+                        
+                    </a>
+                </li> -->
+
+                <li class="iepart-nav-li "  >
+                    <a href="class-notice.html"  class="auto">
+                       
+                        <span class="s_item1" >公告</span>
+                        
+                    </a>
+                </li> 
+                <li class="iepart-nav-li "  >
+                    <a href="class-list.html"  class="auto">
+                        
+                        <span class="s_item1" >课程目录</span>
+                        
+                    </a>
+                </li>
+                <li class="iepart-nav-li isIe"  >
+                    <a href="class-service.html"  class="auto">
+                        
+                        <span class="s_item1" >布姆服务</span>
+                        
+                    </a>
+                </li>
+                <li class="iepart-nav-li isIe"  >
+                    <a href="small-game.html"  class="auto">
+                        
+                        <span class="s_item1" >训练小游戏</span>
+                        
+                    </a>
+                </li>
+                <li class="iepart-nav-li isIe"  >
+                    <a href="class-rank.html"  class="auto">
+                        
+                        <span class="s_item1" >风云榜</span>
+                        
+                    </a>
+                </li>
+                <li class="iepart-nav-li "  >
+                    <a href="http://soft.iboom.tv/boomBox.exe"  target='_blank' class="auto">
+                        
+                        <span class="s_item1" >布姆盒子</span>
+                        
+                    </a>
+                </li>
+                <li class="iepart-nav-li "  id="growthLi" style="display:none;">
+                    <a href="growth.html"  class="auto">
+                        
+                        <span class="s_item1" >提升计划</span>
+                        
+                    </a>
+                </li>        
+            </ul>
+        </div>        <section>
+            <section class="hbox stretch">
+                <!-- .aside -->
+                <aside class="bg-black dk aside hidden-print hidden-xs" id="nav">
+                    <section class="vbox">
+			            <section class="w-f-md scrollable">
+			              <div class="slim-scroll" data-height="auto" data-disable-fade-out="true" data-distance="0" data-size="10px" data-railOpacity="0.2">
+
+
+<!--  nav  -->
+<nav class="nav-primary hidden-xs">
+  <ul data-ride="collapse" class="nav">
+    <li code="class-notice" class="nav1"><a href="class-notice.html" txt="公告" target="_self" class="auto"><i class="fa fa-calendar "></i><span class="s_item1">公告</span><span class="pull-right text-muted "><i class="fa fa-angle-left text"></i><i class="fa fa-angle-down text-active"></i></span></a>
+      <!--list1-->
+      <ul class="nav dk text-sm">
+      </ul>
+    </li>
+    <li code="class-list" class="nav1"><a href="class-list.html" txt="课程目录" target="_self" class="auto"><i class="fa fa-book  "></i><span class="s_item1">课程目录</span><span class="pull-right text-muted "><i class="fa fa-angle-left text"></i><i class="fa fa-angle-down text-active"></i></span></a>
+      <!--list1-->
+      <ul class="nav dk text-sm">
+      </ul>
+    </li>
+    <li code="class-service" class="nav1"><a href="class-service.html" txt="布姆服务" target="_self" class="auto"><i class="fa fa-tachometer  "></i><span class="s_item1">布姆服务</span><span class="pull-right text-muted "><i class="fa fa-angle-left text"></i><i class="fa fa-angle-down text-active"></i></span></a>
+      <!--list1-->
+      <ul class="nav dk text-sm">
+      </ul>
+    </li>
+    <li code="small-game" class="nav1"><a href="small-game.html" txt="训练小游戏" target="_self" class="auto"><i class=" icon-game-controller  "></i><span class="s_item1">训练小游戏</span><span class="pull-right text-muted "><i class="fa fa-angle-left text"></i><i class="fa fa-angle-down text-active"></i></span></a>
+      <!--list1-->
+      <ul class="nav dk text-sm">
+      </ul>
+    </li>
+    <li code="class-rank" class="nav1"><a href="class-rank.html" txt="风云榜" target="_self" class="auto"><i class="fa fa-users  "></i><span class="s_item1">风云榜</span><span class="pull-right text-muted "><i class="fa fa-angle-left text"></i><i class="fa fa-angle-down text-active"></i></span></a>
+      <!--list1-->
+      <ul class="nav dk text-sm">
+      </ul>
+    </li>
+    <li code="hezi" class="nav1"><a href="http://soft.iboom.tv/boomBox.exe" txt="布姆盒子" target="_blank" class="auto"><i class="fa fa-cloud-download"></i><span class="s_item1">布姆盒子</span><span class="pull-right text-muted "><i class="fa fa-angle-left text"></i><i class="fa fa-angle-down text-active"></i></span></a>
+      <!--list1-->
+      <ul class="nav dk text-sm">
+      </ul>
+    </li>
+      <li  class="nav1"><a href="class-live-show.html" txt="直播间" target="_blank" class="auto"><i class="fa fa-cloud-download"></i><span class="s_item1">直播间</span><span class="pull-right text-muted "><i class="fa fa-angle-left text"></i><i class="fa fa-angle-down text-active"></i></span></a>
+          <!--list1-->
+          <ul class="nav dk text-sm">
+          </ul>
+      </li>
+    <li code="growth" class="nav1"><a href="growth.html" txt="提升计划" target="_self" class="auto"><i class="fa fa-signal"></i><span class="s_item1">提升计划</span><span class="pull-right text-muted "><i class="fa fa-angle-left text"></i><i class="fa fa-angle-down text-active"></i></span></a>
+      <!--list1-->
+      <ul class="nav dk text-sm">
+      </ul>
+    </li>
+  </ul>
+  <!--  nav   -->
+</nav>
+<!-- .nav  -->
+
+</div>
+</section>
+
+<!-- / nav -->
+<footer class="footer hidden-xs no-padder text-center-nav-xs">
+    <div class="hidden ">
+        <div class="dropdown dropup wrapper-sm clearfix">
+            <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
+                <span class="thumb-sm avatar pull-left m-l-xs">                        
+                        <img src="" class="myheadico dker" alt="...">
+                        <i class="on b-black hidden"></i>
+                      </span>
+                <span class="hidden-nav-xs clear">
+                        <span class="block m-l">
+                          <strong class="myname font-bold text-lt "></strong> 
+                          <b class="caret"></b>
+                        </span>
+                <span class="myarea text-muted text-xs block m-l"> </span>
+                </span>
+            </a>
+            <ul class="dropdown-menu animated fadeInRight aside text-left">
+                <li>
+                    <span class="arrow bottom"></span>
+                    <a class="tomyhome" href="javascript:void(0)">
+                        <i class="icon-user"></i>
+                        <span>我的主页</span>
+                    </a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <a class="tomypwd" data-toggle="modal" data-target="#pwdModal" href="javascript:void(0)">
+                        <i class="icon-lock"></i>
+                        <span>修改密码</span>
+                    </a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <a class="tologin" href="javascript:void(0)">
+                        <i class="icon-logout"></i>
+                        <span>退出登录</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+                    <a class="tologin footerloginout " href="javascript:void(0)">
+                        <i class="icon-logout"></i>
+                        <span>退出登录</span>
+                    </a>
+</footer>
+</section>
+
+
+</aside>
+<!-- /.aside -->
+<section id="content">
+    <section  class="vbox"  >
+
+<section class="scrollable1 padder " ng-controller="color">
+    <div class="w-1000 row clearfix">
+        <div class="part2 row">
+            <div class="w-750">
+                <div class="headerimg">
+                </div>
+                <div class="teachers">
+                    <div class="teacher-title">
+                        <span>教学老师</span>
+                    </div>
+                    <div class="teacher-list" id="teacher-list" ng-show="isGotTs">
+                        <ul class="row" id="teacher-list-ul">
+                            <li  ng-repeat="teacher in teachers">
+                                <a class="teacher-li" href="teacher.html?{{teacher.userId}}">
+                                    
+                                    <img src="{{teacher.headimg}}">
+                                    <p class="name" ng-bind="teacher.name"></p>
+
+                                    <p class="myteacher" ng-bind="teacher.userId==myteacherId1?'我的导师':''" ng-show="teacher.userId==myteacherId1"></p>
+                                    <hr size="1">
+                                    <div class="haopin">
+                                        <span>好评度</span>
+                                        <b ng-bind="teacher.wellPrecent+'%'"></b>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="comment">
+                    <div class="header1">
+                        <p>全部评价<span>（<b ng-bind="teachersComments.totalElement"></b>）</span></p>
+                    </div>
+
+                    <div class="main1">
+                        <div class="header2">
+                            <span class="pageshow">第 <span ng-bind="teachersComments.nowlists"></span>/<span ng-bind="teachersComments.totalElement"></span> 条</span>
+                            <div class="paging">
+                                <span class="fa fa-angle-left"
+                                ng-click="commentChange(pagesArr.prev)"></span>
+                                <span class="pagenow">第 <span ng-bind="teachersComments.nowpage"></span> 页</span>
+                                <span class="fa fa-angle-right"
+                                ng-click="commentChange(pagesArr.next)"></span>
+                                <span class="fa fa-caret-down"
+                                ng-click="pagesShowTottle1()"
+                                ></span>
+                                <div class="pages "
+                                 ng-show="pagesShow1">
+                                    <ul class="scrollable"
+                                   >
+                                        
+                                        <li 
+                                        ng-repeat="li in teachersComments.pageList"
+                                        ng-bind="li.num+1"
+                                        ng-class="li.css"
+                                        ng-click="commentChange(li.num)"
+                                        
+                                        ></li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="comment-lists" >
+                            <ul>
+                                <li ng-repeat=" list in listsData">
+                                    <div class="comment-li row">
+                                        <div class="imgpart">
+                                            <div class="headerimg" style="background-image: url({{list.headimg}})"></div>
+                                        </div>
+                                        <div class="commentpart">
+                                            <p class="name" ng-bind="list.name"></p>
+                                            <p class="contxt" ng-bind="list.studentEvaluate">  
+                                            </p>
+                                            <div class="infos">
+                                                <span class="time" ng-bind="list.timeBefore"></span>
+                                                <span class="teacher">@
+                                                <span ng-bind="list.teacherName"></span></span>
+                                                <span class="zhichi">
+													<span class="fa fa-thumbs-o-up"
+                                                    ng-click="applyPraise(student.studentNum,list.id,list.$$hashKey)"
+                                                    ></span>
+                                                <span>（<span ng-bind="list.praise"></span>）</span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr class="hr" size="1">
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="footer1">
+                        <div class="bpaging">
+                            <ul class="pages scrollable"
+                            ng-show="pagesShow">
+                                <li 
+                                ng-repeat="li in teachersComments.pageList"
+                                ng-bind="li.num+1"
+                                ng-class="li.css"
+                                ng-click="commentChange(li.num)"
+
+                                ></li>
+                            </ul>
+                            <div class="prev"
+                            ng-click="commentChange(pagesArr.prev)">
+                                <span class="fa fa-angle-left"
+                                
+                                ></span>上一页
+                            </div>
+                            <div class="nowpage" ng-click="pagesShowTottle()">
+                                <span>第 <b ng-bind="teachersComments.nowpage"></b> 页</span>
+                                <span class="fa fa-caret-up"></span>
+                            </div>
+                            <div class="next"
+                            ng-click="commentChange(pagesArr.next)">
+                                下一页<span class="fa fa-angle-right"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-240">
+                <div class="partl " ng-show="serviceIsOpen">
+                    <img src="{{student.headimg}}" class="headerico" alt="">
+                    <p class="name" ng-bind="student.summoner"></p>
+                    <div ng-if="applyStatue[0]" class="applyparts hidden">
+                        <p class="describe">你还没有享受过1对1教学服务哦，赶快去预约吧!</p>
+                        <a href="sign-up.html" class="btn-blue">去预约</a>
+                    </div>
+                    <div ng-if="applyStatue[1]" class="applyparts hidden">
+                        <div class="describe">
+                            <p class="Countdownp">当前队列：<span class="Countdownspan"><b ng-bind="waitInfo.waitNeed"></b></span></p>
+                            <!-- <div class="Countdownsbar">
+                                <div class="Countdownsbarin" style="width:{{waitInfo.barwidth}}%; "></div>
+                            </div> -->
+                        </div>
+                        
+                        <a href="tencent://message/?uin={{teacherQQ}}&Site=&Menu=yes" class="btn-blue pcpart">联系老师</a>
+                        <a href="http://wpa.qq.com/msgrd?v=3&uin={{teacherQQ}}&site=qq&menu=yes" class="btn-blue mobilepart" target="_blank">联系老师</a>
+                         <!-- href:"http://wpa.qq.com/msgrd?v=3&uin="+newqq+"&site=qq&menu=yes", -->
+
+                        <span class="tip">如有特殊情况，请及时联系老师</span>
+                        <hr size="1">
+                        <div class="applysign">
+                            <b class="title">1对1预约信息</b>
+                            <ul class="asul">
+                                <!-- <li class="asli">
+                                	<span class="lp">游戏大区:</span>
+                                	<span class="rp"
+                                    ng-bind="waitInfo.areaName"></span>
+                                </li> -->
+                                <li class="asli"
+                                ng-if="waitInfo.heroShow">
+                                	<span class="lp">英雄信息:</span>
+                                	<span class="rp"
+                                    ng-bind="waitInfo.championName"></span>
+                                </li>
+                                <!-- <li class="asli">
+                                <span class="lp">教学时间:</span>
+                                <span class="rp"
+                                ng-bind="waitInfo.YMD"></span>
+                                </li> -->
+                                <!-- <li class="asli">
+                                <span class="lp">	
+                                </span>
+                                <span class="rp"
+                                 ng-bind="waitInfo.hm"></span>
+                                </li> -->
+                                <li class="asli">
+                                <span class="lp">教学模式:</span>
+                                <span class="rp"
+                                ng-bind="waitInfo.teachMode1"
+                                ></span>
+                                </li>
+                                <li class="asli"
+                                ng-if="waitInfo.teacherShow"
+                                 >
+                                <span class="lp">教学老师:</span>
+                                <span class="rp" 
+                                ng-bind="waitInfo.teacherName"></span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div ng-if="applyStatue[2]" class="applyparts hidden">
+                        <p class="describe">你已完成1对1教学的学习，赶快去查看点评并对老师进行评价吧!</p>
+                        <a href="comment.html" class="btn-blue">点击查看评论</a>
+                    </div>
+                    <div ng-if="applyStatue[3]" class="applyparts hidden">
+                    	<p class="describe">您已进行过1对1教学服务，请等待下次预约!
+                    	</p>
+	                    <p class="Countdownp">预约倒计时：<span class="Countdownspan" ><b ng-bind="waitDays"></b>天</span></p>
+		                <div class="Countdownsbar hidden">
+		                    <div class="Countdownsbarin" style="width:30%;"></div>
+		                </div> 
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- copyright  -->
+    <section class="hbox  copyright">
+        <div class="text-center ">
+            <a href="http://www.beianbeian.com/beianxinxi/6f9a3be6-f7f7-4445-b5bb-d7b78cb4a3a0.html" target="_blank">浙ICP备14039924号-1</a>  
+            <a href="http://www.miitbeian.gov.cn/publish/query/indexFirst.action" target="_blank">工信部备案查询</a>
+        </div>
+    </section>
+    <!-- copyright  -->
+</section>
+
+
+                  </section>
+                  <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen,open" data-target="#nav,html"></a>
+                </section>
+              </section>
+            </section>    
+          </section>
+
+<div class="modal fade" id="pwdModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header user-select">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+        <h4 class="modal-title">修改密码<i id="eyepwd" class="fa fa-eye"></i></h4>
+        
+      </div>
+      <div class="modal-body" style="padding:5px 15px;">
+        <form class="form-horizontal" >
+          <div class="form-group">
+            <label for="oldpwd" class="col-sm-2 control-label">原密码:</label>
+            <div class="col-sm-10">
+              <input type="password" class="form-control text-center" id="oldpwd" maxlength="20" placeholder="输入原密码">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="n1pwd" class="col-sm-2 control-label">新密码:</label>
+            <div class="col-sm-10">
+              <input type="password" class="form-control text-center" id="n1pwd" maxlength="20" placeholder="输入新密码">
+            </div>
+          </div>
+
+
+          <div class="form-group">
+            <label for="n2pwd" class="col-sm-2 control-label">确认密码:</label>
+
+            <div class="col-sm-10 ">
+              <input type="password" class="form-control text-center" id="n2pwd" maxlength="20" placeholder="再次输入新密码">
+            </div>
+          </div>
+          <div class="form-group" style="margin-bottom: 0;">
+            <div class="">
+
+              <p id="errorpwd" class="text-center"> </p>
+
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+              <button id="cancelpwd" type="button" class="btn btn-default pull-right " data-dismiss="modal">取消</button>
+              <button id="comfirmpwd" type="submit" class="btn btn-danger disabled pull-right m-r" title="新密码长度少于6位">确认修改</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!-- 修改密码 pwdModal -->
+
+<div class="gotopPart hidden" >
+  <div class="gotopback" ng-show="topObj.topTopshow" ></div>
+  <div class="gotop" ng-show="topObj.topTopshow" ng-click="gotop() " ></div>
+
+</div>
+<!-- gotopPart -->
+
+        <!-- jqurey -->
+        <script type="text/javascript"  src="js/public/jquery.min.js"></script>
+        
+        <!-- angular -->
+        <script type="text/javascript" src="js/public/angular.js"></script>
+        <script type="text/javascript" src="js/public/angular-animate.min.js"></script>
+        <script type="text/javascript" src="js/public/angular-ui-router.min.js"></script>
+        <!-- Bootstrap -->
+        <script src="js/public/bootstrap.js"></script>
+        <!-- App -->
+        <script src="js/public/app.js"></script>
+        <script src="js/public/slimscroll/jquery.slimscroll.min.js"></script>
+        <!-- app.plugin -->
+        <script src="js/public/app.plugin.js"></script>
+        <!--CNZZ接口-->
+        <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1260161989'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1260161989' type='text/javascript'%3E%3C/script%3E"));</script>
+
+        <!-- lib -->
+        <script src="js/lib/base.js?time=New Date()" charset="utf-8"></script>
+        <script src="http://logging.iboom.tv/loggingSDK.js" async></script>   
+         
+        <div id="scriptbox"></div>
+	<!-- one-to-one -->
+	<script type="text/javascript" src="js/lib/one-to-one-color.js" charset="utf-8"></script>
+	<script type="text/javascript" src="js/lib/jquery.SuperSlide2.js?time=1469070414093.js" charset="utf-8"></script>
+
+	<script type="text/javascript" src="js/lib/baidutongji.js?time=1469070414093.js" charset="utf-8"></script>
+	
+		<div id="flotTip" style="display: none; position: absolute;"></div>
+	</body>
+</html>
+<!--  author:liaohs/1013211628@qq.com/159***5880 -->

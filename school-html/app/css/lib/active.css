@@ -1,0 +1,220 @@
+.font-red {
+  color: #d9534f;
+}
+.font-green {
+  color: #5cb85c;
+}
+.font-dark-blue {
+  color: #2b3944;
+}
+.font-light {
+  color: #e8eff0;
+}
+.font-gray {
+  color: #666;
+}
+.user-select {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+p {
+  margin-bottom: 0;
+}
+.f40 {
+  font-size: 40px;
+}
+.f38 {
+  font-size: 38px;
+}
+.f32 {
+  font-size: 32px;
+}
+.f30 {
+  font-size: 30px;
+}
+.f28 {
+  font-size: 28px;
+}
+.f26 {
+  font-size: 26px;
+}
+.f24 {
+  font-size: 24px;
+}
+.f22 {
+  font-size: 22px;
+}
+.f20 {
+  font-size: 20px;
+}
+.f18 {
+  font-size: 18px;
+}
+.f16 {
+  font-size: 16px;
+}
+.f14 {
+  font-size: 14px;
+}
+.f12 {
+  font-size: 12px;
+}
+.f10 {
+  font-size: 10px;
+}
+.bold {
+  font-weight: bold;
+}
+.ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.clip {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: clip ;
+}
+.text-bold {
+  font-weight: bold;
+}
+.text-center {
+  text-align: center;
+}
+.bg-transparent {
+  background: transparent;
+  border: none;
+}
+.activelist {
+  margin-top: 20px;
+  padding: 0;
+}
+.activelist .sectionlist {
+  margin: 0;
+}
+.activelist .list-group-item {
+  margin-top: 10px;
+}
+.activelist .list-group-item:hover {
+  background: #fff;
+}
+.activelist .list-group-item header p {
+  font-size: 16px;
+}
+.activityli {
+  padding: 20px 50px;
+  background: #fff;
+  margin-bottom: 20px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  border: #d6d6d6 1px solid;
+}
+.actitle {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: clip ;
+  height: 20px;
+  line-height: 20px;
+  margin-bottom: 10px;
+}
+.actitle span {
+  font-size: 20px;
+  color: #5a6a79;
+}
+.actitle time {
+  font-size: 14px;
+  color: #C0C0C0;
+}
+.pbox {
+  font-size: 14px;
+  color: #959595;
+  padding-left: 20px;
+}
+.alistbody [class^=col-] {
+  margin: 0;
+}
+.alistbody .xs {
+  height: 60px;
+  overflow: hidden;
+}
+.alistbody .xs .imgbox {
+  overflow: hidden;
+  float: left;
+  width: 60px;
+  height: 60px;
+  margin-right: 15px;
+}
+.alistbody .xs .imgbox img {
+  min-width: 60px;
+  max-height: 60px;
+}
+.alistbody .xs .pbox {
+  margin-left: 5px;
+  display: inline;
+}
+.alistbody .sm {
+  height: 90px;
+  overflow: hidden;
+}
+.alistbody .sm .imgbox {
+  overflow: hidden;
+  float: left;
+  width: 120px;
+  height: 90px;
+  margin-right: 20px;
+}
+.alistbody .sm .imgbox img {
+  min-width: 120px;
+  max-height: 90px;
+}
+.alistbody .sm .pbox {
+  margin-left: 5px;
+  display: inline;
+}
+.alistbody .md {
+  height: 90px;
+  overflow: hidden;
+}
+.alistbody .md .imgbox {
+  overflow: hidden;
+  float: left;
+  width: 150px;
+  height: 90px;
+  margin-right: 20px;
+}
+.alistbody .md .imgbox img {
+  min-width: 150px;
+  max-height: 90px;
+}
+.alistbody .md .pbox {
+  margin-left: 5px;
+  display: inline;
+}
+@media (max-width: 768px) {
+  .activityli {
+    padding: 10px ;
+    background: #fff;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    border: #d6d6d6 1px solid;
+  }
+  .actitle {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: clip ;
+    height: 20px;
+    line-height: 20px;
+    margin-bottom: 10px;
+  }
+  .actitle span {
+    font-size: 16px;
+    color: #5a6a79;
+  }
+  .actitle time {
+    font-size: 14px;
+    color: #C0C0C0;
+  }
+}

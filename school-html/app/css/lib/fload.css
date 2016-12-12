@@ -1,0 +1,358 @@
+.font-red {
+  color: #d9534f;
+}
+.font-green {
+  color: #5cb85c;
+}
+.font-dark-blue {
+  color: #2b3944;
+}
+.font-light {
+  color: #e8eff0;
+}
+.font-gray {
+  color: #666;
+}
+.user-select {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+p {
+  margin-bottom: 0;
+}
+.f40 {
+  font-size: 40px;
+}
+.f38 {
+  font-size: 38px;
+}
+.f32 {
+  font-size: 32px;
+}
+.f30 {
+  font-size: 30px;
+}
+.f28 {
+  font-size: 28px;
+}
+.f26 {
+  font-size: 26px;
+}
+.f24 {
+  font-size: 24px;
+}
+.f22 {
+  font-size: 22px;
+}
+.f20 {
+  font-size: 20px;
+}
+.f18 {
+  font-size: 18px;
+}
+.f16 {
+  font-size: 16px;
+}
+.f14 {
+  font-size: 14px;
+}
+.f12 {
+  font-size: 12px;
+}
+.f10 {
+  font-size: 10px;
+}
+.bold {
+  font-weight: bold;
+}
+.ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.clip {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: clip ;
+}
+.text-bold {
+  font-weight: bold;
+}
+.text-center {
+  text-align: center;
+}
+.bg-transparent {
+  background: transparent;
+  border: none;
+}
+html {
+  background: url("../img/bodybg.jpg") repeat;
+}
+input[type="radio"] {
+  width: 18px;
+  height: 18px;
+  border: #c0c0c0 1px solid;
+  position: relative;
+  margin: 0;
+}
+.radio-inline {
+  margin-right: 10px;
+  margin-left: 5px;
+}
+.radio-inline span {
+  margin-left: 3px;
+  font-size: 16px;
+  position: relative;
+  top: -2px;
+}
+.rank_point_label {
+  height: 20px;
+  overflow: hidden;
+  padding-top: 0!important;
+}
+.rank_point {
+  font-size: 16px;
+  text-indent: 5px;
+}
+p[data-p-required] {
+  font-size: 14px;
+  margin-top: 7px;
+  opacity: 0.8;
+}
+.clear {
+  clear: both;
+}
+.ulp {
+  position: relative;
+  width: 100%;
+  display: none;
+}
+.ulp .ulp2 {
+  display: none;
+}
+.ulp ul {
+  position: absolute;
+  top: 5px;
+  padding: 5px;
+  background: #f1f1f1;
+  z-index: 10000;
+  width: 100%;
+}
+.ulp ul li.li1 {
+  display: inline-block;
+  margin: 3px 7px;
+  cursor: pointer;
+}
+.ulp ul li.li1:hover {
+  color: #39adc4;
+}
+.ulp ul li.li2 {
+  margin: 3px 7px;
+  cursor: pointer;
+  text-align: center;
+  display: block;
+}
+.ulp ul li.li2:hover {
+  color: #39adc4;
+}
+.ulp ul li.li3 p {
+  text-align: center;
+}
+.ulp ul li.li3 li {
+  display: inline-block;
+  margin: 3px 7px;
+  cursor: pointer;
+}
+.ulp ul li.li3 li:hover {
+  color: #39adc4;
+}
+.ulp ul li.li4 {
+  display: inline-block;
+  margin: 3px 7px;
+  cursor: pointer;
+}
+.ulp ul li.li4:hover {
+  color: #39adc4;
+}
+.fload {
+  background: url("../img/bodybg.jpg") repeat;
+}
+.fload .floadh {
+  background: #2b3944;
+}
+.fload .floadh .fhb {
+  height: 220px;
+  width: 768px;
+  margin: 0 auto;
+  position: relative;
+}
+.fload .floadh .fhb .fhico {
+  height: 220px;
+  width: 130px;
+  background: url("../img/fload1.png") no-repeat center;
+  display: inline-block;
+}
+.fload .floadh .fhb .fhtitle {
+  display: inline-block;
+  position: absolute;
+  left: 150px;
+  top: 20px;
+}
+.fload .floadh .fhb .fhtitle h4 {
+  font-size: 46px;
+  font-weight: bold;
+  color: #e84a41;
+  margin-bottom: 40px;
+  font-family: "microsoft yahei";
+}
+.fload .floadh .fhb .fhtitle span {
+  font-size: 20px;
+  line-height: 1.5;
+  color: #cbdedc;
+}
+.fload .floadb {
+  background: #fff;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  width: 768px;
+  margin: 50px auto;
+  padding: 50px 190px;
+  border: #d3d3d3 1px solid;
+}
+.fload .floadb .studenth {
+  font-weight: bold;
+  font-size: 18px;
+  color: #424242;
+  text-transform: uppercase;
+}
+.fload .floadb label[class^="col"] {
+  font-size: 16px;
+  color: #424242;
+  font-weight: 300;
+  padding-left: 0;
+}
+.fload .floadb .border-right-none {
+  border-right: none;
+}
+.fload .floadb .form-control {
+  background: #f8f8f8;
+  outline: none;
+  border: none;
+  -moz-box-shadow: 1px 1px 1px #bebebe inset;
+  -webkit-box-shadow: 1px 1px 1px #bebebe inset;
+  box-shadow: 1px 1px 1px #bebebe inset;
+  font-size: 16px;
+}
+.fload .floadb .china-area-city {
+  -moz-box-shadow: 0 1px 0 #bebebe inset;
+  -webkit-box-shadow: 0 1px 0 #bebebe inset;
+  box-shadow: 0 1px 0 #bebebe inset;
+}
+.fload .floadb .china-area {
+  font-size: 14px;
+}
+.fload .floadb .blue-btn {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  background: #39adc4;
+  color: #fff;
+  text-align: center;
+  cursor: pointer;
+}
+.fload .floadb .blue-btn:active {
+  background: #4abed5;
+}
+.fload .floadb .input-group-addon {
+  border: none;
+  border-top: #bebebe 1px solid;
+}
+.fload .floadb .fa-caret-down {
+  font-size: 18px;
+  color: #39adc4;
+  width: 25px;
+  height: 25px;
+  line-height: 25px;
+  box-shadow: #bebebe 2px 2px 2px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background: #fff;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.fload .floadb .fa-caret-down:active {
+  -moz-box-shadow: 2px 2px 2px #bebebe inset;
+  -webkit-box-shadow: 2px 2px 2px #bebebe inset;
+  box-shadow: 2px 2px 2px #bebebe inset;
+  font-size: 16px;
+}
+.fload .floadb .caret-down {
+  padding: 3px 5px;
+  background: #f8f8f8;
+  border-left: none;
+}
+.fload .floadb .area-addon {
+  background: #f8f8f8;
+  border-left: none;
+  border-right: none;
+}
+@media (max-width: 768px) {
+  .rank_point {
+    margin-top: 0px;
+    text-indent: 0;
+  }
+  .fload .floadh {
+    display: none;
+  }
+  .fload .floadb {
+    width: 95%;
+    margin: 20px auto;
+    padding: 15px;
+  }
+  .fload .floadb .studenth {
+    margin-bottom: 5px;
+  }
+  .fload .floadb .studenth p.stp1 {
+    text-align: left;
+    text-indent: 30px;
+    padding: 0;
+  }
+  .fload .floadb .studenth p.stp2 {
+    padding-left: 10px;
+  }
+  .fload .floadb label[class^="col"] {
+    padding-left: 15px;
+  }
+  .fload .floadb .sex-label {
+    width: 68px;
+    float: left;
+  }
+  .fload .floadb .sex-radio-group {
+    position: relative;
+    top: -5px;
+    text-align: left;
+    padding-left: 0;
+  }
+  .fload .floadb .sex-radio-group label {
+    width: 40px;
+  }
+}
+.submitreq .btnafter {
+  margin-top: 10px;
+}
+.submitreq .btnafter img {
+  width: 16px;
+  height: 16px;
+  margin-left: 5px;
+}
+.submitreq .btnafter1 {
+  display: none;
+}
+.submitreq .btnafter2 {
+  display: none;
+}
