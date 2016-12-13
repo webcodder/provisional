@@ -82,7 +82,8 @@ body{
     height:4.5rem;
     width:4.5rem;
     float:left;
-    padding-left: 2px
+    padding-left: 2px;
+
 }
 .detailed div{
     float:left;
@@ -162,7 +163,8 @@ a:active{
 .introduce-two .in-img{
     width: 2.5rem;
     height: 2.5rem;
-    padding-right: 3px;
+    padding-right: 2px;
+    border-radius: 25px;
 }
 /*最新动态栏模块*/
 .dynamices{
@@ -189,6 +191,7 @@ a:active{
     width: 5.5rem;
     height: 5.5rem;
     float:left;
+    border-radius: 55px;
 }
 .dynamic-two div{
     float:left;

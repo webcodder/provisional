@@ -8,8 +8,8 @@ $(function(){
         },
         teacher: {
             dev: "mock/teacher.json",
-            test: "http://192.168.1.150:9000/wx/school/v1.0/ssj /lol/allTeacher",
-            product: "/wx/school/v1.0/ssj /lol/allTeacher"
+            test: "http://192.168.1.150:9000/wx/school/v1.0/oto/lol/allTeacher",
+            product: "/wx/school/v1.0/oto/lol/allTeacher"
         },
         revtProcessChta: {
             dev: "mock/revtProcessChta.json",
@@ -62,6 +62,7 @@ $(function(){
         var weekDay = ["周日", "周一", "周二", "周三", "周四", "周五", "周六"];
         var hour = now.getHours();
         var minute = now.getMinutes();
+        minute=="0"?minute="00":minute;
         return month + "月" + date + "日" + " ( " + weekDay[week] + " ) " + hour + ":" + minute;
     }
 
@@ -138,11 +139,7 @@ $(function(){
 
     //确认取消
     function confirmCel(){
-        // console.log(teacherName);
-        // console.log(whatStudy);
-        // console.log(tt);
-        // console.log(applyId);
-        // console.log(applyId);
+
         $(".bomb-box-btn .cancel").click(function(){  
             $.ajax({
                 url: "/wx/school/v1.0/oto/lol/cancel?applyId=" + applyId,
@@ -157,9 +154,7 @@ $(function(){
                     console.log("true");
                     //确认取消
                     $(".cancel_reservation").fadeOut();
-                    $(".resucap_dtl_right").html(`
-                        <p class="resdtght_new">已取消预约</p>
-                    `);
+                    $(".resucap_dtl_right").html(' <p class="resdtght_new">已取消预约</p>');
                 },
                 error: function(){
                     console.log("false");
@@ -173,9 +168,7 @@ $(function(){
     //提交反馈
     function submitFeedback(){
         $(".bomb-box-btn .commit").click(function(){
-            // console.log(applyId);
-            // console.log(studentNum);
-            // console.log("/wx/school/v1.0/submitBranch?applyId="+applyId+"&"+"studentNum="+studentNum);
+
             $.ajax({
                 url: "/wx/school/v1.0/submitBranch?applyId="+applyId+"&"+"studentNum="+studentNum,
                 type: "POST",
@@ -256,8 +249,7 @@ $(function(){
             url: bMock.getFace("revtProcessChta"),
             success: function (data) 
             {
-                // console.log(data.data.length);
-                // console.log(teacherId);
+
                 for(var i=0 ; i<data.data.length ; i++){
                     if(teacherId == data.data[i].userId){
                         teacherName = data.data[i].name;
@@ -275,8 +267,7 @@ $(function(){
                 var tt = formatDate(new Date(data.data.oto.lolServiceApplyDetailResponse.hopeTeachTime));
                 var whatStudy = eval("("+data.data.oto.lolServiceApplyDetailResponse.whatStudy.whatStudy+")").position+' '+data.data.oto.lolServiceApplyDetailResponse.howTeach.howTeach+' '+eval("("+data.data.oto.lolServiceApplyDetailResponse.whatStudy.whatStudy+")").hero.substring(0,4);
 
-                // console.log(tt);
-                // console.log(data.data.whatStudy);
+
                 console.log(teacherName);
                 console.log(data.data.oto.lolServiceApplyDetailResponse.applyTime);
                 console.log(data.data.oto.lolServiceApplyDetailResponse.whatStudy.whatStudy);

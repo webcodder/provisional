@@ -6,11 +6,7 @@ $(function(){
             test: "http://192.168.1.150:9000/wx/school/v1.0/statue",
             product: "/wx/school/v1.0/statue"
         },
-    	/*evaluate: {
-            dev: "mock/evaluate.json",
-            test: "http://192.168.1.150:9000/wx/school/v1.0/oto/ssj/hasNeedEvaluate",
-            product: "/wx/school/v1.0/evaluate"
-        },*/
+
         revtProcessChta: {
             dev: "mock/revtProcessChta.json",
             test: "http://192.168.1.150:9000/wx/school/v1.0/ssj/lol/allTeacher",
@@ -132,9 +128,7 @@ $(function(){
                     console.log("true");
                     //确认取消
                     $(".cancel_reservation").fadeOut();
-                    $(".resucap_dtl_right").html(`
-                        <p class="resdtght_new">已取消预约</p>
-                    `);
+                    $(".resucap_dtl_right").html('<p class="resdtght_new">已取消预约</p>');
                     setInterval(function(){
                         window.location.href="teacherService.html";
                     },5000)
@@ -267,7 +261,13 @@ $(function(){
         });
 
        function io(data){
+           if(!data){
+               window.location.href = "teacherService.html";
+           }
             data.date=new Date(data.hopeTeachTime);
+
+           var whatStudy =data.howTeach;
+
 
            $(".resucap_dtl_right").append(`
        <ul>
@@ -281,7 +281,7 @@ $(function(){
                <li>
                <dl>
                <dd>预约课程：</dd>
-           <dd>生死局助阵</dd>
+           <dd>${whatStudy}</dd>
            <div class="clear"></div>
                </dl>
                </li>
@@ -362,11 +362,16 @@ $(function(){
                         data: JSON.stringify(submitDate),
                         dataType: "json",
                         success: function (data, status) {
+
                             sessionStorage.removeItem("ssjSubmit");
                             if (!data.error)
                                 window.location.href = "teacherService.html";
                             else
+                            {
                                 alert("生死局助阵提交失败！"+data.msg);
+                                window.location.href = "teacherService.html";
+                            }
+
                         },
                         complete: function (XMLHttpRequest, textStatus) {
                             console.log(XMLHttpRequest.responseText);
@@ -378,7 +383,6 @@ $(function(){
                     });
 
 
-                    //window.location.href = "revpros_btn.html";
                 },
                 error: function (returndata) {
                     alert("提交失败");

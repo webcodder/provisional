@@ -244,6 +244,13 @@
     letter-spacing: 1.3px;
 }
 
+.heroo img{
+    width: 2.5rem;
+    height: 2.5rem;
+    padding-right: 2px;
+    border-radius: 25px;
+}
+
 .revpros_chta_cnt > dl > dd > ul > li > ol li{
     display: inline-block;
     width: 35px;

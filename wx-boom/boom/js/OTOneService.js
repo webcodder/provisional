@@ -19,7 +19,7 @@ $(function () {
         teacher: {
             dev: "mock/teacher.json",
             test: "http://192.168.1.150:9000/wx/school/v1.0/oto/lol/allTeacher",
-            product: "/wx/school/v1.0/ssj /lol/allTeacher"
+            product: "/wx/school/v1.0/oto/lol/allTeacher"
         },
         //获取我的预约信息接口
         appoint: {
@@ -39,7 +39,23 @@ $(function () {
             dev: "mock/dynamics.json",
             test: "http://192.168.1.150:9000/wx/school/v1.0/oto/lol/latestDynamics",
             product: "/wx/school/v1.0/oto/lol/latestDynamics"
-        }
+        },
+        cancel: {
+            dev: "mock/dynamics.json",
+            test: "http://192.168.1.150:9000/wx/school/v1.0/oto/lol/cancel",
+            product: "/wx/school/v1.0/oto/lol/cancel"
+        },
+        branch: {
+            dev: "mock/dynamics.json",
+            test: "http://192.168.1.150:9000/wx/school/v1.0/submitBranch",
+            product: "/wx/school/v1.0/submitBranch"
+        },
+        stuxinix: {
+            dev: "mock/dynamics.json",
+            test: "http://192.168.1.150:9000/wx/school/v1.0/studentInfo",
+            product: "/wx/school/v1.0/studentInfo"
+        },
+
     };
     bMock.setFace(thisApi);
     bMock.setEnv("product");
@@ -87,136 +103,33 @@ $(function () {
         var weekDay = ["周日", "周一", "周二", "周三", "周四", "周五", "周六"];
         var hour = now.getHours();
         var minute = now.getMinutes();
+        minute=="0"?minute="00":minute;
+
         return month + " 月 " + date + " 日 " + " ( " + weekDay[week] + " ) " + hour + ":" + minute;
     }
 
-    //时间戳转换1
-    function formatDate1(now) {
-        var month = now.getMonth() + 1;
-        var date = now.getDate();
-        var week = now.getDay();
-        var weekDay = ["周日", "周一", "周二", "周三", "周四", "周五", "周六"];
-        var hour = now.getHours();
-        var minute = now.getMinutes();
-        return month + "-" + date + " " + hour + ":" + minute;
-    }
 
-    //获取我的预约成功返回的信息
-    //var appointTime;
-    //var teachRange;
-    //var teacher;
-    //function appointSuccess() {
-    //    $.ajax({
-    //        url: bMock.getFace("appoint"),
-    //        async: false,
-    //        type:"get",
-    //        dataType: "json",
-    //        success: function(data, status){
-    //            appointTime = formatDate1(new Date(data.data.lolServiceApplyDetailResponse.appointTime));
-    //            teachRange = data.data.lolServiceApplyDetailResponse.teachRange;
-    //            teacher = data.data.lolServiceApplyDetailResponse.teacher;
-    //
-    //            // console.log(teachRange);
-    //            // console.log(teacher);
-    //            // console.log(appointTime);
-    //        }
-    //    });
-    //}
-
-    //获取当前系统时间
-    var localtime;
-
-    function getlocaltime() {
-        localtime = formatDate1(new Date());
-    }
-
-    //判断CD状态
-    function judgeCD() {
-        //系统时间
-        //console.log(localtime);
-        //预约时间
-        //console.log(appointTime);
-
-        var DateStrEnd = localtime;
-        var DateStrStart = appointTime;
-
-        var srtHours = GetDateDif(DateStrStart, DateStrEnd);
-        console.log(srtHours);
-        if (srtHours > 8760) {
-            $(".cancel_reservation_cont p").html("取消预约后会有15天cd时间。");
-        } else if (srtHours < 3) {
-            $(".cancel_reservation_cont p").html("取消预约后会有7天cd时间。");
-        } else {
-            $(".cancel_reservation_cont p").css("display", "none");
-        }
-
-        function GetDateDif(DateStrStart, DateStrEnd) {
-            var DateStart = new Date(DateStrStart);
-            var DateEnd = new Date(DateStrEnd);
-
-            if (DateStart < DateEnd) {
-            } else {
-                DateStart = new Date("1999-" + DateStrStart);
-                DateEnd = new Date("2000-" + DateStrEnd);
-            }
-
-            var ResultDate = DateEnd.getTime() - DateStart.getTime();
-            var second = ResultDate / 1000;//秒
-            var Minute = second / 60;//分
-            var hours = Minute / 60;//时
-            var day = hours / 24;//天
-
-            return hours;
-        }
-    }
-
-    //确认取消
-    function confirmCel() {
-        // console.log(teachRange);
-        // console.log(teacher);
-        // console.log(appointTime);
-        $(".bomb-box-btn .cancel").click(function () {
-            $.ajax({
-                url: "",
-                type: "POST",
-                dataType: "json",
-                data: {
-                    teacher: teacher,
-                    teachRange: teachRange,
-                    appointTime: appointTime,
-                },
-                success: function (data) {
-                    console.log("true");
-                    //确认取消
-                    $(".cancel_reservation").fadeOut();
-                    $(".resucap_dtl_right").html('<p class= "resdtght_new" > 已取消预约 </p>');
-                    ;
-                },
-                error: function () {
-                    console.log("false");
-                    $(".cancel_reservation").fadeOut();
-                    alert("取消失败");
-                    console.log(data);
+    //获取评论信息
+    function getEvaluate() {
+        $.get(bMock.getFace("evaluate"), function (data, status) {
+            console.log(data.data);
+            var thisEvaluateStatus = data.data;
+            if(thisEvaluateStatus.length===0){
+                console.log("data中没有数据");
+                if($(".evaluate img").attr('src')==="images/eva1.gif"){
+                    $(".evaluate").hide();
                 }
-            });
+
+            }else{
+                console.log("data中有数据");
+
+                $(".evaluate").show();
+                $(".evaluate img").attr("src","images/eva1.gif");
+                $(".evaluate a")[0].href="otoJudge.html";
+            }
         });
     }
 
-    function tip() {
-        //取消预约
-        $(".more .more2").click(function () {
-            $(".cancel_reservation").fadeIn();
-            $(".more-box").slideUp();
-        });
-        $(".bomb-box-btn .submit").click(function () {
-            $(".cancel_reservation").fadeOut();
-        });
-
-        //暂不取消
-        $(".bomb-box-btn .submit").click(function () {
-            $(".cancel_reservation").fadeOut();
-        });
-    }
 
 
     //获取老师信息
@@ -241,69 +154,69 @@ $(function () {
     }
 
 
-    //获取评论信息
-    function getEvaluate() {
-        $.get(bMock.getFace("evaluate") + '?' + 'studentNum=' + studentNum, function (data, status) {
-            console.log(data.data);
-            var thisEvaluateStatus = data.data;
-            if (thisEvaluateStatus.length === 0) {
-                console.log("data中没有数据");
-                $(".evaluate").hide();
-            } else {
-                console.log("data中有数据");
-                $(".evaluate").show();
+
+    //老师没有联系我
+    $(".cance0").click(function(){
+        $.ajax({
+            url: bMock.getFace("branch")+'?'+'applyId='+applyId+'&studentNum='+studentNum,
+            type: "get",
+            success: function (data) {
+                $(".bomb").fadeOut();
+                $(".more-box").fadeOut();
+                $(".appointment a").text("更多");
+                alert("提交反馈成功")
+            },
+            error: function () {
+                alert("提交反馈失败");
+
             }
         });
-    }
+    })
+
 
     //获取我的预约信息
+    var applyId;
+    var appointTime;
+    var studentNum;
     function getAppoint() {
         $.get(bMock.getFace("appoint") + '?' + 'studentNum=' + studentNum, function (data, status) {
             console.log(data.data.lolServiceApplyDetailResponse);
+            if(data.data.lolServiceApplyDetailResponse){
+                applyId= data.data.lolServiceApplyDetailResponse.id;
+                appointTime=data.data.lolServiceApplyDetailResponse.hopeTeachTime;
+                studentNum==data.data.lolServiceApplyDetailResponse.studentNum;
+            }
+
             switch (data.data.statue) {
                 case "apply" :
                     console.log('无预约，隐藏预约模块');
+                    $(".evaluate img").attr("src","images/oto1.png");
+                    $(".evaluate a")[0].href="revtProcessConn.html";
+                    $(".evaluate").show()
                     $(".appoint1").hide()
                     $(".deta").hide()
+
                     break;
                 case "wait" :
                     console.log('已经有申请，需要等待');
 
                     var sections = "";
-                    //$.each(data.data,function(i,v){
+
                     var apTime = formatDate(new Date(data.data.lolServiceApplyDetailResponse.hopeTeachTime));
+
                     var apRange = eval("(" + data.data.lolServiceApplyDetailResponse.whatStudy.whatStudy + ")").position + ' ' + data.data.lolServiceApplyDetailResponse.howTeach.howTeach + ' ' + eval("(" + data.data.lolServiceApplyDetailResponse.whatStudy.whatStudy + ")").hero.substring(0, 4);
                     var apname = getTeacher(data.data.lolServiceApplyDetailResponse.teacherId).name;
                     var section1 = "";
-                    section1 += '<div class="deta">' + '<div class="detailed">' + '<div class="detailed-one">' + '<img src="images/det1.gif" >' + '<span>一对一教学</span>' + '</div>' + '<div class="resucap_dtl_right">' + '<div class="timer">' + '<p>时间:</p>' + '<p>预约课程:</p>' + '<p>预约导师:</p>' + '</div>' + '<div class="timer-two">' + '<p>' + apTime + '</p><p>' + apRange + '</p><p>' + apname + '</p>' + '</div>' + '</div>' + '</div>'
-                    //
+                    section1 += '<div class="deta">' + '<div class="detailed">' + '<div class="detailed-one">' + '<img src="images/det1.gif">' + '<span>一对一教学</span>' + '</div>' + '<div class="resucap_dtl_right">' + '<div class="timer">' + '<p>时间:</p>' + '<p>预约课程:</p>' + '<p>预约导师:</p>' + '</div>' + '<div class="timer-two">' + '<p>' + apTime + '</p><p>' + apRange + '</p><p>' + apname + '</p>' + '</div>' + '</div>' + '</div>'
+
                     sections += section1;
 
-                    //})
                     $(".appoint1").append(sections);
 
-                    //function tim(){
-                    //    $.each(data.data.lolServiceApplyDetailResponse,function(i,v){
-                    //        return appointTime=data.data.lolServiceApplyDetailResponse[i].appointTime;
-                    //    })
-                    //    return appointTime
-                    //}
-                    //tim();
 
-                    var nowTime = new Date().getTime()
-                    if (nowTime - data.data.lolServiceApplyDetailResponse.hopeTeachTime >= 0) {
-                        console.log("更改（更多==》正在进行）,渲染数据");
-                        $(".appointment>a").text("正在进行");
-                        //var apTime = formatDate(new Date(data.data.lolServiceApplyDetailResponse.hopeTeachTime));
-                        //var apRange = data.data.lolServiceApplyDetailResponse.teachRange;
-                        //var apname = data.data.lolServiceApplyDetailResponse.teacher;
-
-                    } else {
-                        console.log("直接渲染数据");
 
                         //    点击更多显示
                         $(".appointment>a").click(function () {
-                            if ($(".appointment>a").text() != "正在进行") {
                                 if ($(".more-box").css("display") === "none") {
                                     $(".more-box").slideDown();
                                     $(this).text("取消");
@@ -311,41 +224,123 @@ $(function () {
                                     $(".more-box").slideUp();
                                     $(this).text("更多");
                                 }
-                            }
-
                         });
                         //     点击显示模态框
                         $(".more1").click(function () {
-                            $(".bomb").fadeIn()
+                            $(".bomb0").fadeIn()
                         });
-                        $(".submit").click(function () {
+                        $(".submit0").click(function () {
                             $(".bomb").fadeOut();
                             $(".more-box").slideUp();
                             $(".appointment>a").text("更多");
                         })
 
-
-                    }
-
                     break;
                 case "end" :
                     console.log('进入cd期');
-
+                   //$(".evaluate").show();
                     var sday = Math.floor(data.data.waitDays / 24);
                     var stime = data.data.waitDays - sday * 24;
                     console.log("还剩" + sday + "天" + stime + "时");
+
+                    section1 = '<div class="deta">' + '<div class="detailed"></div>' + '</div>'
+                    $(".appoint1").append(section1);
                     $(".detailed").text("进入cd期，" + "还剩" + sday + "天" + stime + "时" + "后可以进行下次一对一教学")
                         .css({"text-align": "center", "line-height": "80px"})
                     break;
                 default:
                     console.log('一对一其他状态');
             }
-            ;
 
         });
     }
 
+
+    //取消预约
+    $(".more2").click(function(){
+        if((appointTime - new Date().getTime())>3*60*60*1000){
+            $(".bomb3").show();
+            $(".submit3").click(function(){
+                $(".bomb").fadeOut();
+                $(".more-box").fadeOut();
+                $(".appointment a").text("更多");
+            })
+            $(".cancel3").click(function(){
+                $.ajax({
+                    url: bMock.getFace("cancel")+'?'+'applyId='+applyId,
+                    type: "get",
+                    success: function (data) {
+                        $(".bomb").fadeOut();
+                        $(".more-box").fadeOut();
+                        $(".appointment a").text("更多");
+                        window.location.href="teacherService.html"
+                    },
+                    error: function () {
+                        alert("取消失败");
+
+                    }
+                });
+            });
+        }else if(0<(appointTime - new Date().getTime())<3*60*60*1000){
+            $(".bomb1").show()
+            $(".submit1").click(function(){
+                $(".bomb").fadeOut();
+                $(".more-box").fadeOut();
+                $(".appointment a").text("更多");
+            })
+            $(".cancel1").click(function(){
+                $.ajax({
+                    url: bMock.getFace("cancel")+'?'+'applyId='+applyId,
+                    type: "get",
+                    success: function (data) {
+                        $(".bomb").fadeOut();
+                        $(".more-box").fadeOut();
+                        $(".appointment a").text("更多");
+
+                        window.location.href="teacherService.html"
+                    },
+                    error: function () {
+                        alert("取消失败");
+
+                    }
+                });
+            })
+
+        }else{
+            $(".bomb2").show()
+            $(".submit2").click(function(){
+                $(".bomb").fadeOut();
+                $(".more-box").fadeOut();
+                $(".appointment a").text("更多");
+            });
+            $(".cancel2").click(function(){
+                $.ajax({
+                    url: bMock.getFace("cancel")+'?'+'applyId='+applyId,
+                    type: "get",
+                    success: function (data) {
+                        $(".bomb").fadeOut();
+                        $(".more-box").fadeOut();
+                        $(".appointment a").text("更多");
+
+                        window.location.href="teacherService.html"
+                    },
+                    error: function () {
+                        alert("取消失败");
+
+                    }
+                });
+            })
+        }
+
+
+
+    })
+
+
     //获取优秀老师信息
+
+
+    //老师英雄图标地址
     var hero = {
         "error": false,
         "msg": "",
@@ -1542,28 +1537,28 @@ $(function () {
         "rtCode": null
     }
 
-
-
-
     function getRecommend() {
         $.get(bMock.getFace("recommend"), function (data, status) {
             console.log(data.data);
 
             var sections = "";
+
             $.each(data.data, function (i, v) {
-                console.log(getTeacher(data.data[i].userId));
-                //selectTeacher
+                getTeacher(data.data[i].userId);
+
                 var imgages = "";
-                //$.each(data.data[i].imgs,function(k,v){
-                //    var images1="";
-                //    images1+='<img class="in-img" src="'+data.data[i].imgs[k]+'" >';
-                //    imgages+=images1;
-                //});
+
+                $.each(getTeacher(data.data[i].userId).goodAtChampions,function(k,v){
+
+                    var images1="";
+                    images1+='<img class="in-img" src="http://static.iboom.tv/static/img/'+hero.data[v].ename+'.png">';
+                    imgages+=images1;
+                });
 
                 var pp = imgages;
 
                 var section1 = "";
-                section1 += '<div class="teac2 teac">' + '<div class="teacher-in">' + '<img src="images/teacher.png" >' + '<div class="teacherInt2 teacherInt">' + '<h3>' + data.data[i].name + '</h3>' + '<a href="javascript:;">明天预约</a>' + '</div>' + '<div class="introduce">' + '<div class="introduce-one">' + '<p>授课范围:</p>' + '<p>累计完成:</p>' + '<p>擅长英雄:</p>' + '</div>' + '<div class="introduce-two2 introduce-two">' + '<p class="imags">' + data.data[i].teachRange + '</p>' + '<p>' + data.data[i].teachRange + '</p>' + '<p >' + pp + '</p>' + '</div>' + '</div>' + '<div class="clear"></div>' + '<p class="introduce-p">' + '<a class="introduce-th" href="revtProcessTmct.html?' + data.data[i].userId + '">预约老师</a>' + '</p>' + '</div>' + '</div>'
+                section1 += '<div class="teac2 teac">' + '<div class="teacher-in">' + '<img src="http://static.iboom.tv/static/img/'+getTeacher(data.data[i].userId).head+'" >' + '<div class="teacherInt2 teacherInt">' + '<h3>' + data.data[i].name + '</h3>' + '<a href="javascript:;">明天预约</a>' + '</div>' + '<div class="introduce">' + '<div class="introduce-one">' + '<p>授课范围:</p>' + '<p>累计完成:</p>' + '<p>擅长英雄:</p>' + '</div>' + '<div class="introduce-two2 introduce-two">' + '<p class="imags">' + data.data[i].teachRange + '</p>' + '<p>' + data.data[i].num + '次一对一教学</p>' + '<p >' + pp + '</p>' + '</div>' + '</div>' + '<div class="clear"></div>' + '<p class="introduce-p">' + '<a class="introduce-th" href="revtProcessTmct.html?' + data.data[i].userId + '">预约老师</a>' + '</p>' + '</div>' + '</div>'
 
                 sections += section1;
 
@@ -1575,24 +1570,48 @@ $(function () {
     }
 
 
+    //获取学员信息
+    //获取学员信息
+    var stupic;
+    function getStuxinix() {
+        $.get(bMock.getFace("stuxinix")+'?studentNum='+studentNum, function (data, status) {
+            if(data.data.header){
+                stupic="http://static.iboom.tv/static/img/"+data.data.header;
+            }else{
+                stupic="images/defaultHeader.png";
+            }
+
+        });
+    }
+
+    getStuxinix();
+
+
     //获取最新动态信息
     function getDynamics() {
         $.get(bMock.getFace("dynamics"), function (data, status) {
-            console.log(data.data);
-            if (data.data.length < 1) {
-
-                $(".appoint3").append("<p>后台无最新动态数据</p>")
+            if (data.data.length === 0) {
+               $(".new-dyn").hide()
             } else {
+                var teacherName=getTeacher(data.data[0].teacherId).name;
+                var teacherHead=getTeacher(data.data[0].teacherId).head;
                 var longtime = (new Date(data.data[0].teachFinishTime).getMinutes()) + "分钟前";
+                var studentNum=data.data[0].studentNum;
                 var teahsay = data.data[0].boomServiceTeacherEvaluateDto.teacherEvaluate;
-                var stusay = data.data[0].evaluateDetailDto.studentEvaluate;
+                var stusay ;
+                if(!data.data[0].evaluateDetailDto){
+                    stusay = "老师教学非常好!";
+                }else{
+                    stusay = data.data[0].evaluateDetailDto.evaluate;
+                }
+
 
 
                 var sections = "";
                 $.each(data.data, function (i, v) {
 
                     var section1 = "";
-                    section1 += '<div class="dynamices">' + '<div class="dynamic-fir">' + '<span>银时老师和8036学院完成一对一训练。</span>' + '<a class="firsta" href="javascript:;">' + longtime + '</a>' + '</div>' + '<div class="dynamic-two1 dynamic-two">' + '<img src="images/inn.png" >' + '<div>' + '<h3>银时老师</h3>' + '<span>' + teahsay + '</span>' + '</div>' + '</div>' + '<div class="dynamic-two2 dynamic-two">' + '<img src="images/inn.png" >' + '<div>' + '<h3>女王大人葵</h3>' + '<span>' + stusay + '</span>' + '</div>' + '</div>'
+                    section1 += '<div class="dynamices">' + '<div class="dynamic-fir">' + '<span>'+teacherName+'和'+studentNum+'完成一对一训练。</span>' + '<a class="firsta" href="javascript:;">' + longtime + '</a>' + '</div>' + '<div class="dynamic-two1 dynamic-two">' + '<img src="http://static.iboom.tv/static/img/'+teacherHead+'" >' + '<div>' + '<h3>'+teacherName+'</h3>' + '<span>' + teahsay + '</span>' + '</div>' + '</div>' + '<div class="dynamic-two2 dynamic-two">' + '<img src="'+stupic+'" >' + '<div>' + '<h3>'+studentNum+'</h3>' + '<span>' + stusay + '</span>' + '</div>' + '</div>'
 
                     sections += section1;
 
@@ -1604,16 +1623,11 @@ $(function () {
         });
     }
 
-
-    getStatus();
     getEvaluate();
+    getStatus();
     getAppoint();
     getRecommend();
     getDynamics();
-    //appointSuccess();
-    //getlocaltime();
-    //judgeCD();
-    //confirmCel();
-    //tip();
+
 
 })

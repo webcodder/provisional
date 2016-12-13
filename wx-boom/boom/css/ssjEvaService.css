@@ -225,7 +225,8 @@ padding:15px 0 15px 0;
 .introduce-two .in-img{
     width: 2.5rem;
     height: 2.5rem;
-    padding-right: 3px;
+    padding-right: 2px;
+    border-radius: 25px;
 }
 /*最新动态栏模块*/
 .dynamices{
@@ -269,7 +270,7 @@ padding:15px 0 15px 0;
     background-color: #fff;
     width:100%;
     position: absolute;
-    top:125px;
+    top:45px;
     left:0;
     height: 70px;
     border-bottom: 1px solid #EFEFEF;
@@ -368,3 +369,6 @@ padding:15px 0 15px 0;
 }
 .bomb .bomb-box-btn .submit{
 }
+
+
+/*取消*/

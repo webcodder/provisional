@@ -6,11 +6,7 @@ $(function(){
             test: "http://192.168.1.150:9000/wx/school/v1.0/statue",
             product: "/wx/school/v1.0/statue"
         },
-        // evaluate: {
-        //     dev: "mock/evaluate.json",
-        //     test: "http://192.168.1.150:9000/wx/school/v1.0/ssj/lol/hasNeedEvaluate",
-        //     product: "/wx/school/v1.0/ssj/lol/hasNeedEvaluate"
-        // },
+
         getStudents: {
             dev: "mock/getStudents.json",
             test: "http://192.168.1.150:9000/wx/school/v1.0/getUserInfo",
@@ -18,7 +14,7 @@ $(function(){
         },
         //更新学员信息
         updateUserInfo: {
-            dev: "http://192.168.1.150:9000/wx/school/v1.0/updateUserInfo",
+            dev: "mock/updateUserInfo.json",
             test: "http://192.168.1.150:9000/wx/school/v1.0/updateUserInfo",
             product: "/wx/school/v1.0/updateUserInfo"
         },

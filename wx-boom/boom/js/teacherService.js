@@ -26,6 +26,7 @@ jQuery(document).ready(function () {
         var weekDay = ["周日", "周一", "周二", "周三", "周四", "周五", "周六"];
         var hour = now.getHours();
         var minute = now.getMinutes();
+        minute=="0"?minute="00":minute;
         return month + " 月 " + date + " 日 " + " ( " + weekDay[week] + " ) " + hour + ":" + minute;
     }
 
@@ -87,6 +88,7 @@ jQuery(document).ready(function () {
                         $("#otoTeacher").text(getTeacher(otoStatus.lolServiceApplyDetailResponse.teacherId).teacherName);
                         break;
                     default:
+                        $("#oneToOneOn").hide();
                         console.log('一对一其他状态');
                 };
             }else{
@@ -107,6 +109,7 @@ jQuery(document).ready(function () {
                         $("#ssjTeacher").text(getTeacher(ssjStatus.lolServiceApplyDetailResponse.teacherId).teacherName);
                         break;
                     default:
+                        $("#SSJOn").hide();
                         console.log('生死局其他状态');
                 }
             }else {

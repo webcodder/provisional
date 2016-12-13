@@ -3,46 +3,58 @@ $(function(){
     var thisApi = {
         statue: {
             dev: "mock/statue.json",
-            test: "http://192.168.1.150:9000/wx/school/v1.0/ssj/lol/hasNeedEvaluate",
+            test: "http://192.168.1.150:9000/wx/school/v1.0/statue",
             product: "/wx/school/v1.0/statue"
         },
-        evaluate: {
-            dev: "mock/evaluate.json",
-            test: "http://192.168.1.150:9000/wx/school/v1.0/ssj/lol/hasNeedEvaluate",
-            product: "/wx/school/v1.0/oto/lol/hasNeedEvaluate"
-        },
+
         revtProcessChta: {
             dev: "mock/revtProcessChta.json",
             test: "http://192.168.1.150:9000/wx/school/v1.0/ssj/lol/allTeacher",
-            product: "/wx/school/v1.0/oto/lol/allTeacher"
+            product: "/wx/school/v1.0/ssj/lol/allTeacher"
         },
         appointSuccess: {
             dev: "mock/appointSuccess.json",
-            test: "http://192.168.1.150:9000/wx/school/v1.0/ssj/lol/watch",
-            product: "/wx/school/v1.0/oto/lol/watch"
+            test: "http://192.168.1.150:9000/wx/school/v1.0/ssj/lol/statue",
+            product: "/wx/school/v1.0/oto/lol/statue"
         },
+
         mainRemark: {
             dev: "mock/mainRemark.json",
             test: "http://192.168.1.150:9000/wx/school/v1.0/ssj/lol/evaluate",
             product: "/wx/school/v1.0/oto/lol/evaluate"
         },
+        watch: {
+            dev: "mock/watch.json",
+            test: "http://192.168.1.150:9000/wx/school/v1.0/ssj/lol/watchNeedEvaluate",
+            product: "/wx/school/v1.0/ssj/lol/watchNeedEvaluate"
+        },
+        teacher: {
+            dev: "mock/teacher.json",
+            test: "http://192.168.1.150:9000/wx/school/v1.0/ssj/lol/allTeacher",
+            product: "/wx/school/v1.0/ssj/lol/allTeacher"
+        },
     };
     bMock.setFace(thisApi);
     bMock.setEnv("product");
-    console.log(bMock.getFace("mainRemark"));
 
     //学员userId查询
-    var thisStudent;
+    var studentId;
+    var studentNum;
+
     function getStudent() {
         $.ajax
-            ({
-                async: false,
-                url: bMock.getFace("statue"),
-                success: function (data) {
-                applyId = data.data.studentId;
+        ({
+            async: false,
+            url: bMock.getFace("statue"),
+            success: function (data) {
+                studentId = data.data.userInfo.userId;
+                studentNum = data.data.student.studentNum;
+                console.log(studentNum);
             }
         });
     }
+
+    getStudent();
 
     //获取登录状态
     function getStatus() {
@@ -67,29 +79,68 @@ $(function(){
         return month + "月" + date + "日" + " ( " + weekDay[week] + " ) " + "&nbsp;&nbsp;" + hour + ":" + minute;
     }
 
+
+
+
+    //获取需要评论的内容
+    var applyId;
+    function getWatch() {
+        $.get(bMock.getFace("watch"), function (data, status) {
+            if (data.data.length===0) {
+                console.log("获取失败！");
+                //window.location.href = "teacherService.html";
+            } else {
+                console.log("获取成功！");
+                applyId=data.data[0].id;
+                var watchTime= formatDate(new Date(data.data[0].hopeTeachTime));
+                //var watchStudy= data.data[0].whatStudy;
+                var watchteach= getTeacher(data.data[0].teacherId).name;
+                var watchs='<ul>'+'<li>'+'<dl>'+'<dd>时间：</dd>'+'<dd>'+watchTime+'</dd>'+'<div class="clear"></div>'+'</dl>'+'</li>'+'<li>'+'<dl>'+'<dd>预约课程：</dd>'+'<dd>生死局助阵</dd>'+'<div class="clear"></div>'+'</dl>'+'</li>'+'<li>'+'<dl>'+'<dd>预约导师：</dd>'+'<dd>'+watchteach+'</dd>'+'<div class="clear"></div>'+'</dl>'+'</li>'+'</ul>'
+
+                $(".jutcap_dtl_right").append(watchs);
+
+            }
+        });
+    }
+
+    getWatch();
+
+//获取老师信息
+
+    var selectTeacher;
+
+    function getTeacher(value) {
+        var thisTeacher;
+        $.ajax({
+            async: false,
+            url: bMock.getFace("teacher"),
+            success: function (data, status) {
+                for (var i = 0; i < data.data.length; i++) {
+                    if (data.data[i].userId === Number(value)) {
+                        thisTeacher = data.data[i];
+                        selectTeacher = thisTeacher;
+                    }
+                }
+            }
+        });
+        return thisTeacher;
+    }
+
+
+
+
     //获取我的预约成功返回的信息
     function appointSuccess() {
         var teacherId;
         var teacherName;
 
-        //获取teacherId
-        $.ajax({
-            url: bMock.getFace("appointSuccess") + "?applyId=" + applyId,
-            //url: bMock.getFace("appointSuccess") + "?applyId=1",
-            async: false,
-            type:"get",
-            dataType: "json",
-            success: function(data, status){
-                teacherId = data.data.teacherId;
-            }
-        });
 
         //获取老师名字
         $.ajax
         ({
             async: false,
             url: bMock.getFace("revtProcessChta"),
-            success: function (data) 
+            success: function (data)
             {
                 for(var i=0 ; i<data.data.length ; i++){
                     if(teacherId == data.data[i].userId){
@@ -142,7 +193,13 @@ $(function(){
             var studentEvaluate = $("textarea[name='evalcoue_txt']").val();
             function GetJsonData() {
                 var json = {
-                    "studentEvaluate": studentEvaluate,
+                    "applyId":applyId,
+                    "helpfulScore": 5,
+                    "attitudeScore": 5,
+                    "evaluate": studentEvaluate,
+                    "teacherSkillScore":5,
+                    "score":5,
+                    "winFlag":true
                 };
                 return json;
             }
@@ -150,14 +207,14 @@ $(function(){
             ({
                 async: true,
                 //url: bMock.getFace("mainRemark"),
-                url: "/wx/school/v1.0/ssj/lol/evaluate",
+                url: bMock.getFace("mainRemark"),
                 contentType: "application/json; charset=utf-8",
-                type:"POST",
+                type:"post",
                 data: JSON.stringify(GetJsonData()),
                 dataType: "json",
                 success: function (data, status) {
-                    alert("提交成功");
-                    window.location.href = "revpros_btn.html";
+
+                    window.location.href = "teacherService.html";
                 },
                 complete: function(xhr, status){
                     console.log(xhr.status);
@@ -169,8 +226,8 @@ $(function(){
             //console.log(studentEvaluate);
         });  
     }
-
+    getStudent();
     getStatus();
-    appointSuccess();
+    //appointSuccess();
     mainRemark();
 });
