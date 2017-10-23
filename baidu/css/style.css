@@ -2,7 +2,7 @@
    reset
  ============================================================================ */
 body{font:12px arial;text-align:;background:#fff;color:#333}
-body,p,form,ul,li{margin:0;padding:0;list-style:none}
+body,p,form,ul,li,dl{margin:0;padding:0;list-style:none}
 input{border:0;padding:0}
 a{color:#333}
 input,button{outline: none;border:none;}
@@ -19,7 +19,7 @@ button{background: none;cursor:pointer;}
 .g-ft{
     text-align: center;
     position: absolute;
-    bottom: 185px;
+    bottom: 140px;
     height: 60px;
     width: 100%;
 }
@@ -33,9 +33,10 @@ button{background: none;cursor:pointer;}
     margin-right: 12px;
 }
 
-.m-tip li{
+.m-tip > li{
     display: inline-block;
     margin: 19px 0 0 10px;
+    position: relative;
 }
 
 .m-tip a{
@@ -62,6 +63,62 @@ a[name="tj_briicon"]{
 
 a[name="tj_briicon"]:hover{
 	color: #fff;
+}
+
+a[name="tj_settingicon"] + ul{
+    position: absolute;
+    background: #fff;
+    display: none; 
+    width: 70px;
+    top: 25px;
+    box-shadow: 1px 1px 5px #d1d1d1;
+    -webkit-box-shadow: 1px 1px 5px #d1d1d1;
+    -moz-box-shadow: 1px 1px 5px #d1d1d1;
+    -o-box-shadow: 1px 1px 5px #d1d1d1;
+    left: -13px;
+    z-index: 5;
+}
+
+a[name="tj_settingicon"] + ul li{
+    text-align: center;
+    height: 23px;
+    line-height: 23px;
+    overflow: hidden;
+}
+
+a[name="tj_settingicon"] + ul li a{
+    text-decoration: none;
+    font-size: 12px;
+    padding: 0 9px;
+    font-weight: initial;
+    overflow: hidden;
+}
+
+a[name="tj_settingicon"] + ul li a:hover{
+    display: block;
+    color: #fff;
+    background: #38f;
+}
+
+.tj_settingicon:hover ul{
+    display: block;
+}
+
+.tj_settingicon:hover i{
+    display: block;
+}
+
+.tj_settingicon i{
+    width: 6px;
+    height: 6px;
+    background: #fff;
+    position: absolute;
+    top: 22px;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    z-index: 3;
+    border: solid 1px #ededed;
+    display: none;
 }
 
 
@@ -161,9 +218,51 @@ a[name="tj_briicon"]:hover{
 
 .ewm li:last-child{
     margin-left: -2px;
-    margin-top: 6px;
+    margin-top: 5px;
 }
 
 .ewm b{
     color: #666;
 }
+
+
+/* ==========================================================================
+   module: cprt
+============================================================================ */
+.m-cprt{
+    margin-top: 25px;
+}
+
+.m-cprt li{
+    margin-bottom: 10px;
+}
+
+.m-cprt a, .m-cprt span{
+    color: #999;
+}
+
+.m-cprt dd{
+    display: inline-block;
+    position: relative;
+}
+
+.m-cprt li:last-child dd:last-child::after, .m-cprt li:last-child dd:first-child::after{
+    content: '';
+    width: 14px;
+    height: 17px;
+    overflow: hidden;
+    background: url(https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/cache/static/protocol/https/global/img/icons_5859e57.png) left top no-repeat;
+    
+    position: absolute;
+    right: -18px;
+    top: 0;
+}
+
+.m-cprt li:last-child dd:first-child::after{
+    background-position: -600px -96px;
+}
+
+.m-cprt li:last-child dd:last-child::after{
+    background-position: -623px -96px;
+}
+
