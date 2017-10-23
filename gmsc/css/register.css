@@ -1,0 +1,162 @@
+/* ==========================================================================
+   module: rgt
+============================================================================ */
+/* public s */
+.m-rgt{
+	background: url(../images/reg_bg.gif) left top no-repeat;
+}
+
+.rgt_l, .rgt_r{
+    float: left;
+    width: 49%;
+    height: 382px;
+    overflow: hidden;
+    margin-top: 55px;
+}
+/* public e */
+
+/* rgt_l s */
+.rgt_l ul{
+	margin: 2px 0 0 60px;
+}
+
+.rgt_l li{
+	margin-bottom: 15px;
+    overflow: initial;
+}
+
+.rgt_l li::after{
+	display:block;
+	clear:both;
+	visibility:hidden;
+	height:0;
+	overflow:hidden;
+	content:".";
+}
+
+.rgt_l dd{
+	float: left;
+}
+
+.rgt_l dd:first-child{
+    width: 90px;
+    text-align: right;
+    margin-right: 10px;
+}
+
+.rgt_l dd:nth-child(2){
+	margin-right: 5px;
+    margin-top: -2px;
+}
+
+.rgt_l dd:nth-child(2) input[type="text"]{
+    padding: 3px;
+    width: 120px;
+}
+
+.rgt_l li:last-child dl{
+	margin-left: 50px;
+}
+
+.rgt_l .sex b{
+    float: left;
+    margin-right: 3px;
+    margin-left: 23px;
+    position: relative;
+}
+
+.rgt_l .sex label{
+    cursor: pointer;
+}
+
+.rgt_l .sex dd:nth-child(2){
+    margin-right: 10px;
+}
+
+.rgt_l .sex b::before{
+    content: '';
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    top: 50%;
+    transform: translateY(-50%);
+    left: -22px;
+    overflow: hidden;
+}
+
+#man + b::before{
+    background: url(../images/Male.gif) left top no-repeat;
+}
+
+#woman + b::before{
+    background: url(../images/Female.gif) left top no-repeat;
+}
+
+.rgt_l .sex input{
+    float: left;
+}
+
+.rgt_l .hobby input, .rgt_l .hobby span{
+    float: left;
+}
+
+.rgt_l .hobby dd:not(:first-child){
+    margin-right: 10px;
+}
+
+.rgt_l .hobby dd:not(:first-child) span{
+    margin-top: -1px;
+}
+
+.headPortrait{
+    width: 76px;
+    height: 76px;
+    overflow: hidden;
+    position: absolute;
+    right: 60px;
+    top: -30px;
+}
+
+.headPortrait img{
+    width: 100%;
+    height: 100%;
+}
+/* rgt_l e */
+
+/* rgt_r s */
+.rgt_r dl{
+    width: 270px;
+    height: 273px;
+    margin: 36px 0 0 170px;
+}
+
+.rgt_r dt{
+	font-weight: bold;
+    position: relative;
+    margin-bottom: 15px;
+    margin-left: 38px;
+}
+
+.rgt_r dt::before{
+    content: '';
+    width: 46px;
+    height: 26px;
+    position: absolute;
+    background: url(../images/read.gif) top left no-repeat;
+    left: -39px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.rgt_r dd{
+	width: 100%;
+	height: 230px;
+	border: solid 1px #ccc;
+	overflow-x: hidden;
+	overflow-y: auto; 
+}
+
+.rgt_r p{
+    padding: 10px 8px 10px 12px;
+}
+/* rgt_r e */

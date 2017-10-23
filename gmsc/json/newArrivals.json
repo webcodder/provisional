@@ -1,0 +1,29 @@
+{
+  "error":false,
+  "msg":"",
+  "data":[
+    {
+      "id":1,
+      "url": "list.html",
+      "img": "images/show1.jpg",
+      "title": "大牌狂降价，三折直送"
+    },{
+      "id":2,
+      "url": "list.html",
+      "img": "images/show2.jpg",
+      "title": "大学要求老师开网店大学要求老师开网店大学要求老师开网店"
+    },{
+      "id":3,
+      "url": "list.html",
+      "img": "images/show3.jpg",
+      "title": "黑眼圈推荐，美白不停"
+    },{
+      "id":4,
+      "url": "list.html",
+      "img": "images/show4.jpg",
+      "title": "瘦身狂潮风，修行之选"
+    }
+  ],
+  "length":null,
+  "rtCode":null
+}

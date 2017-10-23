@@ -1,0 +1,54 @@
+{
+  "error":false,
+  "msg":"",
+  "data":[
+    {
+      "id":1,
+      "url": "classifiy.html",
+      "img": "images/promote-1.jpg",
+      "title": "惠普商务移动应用英寸笔记本"
+    },{
+      "id":2,
+      "url": "classifiy.html",
+      "img": "images/promote-2.jpg",
+      "title": "夏新N6 GPS真人语音导航手机超低特价疯抢 数量有限！"
+    },{
+      "id":3,
+      "url": "classifiy.html",
+      "img": "images/promote-3.jpg",
+      "title": "三星家庭影院 HT-TZ235 购机送好礼（超值性价比）三星家庭影院 HT-TZ235 购机送好礼（超值性价比）三星家庭影院 HT-TZ235 购机送好礼（超值性价比）三星家庭影院 HT-TZ235 购机送好礼（超值性价比）"
+    },{
+      "id":4,
+      "url": "classifiy.html",
+      "img": "images/laser-pen.jpg",
+      "title": "明基MP512投影机 2899送100元京卷 SVGA 220流明"
+    },{
+      "id":5,
+      "url": "classifiy.html",
+      "img": "images/mouse.jpg",
+      "title": "罗技数据1TB移动鼠标729元开抢了！"
+    },{
+      "id":6,
+      "url": "classifiy.html",
+      "img": "images/earphone.jpg",
+      "title": "海森那尔极品耳机绝对不容错过"
+    },{
+      "id":7,
+      "url": "classifiy.html",
+      "img": "images/Wancom.jpg",
+      "title": "亚马逊随时阅读，随时记录，时尚最佳选择！"
+    },{
+      "id":8,
+      "url": "classifiy.html",
+      "img": "images/Frame.jpg",
+      "title": "优雅相框"
+    },{
+      "id":9,
+      "url": "classifiy.html",
+      "img": "images/notebook.jpg",
+      "title": "IBM 2009最新上网本，特色尽显"
+    }
+  ],
+  "length":null,
+  "rtCode":null
+}
