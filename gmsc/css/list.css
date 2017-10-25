@@ -1,0 +1,82 @@
+/* ==========================================================================
+   module: elpt
+============================================================================ */
+.m-elpt{
+	width: 100%;
+	min-height: 500px;
+	background: url(../images/catlist_bg.gif) top left no-repeat;
+	border-top: solid 1px transparent;
+}
+
+.m-elpt dl{
+    margin-top: 30px;
+}
+
+.m-elpt dt, .m-elpt dd{
+	border-bottom: dashed 1px #ccc;
+}
+
+.m-elpt dt{
+	height: 55px;
+    position: relative;
+}
+
+.m-elpt dd{
+	height: 122px;
+}
+
+.m-elpt ul{
+    margin-left: 80px;
+    width: 88%;
+}
+
+.m-elpt dt ul{
+    position: absolute;
+    bottom: 10px;
+    font-weight: bold;
+}
+
+label[for="selectAll"] input, label[for="selectAll"] span{
+	float: left;
+}
+
+.m-elpt .select{
+    width: 38px;
+    text-align: center;
+    margin-right: 126px;
+    margin-top: 45px;
+}
+
+.m-elpt .picture{
+    width: 205px;
+    text-align: center;
+    margin-right: 38px;
+}
+
+.m-elpt .detail{
+    width: 38%;
+    text-align: center;
+    margin-right: 55px;
+}
+
+.m-elpt .price{
+    width: 85px;
+    text-align: center;
+}
+
+.m-elpt dd ul{
+    margin-top: 25px;
+    width: 91.8%;
+}
+
+.m-elpt dd ul > li{
+	float: left;
+}
+
+.m-elpt dd ol li{
+	margin-bottom: 10px;
+}
+
+.m-elpt b{
+	font-weight: initial;
+}
