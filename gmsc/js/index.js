@@ -186,13 +186,21 @@ var newArrivals = function(){
 	});
 }
 
+var tab = function(){
+	$('.tabtn li').click(function(){
+		$(this).addClass('active').siblings().removeClass('active');
+		$('.tabcot').eq($(this).index()).show().siblings().hide();
+	});
+}
+
 
 $(function(){
-	suspendedWindow();	//页面交互
+	suspendedWindow();	//悬浮窗
 	banner();	//轮播图
 	goodsClassifiy();	//商品分类
 	panicBuying();	//panicBuying(抢购)
 	newArrivals();	//newArrivals(新品上架)
+	tab();	//选项卡
 });	
 
 

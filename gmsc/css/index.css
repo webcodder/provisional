@@ -245,6 +245,49 @@
 
 
 /* ==========================================================================
+   module: com_tab
+============================================================================ */
+.m-com_tab{
+    width: 97%;
+    min-height: 30px;
+    margin-left: 2px;
+    margin-top: 20px;
+}
+
+.tabtn{
+    
+}
+
+.tabtn li{
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    width: 83px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.tabtn li.active{
+    width: 87px;
+    border: solid 2px #dfa168;
+    border-bottom: 0;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.tabtn li:last-child{
+    margin-left: -5px;
+}
+
+.tabcot{
+    display: none;
+}
+
+.nt{
+    display: block;
+}
+
+/* ==========================================================================
    module:ads
 ============================================================================ */
 .ad{
