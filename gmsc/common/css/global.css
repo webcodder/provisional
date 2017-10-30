@@ -124,6 +124,11 @@ input[type="text"]{border:solid 1px #ccc;}
   cursor: pointer;
 }
 
+.m-tips li:nth-child(-n+4):hover span{
+  color: #f00;
+  transition: 0.3 linear;
+}
+
 .m-tips li:nth-child(-n+4) b{
     width: 25px;
     height: 18px;

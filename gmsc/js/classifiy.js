@@ -3,7 +3,8 @@ var changePicture = function(){
 	$('#changePicture li').click(function(){
 		$(this).addClass('on').siblings().removeClass('on');
 		var imgURL = $(this).find('img').attr("src");
-		var imgName = imgURL.substring(imgURL.indexOf("/")+1,imgURL.indexOf("."));
+		var imgName = imgURL.substring(imgURL.indexOf("/") + 1,
+            imgURL.indexOf("."));
 		$(".cpc_big").find('a').attr("href", "images/" + imgName + "_big.jpg");
 		$(".cpc_big").find('img').attr("src", "images/" + imgName + "_big.jpg");
 	});
@@ -24,7 +25,7 @@ var prdMagnifier = function(){
             'left':  (e.pageX+x)  + 'px'
         }).show('fast');
     }).mouseout(function(){
-        this.title = this.myTitle;   
+        this.title = this.myTitle;
         $('#tooltip').remove();
     }).mousemove(function(e){
         $('#tooltip').css({

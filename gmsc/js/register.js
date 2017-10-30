@@ -45,6 +45,7 @@ var reset = function(){
 	$('#resetBtn').click(function(){
 		$('input[type="text"]').val('');
         $('input[type="text"]').css('borderColor', '#ccc');
+        $('input[type="text"]').parent().next().css('color', '#000');
 	});
 }
 
@@ -74,7 +75,7 @@ var upload = function(){
         if (objUrl) {
             $("#img0").attr("src", objUrl);
         }
-    })   
+    });   
 }
 
 
