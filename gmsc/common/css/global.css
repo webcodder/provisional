@@ -122,11 +122,12 @@ input[type="text"]{border:solid 1px #ccc;}
   position: relative;
   margin-left: 32px;
   cursor: pointer;
+  transition: 0.2s linear;
 }
 
 .m-tips li:nth-child(-n+4):hover span{
   color: #f00;
-  transition: 0.3 linear;
+  transition: 0.3s linear;
 }
 
 .m-tips li:nth-child(-n+4) b{
