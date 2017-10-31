@@ -1,0 +1,28 @@
+ul{
+	margin-left: 22px;
+	margin-top: 5px;
+}
+
+li{
+	display: inline-block;
+	margin: 5px;
+	padding: 5px;
+	border: solid 1px #ccc;
+	background: #fff;
+	transition: 0.2s linear;
+}
+
+li:hover{
+	background: #efefef;
+	transition: 0.3s linear;
+}
+
+iframe{
+    border: solid 1px #ccc;
+    width: 95%;
+    min-height: 500px;
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+}
