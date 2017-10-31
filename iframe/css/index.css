@@ -4,12 +4,18 @@ ul{
 }
 
 li{
-	display: inline-block;
-	margin: 5px;
-	padding: 5px;
-	border: solid 1px #ccc;
-	background: #fff;
-	transition: 0.2s linear;
+    display: inline-block;
+    margin: 5px;
+    padding: 5px;
+    border: solid 1px #ccc;
+    background: #fff;
+    transition: 0.2s linear;
+    min-width: 33px;
+    text-align: center;
+}
+
+li a{
+	display: block;
 }
 
 li:hover{
