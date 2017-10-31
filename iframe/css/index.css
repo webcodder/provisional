@@ -32,3 +32,11 @@ iframe{
     left: 50%;
     transform: translateX(-50%);
 }
+
+input{
+	border:none;
+	outline: none;background: none;
+	cursor: pointer;
+	display: block;
+    width: 100%;
+}
