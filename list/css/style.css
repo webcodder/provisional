@@ -1,0 +1,27 @@
+/* ==========================================================================
+   reset
+ ============================================================================ */
+*{padding: 0;margin: 0;}
+body, a{font:12px/1.14 arial,'Microsoft YaHei';color:#333;outline:0;}
+a{text-decoration: none;}
+li{list-style: none;}
+
+
+/* ==========================================================================
+   module: list
+============================================================================ */
+.m-list{
+	position: relative;
+	width: 90%;
+	margin: 80px auto 0;
+}
+
+.m-list ul{
+    width: 90%;
+    display: -webkit-inline-box;
+    -webkit-box-pack: justify;
+    position: absolute;
+    top: 45px;
+    left: 50%;
+    transform: translateX(-50%);
+}
