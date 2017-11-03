@@ -29,8 +29,7 @@ var map_init = function(){
 
     var markerArr = [
         { title: "方山", point: "105.330670,28.825850", address: "四川省泸州市江阳区西郊方山镇", tel: "12306" , pro: "方山", url: "#方山", imgurl: "images/map/bzp.jpg", iconurl: "images/map/su.png"},
-        /*{ title: "九狮山风景区", point: "105.44406,28.962949", address: "123123", tel: "110" , pro: "九狮山风景区", url: "#九狮山风景区", imgurl: "images/map/hunz.jpg", iconurl: "images/map/nong.png"},*/
-        { title: "菜传豪风景区", point: "105.44406,28.962949", address: "10086", tel: "110" , pro: "小菜比小菜比小菜比小菜比小菜比小菜比", url: "http://www.baidu.com", imgurl: "images/map/hunz.jpg", iconurl: "images/map/nong.png"},
+        { title: "九狮山风景区", point: "105.44406,28.962949", address: "123123", tel: "110" , pro: "九狮山风景区", url: "#九狮山风景区", imgurl: "images/map/hunz.jpg", iconurl: "images/map/nong.png"},
         { title: "尧坝古镇", point: "105.651766,28.742824", address: "泸州城以北10公里，安宁镇境内", tel: "0830-3710264" , pro: "泸州市近郊型风景旅游胜地。景区景点繁多", url: "#尧坝古镇", imgurl: "images/map/sfj.jpg", iconurl: "images/map/cun.png"},
         { title: "福宝风景名胜区", point: "106.133905,28.664317", address: "泸州城以北10公里，安宁镇境内", tel: "0830-3710264" , pro: "福宝风景名胜区", url: "#福宝风景名胜区", url: "#福宝风景名胜区", imgurl: "images/map/wsc.jpg", iconurl: "images/map/su.png"},
         { title: "玉龙湖景区", point: "105.674547,29.165004", address: "泸州城以北10公里，安宁镇境内", tel: "0830-3710264" , pro: "泸州市近郊型风景旅游胜地。景区景点繁多", url: "#玉龙湖景区", imgurl: "images/map/xcx.jpg", iconurl: "images/map/jin.png"},
