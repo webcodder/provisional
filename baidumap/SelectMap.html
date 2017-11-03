@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <style type="text/css">
+        body, html {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            font-family: "微软雅黑";
+        }
+
+        #allmap {
+            width: 100%;
+            height: 500px;
+            overflow: hidden;
+        }
+
+        #result {
+            width: 100%;
+            font-size: 12px;
+        }
+
+        dl, dt, dd, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        p {
+            font-size: 12px;
+        }
+
+        dt {
+            font-size: 14px;
+            font-family: "微软雅黑";
+            font-weight: bold;
+            border-bottom: 1px dotted #000;
+            padding: 5px 0 5px 5px;
+            margin: 5px 0;
+        }
+
+        dd {
+            padding: 5px 0 0 5px;
+        }
+
+        li {
+            line-height: 28px;
+        }
+    </style>
+    <script src="jquery-2.0.3.min.js"></script>
+    <script src="Common.js"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=wgOuFDPx7axqgWBnORNpPOLtesYbGcpV"></script>
+    <!--加载鼠标绘制工具-->
+    <script type="text/javascript" src="http://api.map.baidu.com/library/DrawingManager/1.4/src/DrawingManager_min.js"></script>
+    <link rel="stylesheet" href="http://api.map.baidu.com/library/DrawingManager/1.4/src/DrawingManager_min.css" />
+    <!--加载检索信息窗口-->
+    <script type="text/javascript" src="http://api.map.baidu.com/library/SearchInfoWindow/1.4/src/SearchInfoWindow_min.js"></script>
+    <link rel="stylesheet" href="http://api.map.baidu.com/library/SearchInfoWindow/1.4/src/SearchInfoWindow_min.css" />
+    <title>鼠标绘制工具</title>
+</head>
+<body> 
+        <div id="map" style="width:100%;height:90%;-webkit-transition: all 0.5s ease-in-out;transition: all 0.5s ease-in-out;"></div>
+ 
+    <div id="result">
+        <div id="divPonit"></div>
+        <div id="divDizhi"></div>
+        <input type="button" value="确定返回" onclick="getAll()" />
+        <input type="button" value="重新选择" onclick="clearAll()" />
+    </div>
+    <script type="text/javascript">
+
+        var map = new BMap.Map('map');
+        var city = requestparm('city');
+        map.centerAndZoom(city, 12);
+        //单击获取点击的经纬度
+        map.enableScrollWheelZoom();
+        var gc = new BMap.Geocoder();
+        var nidizhi = "";
+   
+        var selectpoint = "";
+        var selectlat = "";
+        map.addEventListener("click", function (e) {
+            map.clearOverlays();
+            var marker = new BMap.Marker(e.point);// 创建标注
+            var pt = e.point;
+            map.addOverlay(marker);             // 将标注添加到地图中
+            marker.disableDragging();           // 不可拖拽
+          
+            selectpoint = e.point.lng + "," + e.point.lat;
+            $("#divPonit").html(selectpoint);
+            gc.getLocation(pt, function (rs) {
+                var addComp = rs.addressComponents;
+                 
+                nidizhi = rs.address;//addComp.province + ", " + addComp.city + ", " + addComp.district + ", " + addComp.street + ", " + addComp.streetNumber;
+                $("#divDizhi").html(rs.address);
+            });
+
+          
+        });
+        var fanwei = requestparm('fanwei');
+        if (fanwei != "") {
+            SetPointMap();
+        }
+        
+        function clearAll() {
+            map.clearOverlays();
+        }
+
+        function getAll() {            
+            SetParentPage(selectpoint, nidizhi);
+        }
+
+        function SetParentPage(returnvalue, nidizhi) {
+            var k = window.opener;
+            k.document.getElementById("txtMpFanWei").value = returnvalue;
+            k.document.getElementById("txtdizhi").value = nidizhi;
+            window.close();
+        }
+
+        function SetPointMap() {
+            var arr1 = fanwei.split(',');
+            selectpoint = fanwei;
+            var point = new BMap.Point(arr1[0], arr1[1]);
+
+            var marker = new BMap.Marker(point);// 创建标注
+                map.addOverlay(marker);             // 将标注添加到地图中
+                marker.disableDragging();           // 不可拖拽
+        }
+
+    </script>
+</body>
+</html>
