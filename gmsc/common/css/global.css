@@ -1,0 +1,306 @@
+/* ==========================================================================
+   reset
+ ============================================================================ */
+html,body,h1,h2,h3,h4,h5,h6,div,dl,dt,dd,ul,ol,li,p,blockquote,pre,hr,figure,table,caption,th,td,form,fieldset,legend,input,button,textarea,menu{margin:0;padding:0;}
+header,footer,section,article,aside,m-nav,hgroup,address,figure,figcaption,menu,details{display:block;}
+table{border-collapse:collapse;border-spacing:0;}
+caption,th{text-align:left;font-weight:normal;}
+html,body,fieldset,img,iframe,abbr{border:0;}
+i,cite,em,var,address,dfn{font-style:normal;}
+[hidefocus],summary{outline:0;}
+li{list-style:none;overflow: hidden;}
+h1,h2,h3,h4,h5,h6,small{font-size:100%;}
+sup,sub{font-size:83%;}
+pre,code,kbd,samp{font-family:inherit;}
+q:before,q:after{content:none;}
+textarea{overflow:auto;resize:none;}
+label,summary{cursor:default;}
+a,button{cursor:pointer;}
+h1,h2,h3,h4,h5,h6,em,strong,b{font-weight:bold;}
+del,ins,u,s,a,a:hover{text-decoration:none;}
+body,textarea,input,button,select,keygen,legend{font:12px/1.14 arial,'Microsoft YaHei';color:#333;outline:0;}
+body{background:#fff;min-width: 1024px;}
+a,a:hover{color:#333;}
+button{background:none;border:none;}
+input[type="text"]{border:solid 1px #ccc;}
+
+
+/* ==========================================================================
+   function
+ ============================================================================ */
+ /* 清除浮动 */
+.f-cb:after,.f-cbli li:after{display:block;clear:both;visibility:hidden;height:0;overflow:hidden;content:".";}
+/* li平均分布 */
+.f-ibj{width: 100%;display: -webkit-inline-box;-webkit-box-pack: justify;}
+/* inline-block */
+.f-ib li{display:inline-block;*display:inline;*zoom:1;}
+/* 浮动 */
+.f-fl{float:left;}
+.f-fr{float:right;}
+/* 显示/隐藏 */
+.f-dn{display:none;}
+.f-db{display:block;}
+/* relative */
+.f-pr{position:relative;}
+/* 溢出隐藏 */
+.f-oh{overflow:hidden;}
+/* font-size */
+.f-fs1{font-size:12px;}
+.f-fs2{font-size:14px;}
+/* font-weight */
+.f-fwn{font-weight:normal;}
+.f-fwb{font-weight:bold;}
+/* text-align */
+.f-tal{text-align:left;}
+.f-tac{text-align:center;}
+.f-tar{text-align:right;}
+/* justify */
+.f-taj{text-align:justify;text-justify:inter-ideograph;}
+/* 垂直居中 */
+.f-vam,.f-vama *{vertical-align:middle;}
+/* 字间距 */
+.f-ti2{text-indent:2em;}
+/* 行高 */
+.f-lhn{line-height:normal;}
+/* 下划线 */
+.f-tdu,.f-tdu:hover{text-decoration:underline;}
+.f-tdn,.f-tdn:hover{text-decoration:none;}
+/* 超出部分省略号 */
+.f-toe{overflow:hidden;word-wrap:normal;white-space:nowrap;text-overflow:ellipsis;}
+/* 鼠标样式 */
+.f-csp{cursor:pointer;}
+.f-csd{cursor:default;}
+.f-csh{cursor:help;}
+.f-csm{cursor:move;}
+/* 文本不能被选择 */
+.f-usn{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;-o-user-select:none;user-select:none;}
+
+
+/* ==========================================================================
+   function
+ ============================================================================ */
+ /* 总内容区域 */
+.g-box{width: 1024px;min-height: 200px;margin: 0 auto;}
+/* 模态框 */
+.m-modal{position: fixed;left: 0px;top: 0px;width: 100%;height: 100%;background: rgba(0, 0, 0, 0.8);z-index: 9999;}
+
+
+/* ==========================================================================
+   layout
+============================================================================ */
+.g-hd{
+  width: 100%;
+  height: 130px;
+  background: url(../../images/h_bg.jpg) top no-repeat;
+  overflow: hidden;
+}
+
+.g-bd{
+    width: 95.4%;
+    min-height: 100px;
+    margin: 12px auto 15px;
+    overflow: hidden;
+}
+
+
+/* ==========================================================================
+  module: tips
+============================================================================ */
+.m-tips{
+    position: absolute;
+    right: 33px;
+}
+
+.m-tips li{
+    height: 40px;
+    line-height: 48px;
+    overflow: initial;
+}
+
+/* 选择前4个 */
+.m-tips li:nth-child(-n+4){
+  position: relative;
+  margin-left: 32px;
+  cursor: pointer;
+  transition: 0.2s linear;
+}
+
+.m-tips li:nth-child(-n+4):hover span{
+  color: #f00;
+  transition: 0.3s linear;
+}
+
+.m-tips li:nth-child(-n+4) b{
+    width: 25px;
+    height: 18px;
+    left: -28px;
+    position: absolute;
+    top: 56%;
+    transform: translateY(-50%);
+}
+
+.m-tips li:nth-child(-n+4) a{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* 选择后2个 */
+.m-tips li:nth-last-child(-n+2){
+    margin-left: 10px;
+}
+
+.m-tips li:nth-last-child(-n+2) button{
+    background: url(../../images/icon.gif) 0px -28px;
+    width: 44px;
+    height: 23px;
+}
+
+.shopping_cart b, .help b, #collection b, #setAsHome b{
+  background: url(../../images/icon.gif) left top no-repeat;
+}
+
+.shopping_cart b{
+    background-position: -4px -5px;
+}
+
+.help b{
+    background-position: -45px -5px;
+}
+
+#collection b{
+    background-position: -88px -5px;
+}
+
+#setAsHome b{
+    background-position: -130px -5px;
+}
+
+
+/* ==========================================================================
+  module: time
+============================================================================ */
+.m-time{
+    position: absolute;
+    right: 160px;
+    top: 75px;
+}
+
+.m-time p{
+    letter-spacing: 2px;
+}
+
+.m-time span{
+    margin-left: 10px;
+}
+
+
+/* ==========================================================================
+  module: nav
+============================================================================ */
+.m-nav ul{
+    position: absolute;
+    bottom: 2px;
+    left: 24px;
+}
+
+.m-nav li{
+    width: 76px;
+    height: 23px;
+    text-align: center;
+    line-height: 25px;
+    margin: 0 2.2px;
+    cursor: pointer;
+}
+
+.m-nav li:hover{
+    background: url(../../images/nav_bg.gif) top no-repeat;
+}
+
+.m-nav a{
+    display: block;
+}
+
+
+/* ==========================================================================
+  module: search
+============================================================================ */
+.m-search ul{
+    position: absolute;
+    bottom: 3.8px;
+    right: 33px;
+}
+
+.m-search li{
+    height: 20px;
+}
+
+.m-search li:first-child{
+    width: 155px;
+}
+
+.m-search li:last-child{
+    width: 61px;
+    margin-left: 6px;
+}
+
+#searchInput, #searchBtn{
+    width: 100%;
+    height: 100%;
+}
+
+#searchBtn{
+    background: #f7e988;
+}
+
+#searchBtn:hover{
+    background: url(../../images/nav_bg.gif);
+    margin-top: -2px;
+    line-height: 
+}
+
+
+/* ==========================================================================
+   module:g-ft
+============================================================================ */
+.friendship_link{
+    border-bottom: solid 1px #9a9a9a;
+    padding-bottom: 5px;
+    margin-bottom: 8px;
+}
+
+/*选择大于length后面的元素*/
+.friendship_link li:nth-child(n+2){
+    border-right: solid 1px #000;
+    padding-right: 6px;
+    transition: 0.2s linear;
+}
+
+.friendship_link li:nth-child(n+2) a:hover{
+  color: #f00;
+  transition: 0.3s linear;
+}
+
+.friendship_link li:last-child{
+  border-right: 0;
+}
+
+.copy_right{
+  margin-bottom: 5px;
+}
+
+.copy_right li{
+  margin-right: 10px;
+}
+
+.contact_information{
+  margin-bottom: 5px;
+}
+
+.contact_information li{
+  margin-bottom: 5px;
+}
+
+.partner li{
+  cursor: pointer;
+}

@@ -1,0 +1,268 @@
+/* ==========================================================================
+   reset
+ ============================================================================ */
+body{font:12px arial;text-align:;background:#fff;color:#333}
+body,p,form,ul,li,dl{margin:0;padding:0;list-style:none}
+input{border:0;padding:0}
+a{color:#333}
+input,button{outline: none;border:none;}
+button{background: none;cursor:pointer;}
+
+/* ==========================================================================
+   function
+ ============================================================================ */
+.f-cb:after,.f-cbli li:after{display:block;clear:both;visibility:hidden;height:0;overflow:hidden;content:".";}
+
+/* ==========================================================================
+   layout
+ ============================================================================ */
+.g-ft{
+    text-align: center;
+    position: absolute;
+    bottom: 140px;
+    height: 60px;
+    width: 100%;
+}
+
+
+/* ==========================================================================
+   module: tip
+============================================================================ */
+.m-tip{
+    float: right;
+    margin-right: 12px;
+}
+
+.m-tip > li{
+    display: inline-block;
+    margin: 19px 0 0 10px;
+    position: relative;
+}
+
+.m-tip a{
+	display: block;
+	font-weight: bold;
+	text-decoration: underline;
+    padding: 3px 4px 4px;
+    font-size: 13px;
+}
+
+.m-tip a:hover{
+	color: #00c;
+}
+
+a[name="tj_login"], a[name="tj_settingicon"], a[name="tj_briicon"]{
+	font-weight: initial;
+}
+
+a[name="tj_briicon"]{
+	text-decoration: none;
+    background: #38f; 
+    color: #fff;
+}
+
+a[name="tj_briicon"]:hover{
+	color: #fff;
+}
+
+a[name="tj_settingicon"] + ul{
+    position: absolute;
+    background: #fff;
+    display: none; 
+    width: 70px;
+    top: 25px;
+    box-shadow: 1px 1px 5px #d1d1d1;
+    -webkit-box-shadow: 1px 1px 5px #d1d1d1;
+    -moz-box-shadow: 1px 1px 5px #d1d1d1;
+    -o-box-shadow: 1px 1px 5px #d1d1d1;
+    left: -13px;
+    z-index: 5;
+}
+
+a[name="tj_settingicon"] + ul li{
+    text-align: center;
+    height: 23px;
+    line-height: 23px;
+    overflow: hidden;
+}
+
+a[name="tj_settingicon"] + ul li a{
+    text-decoration: none;
+    font-size: 12px;
+    padding: 0 9px;
+    font-weight: initial;
+    overflow: hidden;
+}
+
+a[name="tj_settingicon"] + ul li a:hover{
+    display: block;
+    color: #fff;
+    background: #38f;
+}
+
+.tj_settingicon:hover ul{
+    display: block;
+}
+
+.tj_settingicon:hover i{
+    display: block;
+}
+
+.tj_settingicon i{
+    width: 6px;
+    height: 6px;
+    background: #fff;
+    position: absolute;
+    top: 22px;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    z-index: 3;
+    border: solid 1px #ededed;
+    display: none;
+}
+
+
+/* ==========================================================================
+   module: logo
+============================================================================ */
+.m-logo{
+	width: 270px;
+	height: 129px;
+	overflow: hidden;
+	margin: 58px auto 0;
+}
+
+.m-logo img{
+	width: 100%;
+	height: 100%;
+}
+
+
+/* ==========================================================================
+   module: sbx
+============================================================================ */
+.m-sbx{
+    margin: 22px auto 0;
+    width: 641px;
+    text-align: left;
+    z-index: 100;
+    min-height: 36px;
+}
+
+.m-sbx li, .search_box{
+	float: left;
+}
+
+.m-sbx li:first-child{
+    border: 1px solid #b6b6b6;
+    border-right: none;
+    width: 539px;
+    height: 34px;
+    overflow: hidden;
+}
+
+.m-sbx button{
+    width: 100px;
+    height: 36px;
+    overflow: hidden;
+    background: #3385ff;
+    font-size: 15px;
+    color: #fff;
+    border-bottom: 1px solid #2d78f4;
+}
+
+.m-sbx button:hover{
+	background:#317ef3;
+	border-bottom:1px solid #2868c8;
+	*border-bottom:0;
+	box-shadow:1px 1px 1px #ccc;
+}
+
+.soutu_btn{
+    float: right;
+    height: 16px;
+    width: 18px;
+    margin: 8px 11px 0 0;
+    cursor: pointer;
+    background: url(https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/cache/static/protocol/https/soutu/img/camera_new_5606e8f.png) left top no-repeat;
+}
+
+.soutu_btn:hover{
+	background-position: 0 -20px;
+}
+
+.search_box{
+	width: 500px;
+	height: 22px;
+	line-height: 22px;
+	font-size: 16px;
+    margin: 6px 0 0 7px;
+}
+
+.m-sbx li:first-child:hover{
+	border-color:#4791ff transparent #4791ff #4791ff
+}
+
+
+/* ==========================================================================
+   module: frdk
+============================================================================ */
+.ewm ul{
+    width: 60px;
+    margin: 0 auto;
+}
+
+.ewm li:first-child{
+    height: 60px;
+}
+
+.ewm li:last-child{
+    margin-left: -2px;
+    margin-top: 5px;
+}
+
+.ewm b{
+    color: #666;
+}
+
+
+/* ==========================================================================
+   module: cprt
+============================================================================ */
+.m-cprt{
+    margin-top: 25px;
+}
+
+.m-cprt li{
+    margin-bottom: 10px;
+}
+
+.m-cprt a, .m-cprt span{
+    color: #999;
+}
+
+.m-cprt dd{
+    display: inline-block;
+    position: relative;
+}
+
+.m-cprt li:last-child dd:last-child::after, .m-cprt li:last-child dd:first-child::after{
+    content: '';
+    width: 14px;
+    height: 17px;
+    overflow: hidden;
+    background: url(https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/cache/static/protocol/https/global/img/icons_5859e57.png) left top no-repeat;
+    
+    position: absolute;
+    right: -18px;
+    top: 0;
+}
+
+.m-cprt li:last-child dd:first-child::after{
+    background-position: -600px -96px;
+}
+
+.m-cprt li:last-child dd:last-child::after{
+    background-position: -623px -96px;
+}
+

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html >
+<head>
+<meta charset="utf-8">
+<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+<title>贵美商城-注册</title>
+<link rel="stylesheet" type="text/css" href="common/css/global.css"/>
+<link rel="stylesheet" type="text/css" href="css/register.css"/>
+</head>
+
+<body>
+<!-- g-box -->
+<div class="g-box">
+	<!-- m-hd -->
+	<div class="g-hd f-pr"></div>
+	<!-- /m-hd -->
+
+	<!-- g-bd m-rgt -->
+	<div class="g-bd m-rgt f-cb">
+		<!-- rgt_l -->
+		<div class="rgt_l" id="register">
+			<ul>
+				<li>
+					<dl>
+						<dd>名字：</dd>
+						<dd><input type="text" id="firstName"></dd>
+					</dl>
+				</li>
+				<li>
+					<dl>
+						<dd>姓氏：</dd>
+						<dd><input type="text" id="lastName"></dd>
+					</dl>
+				</li>
+				<li>
+					<dl>
+						<dd>登录名：</dd>
+						<dd><input type="text" id="users"></dd>
+						<dd>(可包含a-z、0-9和下划线)</dd>
+					</dl>
+				</li>
+				<li>
+					<dl>
+						<dd>密码：</dd>
+						<dd><input type="text" id="password"></dd>
+						<dd>(可至少包含6个字符)</dd>
+					</dl>
+				</li>
+				<li>
+					<dl>
+						<dd>再次输入密码：</dd>
+						<dd><input type="text" id="password2"></dd>
+					</dl>
+				</li>
+				<li>
+					<dl>
+						<dd>电子邮箱：</dd>
+						<dd><input type="text" id="eMail"></dd>
+						<dd>(必须包含@字符)</dd>
+					</dl>
+				</li>
+				<li>
+					<dl class="sex">
+						<dd>性别：</dd>
+						<dd>
+							<label for="man">
+								<input type="radio" name="sex" id="man" checked="checked">
+								<b>男</b>
+							</label>
+						</dd>
+						<dd>
+							<label for="woman">
+								<input type="radio" name="sex" id="woman">
+								<b>女</b>
+							</label>
+						</dd>
+					</dl>
+				</li>
+				<li>
+					<dl class="f-pr">
+						<dd>头像：</dd>
+						<dd>
+							<input type="file" id="file0">
+						</dd>
+						<dd class="headPortrait">
+							<img src="" id="img0" /> 
+						</dd>
+					</dl>
+				</li>
+				<li>
+					<dl class="hobby">
+						<dd>爱好：</dd>
+						<dd>
+							<label for="sport">
+								<input type="checkbox" id="sport">
+								<span>运动</span>
+							</label>
+						</dd>
+						<dd>
+							<label for="chart">
+								<input type="checkbox" id="chart">
+								<span>聊天</span>
+							</label>
+						</dd>
+						<dd>
+							<label for="play">
+								<input type="checkbox" id="play">
+								<span>玩游戏</span>
+							</label>
+						</dd>
+					</dl>
+				</li>
+				<li>
+					<dl>
+						<dd>出生日期：</dd>
+						<dd>
+							<select>
+								<option>1999</option>
+							</select>
+							<span>年</span>
+						</dd>
+						<dd>
+							<select>
+								<option>1</option>
+							</select>
+							<span>月</span>
+						</dd>
+						<dd>
+							<select>
+								<option>1</option>
+							</select>
+							<span>日</span>
+						</dd>
+					</dl>
+				</li>
+				<li>
+					<dl>
+						<dd>
+							<button id="submitBtn">
+								<img src="images/submit.gif">
+							</button>
+						</dd>
+						<dd>
+							<button id="resetBtn">
+								<img src="images/reset.gif">
+							</button>
+						</dd>
+					</dl>
+				</li>
+			</ul>
+		</div>
+		<!-- /rgt_l -->
+
+		<!-- rgt_r -->
+		<div class="rgt_r">
+			<dl>
+				<dt>阅读贵美网服务协议</dt>
+				<dd>
+					<p></p>
+				</dd>
+			</dl>
+		</div>
+		<!-- /rgt_r -->
+	</div>
+	<!-- /g-bd m-rgt -->
+
+	<!-- g-ft -->
+	<div class="g-ft"></div>
+	<!-- /g-ft -->
+</div>
+<!-- /g-box -->
+
+<!-- js s -->
+<script src="js/lib/jquery1.8.3.min.js"></script>
+<script src="common/js/global.js"></script>
+<script src="js/register.js"></script>
+<!-- js e -->
+</body>
+</html>

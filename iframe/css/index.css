@@ -1,0 +1,42 @@
+ul{
+	margin-left: 22px;
+	margin-top: 5px;
+}
+
+li{
+    display: inline-block;
+    margin: 5px;
+    padding: 5px;
+    border: solid 1px #ccc;
+    background: #fff;
+    transition: 0.2s linear;
+    min-width: 33px;
+    text-align: center;
+}
+
+li a{
+	display: block;
+}
+
+li:hover{
+	background: #efefef;
+	transition: 0.3s linear;
+}
+
+iframe{
+    border: solid 1px #ccc;
+    width: 95%;
+    min-height: 500px;
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+input{
+	border:none;
+	outline: none;background: none;
+	cursor: pointer;
+	display: block;
+    width: 100%;
+}

@@ -1,0 +1,342 @@
+/* ==========================================================================
+   layout
+============================================================================ */
+.g-wrap{
+    width: 524px;
+    min-height: 648px;
+    margin: -6px 8px 0;
+}
+
+.g-clf{
+    width: 236px;
+    min-height: 648px;
+    background: url(../images/bg.gif) left top no-repeat;
+    background-position: -745px 0;
+}
+
+
+/* ==========================================================================
+   module:snav
+============================================================================ */
+.m-snav{
+    width: 200px;
+    min-height: 649px;
+    background: url(../images/bg.gif) left top no-repeat;
+}
+
+.m-snav ul{
+    margin-top: 40px;
+}
+
+.m-snav ul > li{
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.m-snav ul > li:last-child{
+	margin-right: 0;
+}
+
+.m-snav dl{
+    width: 94%;
+    margin: 0 auto;
+}
+
+.m-snav dt{
+    height: 24px;
+    line-height: 24px;
+    margin-bottom: 5px;
+    color: #ff7300;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.m-snav a:hover{
+	color: #f00;
+    transition: 0.3s linear;
+}
+
+.m-snav ol li{
+    width: 60px;
+    margin-bottom: 8px;
+    transition: 0.2s linear;
+}
+
+.jydq dd, .sj dd, .sjsm dd, .rybh dd{
+	width: 100%;
+	overflow: hidden;
+}
+
+.jydq dd{
+    height: 116px;
+}
+
+.sj dd{
+    height: 112px;
+}
+
+.sjsm dd{
+    height: 112px;
+}
+
+.rybh dd{
+    height: 128px;
+}
+
+
+/* ==========================================================================
+   module: sld
+============================================================================ */
+.m-sld{
+    width: 100%;
+    height: 190px;
+    margin-bottom: 15px;
+}
+
+.m-sld .imgs a{
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.m-sld .dot{
+    position: absolute;
+    bottom: 5px;
+    left: 20%;
+}
+
+.m-sld .dot li{
+    width: 18px;
+    height: 20px;
+    background: #ccc;
+    text-align: center;
+    cursor: pointer;
+    line-height: 20px;
+    transition: 0.2s linear;
+}
+
+.m-sld .dot li.on{
+	background: #ff7300;
+	color: #fff;
+}
+
+.m-sld .dot li:hover{
+    background: #ff7300;
+    color: #fff;
+    transition: 0.3s linear;
+}
+
+/* ==========================================================================
+   module: pby
+============================================================================ */
+.m-pby{
+    width: 100%;
+    height: 450px;
+    background: url(../images/bg.gif) left top no-repeat;
+    background-position: -213px -202px;
+}
+
+.m-pby ul{
+    width: 95%;
+    margin: 39px auto 0;
+}
+
+.m-pby li{
+    width: 32.8%;
+    min-height: 30px;
+    overflow: hidden;
+    transition: 0.2s linear;
+}
+
+.m-pby li a{
+    display: block;
+}
+
+.m-pby .pic{
+    width: 99px;
+    height: 71px;
+    margin: 0 auto 10px;
+    border: solid 1px #ccc;
+}
+
+.m-pby .pic img{
+    width: 100%;
+    height: 100%;
+}
+
+.m-pby .txt{
+    text-align: center;
+    height: 40px;
+    overflow: hidden;
+
+}
+
+.m-pby .txt span{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.m-pby li:hover .txt span{
+    color: #f00;
+    transition: 0.3s linear;
+}
+
+
+/* ==========================================================================
+   module: new
+============================================================================ */
+.m-new{
+    margin-top: 188px;
+    width: 97%;
+    margin-left: 5px;
+    height: 233px;
+    overflow: hidden;
+}
+
+.m-new li{
+    margin-bottom: 12px;
+}
+
+.m-new dt, .m-new dd{
+    float: left;
+}
+
+.m-new ul{
+    width: 86%;
+    margin: 0 auto;
+}
+
+.m-new dt{
+    width: 53px;
+    height: 46px;
+    overflow: hidden;
+    border: solid 1px #ccc;
+}
+
+.m-new dt img{
+    width: 100%;
+    height: 100%;
+}
+
+.m-new dd{
+    height: 46px;
+    line-height: 46px;
+    margin-left: 10px;
+    width: 128px;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: 0.2s linear;
+}
+
+.m-new li:hover dt{
+    border-color: #f00;
+    transition: 0.3s linear;
+}
+
+.m-new li:hover dd{
+    color: #f00;
+    transition: 0.3s linear;
+}
+
+
+/* ==========================================================================
+   module: com_tab
+============================================================================ */
+.m-com_tab{
+    width: 97%;
+    min-height: 30px;
+    margin-left: 2px;
+    margin-top: 20px;
+}
+
+.tabtn{
+    
+}
+
+.tabtn li{
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    width: 83px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.tabtn li.active{
+    width: 87px;
+    border: solid 2px #dfa168;
+    border-bottom: 0;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.tabtn li:last-child{
+    margin-left: -5px;
+}
+
+.tabcot{
+    display: none;
+}
+
+.nt{
+    display: block;
+}
+
+/* ==========================================================================
+   module:ads
+============================================================================ */
+.ad{
+    position:absolute;
+    top: 0;
+}
+
+.m-ads b{
+    position: absolute;
+    top: 0;
+}
+
+.ad1{
+    left: 10px;
+}
+
+.ad1 b{
+    right: 0;
+}
+
+.ad2{
+	right: 10px;
+	cursor: pointer;
+}
+
+.ad2 b{
+    left: 0;
+}
+
+@media (max-width: 1240px){
+	.m-ads{
+		display: none;
+	}
+}
+
+/* ==========================================================================
+   module:video
+============================================================================ */
+.m-video{
+    width: 500px;
+    margin: 200px auto 0;
+}
+
+.m-video video{
+	width: 100%;
+}
+
+.m-video .f-csp{
+    position: absolute;
+    right: 0;
+    z-index: 100000;
+}
