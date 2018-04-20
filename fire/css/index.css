@@ -1,0 +1,673 @@
+body {
+  background: #000;
+  overflow: hidden;
+}
+
+:root {
+  --fireWidth: 115px;
+  --fireHeight: 200px;
+  --dotSize: 24px;
+  --fireColor: #b5932f;
+}
+
+.g-container {
+  position: relative;
+  width: 384px;
+  height: 300px;
+  margin: 0 auto;
+  background-color: #000;
+}
+
+.g-fire {
+  position: absolute;
+  width: 0;
+  height: 0;
+  bottom: 100px;
+  left: 50%;
+  border-radius: 45%;
+  box-sizing: border-box;
+  border: 200px solid #000;
+  border-bottom: 200px solid transparent;
+  -webkit-transform: translate(-50%, 0) scaleX(0.4);
+          transform: translate(-50%, 0) scaleX(0.4);
+  background-color: var(--fireColor);
+  -webkit-filter: blur(20px) contrast(30);
+          filter: blur(20px) contrast(30);
+}
+
+.g-dot {
+  position: absolute;
+  bottom: -210px;
+  left: 0;
+  width: var(--dotSize);
+  height: var(--dotSize);
+  background: #000;
+  border-radius: 50%;
+}
+
+.g-dot:nth-child(1) {
+  bottom: -359px;
+  left: 57px;
+  -webkit-animation: move 1.9s infinite 0.3s linear;
+          animation: move 1.9s infinite 0.3s linear;
+}
+
+.g-dot:nth-child(2) {
+  bottom: -320px;
+  left: -11px;
+  -webkit-animation: move 1.5s infinite 3s linear;
+          animation: move 1.5s infinite 3s linear;
+}
+
+.g-dot:nth-child(3) {
+  bottom: -293px;
+  left: 25px;
+  -webkit-animation: move 1.5s infinite 5.9s linear;
+          animation: move 1.5s infinite 5.9s linear;
+}
+
+.g-dot:nth-child(4) {
+  bottom: -346px;
+  left: 49px;
+  -webkit-animation: move 2.1s infinite 1.6s linear;
+          animation: move 2.1s infinite 1.6s linear;
+}
+
+.g-dot:nth-child(5) {
+  bottom: -320px;
+  left: 83px;
+  -webkit-animation: move 0.9s infinite 3.3s linear;
+          animation: move 0.9s infinite 3.3s linear;
+}
+
+.g-dot:nth-child(6) {
+  bottom: -307px;
+  left: 124px;
+  -webkit-animation: move 2s infinite 2.2s linear;
+          animation: move 2s infinite 2.2s linear;
+}
+
+.g-dot:nth-child(7) {
+  bottom: -284px;
+  left: -131px;
+  -webkit-animation: move 1.8s infinite 4.9s linear;
+          animation: move 1.8s infinite 4.9s linear;
+}
+
+.g-dot:nth-child(8) {
+  bottom: -270px;
+  left: -79px;
+  -webkit-animation: move 3.2s infinite 1.1s linear;
+          animation: move 3.2s infinite 1.1s linear;
+}
+
+.g-dot:nth-child(9) {
+  bottom: -339px;
+  left: -19px;
+  -webkit-animation: move 2.4s infinite 5.5s linear;
+          animation: move 2.4s infinite 5.5s linear;
+}
+
+.g-dot:nth-child(10) {
+  bottom: -355px;
+  left: -112px;
+  -webkit-animation: move 1.5s infinite 5s linear;
+          animation: move 1.5s infinite 5s linear;
+}
+
+.g-dot:nth-child(11) {
+  bottom: -303px;
+  left: 107px;
+  -webkit-animation: move 0.9s infinite 4.1s linear;
+          animation: move 0.9s infinite 4.1s linear;
+}
+
+.g-dot:nth-child(12) {
+  bottom: -332px;
+  left: 64px;
+  -webkit-animation: move 2.9s infinite 3.6s linear;
+          animation: move 2.9s infinite 3.6s linear;
+}
+
+.g-dot:nth-child(13) {
+  bottom: -342px;
+  left: -125px;
+  -webkit-animation: move 2.6s infinite 2.3s linear;
+          animation: move 2.6s infinite 2.3s linear;
+}
+
+.g-dot:nth-child(14) {
+  bottom: -296px;
+  left: 4px;
+  -webkit-animation: move 3s infinite 2.3s linear;
+          animation: move 3s infinite 2.3s linear;
+}
+
+.g-dot:nth-child(15) {
+  bottom: -332px;
+  left: -53px;
+  -webkit-animation: move 1.1s infinite 4.2s linear;
+          animation: move 1.1s infinite 4.2s linear;
+}
+
+.g-dot:nth-child(16) {
+  bottom: -323px;
+  left: -31px;
+  -webkit-animation: move 3.3s infinite 4.3s linear;
+          animation: move 3.3s infinite 4.3s linear;
+}
+
+.g-dot:nth-child(17) {
+  bottom: -359px;
+  left: 52px;
+  -webkit-animation: move 1.9s infinite 1.2s linear;
+          animation: move 1.9s infinite 1.2s linear;
+}
+
+.g-dot:nth-child(18) {
+  bottom: -338px;
+  left: -95px;
+  -webkit-animation: move 1.1s infinite 0.7s linear;
+          animation: move 1.1s infinite 0.7s linear;
+}
+
+.g-dot:nth-child(19) {
+  bottom: -325px;
+  left: -101px;
+  -webkit-animation: move 2s infinite 4.6s linear;
+          animation: move 2s infinite 4.6s linear;
+}
+
+.g-dot:nth-child(20) {
+  bottom: -311px;
+  left: 92px;
+  -webkit-animation: move 1.5s infinite 4.2s linear;
+          animation: move 1.5s infinite 4.2s linear;
+}
+
+.g-dot:nth-child(21) {
+  bottom: -303px;
+  left: -28px;
+  -webkit-animation: move 2.2s infinite 1.6s linear;
+          animation: move 2.2s infinite 1.6s linear;
+}
+
+.g-dot:nth-child(22) {
+  bottom: -299px;
+  left: 74px;
+  -webkit-animation: move 2.1s infinite 4.6s linear;
+          animation: move 2.1s infinite 4.6s linear;
+}
+
+.g-dot:nth-child(23) {
+  bottom: -302px;
+  left: 56px;
+  -webkit-animation: move 1.7s infinite 4s linear;
+          animation: move 1.7s infinite 4s linear;
+}
+
+.g-dot:nth-child(24) {
+  bottom: -348px;
+  left: -119px;
+  -webkit-animation: move 2.3s infinite 5.8s linear;
+          animation: move 2.3s infinite 5.8s linear;
+}
+
+.g-dot:nth-child(25) {
+  bottom: -342px;
+  left: 90px;
+  -webkit-animation: move 1.2s infinite 5.9s linear;
+          animation: move 1.2s infinite 5.9s linear;
+}
+
+.g-dot:nth-child(26) {
+  bottom: -324px;
+  left: -134px;
+  -webkit-animation: move 2.6s infinite 5.3s linear;
+          animation: move 2.6s infinite 5.3s linear;
+}
+
+.g-dot:nth-child(27) {
+  bottom: -261px;
+  left: 98px;
+  -webkit-animation: move 3.1s infinite 4.5s linear;
+          animation: move 3.1s infinite 4.5s linear;
+}
+
+.g-dot:nth-child(28) {
+  bottom: -284px;
+  left: 40px;
+  -webkit-animation: move 1.6s infinite 3.8s linear;
+          animation: move 1.6s infinite 3.8s linear;
+}
+
+.g-dot:nth-child(29) {
+  bottom: -241px;
+  left: 82px;
+  -webkit-animation: move 2.4s infinite 5.5s linear;
+          animation: move 2.4s infinite 5.5s linear;
+}
+
+.g-dot:nth-child(30) {
+  bottom: -311px;
+  left: -41px;
+  -webkit-animation: move 2.8s infinite 5.9s linear;
+          animation: move 2.8s infinite 5.9s linear;
+}
+
+.g-dot:nth-child(31) {
+  bottom: -342px;
+  left: -72px;
+  -webkit-animation: move 2.7s infinite 4.7s linear;
+          animation: move 2.7s infinite 4.7s linear;
+}
+
+.g-dot:nth-child(32) {
+  bottom: -313px;
+  left: 77px;
+  -webkit-animation: move 1.4s infinite 5.2s linear;
+          animation: move 1.4s infinite 5.2s linear;
+}
+
+.g-dot:nth-child(33) {
+  bottom: -295px;
+  left: -26px;
+  -webkit-animation: move 1.9s infinite 2.2s linear;
+          animation: move 1.9s infinite 2.2s linear;
+}
+
+.g-dot:nth-child(34) {
+  bottom: -323px;
+  left: -44px;
+  -webkit-animation: move 0.8s infinite 4s linear;
+          animation: move 0.8s infinite 4s linear;
+}
+
+.g-dot:nth-child(35) {
+  bottom: -354px;
+  left: -157px;
+  -webkit-animation: move 2.5s infinite 2.4s linear;
+          animation: move 2.5s infinite 2.4s linear;
+}
+
+.g-dot:nth-child(36) {
+  bottom: -245px;
+  left: -89px;
+  -webkit-animation: move 3.3s infinite 4.1s linear;
+          animation: move 3.3s infinite 4.1s linear;
+}
+
+.g-dot:nth-child(37) {
+  bottom: -334px;
+  left: 126px;
+  -webkit-animation: move 3.3s infinite 1.5s linear;
+          animation: move 3.3s infinite 1.5s linear;
+}
+
+.g-dot:nth-child(38) {
+  bottom: -312px;
+  left: -71px;
+  -webkit-animation: move 1.6s infinite 1.6s linear;
+          animation: move 1.6s infinite 1.6s linear;
+}
+
+.g-dot:nth-child(39) {
+  bottom: -247px;
+  left: -25px;
+  -webkit-animation: move 2.7s infinite 1.3s linear;
+          animation: move 2.7s infinite 1.3s linear;
+}
+
+.g-dot:nth-child(40) {
+  bottom: -360px;
+  left: -93px;
+  -webkit-animation: move 0.8s infinite 5.6s linear;
+          animation: move 0.8s infinite 5.6s linear;
+}
+
+body {
+  background: #000;
+  overflow: hidden;
+}
+
+:root {
+  --fireWidth: 115px;
+  --fireHeight: 200px;
+  --dotSize: 24px;
+  --fireColor: #b5932f;
+}
+
+.g-container {
+  position: relative;
+  width: 384px;
+  height: 300px;
+  margin: 0 auto;
+  background-color: #000;
+}
+
+.g-fire {
+  position: absolute;
+  width: 0;
+  height: 0;
+  bottom: 100px;
+  left: 50%;
+  border-radius: 45%;
+  box-sizing: border-box;
+  border: 200px solid #000;
+  border-bottom: 200px solid transparent;
+  -webkit-transform: translate(-50%, 0) scaleX(0.4);
+          transform: translate(-50%, 0) scaleX(0.4);
+  background-color: var(--fireColor);
+  -webkit-filter: blur(20px) contrast(30);
+          filter: blur(20px) contrast(30);
+}
+
+.g-dot {
+  position: absolute;
+  bottom: -210px;
+  left: 0;
+  width: var(--dotSize);
+  height: var(--dotSize);
+  background: #000;
+  border-radius: 50%;
+}
+
+.g-dot:nth-child(1) {
+  bottom: -318px;
+  left: -33px;
+  -webkit-animation: move 2s infinite 1.8s linear;
+          animation: move 2s infinite 1.8s linear;
+}
+
+.g-dot:nth-child(2) {
+  bottom: -315px;
+  left: -103px;
+  -webkit-animation: move 3.1s infinite 3.5s linear;
+          animation: move 3.1s infinite 3.5s linear;
+}
+
+.g-dot:nth-child(3) {
+  bottom: -290px;
+  left: 109px;
+  -webkit-animation: move 2.6s infinite 2.5s linear;
+          animation: move 2.6s infinite 2.5s linear;
+}
+
+.g-dot:nth-child(4) {
+  bottom: -340px;
+  left: -83px;
+  -webkit-animation: move 2.6s infinite 2s linear;
+          animation: move 2.6s infinite 2s linear;
+}
+
+.g-dot:nth-child(5) {
+  bottom: -251px;
+  left: -126px;
+  -webkit-animation: move 1.6s infinite 5.4s linear;
+          animation: move 1.6s infinite 5.4s linear;
+}
+
+.g-dot:nth-child(6) {
+  bottom: -352px;
+  left: -66px;
+  -webkit-animation: move 2.1s infinite 1.4s linear;
+          animation: move 2.1s infinite 1.4s linear;
+}
+
+.g-dot:nth-child(7) {
+  bottom: -334px;
+  left: 35px;
+  -webkit-animation: move 2.2s infinite 4.1s linear;
+          animation: move 2.2s infinite 4.1s linear;
+}
+
+.g-dot:nth-child(8) {
+  bottom: -258px;
+  left: 79px;
+  -webkit-animation: move 2s infinite 5.1s linear;
+          animation: move 2s infinite 5.1s linear;
+}
+
+.g-dot:nth-child(9) {
+  bottom: -285px;
+  left: -23px;
+  -webkit-animation: move 0.8s infinite 5.4s linear;
+          animation: move 0.8s infinite 5.4s linear;
+}
+
+.g-dot:nth-child(10) {
+  bottom: -326px;
+  left: 136px;
+  -webkit-animation: move 2.8s infinite 5.5s linear;
+          animation: move 2.8s infinite 5.5s linear;
+}
+
+.g-dot:nth-child(11) {
+  bottom: -259px;
+  left: -28px;
+  -webkit-animation: move 2.8s infinite 4.8s linear;
+          animation: move 2.8s infinite 4.8s linear;
+}
+
+.g-dot:nth-child(12) {
+  bottom: -270px;
+  left: -106px;
+  -webkit-animation: move 0.9s infinite 5.9s linear;
+          animation: move 0.9s infinite 5.9s linear;
+}
+
+.g-dot:nth-child(13) {
+  bottom: -310px;
+  left: 17px;
+  -webkit-animation: move 1s infinite 4.5s linear;
+          animation: move 1s infinite 4.5s linear;
+}
+
+.g-dot:nth-child(14) {
+  bottom: -335px;
+  left: -8px;
+  -webkit-animation: move 2.3s infinite 4.3s linear;
+          animation: move 2.3s infinite 4.3s linear;
+}
+
+.g-dot:nth-child(15) {
+  bottom: -335px;
+  left: -18px;
+  -webkit-animation: move 2.3s infinite 2.2s linear;
+          animation: move 2.3s infinite 2.2s linear;
+}
+
+.g-dot:nth-child(16) {
+  bottom: -256px;
+  left: 140px;
+  -webkit-animation: move 3.3s infinite 5s linear;
+          animation: move 3.3s infinite 5s linear;
+}
+
+.g-dot:nth-child(17) {
+  bottom: -320px;
+  left: 94px;
+  -webkit-animation: move 2s infinite 1.2s linear;
+          animation: move 2s infinite 1.2s linear;
+}
+
+.g-dot:nth-child(18) {
+  bottom: -356px;
+  left: -124px;
+  -webkit-animation: move 2.9s infinite 1.5s linear;
+          animation: move 2.9s infinite 1.5s linear;
+}
+
+.g-dot:nth-child(19) {
+  bottom: -301px;
+  left: 119px;
+  -webkit-animation: move 2.6s infinite 6s linear;
+          animation: move 2.6s infinite 6s linear;
+}
+
+.g-dot:nth-child(20) {
+  bottom: -309px;
+  left: 82px;
+  -webkit-animation: move 1.3s infinite 0.2s linear;
+          animation: move 1.3s infinite 0.2s linear;
+}
+
+.g-dot:nth-child(21) {
+  bottom: -275px;
+  left: -55px;
+  -webkit-animation: move 2.9s infinite 0.3s linear;
+          animation: move 2.9s infinite 0.3s linear;
+}
+
+.g-dot:nth-child(22) {
+  bottom: -263px;
+  left: 121px;
+  -webkit-animation: move 3.2s infinite 1.5s linear;
+          animation: move 3.2s infinite 1.5s linear;
+}
+
+.g-dot:nth-child(23) {
+  bottom: -353px;
+  left: -50px;
+  -webkit-animation: move 0.8s infinite 4.5s linear;
+          animation: move 0.8s infinite 4.5s linear;
+}
+
+.g-dot:nth-child(24) {
+  bottom: -243px;
+  left: 9px;
+  -webkit-animation: move 2.8s infinite 3.9s linear;
+          animation: move 2.8s infinite 3.9s linear;
+}
+
+.g-dot:nth-child(25) {
+  bottom: -247px;
+  left: 45px;
+  -webkit-animation: move 1.2s infinite 3.5s linear;
+          animation: move 1.2s infinite 3.5s linear;
+}
+
+.g-dot:nth-child(26) {
+  bottom: -241px;
+  left: 127px;
+  -webkit-animation: move 1.4s infinite 3.1s linear;
+          animation: move 1.4s infinite 3.1s linear;
+}
+
+.g-dot:nth-child(27) {
+  bottom: -244px;
+  left: -29px;
+  -webkit-animation: move 2.5s infinite 1.8s linear;
+          animation: move 2.5s infinite 1.8s linear;
+}
+
+.g-dot:nth-child(28) {
+  bottom: -313px;
+  left: -76px;
+  -webkit-animation: move 3.2s infinite 4.8s linear;
+          animation: move 3.2s infinite 4.8s linear;
+}
+
+.g-dot:nth-child(29) {
+  bottom: -334px;
+  left: 123px;
+  -webkit-animation: move 2.7s infinite 5.6s linear;
+          animation: move 2.7s infinite 5.6s linear;
+}
+
+.g-dot:nth-child(30) {
+  bottom: -276px;
+  left: 91px;
+  -webkit-animation: move 1.4s infinite 0.2s linear;
+          animation: move 1.4s infinite 0.2s linear;
+}
+
+.g-dot:nth-child(31) {
+  bottom: -276px;
+  left: -63px;
+  -webkit-animation: move 2.7s infinite 1s linear;
+          animation: move 2.7s infinite 1s linear;
+}
+
+.g-dot:nth-child(32) {
+  bottom: -284px;
+  left: 17px;
+  -webkit-animation: move 1.7s infinite 0.7s linear;
+          animation: move 1.7s infinite 0.7s linear;
+}
+
+.g-dot:nth-child(33) {
+  bottom: -305px;
+  left: -76px;
+  -webkit-animation: move 1.6s infinite 2.5s linear;
+          animation: move 1.6s infinite 2.5s linear;
+}
+
+.g-dot:nth-child(34) {
+  bottom: -356px;
+  left: -106px;
+  -webkit-animation: move 1.5s infinite 5s linear;
+          animation: move 1.5s infinite 5s linear;
+}
+
+.g-dot:nth-child(35) {
+  bottom: -288px;
+  left: -147px;
+  -webkit-animation: move 2.3s infinite 5.9s linear;
+          animation: move 2.3s infinite 5.9s linear;
+}
+
+.g-dot:nth-child(36) {
+  bottom: -328px;
+  left: 100px;
+  -webkit-animation: move 3.3s infinite 2s linear;
+          animation: move 3.3s infinite 2s linear;
+}
+
+.g-dot:nth-child(37) {
+  bottom: -325px;
+  left: -141px;
+  -webkit-animation: move 1.5s infinite 3.7s linear;
+          animation: move 1.5s infinite 3.7s linear;
+}
+
+.g-dot:nth-child(38) {
+  bottom: -352px;
+  left: 5px;
+  -webkit-animation: move 2.3s infinite 2.8s linear;
+          animation: move 2.3s infinite 2.8s linear;
+}
+
+.g-dot:nth-child(39) {
+  bottom: -316px;
+  left: -85px;
+  -webkit-animation: move 1.4s infinite 3.1s linear;
+          animation: move 1.4s infinite 3.1s linear;
+}
+
+.g-dot:nth-child(40) {
+  bottom: -348px;
+  left: -65px;
+  -webkit-animation: move 2.2s infinite 1.4s linear;
+          animation: move 2.2s infinite 1.4s linear;
+}
+
+@-webkit-keyframes move {
+  100% {
+    -webkit-transform: translate3d(0, -350px, 0);
+            transform: translate3d(0, -350px, 0);
+  }
+}
+
+@keyframes move {
+  100% {
+    -webkit-transform: translate3d(0, -350px, 0);
+            transform: translate3d(0, -350px, 0);
+  }
+}
+@keyframes move {
+  100% {
+    -webkit-transform: translate3d(0, -350px, 0);
+            transform: translate3d(0, -350px, 0);
+  }
+}
