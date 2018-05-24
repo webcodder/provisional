@@ -1,0 +1,38 @@
+.taball{
+    width: 60%;
+    min-height: 60px;
+    margin:100px auto 0;
+}
+
+.tablist ul{
+    display: flex;
+}
+
+.tablist li{
+    flex: 1;
+    background: #000;
+    color: #fff;
+    font-size: 14px;
+    padding: 3px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.tablist li:not(:last-child){
+    border-right: solid 1px #efefef;
+}
+
+.tabcontent{
+    background: #fff;
+    width: 100%;
+    min-height: 100px;
+}
+
+.tabcontent article{
+    padding: 5px;
+    font-size: 15px;
+}
+
+.tabcontent section{
+    display: none;
+}
