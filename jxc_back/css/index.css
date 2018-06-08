@@ -1,0 +1,385 @@
+/**
+	1.位置属性(position, top, right, z-index, display, float等)
+	2.大小(width, height, padding, margin)
+	3.文字系列(font, line-height, letter-spacing, color- text-align等)
+	4.背景(background, border等)
+	5.其他(animation, transition等)
+ */
+
+
+/* ==========================================================================
+   layout: g-bsd_tp
+============================================================================ */
+.g-bsd_tp{
+	position: relative;
+	width: 100%;
+	min-height: 1.66rem;
+	background: #fff;
+}
+
+/* ==========================================================================
+   layout: g-bsd_nav
+============================================================================ */
+.g-bsd_nav{
+	width: 100%;
+	height: 0.88rem;
+    background: #fff;
+}
+
+/* ==========================================================================
+   module: pon_info
+============================================================================ */
+.pnfo_flow{
+	display: flex;
+	align-items: center;
+	position: absolute;
+    left: 0.1rem;
+    top: 0.1rem;
+}
+
+.pnfo_flow span{
+	width: 1rem;
+}
+
+.pfow_pic{
+    width: 0.34rem;
+    height: 0.34rem;
+    margin-right: 0.1rem;
+    overflow: hidden;
+}
+
+.pnfo_wrap{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+    width: 6rem;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0.1rem;
+    overflow: hidden;
+}
+
+.pnfo_prtifo{
+	display: flex;
+	align-items: center;
+	width: 55%;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+.edit_name_active{
+	position: relative;
+    width: 65%;
+}
+
+.edit_name_active .edit{
+    position: absolute;
+    bottom: 0;
+    left: 1.36rem;
+}
+
+.edit_name_active input[type="text"]{
+	position: absolute;
+    top: 0.3rem;
+    width: 2.1rem;
+}
+
+.pnfo_pic{
+	position: relative;
+	width: 1.2rem;
+    height: 1.2rem;
+    border: solid 1px #d0d0d0;
+    border-radius: 0.8rem;
+    overflow: hidden;
+}
+
+.pnfo_pic input[type="file"]{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+}
+
+.pnfo_nickname{
+	margin-left: 0.1rem;
+	width: 1.5rem;
+}
+
+.pnfo_nickname b{
+	display: block;
+}
+
+.edit_name_active{
+	margin-top: 0.1rem;
+}
+
+.pnfo_brfino{
+	position: relative;
+	min-width: 1rem;
+	margin-top: 0.05rem;
+	text-align: center;
+}
+
+.pnfo_brfino span, .pnfo_brfino b{
+	display: inline-block;
+}
+
+.pnfo_brfino b{
+	margin-left: 0.1rem;
+}
+
+.pnfo_brfino span{
+	max-width: 72%;
+}
+
+.pnfo_brfino input[type="text"]{
+    width: 66%;
+}
+
+.pnfo_brfino .edit{
+    position: absolute;
+    right: -0.1rem;
+    top: 0;
+}
+
+.edit_brfino_active{
+	margin-top: 0.15rem;
+}
+
+/* ==========================================================================
+   module: pon_address
+============================================================================ */
+.m-pon_address{
+	width: 100%;
+    height: 0.6rem;
+    line-height: 0.6rem;
+    overflow: hidden;
+}
+
+.pnadr_wrap {
+	position: relative;
+	height: 100%;
+}
+
+.pnadr_wrap > ul{
+	height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.adrdt{
+	width: 100%;
+}
+
+.adrdt input[type="text"]{
+    width: 85%;
+}
+
+.edtdr dl.edit{
+    position: absolute;
+    right: 0;
+    top: 50%;
+    height: 0.4rem;
+    overflow: hidden;
+    transform: translateY(-50%);
+}
+
+.edit_address_active{
+	margin-top: 0.15rem;
+}
+
+.addressModal{
+	top: 2.5rem;
+}
+
+/**
+ * m-select_address
+ */
+.m-select_address{
+    position: fixed;
+    z-index: 10000;
+    top: 2.5rem;
+    left: 0;
+    width: 100%;
+    height: 40%;
+    background: #fff;
+    overflow: auto;
+}
+
+.m-select_address ul{
+	width: 100%;
+	overflow: hidden;
+}
+
+.m-select_address li{
+	width: 100%;
+    height: 0.66rem;
+    line-height: 0.66rem;
+    border-bottom: solid 1px #efefef;
+    transition: 0.35s linear;
+}
+
+.m-select_address dl{
+	padding: 0 0.2rem;
+	transition: 0.2s linear;
+}
+
+.m-select_address dd{
+	color: #8c8c8c;
+	font-size: 0.26rem;
+}
+
+.m-select_address li.active{
+	background: #cdcdcd;
+}
+
+.m-select_address li.active dl{
+	padding-left: 0.35rem;
+}
+
+/* ==========================================================================
+   module: bsdnav
+============================================================================ */
+
+
+/* ==========================================================================
+   @media
+============================================================================ */
+@media screen and (min-width: 1025px){
+	/* ==========================================
+	   module: pon_info
+	========================================== */
+	.g-bsd_tp{
+		min-height: 150px;
+	}
+
+	.pnfo_wrap{
+		padding: 12px;
+	}
+
+	.pnfo_flow{
+	    left: 6px;
+	    top: 6px;
+	}
+
+	.pnfo_flow span{
+		width: 45px;
+	}
+
+	.pfow_pic{
+	    width: 20px;
+	    height: 20px;
+	    margin-right: 5px;
+	}
+
+	.pnfo_pic{
+		width: 85px;
+    	height: 85px;
+	}
+
+	.pnfo_nickname{
+		margin-left: 6px;
+	}
+
+	.pnfo_nickname {
+	    width: 118px;
+	}
+
+	.pnfo_prtifo{
+		width: 230px;
+	}
+
+	.edit_name_active{
+		width: 370px;
+	}
+
+	.edit_name_active input[type="text"]{
+		width: 250px;
+		top: 20px;
+	}
+
+	.edit_name_active .edit{
+		left: 93px;
+	} 
+
+	.pnfo_brfino .edit{
+		right: 72px;
+	}
+
+	.edit_name_active{
+		margin-top: 9px;
+	}
+
+	.edit_brfino_active {
+	    margin-top: 9px;
+	}
+
+	.pnfo_brfino b{
+		margin-left: 3px;
+	}
+
+	/* ==========================================
+			module: pon_address
+	========================================== */
+	.m-pon_address{
+		height: 42px;
+		line-height: 42px;
+	}
+
+	.edtdr dl.edit{
+		height: 25px;
+	}
+
+	.edit_address_active{
+		margin-top: 9px;
+	}
+
+	.addressModal{
+		top: 193px;
+	}
+
+	/**
+	 * m-select_address
+	 */
+	.m-select_address{
+		top: 193px;
+		height: 500px;
+	}
+
+	.m-select_address li{
+		height: 36px;
+		line-height: 36px;
+	}
+
+	.m-select_address dl{
+		padding-left: 25px;
+	}
+
+	.m-select_address dd{
+		font-size: 16px;
+	}
+
+	.m-select_address li:hover{
+		transition: 0.4s linear;
+		background: #cdcdcd;
+	}
+
+	.m-select_address li:hover dl, .m-select_address li.active dl{
+		transition: 0.3s linear;
+		padding-left: 35px;
+	}
+
+	.m-select_address li:hover dd, .m-select_address li.active dd{
+		transition: 1s linear;
+		color: #4a4949;
+	}
+
+	/* ==========================================
+			module: pon_info
+	========================================== */
+	.g-bsd_nav{
+	    height: 65px;
+	}
+}
