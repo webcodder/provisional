@@ -91,6 +91,14 @@ img{width: 100%; height: 100%}
 .l-icsiz{width:0.39rem;height:0.39rem;overflow: hidden;}
 /* 待编辑文本框 */
 .l-waitedit input[type="text"]{display: none;height: 0.35rem;padding: 0 0.1rem;}
+/* 盒子1 */
+.l-box1{width: 100%;min-height: 1rem;background: #fff;}
+/* 盒子1标题 */
+.l-box1_title{overflow: hidden;border: solid 1px #efefef;}
+.l-box1_title h3{height: 0.88rem;line-height: 0.88rem;text-align: center;font-weight: initial;}
+/* 盒子1内容 */
+.l-box1_wrap{min-height: 3rem;border-top: solid 1px transparent;}
+.l-box1_cot{margin: 0.2rem;}
 
 
 /* ==========================================================================
@@ -116,4 +124,7 @@ img{width: 100%; height: 100%}
 	.l-mgab1{margin-bottom: 20px}
 	.l-icsiz{width:25px;height:25px;}
 	.l-waitedit input[type="text"]{padding: 3px;height: 22px;}
+	.l-box1_title h3{height: 35px;line-height: 35px;}
+	.l-box1_wrap{min-height: 150px;}
+	.l-box1_cot{margin: 15px;}
 }
