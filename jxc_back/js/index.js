@@ -32,7 +32,7 @@ var util = {
 
             effect_class.addClass(active_class);  //给当前编辑区域布局添加样式
 
-            info_input.focus();
+            info_input.focus();  //给输入框聚焦，移动端自动弹出键盘
         });
 
         //确定修改
@@ -133,11 +133,14 @@ var mrifoTab = function(){
     function mirAutoHeight(i, mribtn, tabitm, slide, swipwap, swipcot){
         mribtn.removeClass('active').eq(i).addClass('active');
 
-        var content_height = tabitm.eq(i).height();
-        // var slide_height = slide.eq(i).height(content_height);
-        
-        swipwap.css("height", content_height);  //swiper-wrapper高度
-        swipcot.css("height", content_height);  //swiper-container高度
+        var tabitm = tabitm.eq(i);
+        var tabitmMarpadHeight = tabitm.css('marginTop') + tabitm.css('marginBottom') + tabitm.css('paddingTop') + tabitm.css('paddingBottom'),
+            tabitmHeight = tabitm.height();
+
+        var tabitmContentHeight = tabitmMarpadHeight + tabitmHeight;  //tabitm高度
+
+        swipwap.css("height", tabitmContentHeight);  //swiper-wrapper高度
+        swipcot.css("height", tabitmContentHeight);  //swiper-container高度
     }
 
     // 滑动
