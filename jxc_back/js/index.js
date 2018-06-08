@@ -117,9 +117,46 @@ var fixAddress = function(){
     util.fixInfo($('#editAddress'), $('#addressDetail span'), $('#address'), $('.pnadr_wrap .edit'), $('#comfirmAddress'), $('#closeFixAddress'), $('.adrdt input[type="text"]'), 'edit_address_active');
 }
 
+//选项卡
+var mrifoTab = function(){
+    /**
+     * swiper高度自适应
+     * [mirAutoHeight swiper高度自适应]
+     * @param  {[type]} i       [索引]
+     * @param  {[type]} mribtn  [选项卡按钮]
+     * @param  {[type]} tabitm  [内容主体部分]
+     * @param  {[type]} slide   [内容主体外部盒子]
+     * @param  {[type]} swipwap [swiper盒子]
+     * @param  {[type]} swipcot [swiper主体部分]
+     * @return {[type]}         [description]
+     */
+    function mirAutoHeight(i, mribtn, tabitm, slide, swipwap, swipcot){
+        mribtn.removeClass('active').eq(i).addClass('active');
+
+        var content_height = tabitm.eq(i).height();
+        // var slide_height = slide.eq(i).height(content_height);
+        
+        swipwap.css("height", content_height);  //swiper-wrapper高度
+        swipcot.css("height", content_height);  //swiper-container高度
+    }
+
+    // 滑动
+    var mrifoTabSwiper = new Swiper('.mrifo_wrap', {
+        onSlideChangeEnd: function (swiper) {
+            mirAutoHeight(mrifoTabSwiper.activeIndex, $('#mrifoTab li'), $(".moftab_itm"), $(".mrifo_cot .swiper-slide"), $(".mrifo_cot"), $(".mrifo_wrap"));
+        }
+    })
+    // 列表切换
+    $('#mrifoTab li').on('click', function (e) {
+        mirAutoHeight($(this).index(), $('#mrifoTab li'), $(".moftab_itm"), $(".mrifo_cot .swiper-slide"), $(".mrifo_cot"), $(".mrifo_wrap"));
+        mrifoTabSwiper.slideTo($(this).index(), 200, false);
+    });
+}
+
 $(function(){
     upLoad();  //图片上传
     fixName();  //编辑昵称
     fixBrfino();  //编辑简介
     fixAddress();  //编辑地址
+    mrifoTab();  //选项卡
 })

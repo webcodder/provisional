@@ -22,7 +22,16 @@
 ============================================================================ */
 .g-bsd_nav{
 	width: 100%;
-	height: 0.88rem;
+	min-height: 0.88rem;
+    background: #fff;
+}
+
+/* ==========================================================================
+   layout: g-grcxt
+============================================================================ */
+.g-grcxt{
+	width: 100%;
+    min-height: 1rem;
     background: #fff;
 }
 
@@ -242,7 +251,70 @@
 /* ==========================================================================
    module: bsdnav
 ============================================================================ */
+.m-bsdnav{
+	height: 0.88rem;
+	overflow: hidden;
+}
 
+.m-bsdnav ul{
+	display: flex;
+}
+
+.m-bsdnav li{
+	flex: 1;
+	height: 0.88rem;
+	line-height: 0.88rem;
+	color: #333;
+	text-align: center;
+    overflow: hidden;
+}
+
+.m-bsdnav li.active{
+    background: #00CD00;
+    color: #fff;
+}
+
+/* ==========================================================================
+   module: merchant_info
+============================================================================ */
+.mrifo_wrap{
+	width: 100%;
+	min-height: 3rem;
+	border-top: solid 1px transparent;
+}
+
+.moftab_itm{
+    width: 92%;
+    min-height: 4.5rem;
+    padding: 0.15rem;
+    margin: 0.15rem auto 0;
+    border-radius: 0.07rem;
+    background: #fff;
+    overflow: hidden;
+}
+
+/* ==========================================================================
+   module: graphic_text
+============================================================================ */
+.grcxt_title{
+	overflow: hidden;
+	border: solid 1px #efefef;
+}
+
+.grcxt_title h3{
+	height: 0.88rem;
+	line-height: 0.88rem;
+	text-align: center;
+	font-weight: initial;
+}
+
+.grcxt_wrap{
+	min-height: 3rem;
+}
+
+.grcxt_cot{
+	margin: 0.2rem;
+}
 
 /* ==========================================================================
    @media
@@ -377,9 +449,43 @@
 	}
 
 	/* ==========================================
-			module: pon_info
+			module: bsdnav
 	========================================== */
 	.g-bsd_nav{
-	    height: 65px;
+	    min-height: 45px;
 	}
+
+	.m-bsdnav{
+		height: 45px;
+	}
+
+	.m-bsdnav li{
+		height: 45px;
+		line-height: 45px;
+		cursor: pointer;
+	}
+
+	/* ==========================================
+			module: merchant_info
+	========================================== */
+	.mrifo_wrap{
+		min-height: 50px;
+	}
+
+	.moftab_itm{
+		margin-top: 10px;
+	}
+
+	/* ==========================================
+	   module: graphic_text
+	========================================== */
+	.grcxt_title h3{
+		height: 35px;
+		line-height: 35px;
+	}
+
+	.grcxt_cot{
+		margin: 15px;
+	}
+
 }

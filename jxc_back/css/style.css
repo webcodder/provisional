@@ -84,7 +84,7 @@ img{width: 100%; height: 100%}
    layout
  ============================================================================ */
 /* 下间距 */
-.l-mgab1{margin-bottom: 0.16rem}
+.l-mgab1{margin-bottom: 0.24rem}
 /* 内容宽度 */
 .l-wrap1{width: 90%;margin: 0 auto;}
 /* icon大小 */
@@ -113,7 +113,7 @@ img{width: 100%; height: 100%}
 	body,textarea,input,button,select,keygen,legend{font-size: 12px}
 	.f-fs1{font-size: 14px;}
 	.f-fs2{font-size: 16px;}
-	.l-mgab1{margin-bottom: 16px}
+	.l-mgab1{margin-bottom: 20px}
 	.l-icsiz{width:25px;height:25px;}
 	.l-waitedit input[type="text"]{padding: 3px;height: 22px;}
 }
