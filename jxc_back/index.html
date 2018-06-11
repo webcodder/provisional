@@ -29,8 +29,8 @@
 			<!-- 头像，昵称 -->
 			<div class="pnfo_prtifo">
 				<div class="pnfo_pic">
-					<img src="images/my_photo.jpg" id="img0" />
-					<input class="f-csp" type="file" id="file0" />
+					<img src="images/my_photo.jpg" id="headPortraitImg" />
+					<input class="f-csp" type="file" id="headPortraitFile" />
 				</div>
 				<div class="pnfo_nickname l-waitedit">
 					<span class="f-toe2 f-fs2">郭洞村郭洞村郭洞村郭洞村郭洞村郭洞村郭洞村</span>
@@ -116,17 +116,17 @@
 			<!-- 特色民宿 -->
 			<div class="swiper-slide mfotb_homestay" id="homestay" style="display: block;">
 				<div class="moftab_itm">
-					<!-- 商户标签 -->
-					<div class="mrifo_lab" id="merchantLabel">
-						特色民宿商户标签:亲子乐园，云海奇观。。。。
+					<!-- 商户详情 -->
+					<div class="mrctdl_wrap">
+						<div class="mrctdl_list">特色民宿商户标签:亲子乐园，云海奇观。。。。</div>
+						<div class="mrctdl_list"></div>
 					</div>
-					<!-- /商户标签 -->
-
-					<!-- 商户简介 -->
-					<div class="mrifo_intue" id="businessIntroduction">
-						特色民宿商户简介:在新疆美丽的哈纳斯湖旁。。。。
+					<div class="mrctdl_add" id="addHomestay">
+						<div class="mrctdl_add_img">
+							<img src="images/icon/addinfo.png" alt="">
+						</div>
 					</div>
-					<!-- /商户简介 -->
+					<!-- /商户详情 -->
 				</div>
 			</div>
 			<!-- /特色民宿 -->
@@ -134,17 +134,18 @@
 			<!-- 美丽乡村 -->
 			<div class="swiper-slide mfotb_countryside" id="countryside">
 				<div class="moftab_itm">
-					<!-- 商户标签 -->
-					<div class="mrifo_lab" id="merchantLabel">
-						美丽乡村商户标签:亲子乐园，云海奇观。。。。
+					<!-- 商户详情 -->
+					<div class="mrctdl_wrap">
+						<div class="mrctdl_list">美丽乡村商户标签:亲子乐园，云海奇观。。。。</div>
+						<div class="mrctdl_list"></div>
+						<div class="mrctdl_list"></div>
 					</div>
-					<!-- /商户标签 -->
-
-					<!-- 商户简介 -->
-					<div class="mrifo_intue" id="businessIntroduction">
-						美丽乡村商户简介:在新疆美丽的哈纳斯湖旁。。。。
+					<div class="mrctdl_add" id="addCountryside">
+						<div class="mrctdl_add_img">
+							<img src="images/icon/addinfo.png" alt="">
+						</div>
 					</div>
-					<!-- /商户简介 -->
+					<!-- /商户详情 -->
 				</div>
 			</div>
 			<!-- /美丽乡村 -->
@@ -152,17 +153,18 @@
 			<!-- 景区乐园 -->
 			<div class="swiper-slide mfotb_spot" id="spot">
 				<div class="moftab_itm">
-					<!-- 商户标签 -->
-					<div class="mrifo_lab" id="merchantLabel">
-						景区乐园商户标签:亲子乐园，云海奇观。。。。
+					<!-- 商户详情 -->
+					<div class="mrctdl_wrap">
+						<div class="mrctdl_list">景区乐园商户标签:亲子乐园，云海奇观。。。。</div>
+						<div class="mrctdl_list"></div>
+						<div class="mrctdl_list"></div>
 					</div>
-					<!-- /商户标签 -->
-
-					<!-- 商户简介 -->
-					<div class="mrifo_intue" id="businessIntroduction">
-						景区乐园商户简介:在新疆美丽的哈纳斯湖旁。。。。
+					<div class="mrctdl_add" id="addSpot">
+						<div class="mrctdl_add_img">
+							<img src="images/icon/addinfo.png" alt="">
+						</div>
 					</div>
-					<!-- /商户简介 -->
+					<!-- /商户详情 -->
 				</div>
 			</div>
 			<!-- /景区乐园 -->
@@ -170,17 +172,17 @@
 			<!-- 生态农场 -->
 			<div class="swiper-slide mfotb_farm" id="farm">
 				<div class="moftab_itm">
-					<!-- 商户标签 -->
-					<div class="mrifo_lab" id="merchantLabel">
-						生态农场商户标签:亲子乐园，云海奇观。。。。
+					<!-- 商户详情 -->
+					<div class="mrctdl_wrap">
+						<div class="mrctdl_list">生态农场商户标签:亲子乐园，云海奇观。。。。</div>
+						<div class="mrctdl_list"></div>
 					</div>
-					<!-- /商户标签 -->
-
-					<!-- 商户简介 -->
-					<div class="mrifo_intue" id="businessIntroduction">
-						生态农场商户简介:在新疆美丽的哈纳斯湖旁。。。。
+					<div class="mrctdl_add" id="addFarm">
+						<div class="mrctdl_add_img">
+							<img src="images/icon/addinfo.png" alt="">
+						</div>
 					</div>
-					<!-- /商户简介 -->
+					<!-- /商户详情 -->
 				</div>
 			</div>
 			<!-- /生态农场 -->
@@ -196,7 +198,9 @@
 		
 		<div class="l-box1_wrap grcxt_wrap">
 			<div class="l-box1_cot grcxt_cot">
-				123
+				<div id="editor">
+			        <p>欢迎使用 <b>wangEditor</b> 富文本编辑器</p>
+			    </div>
 			</div>
 		</div>
 	</div>
@@ -229,6 +233,7 @@
 
 <!-- js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.0/js/swiper.min.js"></script>
+<script src="https://unpkg.com/wangeditor@3.1.1/release/wangEditor.min.js"></script>
 
 <script src="js/lib/jquery1.8.3.min.js"></script>
 <script src="js/common.js"></script>

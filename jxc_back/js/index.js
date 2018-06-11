@@ -7,6 +7,39 @@
 //工具方法
 var util = {
     /**
+     * 图片上传
+     * [getObjectURL 图片上传]
+     * @param  {[type]} file [input=file]
+     * @return {[type]}      [url]
+     */
+    getObjectURL: function(file){
+        var url = null;
+        if (window.createObjectURL != undefined) {
+            url = window.createObjectURL(file);
+        } else if (window.URL != undefined) {
+            url = window.URL.createObjectURL(file);
+        } else if (window.webkitURL != undefined) {
+            url = window.webkitURL.createObjectURL(file);
+        }
+        return url;
+    },
+
+    /**
+     * [upLoad description 图片上传]
+     * @param  {[type]} file [input type=file id]
+     * @param  {[type]} img  [img id]
+     * @return {[type]}      [0]
+     */
+    upLoad: function(file, img){
+        file.change(function() {
+            var objUrl = this.getObjectURL(this.files[0]);
+            if (objUrl) {
+                img.attr("src", objUrl);
+            }
+        }); 
+    },
+
+    /**
      * 文本编辑
      * [fixInfo 文本编辑]
      * @param  {[type]} edit_btn     [编辑图标]
@@ -60,38 +93,47 @@ var util = {
         });
     },
 
-    /**
-     * 图片上传
-     * [getObjectURL 图片上传]
-     * @param  {[type]} file [input=file]
-     * @return {[type]}      [url]
-     */
-    getObjectURL: function(file){
-        var url = null;
-        if (window.createObjectURL != undefined) {
-            url = window.createObjectURL(file);
-        } else if (window.URL != undefined) {
-            url = window.URL.createObjectURL(file);
-        } else if (window.webkitURL != undefined) {
-            url = window.webkitURL.createObjectURL(file);
-        }
-        return url;
+    //选项卡自适应高度
+    tabAutoHeight: function(){
+        $('#mrifoTab li').each(function(){
+            if($(this).hasClass('active')){
+                $(".mrifo_cot").css("height", $('.moftab_itm').eq($(this).index()).css("height"));
+                $(".mrifo_wrap").css("height", $('.moftab_itm').eq($(this).index()).css("height"));
+            }
+        });
     },
+
+    /**
+     * 添加商户
+     * [addMerchant 商户类型]
+     * @param {[type]} merchant [description]
+     */
+    addMerchant: function(merchant){
+        merchant.click(function(){
+            var str = `
+                <div class="mrctdl_list"></div>
+            `;
+            merchant.parent().find('.mrctdl_wrap').append(str);
+
+            util.tabAutoHeight();
+        });
+    }
 };
 
-//图片上传
-var upLoad = function(){
-    $("#file0").change(function() {
-        var objUrl = util.getObjectURL(this.files[0]);
-        if (objUrl) {
-            $("#img0").attr("src", objUrl);
-        }
-    });   
+//上传头像
+var headPortraitLoad = function(){
+    util.upLoad($('#headPortraitFile'), $('#headPortraitImg'));
 }
 
 //编辑昵称
 var fixName = function(){
     util.fixInfo($('#editNickName'), $('.pnfo_nickname span'), $('#NickName'), $('.pnfo_prtifo .edit'), $('#comfirmFixName'), $('#closeFixName'),$('.pnfo_prtifo'), 'edit_name_active');
+    
+    /*var thisFun = new util.fixInfo($('#editNickName'), $('.pnfo_nickname span'), $('#NickName'), $('.pnfo_prtifo .edit'), $('#comfirmFixName'), $('#closeFixName'),$('.pnfo_prtifo'), 'edit_name_active');
+    util.fixInfo.prototype.newFun = function(){
+        alert(1);
+    };
+    thisFun.newFun();*/
 }
 
 //编辑简介
@@ -119,6 +161,11 @@ var fixAddress = function(){
 
 //选项卡
 var mrifoTab = function(){
+    util.tabAutoHeight();  //选项卡当前active高度填充为swiperg高度
+    $(window).resize(function() {
+        util.tabAutoHeight();
+    });
+
     /**
      * swiper高度自适应
      * [mirAutoHeight swiper高度自适应]
@@ -134,19 +181,16 @@ var mrifoTab = function(){
         mribtn.removeClass('active').eq(i).addClass('active');
 
         var tabitm = tabitm.eq(i);
-        var tabitmMarpadHeight = tabitm.css('marginTop') + tabitm.css('marginBottom') + tabitm.css('paddingTop') + tabitm.css('paddingBottom'),
-            tabitmHeight = tabitm.height();
 
-        var tabitmContentHeight = tabitmMarpadHeight + tabitmHeight;  //tabitm高度
-
-        swipwap.css("height", tabitmContentHeight);  //swiper-wrapper高度
-        swipcot.css("height", tabitmContentHeight);  //swiper-container高度
+        swipwap.css("height", tabitm.height());  //swiper-wrapper高度
+        swipcot.css("height", tabitm.height());  //swiper-container高度
     }
 
     // 滑动
     var mrifoTabSwiper = new Swiper('.mrifo_wrap', {
-        onSlideChangeEnd: function (swiper) {
+        onTransitionEnd: function (swiper) {
             mirAutoHeight(mrifoTabSwiper.activeIndex, $('#mrifoTab li'), $(".moftab_itm"), $(".mrifo_cot .swiper-slide"), $(".mrifo_cot"), $(".mrifo_wrap"));
+
         }
     })
     // 列表切换
@@ -156,10 +200,29 @@ var mrifoTab = function(){
     });
 }
 
+//wangEditor
+var textEditor = function(){
+    /*var E = window.wangEditor
+    var editor = new E('#editor')
+    // 或者 var editor = new E( document.getElementById('editor') )
+    editor.create()*/
+        var E = window.wangEditor
+    var editor = new E('#editor')
+    editor.customConfig.uploadImgShowBase64 = true
+    editor.create()
+}
+
 $(function(){
-    upLoad();  //图片上传
+    headPortraitLoad();  //上传头像
     fixName();  //编辑昵称
     fixBrfino();  //编辑简介
     fixAddress();  //编辑地址
     mrifoTab();  //选项卡
+
+    util.addMerchant($('#addHomestay'));  //添加特色民宿
+    util.addMerchant($('#addCountryside'));  //添加美丽乡村
+    util.addMerchant($('#addSpot'));  //添加景区乐园
+    util.addMerchant($('#addFarm'));  //添加生态农场
+
+    textEditor();  //wangEditor
 })
