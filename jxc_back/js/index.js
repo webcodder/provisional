@@ -32,7 +32,7 @@ var util = {
      */
     upLoad: function(file, img){
         file.change(function() {
-            var objUrl = this.getObjectURL(this.files[0]);
+            var objUrl = util.getObjectURL(this.files[0]);
             if (objUrl) {
                 img.attr("src", objUrl);
             }
@@ -202,12 +202,8 @@ var mrifoTab = function(){
 
 //wangEditor
 var textEditor = function(){
-    /*var E = window.wangEditor
-    var editor = new E('#editor')
-    // 或者 var editor = new E( document.getElementById('editor') )
-    editor.create()*/
-        var E = window.wangEditor
-    var editor = new E('#editor')
+    var E = window.wangEditor
+    var editor = new E('#editorToolbar', '#editorContent')  // 两个参数也可以传入 elem 对象，class 选择器
     editor.customConfig.uploadImgShowBase64 = true
     editor.create()
 }

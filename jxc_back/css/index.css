@@ -330,6 +330,26 @@
 	
 }
 
+/**
+ * editor
+ */
+.toolbar {
+    border: 1px solid #ccc;
+}
+.text {
+    border: 1px solid #ccc;
+    height: 400px;
+}
+
+.w-e-toolbar{
+	flex-wrap: wrap;
+}
+
+.middle_space{
+	padding: 5px 0; 
+	color: #ccc
+}
+
 /* ==========================================================================
    @media
 ============================================================================ */
