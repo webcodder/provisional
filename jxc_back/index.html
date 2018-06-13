@@ -80,7 +80,7 @@
 		<div class="pnadr_wrap l-wrap1">
 			<ul>
 				<li class="f-toe adrdt l-waitedit" id="addressDetail">
-					<span class="f-fs1 f-csp">浙江省杭州市云和县坑根村浙江省杭州市云和县坑根浙江省杭州市云和县坑根村浙江省杭州市云和县坑根浙江省杭州市云和县坑根村浙江省杭州市云和县坑根浙江省杭州市云和县坑根村浙江省杭州市云和县坑根浙江省杭州市云和县坑根村浙江省杭州市云和县坑根浙江省杭州市云和县坑根村浙江省杭州市云和县坑根浙江省杭州市云和县坑根村浙江省杭州市云和县坑根</span>
+					<span class="f-fs1 f-csp">浙江省杭州市云和县坑根村浙江省杭州市云和县坑根浙江省杭州市云和县坑根村浙江省杭州市云和县坑根浙江省杭州市云和县坑根村浙江省杭州市云和县坑根浙aaa江省杭州市云和县坑根村浙江省杭州市云和县坑根浙江省杭州市云和县坑根村浙江省杭州市云和县坑根浙江省杭州市云和县坑根村浙江省杭州市云和县坑根浙江省杭州市云和县坑根村浙江省杭州市云和县坑根</span>
 					<input class="f-fs2" type="text" id="address" placeholder="请输入地址">
 				</li>
 				<li class="l-icsiz edtdr">
@@ -98,13 +98,14 @@
 	<!-- /m-pon_address -->
 
 	<!-- m-bsdnav -->
+	<div class="navbar"></div>
 	<div class="g-bsd_nav m-bsdnav" id="mrifoTab">
 		<nav>
 			<ul>
-				<li class="active">特色名宿</li>
-				<li>美丽乡村</li>
-				<li>景区乐园</li>
-				<li>生态农场</li>
+				<li class="active">基本信息</li>
+				<li>主题活动</li>
+				<li>地主众筹</li>
+				<li>土特产品</li>
 			</ul>
 		</nav>
 	</div>
@@ -113,29 +114,83 @@
 	<!-- m-merchant_info -->
 	<div class="swiper-container m-merchant_info mrifo_wrap l-mgab1">
 		<div class="swiper-wrapper mrifo_cot">
-			<!-- 特色民宿 -->
-			<div class="swiper-slide mfotb_homestay" id="homestay" style="display: block;">
+			<!-- 基本信息 -->
+			<div class="swiper-slide mfotb_estlifo">
 				<div class="moftab_itm">
-					<!-- 商户详情 -->
-					<div class="mrctdl_wrap">
-						<div class="mrctdl_list">特色民宿商户标签:亲子乐园，云海奇观。。。。</div>
-						<div class="mrctdl_list"></div>
-					</div>
-					<div class="mrctdl_add" id="addHomestay">
-						<div class="mrctdl_add_img">
-							<img src="images/icon/addinfo.png" alt="">
+					<div class="l-box2 l-mgab1 bus_info" id="busInfo">
+						<div class="l-box2_title">
+							<h3 class="l-wrap1">商户信息</h3>
+						</div>
+						<div class="mrctdl_wrap">
+							<div class="l-box2_title">
+								<h3 class="l-wrap1">商户类型</h3>
+							</div>
+							<div class="mrctdl_cot bus_style" id="merchantType">
+								<label class="f-cb" for="homestay">
+									<input type="radio" name="busStyle" id="homestay" checked="checked" />
+									<span>特色民宿</span>
+								</label>
+								<label class="f-cb" for="countryside">
+									<input type="radio" name="busStyle" id="countryside" />
+									<span>美丽乡村</span>
+								</label>
+								<label class="f-cb" for="spot">
+									<input type="radio" name="busStyle" id="spot" />
+									<span>景区乐园</span>
+								</label>
+								<label class="f-cb" for="farm">
+									<input type="radio" name="busStyle" id="farm" />
+									<span>生态农场</span>
+								</label>
+							</div>
+						</div>
+
+						<div class="mrctdl_wrap">
+							<div class="l-box2_title">
+								<h3 class="l-wrap1">商户标签</h3>
+							</div>
+							<div class="mrctdl_cot bus_lab" id="merchantLabel">
+								<ul>
+									<li class="active">亲子乐园</li>
+									<li>云海奇观</li>
+									<li>亲子乐园</li>
+									<li>亲子乐园</li>
+									<li>亲子乐113165156151551园</li>
+									<li>亲子乐园</li>
+
+								</ul>
+							</div>
+						</div>
+
+						<div class="mrctdl_wrap">
+							<div class="l-box2_title">
+								<h3 class="l-wrap1">商户简介</h3>
+							</div>
+							<div class="mrctdl_cot bus_pro">
+								<textarea class="f-fs1" name="bus_pro" id="Introduction" cols="30" rows="10" placeholder="不超过200字"></textarea>
+							</div>
+						</div>
+						<div class="mrctdl_btn">
+							<button class="btn btn1" id="mrctdlSave">保存</button>
 						</div>
 					</div>
-					<!-- /商户详情 -->
+
+					<div class="l-box2 house_list" id="houseList">
+						<div class="l-box2_title">
+							<h3 class="l-wrap1">房源列表</h3>
+						</div>
+						<div class="">123</div>
+					</div>
 				</div>
 			</div>
-			<!-- /特色民宿 -->
+			<!-- /基本信息 -->
 
-			<!-- 美丽乡村 -->
-			<div class="swiper-slide mfotb_countryside" id="countryside">
+			<!-- 主题活动 -->
+			<div class="swiper-slide mfotb_tmatact" id="Theme">
 				<div class="moftab_itm">
+					<div class="mrctdl_wrap l-mgab1">主题活动</div>
 					<!-- 商户详情 -->
-					<div class="mrctdl_wrap">
+					<!-- <div class="mrctdl_wrap">
 						<div class="mrctdl_list">美丽乡村商户标签:亲子乐园，云海奇观。。。。</div>
 						<div class="mrctdl_list"></div>
 						<div class="mrctdl_list"></div>
@@ -144,17 +199,18 @@
 						<div class="mrctdl_add_img">
 							<img src="images/icon/addinfo.png" alt="">
 						</div>
-					</div>
+					</div> -->
 					<!-- /商户详情 -->
 				</div>
 			</div>
-			<!-- /美丽乡村 -->
+			<!-- /主题活动 -->
 
-			<!-- 景区乐园 -->
-			<div class="swiper-slide mfotb_spot" id="spot">
+			<!-- 地主众筹 -->
+			<div class="swiper-slide mfotb_landlords" id="Landlords">
 				<div class="moftab_itm">
+					<div class="mrctdl_wrap l-mgab1">地主众筹</div>
 					<!-- 商户详情 -->
-					<div class="mrctdl_wrap">
+					<!-- <div class="mrctdl_wrap">
 						<div class="mrctdl_list">景区乐园商户标签:亲子乐园，云海奇观。。。。</div>
 						<div class="mrctdl_list"></div>
 						<div class="mrctdl_list"></div>
@@ -163,17 +219,18 @@
 						<div class="mrctdl_add_img">
 							<img src="images/icon/addinfo.png" alt="">
 						</div>
-					</div>
+					</div> -->
 					<!-- /商户详情 -->
 				</div>
 			</div>
-			<!-- /景区乐园 -->
+			<!-- /地主众筹 -->
 
-			<!-- 生态农场 -->
-			<div class="swiper-slide mfotb_farm" id="farm">
+			<!-- 土特产品 -->
+			<div class="swiper-slide mfotb_natprdut" id="Products">
 				<div class="moftab_itm">
+					<div class="mrctdl_wrap l-mgab1">土特产品</div>
 					<!-- 商户详情 -->
-					<div class="mrctdl_wrap">
+					<!-- <div class="mrctdl_wrap">
 						<div class="mrctdl_list">生态农场商户标签:亲子乐园，云海奇观。。。。</div>
 						<div class="mrctdl_list"></div>
 					</div>
@@ -181,8 +238,8 @@
 						<div class="mrctdl_add_img">
 							<img src="images/icon/addinfo.png" alt="">
 						</div>
-					</div>
-					<!-- /商户详情 -->
+					</div> -->
+					<!-- /土特产品 -->
 				</div>
 			</div>
 			<!-- /生态农场 -->
@@ -191,7 +248,7 @@
 	<!-- /m-merchant_info -->
 
 	<!-- m-graphic_text 图文详情 -->
-	<div class="l-box1 m-graphic_text l-mgab1">
+	<div class="l-box1 m-graphic_text">
 		<div class="l-box1_title">
 			<h3 class="f-fs2">图文详情</h3>
 		</div>
@@ -211,17 +268,17 @@
 	<!-- /m-graphic_text 图文详情 -->
 
 	<!-- 产品详情 -->
-	<div class="l-box1 l-mgab1">
+	<!-- <div class="l-box1 l-mgab1">
 		<div class="l-box1_title">
 			<h3 class="f-fs2">产品详情</h3>
 		</div>
-
+	
 		<div class="l-box1_wrap">
 			<div class="l-box1_cot">
 				123
 			</div>
 		</div>
-	</div>
+	</div> -->
 	<!-- /产品详情 -->
 </div>
 
@@ -233,6 +290,14 @@
 	<ul></ul>
 </div>
 <!-- /地址选择 -->
+
+
+<div class="m-modal f-dn" style="display: none;">
+	<!-- 产品编辑表单 -->
+	<div class="mrifo_form f-dn" id="mrifoForm f-dn" style="display: block;">123</div>
+	<!-- /产品编辑表单 -->
+</div>
+
 <!-- /m-modal -->
 
 <!-- js -->

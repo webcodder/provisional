@@ -200,6 +200,33 @@ var mrifoTab = function(){
     });
 }
 
+//浏览器滚动条位置
+var setnavscroll = function(){
+    $(window).scroll(function(){
+        var window_top = $(window).scrollTop();
+        var div_top = $('.navbar').offset().top;
+
+        if (window_top > div_top) {
+            $('.m-bsdnav').addClass('navfix');
+            $('.navbar').height($('.m-bsdnav').height());
+        } else {
+            $('.m-bsdnav').removeClass('navfix');
+            $('.navbar').height(0);
+        }
+    });
+}
+
+//商户标签
+var merchantLabel = function(){
+    $('.bus_lab li').click(function(){
+        if($(this).hasClass('active')){
+            $(this).removeClass('active');
+        }else{
+            $(this).addClass('active');
+        }
+    });
+}
+
 //wangEditor
 var textEditor = function(){
     var E = window.wangEditor
@@ -214,11 +241,13 @@ $(function(){
     fixBrfino();  //编辑简介
     fixAddress();  //编辑地址
     mrifoTab();  //选项卡
+    setnavscroll();  //nav置顶
+    merchantLabel();  //商户标签
 
-    util.addMerchant($('#addHomestay'));  //添加特色民宿
+    /*util.addMerchant($('#addHomestay'));  //添加特色民宿
     util.addMerchant($('#addCountryside'));  //添加美丽乡村
     util.addMerchant($('#addSpot'));  //添加景区乐园
-    util.addMerchant($('#addFarm'));  //添加生态农场
+    util.addMerchant($('#addFarm'));  //添加生态农场*/
 
     textEditor();  //wangEditor
 })
