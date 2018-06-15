@@ -121,11 +121,11 @@
 						<div class="l-box2_title">
 							<h3 class="l-wrap1">商户信息</h3>
 						</div>
-						<div class="mrctdl_wrap">
+						<div class="l-box3">
 							<div class="l-box2_title">
 								<h3 class="l-wrap1">商户类型</h3>
 							</div>
-							<div class="mrctdl_cot bus_style" id="merchantType">
+							<div class="buino_cot bus_style" id="merchantType">
 								<label class="f-cb" for="homestay">
 									<input type="radio" name="busStyle" id="homestay" checked="checked" />
 									<span>特色民宿</span>
@@ -145,11 +145,11 @@
 							</div>
 						</div>
 
-						<div class="mrctdl_wrap">
+						<div class="l-box3">
 							<div class="l-box2_title">
 								<h3 class="l-wrap1">商户标签</h3>
 							</div>
-							<div class="mrctdl_cot bus_lab" id="merchantLabel">
+							<div class="buino_cot bus_lab" id="merchantLabel">
 								<ul>
 									<li class="active">亲子乐园</li>
 									<li>云海奇观</li>
@@ -162,15 +162,15 @@
 							</div>
 						</div>
 
-						<div class="mrctdl_wrap">
+						<div class="l-box3">
 							<div class="l-box2_title">
 								<h3 class="l-wrap1">商户简介</h3>
 							</div>
-							<div class="mrctdl_cot bus_pro">
+							<div class="buino_cot bus_pro">
 								<textarea class="f-fs1" name="bus_pro" id="Introduction" cols="30" rows="10" placeholder="不超过200字"></textarea>
 							</div>
 						</div>
-						<div class="mrctdl_btn">
+						<div class="btn_wrap1">
 							<button class="btn btn1" id="mrctdlSave">保存</button>
 						</div>
 					</div>
@@ -188,9 +188,9 @@
 			<!-- 主题活动 -->
 			<div class="swiper-slide mfotb_tmatact" id="Theme">
 				<div class="moftab_itm">
-					<div class="mrctdl_wrap l-mgab1">主题活动</div>
+					<div class="l-box3 l-mgab1">主题活动</div>
 					<!-- 商户详情 -->
-					<!-- <div class="mrctdl_wrap">
+					<!-- <div class="l-box3">
 						<div class="mrctdl_list">美丽乡村商户标签:亲子乐园，云海奇观。。。。</div>
 						<div class="mrctdl_list"></div>
 						<div class="mrctdl_list"></div>
@@ -208,9 +208,9 @@
 			<!-- 地主众筹 -->
 			<div class="swiper-slide mfotb_landlords" id="Landlords">
 				<div class="moftab_itm">
-					<div class="mrctdl_wrap l-mgab1">地主众筹</div>
+					<div class="l-box3 l-mgab1">地主众筹</div>
 					<!-- 商户详情 -->
-					<!-- <div class="mrctdl_wrap">
+					<!-- <div class="l-box3">
 						<div class="mrctdl_list">景区乐园商户标签:亲子乐园，云海奇观。。。。</div>
 						<div class="mrctdl_list"></div>
 						<div class="mrctdl_list"></div>
@@ -228,9 +228,9 @@
 			<!-- 土特产品 -->
 			<div class="swiper-slide mfotb_natprdut" id="Products">
 				<div class="moftab_itm">
-					<div class="mrctdl_wrap l-mgab1">土特产品</div>
+					<div class="l-box3 l-mgab1">土特产品</div>
 					<!-- 商户详情 -->
-					<!-- <div class="mrctdl_wrap">
+					<!-- <div class="l-box3">
 						<div class="mrctdl_list">生态农场商户标签:亲子乐园，云海奇观。。。。</div>
 						<div class="mrctdl_list"></div>
 					</div>
@@ -255,13 +255,15 @@
 		
 		<div class="l-box1_wrap grcxt_wrap">
 			<div class="l-box1_cot grcxt_cot">
-				<!-- <div id="editor"></div> -->
 				<div id="editorToolbar" class="toolbar">
 			    </div>
 			    <div class="middle_space">wangEditor3</div>
-			    <div id="editorContent" class="text"> <!--可使用 min-height 实现编辑区域自动增加高度-->
+			    <div id="editorContent" class="text editor_text f-fs2"> <!--可使用 min-height 实现编辑区域自动增加高度-->
 			        <p>https://www.kancloud.cn/wangfupeng/wangeditor3/332599  ==>  wangEditor3 api</p>
 			    </div>
+			</div>
+			<div class="btn_wrap1">
+				<button class="btn btn1" id="editorTextSave">保存</button>
 			</div>
 		</div>
 	</div>

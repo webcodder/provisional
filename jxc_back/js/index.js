@@ -146,12 +146,14 @@ var fixAddress = function(){
     //点击地址开始选择地址
     $('#addressDetail span').click(function(){
         getProvinceBuy();  //选择地址
+        $('body').addClass('f-oh');
         $('.addressModal').fadeIn();
         $('.m-select_address').slideDown();
     });
 
     //点击遮罩隐藏地址选择
     $('.addressModal').click(function(){
+        $('body').removeClass('f-oh');
         $(this).fadeOut();
         $('.m-select_address').slideUp();
     });
@@ -231,9 +233,57 @@ var merchantLabel = function(){
 var textEditor = function(){
     var E = window.wangEditor
     var editor = new E('#editorToolbar', '#editorContent')  // 两个参数也可以传入 elem 对象，class 选择器
-    editor.customConfig.uploadImgShowBase64 = true
+    editor.customConfig.uploadImgShowBase64 = true  // 使用 base64 保存图片  
+
+    // 隐藏“网络图片”tab  
+    editor.customConfig.showLinkImg = false  
+    editor.customConfig.menus = [  
+    'head',  // 标题  
+    'bold',  // 粗体  
+    'italic',  // 斜体  
+    'underline',  // 下划线  
+    'foreColor',  // 文字颜色  
+    'backColor',  // 背景颜色  
+    'list',  // 列表  
+    'justify',  // 对齐方式  
+    'quote',  // 引用  
+    'image',  // 插入图片  
+    'table',  // 表格  
+    'undo',  // 撤销  
+    'redo'  // 重复  
+    ]  
+
     editor.create()
 }
+
+// editor   test
+ function subm(type){  
+  
+    var id=document.getElementById('id').value;  
+    var title = document.getElementById('title').value;  
+    var content = editor.txt.html();  
+    if(title==""||content==""){  
+        layer.msg('请把内容填写完整！',{icon:2,time:1000});  
+        return false;  
+    }  
+      
+     $.ajax({  
+        type : "post",  
+        url : "newsAddPage.action",  
+        data : {  
+            "id":id,  
+            "title" : title,  
+            "content" : content,  
+            "type":type  
+        },  
+        success : function(result) {  
+            layer.msg('添加成功!',{icon:1,time:1000});  
+        },  
+        error : function(data) {  
+            $.Huimodalalert('修改失败！', 2000);  
+        }  
+    });    
+}   
 
 $(function(){
     headPortraitLoad();  //上传头像

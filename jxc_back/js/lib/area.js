@@ -66,6 +66,7 @@ function getAreaBuy(val, val1) {
 
         $('#addressDetail span').text(allarea);
 
+        $('body').removeClass('f-oh');
         $('.addressModal').fadeOut();
         $('.m-select_address').slideUp();
     }
@@ -81,6 +82,7 @@ function getallArea(val, val1, val2) {
 
     $('#addressDetail span').text(allarea);
 
+    $('body').removeClass('f-oh');
     $('.addressModal').fadeOut();
     $('.m-select_address').slideUp();
 }

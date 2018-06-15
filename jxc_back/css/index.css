@@ -155,6 +155,7 @@
 	width: 100%;
     height: 0.6rem;
     line-height: 0.6rem;
+    background: #e2e2e2;
     overflow: hidden;
 }
 
@@ -285,16 +286,9 @@
 }
 
 /**
- * mrctdl_wrap
+ * mfotb_estlifo
  */
-.mrctdl_wrap{
-	width: 92%;
-    min-height: 1.5rem;
-    padding: 0.15rem 0.3rem;
-    margin: 0 auto;
-}
-
-.mrctdl_cot{
+.buino_cot{
     width: 92%;
     margin: 0.2rem auto 0;
 }
@@ -318,7 +312,6 @@
 
 .bus_style span{
 	display: block;
-	width: 100%;
     margin-left: 0.35rem;
 }
 
@@ -327,21 +320,6 @@
     left: 0;
     top: 50%;
     transform: translateY(-50%);
-}
-
-.mrctdl_btn{
-	position: relative;
-	width: 100%;
-    height: 0.8rem;
-	border-top: solid 1px #efefef;
-	overflow: hidden;
-}
-
-.mrctdl_btn button{
-	position: absolute;
-	right: 0.2rem;
-	top: 50%;
-	transform: translateY(-50%);
 }
 
 .bus_lab ul{
@@ -355,11 +333,14 @@
     padding: 0.2rem 0.15rem;
     text-align: center;
     border: solid 1px #efefef;
+    cursor: pointer;
+    transition: 0.2s linear;
 }
 
 .bus_lab li.active{
 	color: #00cd00;
 	border-color: #00cd00;
+	transition: 0.3s linear;
 }
 
 .bus_pro textarea{
@@ -406,6 +387,11 @@
 	color: #ccc
 }
 
+.editor_text img{
+	width: initial;
+	height: initial;
+}
+
 /* ==========================================================================
    @media
 ============================================================================ */
@@ -419,6 +405,7 @@
 
 	.pnfo_wrap{
 		padding: 12px;
+		width: 90%;
 	}
 
 	.pnfo_flow{
@@ -506,6 +493,9 @@
 	 * m-select_address
 	 */
 	.m-select_address{
+		left: 50%;
+    	transform: translateX(-50%);
+		width: 1024px;
 		top: 192px;
 		height: 500px;
 	}
@@ -571,7 +561,7 @@
 		padding: 10px;
 	}
 
-	.mrctdl_cot{
+	.buino_cot{
 		width: 97%;
 		margin-top: 13px;
 	}
@@ -585,20 +575,6 @@
 		margin-left: 18px;
 	}
 
-	.mrctdl_btn{
-		height: 42px;
-	}
-
-	.mrctdl_btn button{
-		right: 8px;
-		transition: 0.2s linear;
-	}
-
-	.mrctdl_btn button:hover{
-		background: #7fd987;
-		transition: 0.3s linear;
-	}
-
 	.bus_lab{
 		display: flex;
 		padding: 0 5px;
@@ -608,6 +584,12 @@
 	.bus_lab li{
 	    margin: 4px 5px;
 	    padding: 6px 35px;
+	}
+
+	.bus_lab li:hover{
+		transition: 0.3s linear;
+		color: #00cd0099;
+    	border-color: #00cd0099;
 	}
 
 	.bus_pro textarea{
