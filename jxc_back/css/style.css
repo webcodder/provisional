@@ -89,6 +89,8 @@ img{width: 100%; height: 100%}
 .l-wrap1{width: 90%;margin: 0 auto;}
 /* icon大小 */
 .l-icsiz{width:0.39rem;height:0.39rem;overflow: hidden;}
+/* 边框圆角 */
+.l-bdru{border-radius: 0.1rem;}
 /* 待编辑文本框 */
 .l-waitedit input[type="text"]{display: none;height: 0.35rem;padding: 0 0.1rem;border-radius: 0.07rem;}
 /* 盒子 */
@@ -104,7 +106,7 @@ img{width: 100%; height: 100%}
 .l-box1_wrap{min-height: 3rem;border-top: solid 1px transparent;}
 .l-box1_cot{padding: 0.2rem;}
 /* 盒子3 */
-.l-box3{width: 92%;min-height: 1.5rem;padding: 0.15rem 0.3rem;margin: 0 auto;}
+.l-box3{width: 92%;min-height: 1rem;padding: 0.15rem 0.3rem;margin: 0 auto;}
 /* 按钮 */
 .btn_wrap1{position: relative;width: 100%;height: 0.8rem;border-top: solid 1px #efefef;overflow: hidden;}
 .btn_wrap1 button{position: absolute;right: 0.2rem;top: 50%;transform: translateY(-50%);}
@@ -119,6 +121,7 @@ img{width: 100%; height: 100%}
 .g-box{width: 100%;min-height: 200px;margin: 0 auto;}
 /* 模态框 */
 .m-modal{position: fixed;left: 0px;top: 0px;width: 100%;height: 100%;background: rgba(0, 0, 0, 0.8);z-index: 99999;}
+.m-modal1{position: fixed;left: 0px;top: 0px;width: 100%;height: 100%;background: rgba(0, 0, 0, 0.8);z-index: 99999;}
 
 
 /* ==========================================================================
@@ -132,10 +135,11 @@ img{width: 100%; height: 100%}
 	.l-mgab1{margin-bottom: 20px}
 	.l-wrap1{width: 95%;}
 	.l-icsiz{width:25px;height:25px;}
+	.l-bdru{border-radius: 6px;}
 	.l-waitedit input[type="text"]{padding: 3px;height: 22px;border-radius: 3px;}
 	.l-box1, .l-box2{min-height: 100px;}
 	.l-box1_title h3{height: 35px;line-height: 35px;}
-	.l-box2_title h3 {height: 30px;line-height: 30px;}
+	.l-box2_title h3 {height: 36px;line-height: 36px;}
 	.l-box2_title h3::before{left: -10px;width: 3px;height: 10px;}
 	.l-box1_wrap{min-height: 150px;}
 	.l-box1_cot{padding: 15px;}

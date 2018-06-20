@@ -104,18 +104,39 @@ var util = {
     },
 
     /**
-     * 添加商户
-     * [addMerchant 商户类型]
-     * @param {[type]} merchant [description]
+     * [editMerchant 添加]
+     * @param {[type]} list     [列表类]
+     * @param {[type]} form     [表单]
+     * @param {[type]} str      [列表内容]
+     * @param {[type]} add_btn  [添加按钮]
+     * @param {[type]} list_box [列表外容器]
      */
-    addMerchant: function(merchant){
-        merchant.click(function(){
-            var str = `
-                <div class="mrctdl_list"></div>
-            `;
-            merchant.parent().find('.mrctdl_wrap').append(str);
+    editMerchant: function(list, form, str, add_btn, list_box, save_btn){
+        list.click(function(){
+            $('body').addClass('f-oh');
+            $('.m-modal').fadeIn();
+            form.fadeIn();
+        });
 
+        //添加房源列表
+        add_btn.click(function(){
+            list_box.prepend(str);
             util.tabAutoHeight();
+        });
+
+        $('.m-modal').click(function(){
+            $(this).fadeOut();
+            form.fadeOut();
+            $('body').removeClass('f-oh');
+        });
+
+        save_btn.click(function(){
+            list_box.prepend(str);
+            util.tabAutoHeight();
+
+            $('.m-modal').fadeOut();
+            form.fadeOut();
+            $('body').removeClass('f-oh');
         });
     }
 };
@@ -229,6 +250,53 @@ var merchantLabel = function(){
     });
 }
 
+//商户信息
+var submitBusInfo = function(){
+
+}
+
+//房源列表
+var editHouseList = function(){
+    var str = `
+        <div class="hult_list">
+            <div class="l-box3 hulist_cot f-cb">
+                <div class="hict_img f-fl">
+                    <img src="images/room.jpg" alt="room">
+                </div>
+                <div class="hict_txt f-fl">
+                    <ul>
+                        <li>
+                            <dl>
+                                <dd class="title">成111人票</dd>
+                                <dd class="price">¥200</dd>
+                            </dl>
+                        </li>
+                        <li>邀请10人获取免费券</li>
+                        <li>共10张</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    `;
+
+    util.editMerchant($('.hult_list'), $('#houseListFrom'), str, $('#addHouseList'), $('.hult_wrap'), $('#houseListSave'));
+}
+
+//主题活动
+var editTheme = function(){
+
+}
+
+//地主众筹
+var editLandlords = function(){
+
+}
+
+//土特产品
+var editlocalProduct = function(){
+
+}
+
 //wangEditor
 var textEditor = function(){
     var E = window.wangEditor
@@ -258,7 +326,6 @@ var textEditor = function(){
 
 // editor   test
  function subm(type){  
-  
     var id=document.getElementById('id').value;  
     var title = document.getElementById('title').value;  
     var content = editor.txt.html();  
@@ -292,12 +359,14 @@ $(function(){
     fixAddress();  //编辑地址
     mrifoTab();  //选项卡
     setnavscroll();  //nav置顶
-    merchantLabel();  //商户标签
 
-    /*util.addMerchant($('#addHomestay'));  //添加特色民宿
-    util.addMerchant($('#addCountryside'));  //添加美丽乡村
-    util.addMerchant($('#addSpot'));  //添加景区乐园
-    util.addMerchant($('#addFarm'));  //添加生态农场*/
+    merchantLabel();  //商户标签
+    submitBusInfo();  //商户信息
+    
+    editHouseList();  //房源列表
+    editTheme();  //主题活动
+    editLandlords();  //地主众筹
+    editlocalProduct();  //土特产品
 
     textEditor();  //wangEditor
 })
