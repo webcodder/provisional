@@ -284,17 +284,65 @@ var editHouseList = function(){
 
 //主题活动
 var editTheme = function(){
+    var str = `
+        <div class="Theme_list product_list l-bdru l-box1">
+            <div class="product_img">
+                <img src="images/product.jpg" />
+            </div>
+            <div class="l-box3 product_txt">
+                <h3 class="title">111晴天雨后——玩主题</h3>
+                <p>
+                    云和晴天雨后民宿座落在800多年的古村落，村子四周被满山遍野的翠竹，bhdskcnjdskcnsjkcnsjk宿座落在800多年的古村落，宿座落在800多年的古村落
+                </p>
+            </div>
+        </div>
+    `;
 
+    util.editMerchant($('.Theme_list'), $('#ThemeFrom'), str, $('#addTheme'), $('.Theme_wrap'), $('#ThemeSave'));
 }
 
 //地主众筹
 var editLandlords = function(){
+    var str = `
+        <div class="landlords_list product_list l-bdru l-box1">
+            <div class="product_img">
+                <img src="images/product.jpg" />
+            </div>
+            <div class="l-box3 product_txt">
+                <h3 class="title">111晴天雨后——做地主</h3>
+                <p>
+                    云和晴天雨后民宿座落在800多年的古村落，村子四周被满山遍野的翠竹，bhdskcnjdskcnsjkcnsjk宿座落在800多年的古村落，宿座落在800多年的古村落
+                </p>
+            </div>
+        </div>
+    `;
 
+    util.editMerchant($('.landlords_list'), $('#LandlordsFrom'), str, $('#addLandlords'), $('.landlords_wrap'), $('#LandlordsSave'));
 }
 
 //土特产品
 var editlocalProduct = function(){
+    var str = `
+        <div class="localpodt_list product_list l-bdru">
+            <div class="product_img">
+                <img src="images/product.jpg" />
+            </div>
+            <div class="product_txt localpodt_txt">
+                <h3 class="title">111天然野山菌[宁波]</h3>
+                <ul class="label">
+                    <li>休闲业主</li>
+                    <li>可现场游园</li>
+                </ul>
+                <ul class="priinfo">
+                    <li class="price">¥68</li>
+                    <li class="old_price">¥268</li>
+                    <li class="num">剩余20件</li>
+                </ul>
+            </div>
+        </div>
+    `;
 
+    util.editMerchant($('.localpodt_list'), $('#localProductFrom'), str, $('#addLocalProduct'), $('.localpodt_wrap'), $('#localProductSave'));
 }
 
 //wangEditor
