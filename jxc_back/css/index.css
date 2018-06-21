@@ -481,7 +481,7 @@
     justify-content: space-between;
     flex-wrap: wrap;
     width: 95%;
-    margin: 0.2rem auto 0.24rem;
+    margin: 0.2rem auto 0;
 }
 
 .localpodt_wrap .product_list{
@@ -491,6 +491,10 @@
     background: #fff;
     overflow: hidden;
 }
+
+.localpodt_wrap .product_list:nth-last-child(-n+2){
+	margin-bottom: 0;
+} 
 
 .localpodt_list .mrctdl_add{
 	height: 100%;
