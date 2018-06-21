@@ -99,6 +99,7 @@ var util = {
             if($(this).hasClass('active')){
                 $(".mrifo_cot").css("height", $('.moftab_itm').eq($(this).index()).css("height"));
                 $(".mrifo_wrap").css("height", $('.moftab_itm').eq($(this).index()).css("height"));
+                return false;
             }
         });
     },
@@ -112,32 +113,35 @@ var util = {
      * @param {[type]} list_box [列表外容器]
      */
     editMerchant: function(list, form, str, add_btn, list_box, save_btn){
-        $('body').on('click', list,  function(){
-        // list.click(function(){
-            $('body').addClass('f-oh');
+        var showedit = function(){  //显示模态框
             $('.m-modal').fadeIn();
             form.fadeIn();
-        });
+            $('body').addClass('f-oh');
+        }
 
-        //添加房源列表
-        add_btn.click(function(){
-            list_box.prepend(str);
-            util.tabAutoHeight();
-        });
-
-        $('.m-modal').click(function(){
-            $(this).fadeOut();
-            form.fadeOut();
-            $('body').removeClass('f-oh');
-        });
-
-        save_btn.click(function(){
-            list_box.prepend(str);
-            util.tabAutoHeight();
-
+        var hideedit = function(){  //隐藏模态框
             $('.m-modal').fadeOut();
             form.fadeOut();
             $('body').removeClass('f-oh');
+        }
+
+        $('body').on('click', list,  function(){  //点击列表项
+            showedit();
+        });
+
+        add_btn.click(function(){  //点击添加按钮
+            showedit();
+            list_box.prepend(str);  //在列表前添加
+            util.tabAutoHeight();  //填充高度
+        });
+
+        $('.m-modal').click(function(){  //点击遮罩层
+            hideedit();
+        });
+
+        save_btn.click(function(){  //点击保存按钮
+            util.tabAutoHeight();
+            hideedit();
         });
     }
 };
@@ -187,7 +191,7 @@ var fixAddress = function(){
 var mrifoTab = function(){
     util.tabAutoHeight();  //选项卡当前active高度填充为swiperg高度
     $(window).resize(function() {
-        util.tabAutoHeight();
+        util.tabAutoHeight(); 
     });
 
     /**
@@ -214,9 +218,9 @@ var mrifoTab = function(){
     var mrifoTabSwiper = new Swiper('.mrifo_wrap', {
         onTransitionEnd: function (swiper) {
             mirAutoHeight(mrifoTabSwiper.activeIndex, $('#mrifoTab li'), $(".moftab_itm"), $(".mrifo_cot .swiper-slide"), $(".mrifo_cot"), $(".mrifo_wrap"));
-
         }
     })
+    
     // 列表切换
     $('#mrifoTab li').on('click', function (e) {
         mirAutoHeight($(this).index(), $('#mrifoTab li'), $(".moftab_itm"), $(".mrifo_cot .swiper-slide"), $(".mrifo_cot"), $(".mrifo_wrap"));
@@ -268,12 +272,12 @@ var editHouseList = function(){
                     <ul>
                         <li>
                             <dl>
-                                <dd class="title">成111人票</dd>
-                                <dd class="price">¥200</dd>
+                                <dd class="title">**票</dd>
+                                <dd class="price">￥**</dd>
                             </dl>
                         </li>
-                        <li>邀请10人获取免费券</li>
-                        <li>共10张</li>
+                        <li>邀请*人获取免费券</li>
+                        <li>共*张</li>
                     </ul>
                 </div>
             </div>
@@ -291,9 +295,9 @@ var editTheme = function(){
                 <img src="images/product.jpg" />
             </div>
             <div class="l-box3 product_txt">
-                <h3 class="title">111晴天雨后——玩主题</h3>
+                <h3 class="title">****</h3>
                 <p>
-                    云和晴天雨后民宿座落在800多年的古村落，村子四周被满山遍野的翠竹，bhdskcnjdskcnsjkcnsjk宿座落在800多年的古村落，宿座落在800多年的古村落
+                    ****
                 </p>
             </div>
         </div>
@@ -310,9 +314,9 @@ var editLandlords = function(){
                 <img src="images/product.jpg" />
             </div>
             <div class="l-box3 product_txt">
-                <h3 class="title">111晴天雨后——做地主</h3>
+                <h3 class="title">****</h3>
                 <p>
-                    云和晴天雨后民宿座落在800多年的古村落，村子四周被满山遍野的翠竹，bhdskcnjdskcnsjkcnsjk宿座落在800多年的古村落，宿座落在800多年的古村落
+                    ****
                 </p>
             </div>
         </div>
@@ -329,15 +333,15 @@ var editlocalProduct = function(){
                 <img src="images/product.jpg" />
             </div>
             <div class="product_txt localpodt_txt">
-                <h3 class="title">111天然野山菌[宁波]</h3>
+                <h3 class="title">****</h3>
                 <ul class="label">
-                    <li>休闲业主</li>
-                    <li>可现场游园</li>
+                    <li>**</li>
+                    <li>**</li>
                 </ul>
                 <ul class="priinfo">
-                    <li class="price">¥68</li>
-                    <li class="old_price">¥268</li>
-                    <li class="num">剩余20件</li>
+                    <li class="price">¥*</li>
+                    <li class="old_price">¥*</li>
+                    <li class="num">剩余*件</li>
                 </ul>
             </div>
         </div>
@@ -418,4 +422,5 @@ $(function(){
     editlocalProduct();  //土特产品
 
     textEditor();  //wangEditor
-})
+});
+
