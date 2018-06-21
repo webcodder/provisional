@@ -112,7 +112,8 @@ var util = {
      * @param {[type]} list_box [列表外容器]
      */
     editMerchant: function(list, form, str, add_btn, list_box, save_btn){
-        list.click(function(){
+        $('body').on('click', list,  function(){
+        // list.click(function(){
             $('body').addClass('f-oh');
             $('.m-modal').fadeIn();
             form.fadeIn();
@@ -279,7 +280,7 @@ var editHouseList = function(){
         </div>
     `;
 
-    util.editMerchant($('.hult_list'), $('#houseListFrom'), str, $('#addHouseList'), $('.hult_wrap'), $('#houseListSave'));
+    util.editMerchant('.hult_list', $('#houseListFrom'), str, $('#addHouseList'), $('.hult_wrap'), $('#houseListSave'));
 }
 
 //主题活动
@@ -298,7 +299,7 @@ var editTheme = function(){
         </div>
     `;
 
-    util.editMerchant($('.Theme_list'), $('#ThemeFrom'), str, $('#addTheme'), $('.Theme_wrap'), $('#ThemeSave'));
+    util.editMerchant('.Theme_list', $('#ThemeFrom'), str, $('#addTheme'), $('.Theme_wrap'), $('#ThemeSave'));
 }
 
 //地主众筹
@@ -317,7 +318,7 @@ var editLandlords = function(){
         </div>
     `;
 
-    util.editMerchant($('.landlords_list'), $('#LandlordsFrom'), str, $('#addLandlords'), $('.landlords_wrap'), $('#LandlordsSave'));
+    util.editMerchant('.landlords_list', $('#LandlordsFrom'), str, $('#addLandlords'), $('.landlords_wrap'), $('#LandlordsSave'));
 }
 
 //土特产品
@@ -342,7 +343,7 @@ var editlocalProduct = function(){
         </div>
     `;
 
-    util.editMerchant($('.localpodt_list'), $('#localProductFrom'), str, $('#addLocalProduct'), $('.localpodt_wrap'), $('#localProductSave'));
+    util.editMerchant('.localpodt_list', $('#localProductFrom'), str, $('#addLocalProduct'), $('.localpodt_wrap'), $('#localProductSave'));
 }
 
 //wangEditor
@@ -373,7 +374,7 @@ var textEditor = function(){
 }
 
 // editor   test
- function subm(type){  
+function subm(type){  
     var id=document.getElementById('id').value;  
     var title = document.getElementById('title').value;  
     var content = editor.txt.html();  
