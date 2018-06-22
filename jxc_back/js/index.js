@@ -244,7 +244,7 @@ var setnavscroll = function(){
     });
 }
 
-//商户标签
+//商户标签样式
 var merchantLabel = function(){
     $('.bus_lab li').click(function(){
         if($(this).hasClass('active')){
@@ -257,7 +257,7 @@ var merchantLabel = function(){
 
 //商户信息
 var submitBusInfo = function(){
-
+    merchantLabel();  //商户标签样式
 }
 
 //房源列表
@@ -350,59 +350,37 @@ var editlocalProduct = function(){
     util.editMerchant('.localpodt_list', $('#localProductFrom'), str, $('#addLocalProduct'), $('.localpodt_wrap'), $('#localProductSave'));
 }
 
-//wangEditor
-var textEditor = function(){
+// 提交图文详情 (富文本 wangEditor)
+var submitEditor = function (){
     var E = window.wangEditor
-    var editor = new E('#editorToolbar', '#editorContent')  // 两个参数也可以传入 elem 对象，class 选择器
+    var editor = new E('#editorToolbar', '#editorContent')
     editor.customConfig.uploadImgShowBase64 = true  // 使用 base64 保存图片  
 
-    // 隐藏“网络图片”tab  
-    editor.customConfig.showLinkImg = false  
-    editor.customConfig.menus = [  
-    'head',  // 标题  
-    'bold',  // 粗体  
-    'italic',  // 斜体  
-    'underline',  // 下划线  
-    'foreColor',  // 文字颜色  
-    'backColor',  // 背景颜色  
-    'list',  // 列表  
-    'justify',  // 对齐方式  
-    'quote',  // 引用  
-    'image',  // 插入图片  
-    'table',  // 表格  
-    'undo',  // 撤销  
-    'redo'  // 重复  
-    ]  
+    editor.create();
 
-    editor.create()
-}
+    $('#editorTextSave').click(function(){
+        var content = editor.txt.html();  // 读取 html
 
-// editor   test
-function subm(type){  
-    var id=document.getElementById('id').value;  
-    var title = document.getElementById('title').value;  
-    var content = editor.txt.html();  
-    if(title==""||content==""){  
-        layer.msg('请把内容填写完整！',{icon:2,time:1000});  
-        return false;  
-    }  
-      
-     $.ajax({  
-        type : "post",  
-        url : "newsAddPage.action",  
-        data : {  
-            "id":id,  
-            "title" : title,  
-            "content" : content,  
-            "type":type  
-        },  
-        success : function(result) {  
-            layer.msg('添加成功!',{icon:1,time:1000});  
-        },  
-        error : function(data) {  
-            $.Huimodalalert('修改失败！', 2000);  
+        if(content==""){  
+            alert('请把内容填写完整！');  
+            return false;  
         }  
-    });    
+          
+         $.ajax({  
+            type : "post",  
+            url : "/upload",  
+            data : {
+                "content" : content  
+            },  
+            success : function(res) {  
+                alert('保存成功!');
+                editor.txt.clear();  //清空编辑器内容
+            },  
+            error : function(data) {  
+                alert('保存失败！');  
+            }  
+        }); 
+    });   
 }   
 
 $(function(){
@@ -413,7 +391,6 @@ $(function(){
     mrifoTab();  //选项卡
     setnavscroll();  //nav置顶
 
-    merchantLabel();  //商户标签
     submitBusInfo();  //商户信息
     
     editHouseList();  //房源列表
@@ -421,6 +398,6 @@ $(function(){
     editLandlords();  //地主众筹
     editlocalProduct();  //土特产品
 
-    textEditor();  //wangEditor
+    submitEditor();  // 提交图文详情 (富文本 wangEditor)
 });
 

@@ -106,7 +106,7 @@ img{width: 100%; height: 100%}
 .l-box1_wrap{min-height: 3rem;border-top: solid 1px transparent;}
 .l-box1_cot{padding: 0.2rem;}
 /* 盒子3 */
-.l-box3{width: 92%;min-height: 1rem;padding: 0.15rem 0.3rem;margin: 0 auto;}
+.l-box3{width: 92%;min-height: 1rem;/* padding: 0.15rem 0.3rem; */padding: 0.15rem 0;margin: 0 auto;}
 /* 按钮 */
 .btn_wrap1{position: relative;width: 100%;height: 0.8rem;border-top: solid 1px #efefef;overflow: hidden;}
 .btn_wrap1 button{position: absolute;right: 0.2rem;top: 50%;transform: translateY(-50%);}
@@ -143,7 +143,7 @@ img{width: 100%; height: 100%}
 	.l-box2_title h3::before{left: -10px;width: 3px;height: 10px;}
 	.l-box1_wrap{min-height: 150px;}
 	.l-box1_cot{padding: 15px;}
-	.l-box3{width: 97%;min-height: 100px;padding: 10px;}
+	.l-box3{width: 97%;min-height: 100px;/* padding: 10px; */ padding: 10px 0;}
 	.btn_wrap1{height: 42px;}
 	.btn_wrap1 button{right: 8px;transition: 0.2s linear;}
 	.btn_wrap1 button:hover{background: #7fd987;transition: 0.3s linear;}

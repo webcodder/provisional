@@ -270,7 +270,7 @@
 .navfix{
     position: fixed;
     top: 0;
-    z-index: 10;
+    z-index: 99999;
 }
 
 /* ==========================================================================
@@ -517,7 +517,7 @@
     margin: 0.22rem 0 0.09rem;
 }
 
-.localpodt_txt ul.priinfo li{
+.localpodt_txt ul.priinfo li:not(:last-child){
 	margin-right: 0.2rem;
 }
 
@@ -550,13 +550,12 @@
 .mrfm_cot{
 	width: 6rem;
 	position: relative;
-	min-height: 3rem;
-    max-height: 9rem;
 }
 
-.form_btn{
-    position: absolute;
-    bottom: 0;
+.from_cot{
+    max-height: 6rem;
+    word-wrap: break-word;
+    overflow: auto;
 }
 
 /* ==========================================================================
@@ -887,7 +886,7 @@
 
 	.product_pc .product_txt{
 	    width: 646px;
-	    margin-top: 16px;
+	    margin: 16px 0 0 15px;
 	}
 
 	.product_pc .title{
@@ -944,7 +943,7 @@
         margin: 13px 0 10px;
 	}
 
-	.localpodt_txt ul.priinfo li{
+	.localpodt_txt ul.priinfo li:not(:last-child){
 	    margin-right: 12px;
 	}
 		
@@ -953,10 +952,11 @@
 	 * mrifo_form
 	 */
 	.mrfm_cot{
-		width: 1024px;
-		min-height: 300px;
+		width: 666px;
+	}
+
+	.from_cot{
 		max-height: 612px;
-		overflow: auto;
 	}
 
 	/* ==========================================
