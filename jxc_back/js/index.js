@@ -117,16 +117,16 @@ var util = {
             $('.m-modal').fadeIn();
             form.fadeIn();
             $('body').addClass('f-oh');
-            $('body').bind("touchmove",function(e){  
-                e.preventDefault();  
-            });
+            $("body").unbind("touchmove");  
         }
 
         var hideedit = function(){  //隐藏模态框
             $('.m-modal').fadeOut();
             form.fadeOut();
             $('body').removeClass('f-oh');
-            $("body").unbind("touchmove");
+            $('body').bind("touchmove",function(e){  
+                e.preventDefault();  
+            });
         }
 
         $('body').on('click', list,  function(){  //点击列表项
