@@ -22,7 +22,7 @@ body,textarea,input,button,select,keygen,legend{font:0.24rem/1.14 arial,'PingFan
 body{background:#efefef;}
 a,a:hover{color:#333;}
 button{background:none;border:none;}
-input[type="text"]{border:solid 1px #ccc;}
+input[type="text"], textarea{border:solid 1px #ccc;}
 img{width: 100%; height: 100%}
 
 
@@ -143,7 +143,7 @@ img{width: 100%; height: 100%}
 	.l-box2_title h3::before{left: -10px;width: 3px;height: 10px;}
 	.l-box1_wrap{min-height: 150px;}
 	.l-box1_cot{padding: 15px;}
-	.l-box3{width: 97%;min-height: 100px;/* padding: 10px; */ padding: 10px 0;}
+	.l-box3{width: 97%;min-height: 66px;/* padding: 10px; */ padding: 10px 0;}
 	.btn_wrap1{height: 42px;}
 	.btn_wrap1 button{right: 8px;transition: 0.2s linear;}
 	.btn_wrap1 button:hover{background: #7fd987;transition: 0.3s linear;}

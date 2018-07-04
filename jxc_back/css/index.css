@@ -320,7 +320,15 @@
 }
 
 .hict_txt dd{
-	flex: 1;
+    margin-right: 0.15rem;
+}
+
+.hict_txt dd.title{
+	width: 2rem;
+}
+
+.hict_txt .edit_btn dd.edittxt_btn{
+	height: 0.35rem;
 }
 
 /**
@@ -384,7 +392,6 @@
 .bus_pro textarea{
     width: 92%;
     padding: 0.2rem;
-    border: solid 1px #efefef;
 }
 
 /**
@@ -406,11 +413,13 @@
 }
 
 .hict_img{
+	position: relative;
     width: 2.5rem;
     height: 1.88rem;
 }
 
 .hict_txt{
+    position: relative;
 	width: 4.15rem;
 	height: 1.88rem;
 	margin-left: 0.22rem;
@@ -421,8 +430,90 @@
 	margin-top: 0.05rem;
 }
 
-.hict_txt li{
-    margin-bottom: 0.3rem;
+.hict_img input[type="file"]{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+}
+
+.hict_txt > ul > li{
+	width: 80%;
+}
+
+.hict_txt li.lab{
+    margin: 0.28rem 0 0.5rem 0;
+}
+
+.hict_txt li.lab dl{
+	justify-content: flex-start;
+}
+
+.hict_txt li.lab dl dd{
+	flex: initial;
+	width: 0.8rem;
+}
+
+.hict_txt li.info dd:not(:last-child){
+	margin-right: 0.3rem;
+}
+
+
+.hict_txt dd.price{
+    width: 0.9rem;
+    margin: 0;
+    /*overflow: hidden;*/
+}
+
+.hict_txt .edit_btn{
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: inherit;
+}
+
+.hict_txt .edit_btn dl{
+	flex-direction: column;
+}
+
+.hict_txt .edit_btn dd{
+	margin: 0 0 0.25rem;
+    width: 0.9rem;
+    height: 0.45rem;
+}
+
+.hict_txt .edit_btn dd button{
+    width: 0.9rem;
+    height: 0.45rem;
+}
+
+.edit_btn li{
+	display: inline-block;
+}
+
+.edit_hict_txt input[type='text']{
+    width: 83%;
+    padding: 0.03rem 0.1rem;
+}
+
+.edit_hict_txt dd.title{
+    width: 1.6rem;
+}
+
+.edit_hict_txt li.lab{
+    margin: 0.3rem 0 0.3rem 0;
+}
+
+.edit_hict_txt .edit_btn dd:not(:last-child){
+    margin: 0 0 0.29rem;
+}
+
+.edit_hict_txt textarea{
+    padding: 0.15rem 0.2rem;
+    width: 88%;
+    height: 1.5rem;
 }
 
 /**
@@ -434,6 +525,7 @@
 
 .product_list{
 	margin-bottom: 0.24rem;
+	padding-bottom: 0.24rem;
 	overflow: hidden;
 }
 
@@ -441,10 +533,33 @@
 	margin-bottom: 0;
 }
 
+.product_list dl{
+	display: flex;
+}
+
+.product_list dd{
+	flex: 1;
+	text-align: center;
+}
+
 .product_img{
+	position: relative;
 	width: 100%;
     height: 4rem;
     overflow: hidden;
+}
+
+.product_img input[type="file"]{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+}
+
+.product_txt{
+    padding: 0.22rem 0 0;
 }
 
 .product_txt .title{
@@ -462,6 +577,20 @@
 	text-align: justify;
     text-overflow: ellipsis;
     overflow: hidden;
+}
+
+.product_txt .edit_btn dd:not(:last-child){
+	margin: 0;
+}
+
+.edit_hict_txt.product_txt p{
+	margin: 0.2rem 0;
+}
+
+.product_txt .edittxt_btn li{
+    width: 0.42rem;
+    height: 0.42rem;
+    margin: 0 0.1rem;
 }
 
 
@@ -486,8 +615,9 @@
 
 .localpodt_wrap .product_list{
     width: 3.48rem;
-    height: 4.1rem;
+    min-height: 4.1rem;
     margin-bottom: 0.16rem;
+    padding-bottom: 0.16rem;
     background: #fff;
     overflow: hidden;
 }
@@ -506,7 +636,7 @@
 
 .localpodt_txt{
     width: 93%;
-    margin: 0.22rem auto 0;
+    margin: 0 auto 0;
 }
 
 .localpodt_txt .title{
@@ -529,10 +659,41 @@
 	color: #292828;
 }
 
+.localpodt_txt .edittxt_btn li{
+	margin: 0;
+}
+
 .priinfo .old_price{
 	text-decoration: line-through;
 }
 
+.localpodt_wrap .edit_btn{
+	width: 100%;
+	margin-top: 0.2rem;
+	overflow: hidden;
+}
+
+.localpodt_wrap .edit_btn dd .btn1{
+	width: 0.9rem;
+}
+
+.localpodt_txt.edit_hict_txt .label li, .localpodt_txt.edit_hict_txt .priinfo li{
+	overflow: inherit;
+}
+
+.localpodt_txt.edit_hict_txt .label li{
+    width: 1.25rem;
+    margin-right: 0.1rem;
+    
+}
+
+.localpodt_txt.edit_hict_txt .priinfo li{
+	width: 0.8rem;
+}
+
+.localpodt_txt.edit_hict_txt ul.label{
+    margin: 0.18rem 0 0.16rem;
+}
 
 /**
  * mrifo_form
@@ -543,19 +704,95 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    width: 95%;
+    height: 97%;
+    background: #fff;
+    overflow: hidden;
+}
+
+.mrifo_edit_txt{
+    position: fixed;
+    z-index: 99999;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 95%;
+    height: 97%;
     background: #fff;
     overflow: hidden;
 }
 
 .mrfm_cot{
-	width: 6rem;
 	position: relative;
+	height: 100%;
 }
 
 .from_cot{
-    max-height: 6rem;
+	width: 95%;
+    max-height: 80%;
     word-wrap: break-word;
     overflow: auto;
+}
+
+.from_cot li{
+    min-height: 0.6rem;
+    line-height: 0.6rem;
+    margin-left: 0.2rem;
+}
+
+.from_cot li:last-child{
+	margin-bottom: 0;
+}
+
+.from_cot dl{
+	display: flex;
+}
+
+.from_cot dt{
+	flex: 0.45;
+}
+
+.from_cot dd{
+	flex: 1.55;
+}
+
+.form_edit dl{
+	display: initial;
+}
+
+.form_edit dt{
+	margin: 0.2rem 0;
+}
+
+.from_cot input[type='text'], .from_cot textarea{
+    padding: 0.05rem 0.1rem;
+    width: 4.5rem;
+}
+
+.from_cot  .reslinh{
+    line-height: initial;
+    margin: 0.1rem 0 0.06rem 0.2rem;
+}
+
+.form_btn{
+	position: fixed;
+	bottom: 0;
+}
+
+.form_btn ul{
+    position: absolute;
+    right: 0.2rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.form_btn li{
+	display: inline-block;
+}
+
+.form_btn button{
+	position: initial;
+	transform: initial;
 }
 
 /* ==========================================================================
@@ -841,8 +1078,32 @@
     	margin-top: 3px;
 	}
 
-	.hict_txt li{
-		margin-bottom: 26px;
+	.hict_txt li.lab{
+	    margin: 18px 0 52px 0;
+	}
+
+	.hict_txt li.lab dl dd{
+	    width: 62px;
+	}
+
+	.hict_txt .edit_btn dd{
+		margin-bottom: 16px;
+		width: 95px;
+	    height: 30px;
+	    text-align: center;
+	}
+
+	.hict_txt .edit_btn dd button{
+		width: 80px;
+    	height: 28px;
+	}
+
+	.edit_hict_txt li.lab{
+		margin: 18px 0 28px 0;
+	}
+
+	.edit_hict_txt .edit_btn dd:not(:last-child){
+		margin: 0 0 20px;
 	}
 
 	/**
@@ -862,7 +1123,7 @@
 	}
 
 	.product_pc .product_list{
-		height: 193px;
+		height: 156px;
 		overflow: hidden;
 	}
 
@@ -886,7 +1147,8 @@
 
 	.product_pc .product_txt{
 	    width: 646px;
-	    margin: 16px 0 0 15px;
+	    margin: 18px 0 0 15px;
+	    padding: 0;
 	}
 
 	.product_pc .title{
@@ -896,6 +1158,41 @@
 	.product_pc p{
 		font-size: 16px;
 	    -webkit-line-clamp: 6;
+	}
+
+	.product_pc .edit_hict_txt.product_txt p{
+		margin: 10px 0;
+	}
+
+	.product_pc .edit_hict_txt textarea{
+		padding: 10px;
+	    height: 66px;
+	}
+
+	.product_txt .edit_btn dd:not(:last-child){
+	    margin: 0;
+	}
+
+	.product_txt .edittxt_btn li{
+	    width: 30px;
+	    height: 30px;
+	    margin: 0 15px;
+	}
+
+	.product_pc .product_txt ul{
+		margin-top: 60px;
+	}
+
+	.product_pc .edit_hict_txt{
+		margin-top: 10px;
+	}
+
+	.product_pc .edit_hict_txt ul{
+		margin-top: 0;
+	}
+
+	.product_txt.localpodt_txt .edittxt_btn li{
+	    margin: 0 2px;
 	}
 
 	/**
@@ -914,8 +1211,9 @@
 
 	.localpodt_wrap .product_list{
 	    width: 248px;
-	    height: 270px;
+	    min-height: 270px;
 	    margin: 0 5px 5px 0;
+	    padding-bottom: 18px;
 	}
 
 	.localpodt_wrap .product_list:nth-child(4n){
@@ -933,6 +1231,7 @@
 
 	.localpodt_txt{
 	    margin: 10px auto 0;
+	    padding: 0;
 	}
 
 	.localpodt_txt .title{
@@ -946,17 +1245,71 @@
 	.localpodt_txt ul.priinfo li:not(:last-child){
 	    margin-right: 12px;
 	}
+
+	.localpodt_wrap .edit_btn dd .btn1{
+		width: 56px;
+	}
+
+	.localpodt_wrap .edit_btn{
+		margin-top: 10px;
+	}
+
+	.localpodt_list {
+	    padding-bottom: 18px;
+	}
+
+	.localpodt_wrap .edit_btn dd{
+		height: 30px;
+		overflow: hidden;
+	}
 		
 
 	/**
 	 * mrifo_form
 	 */
-	.mrfm_cot{
-		width: 666px;
+	.mrifo_form{
+		width: 98%;
 	}
 
 	.from_cot{
+		width: 95%;
 		max-height: 612px;
+	}
+
+	.from_cot li{
+	    min-height: 40px;
+	    line-height: 40px;
+	    margin-left: 10px;
+	}
+
+	.from_cot  .reslinh{
+    	margin: 6px 0 6px 10px;
+	}
+
+	.from_cot dl{
+		display: flex;
+	}
+
+	.form_edit{
+	    margin: 12px 0 -8px 10px !important;
+	}
+
+	.form_edit dl {
+	    width: 98%;
+	}
+
+	.from_cot dt{
+		margin: 0;
+	    flex: 0.16;
+	}
+
+	.from_cot dd{
+	    flex: 1.84;
+	}
+
+	.from_cot input[type='text'], .from_cot textarea{
+	    padding: 6px 10px;
+	    width: 893px;
 	}
 
 	/* ==========================================
