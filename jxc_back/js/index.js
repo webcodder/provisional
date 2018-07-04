@@ -182,11 +182,13 @@ var util = {
         //点击保存按钮
         save_btn.click(function(){
             hideedit();
+            util.tabAutoHeight(); 
         });
 
         //编辑详情
         $('body').on('click', '.edit_form',  function(){
             showedit();
+            util.tabAutoHeight(); 
         });
     }
 };
@@ -670,7 +672,7 @@ var submitEditor = function (){
     });   
 }   
 
-var edt = function(){
+var edit = function(){
     var E = window.wangEditor;
     var formEditor = new E('#formEditorToolbar', '#formEditorContent');
     formEditor.customConfig.uploadImgShowBase64 = true;  // 使用 base64 保存图片  
@@ -695,5 +697,5 @@ $(function(){
 
     submitEditor();  // 提交图文详情 (富文本 wangEditor)
 
-    edt();
+    edit();
 });
