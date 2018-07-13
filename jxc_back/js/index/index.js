@@ -69,12 +69,21 @@ var indexUtil = {
             }
         }
 
-        //点击框隐藏图片上传模态框
-        function hideImageLoadModal($){
-            $.click(function(){
-                hideModal.hideImageLoad();
-            });
-        }
+        //点击模态框隐藏所有内容
+        $('.m-modal').click(function(){
+            hideModal.hidePronameModal();
+            hideModal.hideImageLoad();
+        });
+
+        //上传图片
+        $('.img_mask').click(function(){
+            showModal.showImageLoad();
+        });
+
+        //点击关闭按钮隐藏图片上传模态框
+        $('.image_load .close').click(function(){
+            hideModal.hideImageLoad();
+        });
 
         //点击模态框保存按钮
         $('#pronameSave').click(function(){
@@ -87,16 +96,7 @@ var indexUtil = {
             indexUtil.tabAutoHeight();  //填充高度
         });
 
-        //上传图片
-        $('.img_mask').click(function(){
-            showModal.showImageLoad();
-        });
-
-        //点击模态框隐藏图片上传模态框
-        hideImageLoadModal($('.m-modal'));
-
-        //点击关闭按钮隐藏图片上传模态框
-        hideImageLoadModal($('.image_load .close'));
+        
     },
 
     //选项卡自适应高度
