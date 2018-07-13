@@ -56,6 +56,12 @@ var indexUtil = {
             showModal.showPronameModal();
         });
 
+        //删除节点
+        $('.delete_cot').click(function(){
+            list.remove();
+            indexUtil.tabAutoHeight();  //填充高度
+        });
+
         //验证产品名称文本框
         function checkProname(){
             var proname = $('.proname').find('input[name="proname"]').val();
@@ -80,23 +86,15 @@ var indexUtil = {
             showModal.showImageLoad();
         });
 
-        //点击关闭按钮隐藏图片上传模态框
-        $('.image_load .close').click(function(){
-            hideModal.hideImageLoad();
-        });
-
         //点击模态框保存按钮
         $('#pronameSave').click(function(){
             checkProname();
         });
 
-        //删除节点
-        $('.delete_cot').click(function(){
-            list.remove();
-            indexUtil.tabAutoHeight();  //填充高度
+        //点击关闭按钮隐藏图片上传模态框
+        $('.image_load .close').click(function(){
+            hideModal.hideImageLoad();
         });
-
-        
     },
 
     //选项卡自适应高度
