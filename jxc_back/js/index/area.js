@@ -2,6 +2,7 @@
  * @author zmx2321
  * @return
  */
+
 function getProvinceBuy() {
     var province = eval(proStr);
     

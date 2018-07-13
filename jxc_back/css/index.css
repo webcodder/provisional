@@ -1,3 +1,4 @@
+
 /**
 	1.位置属性(position, top, right, z-index, display, float等)
 	2.大小(width, height, padding, margin)
@@ -93,14 +94,19 @@
     overflow: hidden;
 }
 
-.pnfo_pic input[type="file"]{
+.pnfo_pic .img_mask h3{
+    left: 54%;
+    top: 52%;
+}
+
+/* .pnfo_pic input[type="file"]{
 	position: absolute;
 	top: 0;
 	left: 0;
 	width: 100%;
 	height: 100%;
 	opacity: 0;
-}
+} */
 
 .pnfo_nickname{
 	margin-left: 0.1rem;
@@ -279,7 +285,7 @@
 .mrifo_wrap{
 	width: 100%;
 	min-height: 3rem;
-	padding-bottom: 0.1rem;
+	transition: 0.2s linear;
 }
 
 .moftab_itm{
@@ -327,8 +333,15 @@
 	width: 2rem;
 }
 
-.hict_txt .edit_btn dd.edittxt_btn{
+/* .hict_txt .edit_btn dd.edittxt_btn{
 	height: 0.35rem;
+} */
+
+.pro_bottom h3{
+	font-size: 0.2rem;
+	text-align: center;
+	font-weight: initial;
+	color: #ccc;
 }
 
 /**
@@ -339,41 +352,12 @@
     margin: 0.2rem auto 0;
 }
 
-.bus_style{
-	display: flex;
-	flex-wrap: wrap;
-}
-
-.bus_style label{
-	position: relative;
-	flex-grow: 1;
-	height: 0.55rem;
-	line-height: 0.55rem;
-	overflow: hidden;
-}
-
-.bus_style input[type="radio"], .bus_style span{
-    float: left;
-}
-
-.bus_style span{
-	display: block;
-    margin-left: 0.35rem;
-}
-
-.bus_style input[type="radio"]{
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.bus_lab ul{
+.buino_cot ul{
 	display: flex;
 	flex-wrap: wrap; 
 }
 
-.bus_lab li{
+.buino_cot li{
 	flex-grow: 1;
     margin: 0.08rem 0.05rem;
     padding: 0.2rem 0.15rem;
@@ -383,20 +367,19 @@
     transition: 0.2s linear;
 }
 
-.bus_lab li.active{
+.buino_cot li.active{
 	color: #00cd00;
 	border-color: #00cd00;
 	transition: 0.3s linear;
 }
 
-.bus_pro textarea{
-    width: 92%;
-    padding: 0.2rem;
-}
-
 /**
  * hult_wrap
  */
+.hult_wrap{
+	margin-bottom: 0.24rem;
+}
+
 .hult_list{
 	height: 2.3rem;
 	overflow: hidden;
@@ -426,18 +409,18 @@
 	overflow: hidden;
 }
 
-.hict_img, .hict_txt{
+/* .hict_img, .hict_txt{
 	margin-top: 0.05rem;
-}
+} */
 
-.hict_img input[type="file"]{
+/* .hict_img input[type="file"]{
 	position: absolute;
 	top: 0;
 	left: 0;
 	width: 100%;
 	height: 100%;
 	opacity: 0;
-}
+} */
 
 .hict_txt > ul > li{
 	width: 80%;
@@ -456,9 +439,9 @@
 	width: 0.8rem;
 }
 
-.hict_txt li.info dd:not(:last-child){
+/* .hict_txt li.info dd:not(:last-child){
 	margin-right: 0.3rem;
-}
+} */
 
 
 .hict_txt dd.price{
@@ -489,11 +472,11 @@
     height: 0.45rem;
 }
 
-.edit_btn li{
+/* .edit_btn li{
 	display: inline-block;
-}
+} */
 
-.edit_hict_txt input[type='text']{
+/* .edit_hict_txt input[type='text']{
     width: 83%;
     padding: 0.03rem 0.1rem;
 }
@@ -514,6 +497,10 @@
     padding: 0.15rem 0.2rem;
     width: 88%;
     height: 1.5rem;
+} */
+
+.house_list_title{
+	background: #fff;
 }
 
 /**
@@ -527,10 +514,6 @@
 	margin-bottom: 0.24rem;
 	padding-bottom: 0.24rem;
 	overflow: hidden;
-}
-
-.product_list:last-child{
-	margin-bottom: 0;
 }
 
 .product_list dl{
@@ -549,14 +532,14 @@
     overflow: hidden;
 }
 
-.product_img input[type="file"]{
+/* .product_img input[type="file"]{
 	position: absolute;
 	top: 0;
 	left: 0;
 	width: 100%;
 	height: 100%;
 	opacity: 0;
-}
+} */
 
 .product_txt{
     padding: 0.22rem 0 0;
@@ -568,22 +551,15 @@
 }
 
 .product_txt p{
-	display: -webkit-box;
-	-webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-	width: 100%;
-	margin: 10px 0;
-	font-size: 0.23rem;
-	text-align: justify;
-    text-overflow: ellipsis;
-    overflow: hidden;
+    width: 100%;
+    margin: 10px 0;
 }
 
-.product_txt .edit_btn dd:not(:last-child){
+/* .product_txt .edit_btn dd:not(:last-child){
 	margin: 0;
-}
+} */
 
-.edit_hict_txt.product_txt p{
+/* .edit_hict_txt.product_txt p{
 	margin: 0.2rem 0;
 }
 
@@ -591,7 +567,7 @@
     width: 0.42rem;
     height: 0.42rem;
     margin: 0 0.1rem;
-}
+} */
 
 
 /**
@@ -621,10 +597,6 @@
     background: #fff;
     overflow: hidden;
 }
-
-.localpodt_wrap .product_list:nth-last-child(-n+2){
-	margin-bottom: 0;
-} 
 
 .localpodt_list .mrctdl_add{
 	height: 100%;
@@ -677,7 +649,7 @@
 	width: 0.9rem;
 }
 
-.localpodt_txt.edit_hict_txt .label li, .localpodt_txt.edit_hict_txt .priinfo li{
+/* .localpodt_txt.edit_hict_txt .label li, .localpodt_txt.edit_hict_txt .priinfo li{
 	overflow: inherit;
 }
 
@@ -692,13 +664,13 @@
 }
 
 .localpodt_txt.edit_hict_txt ul.label{
-    margin: 0.18rem 0 0.16rem;
-}
+    margin: 0.1rem 0 0.09rem;
+} */
 
 /**
  * mrifo_form
  */
-.mrifo_form{
+/* .mrifo_form{
     position: fixed;
     z-index: 99999;
     top: 50%;
@@ -795,15 +767,37 @@
 	transform: initial;
 }
 
+.from_cot dd label{
+    float: left;
+    width: 2.3rem;
+    height: 0.5rem;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.from_cot dd label input[type='checkbox'], .from_cot dd label span{
+	float: left;
+}
+
+.from_cot dd label input[type='checkbox']{
+	float: left;
+    margin: 0.15rem 0.05rem 0 0.05rem;
+}
+
+.from_cot dd label span{
+	display: block;
+    width: 75%;
+} */
+
 /* ==========================================================================
    module: graphic_text
 ============================================================================ */
-.grcxt_wrap{
-	
+.grcxt_cot{
+	padding: 0.2rem 0.18rem 0;
 }
 
-.grcxt_cot{
-	
+.grcxt_btn{
+	text-align: right;
 }
 
 /**
@@ -827,8 +821,8 @@
 }
 
 .editor_text img{
-	width: initial;
-	height: initial;
+	width: 100%;
+	height: 3rem;
 }
 
 /* ==========================================================================
@@ -989,7 +983,6 @@
 	========================================== */
 	.mrifo_wrap{
 		min-height: 50px;
-		padding-bottom: 5px;
 	}
 
 	.mrctdl_add{
@@ -1019,40 +1012,30 @@
 		margin-top: 13px;
 	}
 
-	.bus_style label{
-		height: 42px;
-		line-height: 42px;
-	}
-
-	.bus_style span{
-		margin-left: 18px;
-	}
-
-	.bus_lab{
+	.buino_cot ul{
 		display: flex;
 		padding: 0 5px;
     	flex-wrap: wrap; 
 	}
 
-	.bus_lab li{
+	.buino_cot li{
 	    margin: 4px 5px;
 	    padding: 6px 35px;
 	}
 
-	.bus_lab li:hover{
+	.buino_cot li:hover{
 		transition: 0.3s linear;
 		color: #7fd987;
     	border-color: #7fd987;
 	}
 
-	.bus_pro textarea{
-		width: 97%;
-    	padding: 10px;
-	}
-
 	/**
 	 * hult_wrap
 	 */
+	.hult_wrap{
+		margin-bottom: 16px;
+	}
+
 	.hult_list{
     	height: 158px;
 		overflow: hidden;
@@ -1074,9 +1057,9 @@
 		margin-left: 15px;
 	}
 
-	.hict_img, .hict_txt{
-    	margin-top: 3px;
-	}
+	/* .hict_img, .hict_txt{
+	    	margin-top: 3px;
+	} */
 
 	.hict_txt li.lab{
 	    margin: 18px 0 52px 0;
@@ -1098,19 +1081,23 @@
     	height: 28px;
 	}
 
-	.edit_hict_txt li.lab{
+	/* .edit_hict_txt li.lab{
 		margin: 18px 0 28px 0;
 	}
-
+	
 	.edit_hict_txt .edit_btn dd:not(:last-child){
-		margin: 0 0 20px;
+		margin: 0 0 15px;
+	} */
+
+	.pro_bottom h3{
+		font-size: 16px;
 	}
 
 	/**
 	 * product_box
 	 */
 	.product_list{
-    	margin-bottom: 6px;
+    	margin-bottom: 16px;
 		border: solid 2px #efefef;
 		transition: 0.2s linear;
 		cursor: pointer;
@@ -1160,14 +1147,14 @@
 	    -webkit-line-clamp: 6;
 	}
 
-	.product_pc .edit_hict_txt.product_txt p{
+	/* .product_pc .edit_hict_txt.product_txt p{
 		margin: 10px 0;
 	}
-
+	
 	.product_pc .edit_hict_txt textarea{
 		padding: 10px;
 	    height: 66px;
-	}
+	} */
 
 	.product_txt .edit_btn dd:not(:last-child){
 	    margin: 0;
@@ -1183,17 +1170,19 @@
 		margin-top: 60px;
 	}
 
-	.product_pc .edit_hict_txt{
+	/* .product_pc .edit_hict_txt{
 		margin-top: 10px;
 	}
-
+	
 	.product_pc .edit_hict_txt ul{
 		margin-top: 0;
 	}
-
+	
 	.product_txt.localpodt_txt .edittxt_btn li{
 	    margin: 0 2px;
-	}
+	} */
+
+
 
 	/**
 	 * Theme_wrap
@@ -1206,13 +1195,13 @@
 	.localpodt_wrap{
 		justify-content: flex-start;
 	    width: 100%;
-	    margin: 10px auto 0;
+	    margin: 16px auto 0;
 	}
 
 	.localpodt_wrap .product_list{
 	    width: 248px;
 	    min-height: 270px;
-	    margin: 0 5px 5px 0;
+	    margin: 0 5px 16px 0;
 	    padding-bottom: 18px;
 	}
 
@@ -1259,58 +1248,84 @@
 	}
 
 	.localpodt_wrap .edit_btn dd{
-		height: 30px;
+		height: 29px;
 		overflow: hidden;
 	}
+
+	/* .localpodt_txt.edit_hict_txt ul.label{
+	    margin: 5px 0 0;
+	}
+	
+	.localpodt_txt.edit_hict_txt .label li{
+	    width: 68px;
+	    	margin-right: 28px;
+	}
+	
+	.localpodt_txt.edit_hict_txt ul.priinfo li{
+		width: 45px;
+	} 
+	
+	.localpodt_txt.edit_hict_txt ul.priinfo li:not(:last-child){
+		margin-right: 25px;
+	} */
 		
 
 	/**
 	 * mrifo_form
 	 */
-	.mrifo_form{
+	/* .mrifo_form{
 		width: 98%;
 	}
-
+	
 	.from_cot{
 		width: 95%;
 		max-height: 612px;
 	}
-
+	
 	.from_cot li{
 	    min-height: 40px;
 	    line-height: 40px;
 	    margin-left: 10px;
 	}
-
+	
 	.from_cot  .reslinh{
-    	margin: 6px 0 6px 10px;
+	    	margin: 6px 0 6px 10px;
 	}
-
+	
 	.from_cot dl{
 		display: flex;
 	}
-
+	
 	.form_edit{
 	    margin: 12px 0 -8px 10px !important;
 	}
-
+	
 	.form_edit dl {
 	    width: 98%;
 	}
-
+	
 	.from_cot dt{
 		margin: 0;
 	    flex: 0.16;
 	}
-
+	
 	.from_cot dd{
 	    flex: 1.84;
 	}
-
+	
 	.from_cot input[type='text'], .from_cot textarea{
 	    padding: 6px 10px;
 	    width: 893px;
 	}
+	
+	.from_cot dd label input[type='checkbox']{
+	    margin: 14px 5px 0 0;
+	}
+	
+	.from_cot dd label{
+		width: 225px;
+	    height: 40px;
+	} */
 
 	/* ==========================================
 	   module: graphic_text

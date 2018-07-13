@@ -1,0 +1,72 @@
+/* ==========================================================================
+   module: banner
+============================================================================ */
+.banner_cot{
+	position: relative;
+	width: 100%;
+	height: 3.5rem;
+	overflow: hidden;
+}
+
+.banner_cot input[type='file']{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+}
+
+/* ==========================================================================
+   module: title
+============================================================================ */
+.product_title{
+    height: 0.75rem;
+    line-height: 0.75rem;
+    border-bottom: solid 1px #efefef;
+}
+
+.product_title h3{
+	font-weight: initial;
+}
+
+/* ==========================================================================
+   module: hot_tip
+============================================================================ */
+.m-hot_tip{
+	display: flex;
+    height: 1.7rem;
+    margin: 0.1rem 0;
+    overflow: hidden;
+    border: solid 3px #dedede;
+}
+
+.hot_tip_tit{
+    position: relative;
+    flex: 5.5%;
+    height: 100%;
+    font-size: 0.2rem;
+    background: #dedede;
+    overflow: hidden;
+    border-right: solid 3px #dedede;
+}
+
+.hot_tip_tit h3{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.hot_tip_dtl{
+	flex: 92%;
+	overflow: auto;
+}
+
+.hot_tip_dtl p{
+    width: 93%;
+    padding: 0.1rem 0.2rem;
+    font-size: 0.22rem;
+    text-align: justify;
+    color: #666;
+}

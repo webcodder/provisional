@@ -5,7 +5,8 @@
 <link href="images/icon/favicon.ico" rel="shortcut icon">
 <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
 <title>聚乡村后台</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.0/css/swiper.css">
+<link rel="stylesheet" href="css/lib/swiper3.4.0.min.css">
+<link rel="stylesheet" href="css/lib/webuploader.css">
 
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
 <link rel="stylesheet" type="text/css" href="css/index.css"/>
@@ -29,8 +30,11 @@
 			<!-- 头像，昵称 -->
 			<div class="pnfo_prtifo">
 				<div class="pnfo_pic">
-					<img src="images/my_photo.jpg" id="headPortraitImg" />
-					<input class="f-csp" type="file" id="headPortraitFile" />
+					<img src="images/default.png" id="headPortraitImg" />
+					<div class="img_mask">
+						<h3 class="f-ptr1">点击上传</h3>
+					</div>
+					<!-- <input class="f-csp" type="file" id="headPortraitFile" /> -->
 				</div>
 				<div class="pnfo_nickname l-waitedit">
 					<span class="f-toe2 f-fs2">郭洞村郭洞村郭洞村郭洞村郭洞村郭洞村郭洞村</span>
@@ -117,37 +121,24 @@
 			<!-- 基本信息 -->
 			<div class="swiper-slide mfotb_estlifo">
 				<div class="moftab_itm">
-					<div class="l-box2 l-mgab1 bus_info" id="busInfo">
-						<div class="l-box2_title">
-							<h3 class="l-wrap1">商户信息</h3>
-						</div>
-						<div class="l-box3">
+					<div class="l-box1 l-mgab1 bus_info" id="busInfo">
+						<div class="l-box2">
 							<div class="l-box2_title">
-								<h3 class="l-wrap1">商户类型</h3>
+								<h3 class="l-wrap1">商户类型</h4>
 							</div>
 							<div class="buino_cot bus_style" id="merchantType">
-								<label class="f-cb" for="homestay">
-									<input type="radio" name="busStyle" id="homestay" checked="checked" />
-									<span>特色民宿</span>
-								</label>
-								<label class="f-cb" for="countryside">
-									<input type="radio" name="busStyle" id="countryside" />
-									<span>美丽乡村</span>
-								</label>
-								<label class="f-cb" for="spot">
-									<input type="radio" name="busStyle" id="spot" />
-									<span>景区乐园</span>
-								</label>
-								<label class="f-cb" for="farm">
-									<input type="radio" name="busStyle" id="farm" />
-									<span>生态农场</span>
-								</label>
+								<ul>
+									<li class="active">特色民宿</li>
+									<li>美丽乡村</li>
+									<li>景区乐园</li>
+									<li>生态农场</li>
+								</ul>
 							</div>
 						</div>
 
-						<div class="l-box3">
+						<div class="l-box2">
 							<div class="l-box2_title">
-								<h3 class="l-wrap1">商户标签</h3>
+								<h3 class="l-wrap1">商户标签</h4>
 							</div>
 							<div class="buino_cot bus_lab" id="merchantLabel">
 								<ul>
@@ -157,26 +148,37 @@
 									<li>亲子乐园</li>
 									<li>亲子乐113165156151551园</li>
 									<li>亲子乐园</li>
-
 								</ul>
 							</div>
 						</div>
 
-						<div class="l-box3">
+						<!-- m-graphic_text 图文详情 -->
+						<div class="l-box2 m-graphic_text">
 							<div class="l-box2_title">
-								<h3 class="l-wrap1">商户简介</h3>
+								<h3 class="l-wrap1">图文详情</h3>
 							</div>
-							<div class="buino_cot bus_pro">
-								<textarea class="f-fs1" name="bus_pro" id="Introduction" cols="30" rows="10" placeholder="不超过200字"></textarea>
+							
+							<div class="l-box1_wrap grcxt_wrap">
+								<div class="grcxt_cot">
+									<div id="editorToolbar" class="toolbar"></div>
+								    <div class="middle_space">wangEditor3</div>
+								    <div id="editorContent" class="text editor_text f-fs2"> <!--可使用 min-height 实现编辑区域自动增加高度-->
+								        <p>https://www.kancloud.cn/wangfupeng/wangeditor3/332599  ==>  wangEditor3 api</p>
+								    </div>
+								</div>
+								<div class="btn_wrap2 l-wrap2 grcxt_btn">
+									<ul>
+										<li><button class="btn btn1" id="editorTextPreview">预览</button></li>
+										<li><button class="btn btn1" id="editorTextSave">保存</button></li>
+									</ul>
+								</div>
 							</div>
 						</div>
-						<div class="btn_wrap1">
-							<button class="btn btn1" id="mrctdlSave">保存</button>
-						</div>
+						<!-- /m-graphic_text 图文详情 -->
 					</div>
 
-					<div class="l-box2 house_list" id="houseList">
-						<div class="l-box2_title">
+					<div class="house_list" id="houseList">
+						<div class="l-box2_title house_list_title">
 							<h3 class="l-wrap1">房源列表</h3>
 						</div>
 
@@ -190,8 +192,11 @@
 							<div class="hult_list">
 								<div class="l-box3 hulist_cot f-cb">
 									<div class="hict_img f-fl">
-										<img class="room_portrait_img" src="images/room.jpg" alt="room" />
-										<input class="room_portrait_file f-csp" type="file" />
+										<img class="room_portrait_img" src="images/default.png" alt="room" />
+										<div class="img_mask active">
+											<h3 class="f-ptr1 f-fs1">点击修改</h3>
+										</div>
+										<!-- <input class="room_portrait_file f-csp" type="file" /> -->
 									</div>
 									<div class="hict_txt f-fl">
 										<ul>
@@ -217,10 +222,7 @@
 											<li class="edit_btn">
 												<dl>
 													<dd>
-														<button class="btn btn1 edit_txt">编辑</button>
-													</dd>
-													<dd>
-														<button class="btn btn1 edit_form">详情</button>
+														<button class="btn btn1" onclick="location.href='houseList.html'">编辑</button>
 													</dd>
 													<dd>
 														<button class="btn btn1 delete_cot">删除</button>
@@ -231,6 +233,53 @@
 									</div>
 								</div>
 							</div>
+							<div class="hult_list">
+								<div class="l-box3 hulist_cot f-cb">
+									<div class="hict_img f-fl">
+										<img class="room_portrait_img" src="images/default.png" alt="room" />
+										<div class="img_mask">
+											<h3 class="f-ptr1 f-fs1">点击上传</h3>
+										</div>
+										<!-- <input class="room_portrait_file f-csp" type="file" /> -->
+									</div>
+									<div class="hict_txt f-fl">
+										<ul>
+											<li>
+												<dl>
+													<dd class="title f-toe">平湖秋月房</dd>
+													<dd class="price">¥200</dd>
+												</dl>
+											</li>
+											<li class="lab">
+												<dl>
+													<dd>20m</dd>
+													<dd>大床</dd>
+													<dd>2-3层</dd>
+												</dl>
+											</li>
+											<li>
+												<dl>
+													<dd>可以马上入住</dd>
+													<dd>还剩10间</dd>
+												</dl>
+											</li>
+											<li class="edit_btn">
+												<dl>
+													<dd>
+														<button class="btn btn1" onclick="location.href='houseList.html'">编辑</button>
+													</dd>
+													<dd>
+														<button class="btn btn1 delete_cot">删除</button>
+													</dd>
+												</dl>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="l-wrap2 pro_bottom">
+							<h3>到底了...</h3>
 						</div>
 					</div>
 				</div>
@@ -250,22 +299,22 @@
 					<div class="l-box3 Theme_wrap product_box product_pc">
 						<div class="Theme_list product_list l-bdru l-box1">
 							<div class="product_img">
-								<img class="theme_portrait_img" src="images/product.jpg" alt="product" />
-								<input class="theme_portrait_file f-csp" type="file" />
+								<img class="theme_portrait_img" src="images/default.png" alt="product" />
+								<div class="img_mask active">
+									<h3 class="f-ptr1 f-fs1">点击修改</h3>
+								</div>
+								<!-- <input class="theme_portrait_file f-csp" type="file" /> -->
 							</div>
 							<div class="l-box3 product_txt">
 								<h3 class="title">晴天雨后——玩主题</h3>
-								<p>
+								<p class="f-toe2">
 									云和晴天雨后民宿座落在800多年的古村落，村子四周被满山遍野的翠竹，bhdskcnjdskcnsjkcnsjk宿座落在800多年的古村落，宿座落在800多年的古村落
 								</p>
 								<ul>
 									<li class="edit_btn">
 										<dl>
 											<dd>
-												<button class="btn btn1 edit_txt">编辑</button>
-											</dd>
-											<dd>
-												<button class="btn btn1 edit_form">详情</button>
+												<button class="btn btn1" onclick="location.href='theme.html'">编辑</button>
 											</dd>
 											<dd>
 												<button class="btn btn1 delete_cot">删除</button>
@@ -277,22 +326,22 @@
 						</div>
 						<div class="Theme_list product_list l-bdru l-box1">
 							<div class="product_img">
-								<img class="theme_portrait_img" src="images/product.jpg" alt="product" />
-								<input class="theme_portrait_file f-csp" type="file" />
+								<img class="theme_portrait_img" src="images/default.png" alt="product" />
+								<div class="img_mask">
+									<h3 class="f-ptr1 f-fs1">点击上传</h3>
+								</div>
+								<!-- <input class="theme_portrait_file f-csp" type="file" /> -->
 							</div>
 							<div class="l-box3 product_txt">
 								<h3 class="title">晴天雨后——玩主题</h3>
-								<p>
+								<p class="f-toe2">
 									云和晴天雨后民宿座落在800多年的古村落，村子四周被满山遍野的翠竹，bhdskcnjdskcnsjkcnsjk宿座落在800多年的古村落，宿座落在800多年的古村落
 								</p>
 								<ul>
 									<li class="edit_btn">
 										<dl>
 											<dd>
-												<button class="btn btn1 edit_txt">编辑</button>
-											</dd>
-											<dd>
-												<button class="btn btn1 edit_form">详情</button>
+												<button class="btn btn1" onclick="location.href='theme.html'">编辑</button>
 											</dd>
 											<dd>
 												<button class="btn btn1 delete_cot">删除</button>
@@ -303,12 +352,15 @@
 							</div>
 						</div>
 					</div>
+					<div class="l-wrap2 pro_bottom">
+						<h3>到底了...</h3>
+					</div>
 				</div>
 			</div>
 			<!-- /主题活动 -->
 
 			<!-- 地主众筹 -->
-			<div class="swiper-slide mfotb_landlords" id="Landlords">
+			<div class="swiper-slide mfotb_landlords" id="landlords">
 				<div class="moftab_itm">
 
 					<div class="mrctdl_add" id="addLandlords">
@@ -320,22 +372,22 @@
 					<div class="l-box3 landlords_wrap product_box product_pc">
 						<div class="landlords_list product_list l-bdru l-box1">
 							<div class="product_img">
-								<img class="land_portrait_img" src="images/product.jpg" alt="product" />
-								<input class="land_portrait_file f-csp" type="file" />
+								<img class="land_portrait_img" src="images/default.png" alt="product" />
+								<div class="img_mask">
+									<h3 class="f-ptr1 f-fs1">点击上传</h3>
+								</div>
+								<!-- <input class="land_portrait_file f-csp" type="file" /> -->
 							</div>
 							<div class="l-box3 product_txt">
 								<h3 class="title">晴天雨后——做地主</h3>
-								<p>
+								<p class="f-toe2">
 									云和晴天雨后民宿座落在800多年的古村落，村子四周被满山遍野的翠竹，bhdskcnjdskcnsjkcnsjk宿座落在800多年的古村落，宿座落在800多年的古村落
 								</p>
 								<ul>
 									<li class="edit_btn">
 										<dl>
 											<dd>
-												<button class="btn btn1 edit_txt">编辑</button>
-											</dd>
-											<dd>
-												<button class="btn btn1 edit_form">详情</button>
+												<button class="btn btn1" onclick="location.href='landlords.html'">编辑</button>
 											</dd>
 											<dd>
 												<button class="btn btn1 delete_cot">删除</button>
@@ -347,22 +399,22 @@
 						</div>
 						<div class="landlords_list product_list l-bdru l-box1">
 							<div class="product_img">
-								<img class="land_portrait_img" src="images/product.jpg" alt="product" />
-								<input class="land_portrait_file f-csp" type="file" />
+								<img class="land_portrait_img" src="images/default.png" alt="product" />
+								<div class="img_mask active">
+									<h3 class="f-ptr1 f-fs1">点击修改</h3>
+								</div>
+								<!-- <input class="land_portrait_file f-csp" type="file" /> -->
 							</div>
 							<div class="l-box3 product_txt">
 								<h3 class="title">晴天雨后——做地主</h3>
-								<p>
+								<p class="f-toe2">
 									云和晴天雨后民宿座落在800多年的古村落，村子四周被满山遍野的翠竹，bhdskcnjdskcnsjkcnsjk宿座落在800多年的古村落，宿座落在800多年的古村落
 								</p>
 								<ul>
 									<li class="edit_btn">
 										<dl>
 											<dd>
-												<button class="btn btn1 edit_txt">编辑</button>
-											</dd>
-											<dd>
-												<button class="btn btn1 edit_form">详情</button>
+												<button class="btn btn1" onclick="location.href='landlords.html'">编辑</button>
 											</dd>
 											<dd>
 												<button class="btn btn1 delete_cot">删除</button>
@@ -372,6 +424,9 @@
 								</ul>
 							</div>
 						</div>
+					</div>
+					<div class="l-wrap2 pro_bottom">
+						<h3>到底了...</h3>
 					</div>
 				</div>
 			</div>
@@ -390,8 +445,11 @@
 					<div class="localpodt_wrap product_box">
 						<div class="localpodt_list product_list l-bdru">
 							<div class="product_img">
-								<img class="localpodt_portrait_img" src="images/product.jpg" alt="product" />
-								<input class="localpodt_portrait_file f-csp" type="file" />
+								<img class="localpodt_portrait_img" src="images/default.png" alt="product" />
+								<div class="img_mask">
+									<h3 class="f-ptr1 f-fs1">点击上传</h3>
+								</div>
+								<!-- <input class="localpodt_portrait_file f-csp" type="file" /> -->
 							</div>
 							<div class="product_txt localpodt_txt">
 								<h3 class="title">天然野山菌[宁波]</h3>
@@ -408,10 +466,40 @@
 									<li class="edit_btn">
 										<dl>
 											<dd>
-												<button class="btn btn1 edit_txt">编辑</button>
+												<button class="btn btn1" onclick="location.href='localProduct.html'">编辑</button>
 											</dd>
 											<dd>
-												<button class="btn btn1 edit_form">详情</button>
+												<button class="btn btn1 delete_cot">删除</button>
+											</dd>
+										</dl>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="localpodt_list product_list l-bdru">
+							<div class="product_img">
+								<img class="localpodt_portrait_img" src="images/default.png" alt="product" />
+								<div class="img_mask active">
+									<h3 class="f-ptr1 f-fs1">点击修改</h3>
+								</div>
+								<!-- <input class="localpodt_portrait_file f-csp" type="file" /> -->
+							</div>
+							<div class="product_txt localpodt_txt">
+								<h3 class="title">天然野山菌[宁波]</h3>
+								<ul class="label">
+									<li>休闲业主</li>
+									<li>可现场游园</li>
+								</ul>
+								<ul class="priinfo">
+									<li class="price">¥68</li>
+									<li class="old_price">¥268</li>
+									<li class="num">剩余20件</li>
+								</ul>
+								<ul>
+									<li class="edit_btn">
+										<dl>
+											<dd>
+												<button class="btn btn1" onclick="location.href='localProduct.html'">编辑</button>
 											</dd>
 											<dd>
 												<button class="btn btn1 delete_cot">删除</button>
@@ -422,160 +510,101 @@
 							</div>
 						</div>
 					</div>
+					<div class="l-wrap2 pro_bottom">
+						<h3>到底了...</h3>
+					</div>
 				</div>
 			</div>
-			<!-- /生态农场 -->
+			<!-- /土特产品 -->
 		</div>
 	</div>
 	<!-- /m-merchant_info -->
-
-	<!-- m-graphic_text 图文详情 -->
-	<div class="l-box1 m-graphic_text">
-		<div class="l-box1_title">
-			<h3 class="f-fs2">图文详情</h3>
-		</div>
-		
-		<div class="l-box1_wrap grcxt_wrap">
-			<div class="l-box1_cot grcxt_cot">
-				<div id="editorToolbar" class="toolbar"></div>
-			    <div class="middle_space">wangEditor3</div>
-			    <div id="editorContent" class="text editor_text f-fs2"> <!--可使用 min-height 实现编辑区域自动增加高度-->
-			        <p>https://www.kancloud.cn/wangfupeng/wangeditor3/332599  ==>  wangEditor3 api</p>
-			    </div>
-			</div>
-			<div class="btn_wrap1">
-				<button class="btn btn1" id="editorTextSave">保存</button>
-			</div>
-		</div>
-	</div>
-	<!-- /m-graphic_text 图文详情 -->
 </div>
 
 <!-- m-modal -->
-<!-- 地址选择 -->
 <div class="m-modal1 addressModal f-dn"></div>
+<div class="m-modal f-dn" style="display: block;"></div>
+
+<!-- 地址选择 -->
 <div class="m-select_address f-dn" id="addressBox">
 	<ul></ul>
 </div>
 <!-- /地址选择 -->
 
-<!-- 产品编辑表单 -->
-<div class="m-modal f-dn"></div>
-<!-- 产品通用表单 ==> 主题活动\地主众筹\土特产品 -->
-<div class="mrifo_form l-bdru f-dn" id="productFrom">
-	<div class="l-box1 mrfm_cot">
-		<div class="l-box1_title">
-			<h3 class="f-fs2">产品通用表单</h3>
+<!-- 图片上传 -->
+<div class="image_load l-box1 f-dn f-ptr2 l-bdru" style="display: block;">
+	<div class="l-box1_title f-pr">
+		<h3 class="f-fs2">图片上传</h3>
+		<b class="close">
+			<img src="images/icon/close_modal.png" alt="">
+		</b>
+	</div>
+	<div class="l-box3">
+		<!-- 正在上传 -->
+		<div class="img_upd uploading" id="imgUploadCont"></div>
+		<!-- /正在上传 -->
+
+		<!-- 已上传 -->
+		<div class="img_upd already_upload" id="alreadyUpload">
+			<h3 class="info">已上传</h3>
+			<div class="img_cot aldupd_cot f-ib">
+				<ul>
+					<li>
+						<!-- <img src="images/default.png" alt=""> -->
+					</li>
+					<li>
+						<!-- <img src="images/default.png" alt=""> -->
+					</li>
+					<li>
+						<!-- <img src="images/default.png" alt=""> -->
+					</li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+			</div>
 		</div>
-				<div class="l-box3 from_cot">
-			<ul>
-				<li>
-					<dl>
-						<dt>产品名称：</dt>
-						<dd><input type="text" placeholder="产品名称" name="productName"></dd>
-					</dl>
-				</li>
-				<li>
-					<dl>
-						<dt>产品分类：</dt>
-						<dd><input type="text" placeholder="产品分类" name="productClassification"></dd>
-					</dl>
-				</li>
-				<li>
-					<dl>
-						<dt>产品类型：</dt>
-						<dd>团购</dd>
-					</dl>
-				</li>
-				<li>
-					<dl>
-						<dt>产品类别：</dt>
-						<dd><input type="text" placeholder="产品类别" name="productCategory"></dd>
-					</dl>
-				</li>
-				<li class="reslinh">
-					<dl>
-						<dt>产品简介：</dt>
-						<dd><textarea cols="30" rows="10" placeholder="产品简介"  name="ProductIntroduction"></textarea></dd>
-					</dl>
-				</li>
-				<li>
-					<dl>
-						<dt>标准价格：</dt>
-						<dd><input type="text" placeholder="标准价格" name="standardPrice"></dd>
-					</dl>
-				</li>
-				<li>
-					<dl>
-						<dt>优惠价格：</dt>
-						<dd><input type="text" placeholder="优惠价格" name="discountPrice"></dd>
-					</dl>
-				</li>
-				<li>
-					<dl>
-						<dt>产品数量：</dt>
-						<dd><input type="text" placeholder="产品数量" name="productNum"></dd>
-					</dl>
-				</li>
-				<li>
-					<dl>
-						<dt>产品数量：</dt>
-						<dd><input type="text" placeholder="产品数量" name="productNum"></dd>
-					</dl>
-				</li>
-				<li>
-					<dl>
-						<dt>开始时间：</dt>
-						<dd><input type="text" placeholder="开始时间" name="startTime"></dd>
-					</dl>
-				</li>
-				<li>
-					<dl>
-						<dt>结束时间：</dt>
-						<dd><input type="text" placeholder="结束时间" name="endTime"></dd>
-					</dl>
-				</li>
-				<li class="reslinh">
-					<dl>
-						<dt>特别提示：</dt>
-						<dd><textarea cols="30" rows="10" placeholder="特别提示"  name="hotTip"></textarea></dd>
-					</dl>
-				</li>
-				<li class="reslinh form_edit">
-					<dl>
-						<dt class="f-fs1">图文详情：</dt>
-						<dd>
-							<div id="formEditorToolbar" class="toolbar"></div>
-						    <div class="middle_space">wangEditor3</div>
-						    <div id="formEditorContent" class="text editor_text f-fs2"> <!--可使用 min-height 实现编辑区域自动增加高度-->
-						        <p>https://www.kancloud.cn/wangfupeng/wangeditor3/332599  ==>  wangEditor3 api</p>
-						    </div>
-						</dd>
-					</dl>
-				</li>
-			</ul>
-		</div>
-		<div class="btn_wrap1 form_btn">
-			<ul>
-				<li><button class="btn btn1" id="productSave">保存</button></li>
-				<li><button class="btn btn1" id="productReset">重置</button></li>
-			</ul>
-		</div>
+		<!-- /已上传 -->
 	</div>
 </div>
-<!-- 产品通用表单 ==> 主题活动\地主众筹\土特产品 -->
+<!-- /图片上传 -->
+
+<!-- 产品名称 -->
+<div class="proname l-box1 f-dn f-ptr2 l-bdru">
+	<div class="l-box1_title">
+		<h3 class="f-fs2">产品名称</h3>
+	</div>
+	<div class="l-box3">
+		<input name="proname" class="f-fs1" type="text" placeholder="请输入产品名称" />
+	</div>
+	<div class="btn_wrap1 form_btn">
+		<button class="btn btn1" id="pronameSave">保存</button>
+	</div>
+</div>
+<!-- 产品名称 -->
 <!-- /m-modal -->
 
 <!-- js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.0/js/swiper.min.js"></script>
-<script src="https://unpkg.com/wangeditor@3.1.1/release/wangEditor.min.js"></script>
+<!-- 地址 -->
+<script src="js/index/lib/areaJson.js"></script>
 
+<!-- 库和插件 -->
 <script src="js/lib/jquery1.8.3.min.js"></script>
-<script src="js/common.js"></script>
-<script src="js/index.js"></script>
+<script src="js/lib/wangEditor.min.js"></script>
+<script src="js/lib/swiper3.4.0.min.js"></script>
+<script src="js/lib/webuploader.html5only.min.js"></script>
+<script src="js/lib/diyUpload.js"></script>
 
-<script src="js/lib/areaJson.js"></script>
-<script src="js/lib/area.js"></script>
+<!-- 业务 -->
+<script src="js/common.js"></script>
+<script src="js/index/area.js"></script>
+
+<script src="js/index/index.js"></script>
 <!-- /js -->
 </body>
 </html>
