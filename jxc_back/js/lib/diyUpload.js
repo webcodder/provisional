@@ -10,7 +10,7 @@
 		*/
         diyUpload:function( opt, serverCallBack ) {
  			if ( typeof opt != "object" ) {
-				alert('参数错误!');
+				util.tipInfo('参数错误!');
 				return;	
 			}
 			
@@ -46,7 +46,7 @@
 			var webUploader = getUploader( opt );
 			
 			if ( !WebUploader.Uploader.support() ) {
-				alert( ' 上传组件不支持您的浏览器！');
+				util.tipInfo( ' 上传组件不支持您的浏览器！');
 				return false;
        		}
 			
@@ -54,16 +54,6 @@
 			webUploader.on('fileQueued', function( file ) {
 				createBox( $fileInput, file ,webUploader);
 			
-			});
-			
-			//进度条事件
-			webUploader.on('uploadProgress',function( file, percentage  ){
-				var $fileBox = $('#fileBox_'+file.id);
-				var $diyBar = $fileBox.find('.diyBar');	
-				$diyBar.show();
-				percentage = percentage*100;
-				showDiyProgress( percentage.toFixed(2), $diyBar);
-				
 			});
 			
 			//全部上传结束后触发;
@@ -116,7 +106,7 @@
 					default : text = '未知错误!';
  					break;	
 				}
-            	alert( text );
+            	util.tipInfo( text );
         	});
         }
     });
@@ -214,7 +204,7 @@
 		//添加父系容器;
 		if ( $parentFileBox.length <= 0 ) {
 			
-			var div = '<div class="parentFileBox"> \
+			var div = '<div class="parentFileBox img_cot"> \
 						<ul class="fileBoxUl"></ul>\
 					</div>';
 			$fileInput.after( div );
@@ -226,8 +216,7 @@
 		if ( $parentFileBox.find('.diyButton').length <= 0 ) {
 			
 			var div = '<div class="diyButton"> \
-						<a class="diyStart" href="javascript:void(0)">开始上传</a> \
-						<a class="diyCancelAll" href="javascript:void(0)">全部取消</a> \
+						<a class="diyStart btn btn1" href="javascript:void(0)">开始上传</a> \
 					</div>';
 			$parentFileBox.append( div );
 			var $startButton = $parentFileBox.find('.diyStart');
@@ -260,22 +249,18 @@
 		//添加子容器;
 		var li = '<li id="fileBox_'+file_id+'" class="diyUploadHover"> \
 					<div class="viewThumb"></div> \
-					<div class="diyCancel"></div> \
 					<div class="diySuccess"></div> \
-					<div class="diyFileName">'+file.name+'</div>\
-					<div class="diyBar"> \
-							<div class="diyProgress"></div> \
-							<div class="diyProgressText">0%</div> \
-					</div> \
-				</li>';
+					<div class="diyCancel"></div> \
+					<div class="diyBar"></div>'
+				'</li>';
 				
 		$parentFileBox.children('.fileBoxUl').append( li );
 		
 		//父容器宽度;
-		var $width = $('.fileBoxUl>li').length * 180;
+		/*var $width = $('.fileBoxUl>li').length * 180;
 		var $maxWidth = $fileInput.parent().width();
 		$width = $maxWidth > $width ? $width : $maxWidth;
-		$parentFileBox.width( $width );
+		$parentFileBox.width( $width );*/
 		
 		var $fileBox = $parentFileBox.find('#fileBox_'+file_id);
 
@@ -294,6 +279,8 @@
 		webUploader.makeThumb( file, function( error, dataSrc ) {
 			if ( !error ) {	
 				$fileBox.find('.viewThumb').append('<img src="'+dataSrc+'" >');
+				$fileBox.find('.diySuccess').append('<input type="radio" name="if_thumbnail">');
+				$fileBox.find('.diyCancel').append('<img src="images/icon/close_modal.png" >');
 			}
 		});	
 	}

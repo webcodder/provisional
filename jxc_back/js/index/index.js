@@ -6,95 +6,50 @@
 
 //index工具方法
 var indexUtil = {
-    /**
-     * [editMerchant 添加]
-     * @param {[type]} add_btn  [添加按钮]
-     * @param {[type]} str [list添加内容]
-     * @param {[type]} list_box [列表外容器]
-     * @param {[type]} list     [节点]
-     */
-    editMerchant: function(add_btn, str, list_box, list){
+    listBox : null, //
+    addMethod : null, //调用动态生成str方法
 
-        //显示模态框
-        var showModal = {
-            show: function(){
-                $('.m-modal').fadeIn();  //显示遮罩层
-                $('body').addClass('f-oh');  //overflow
-            },
+    //显示模态窗时公用
+    show: function(){
+        $('.m-modal').fadeIn();  //显示遮罩层
+        $('body').addClass('f-oh');  //overflow
+    },
 
-            showPronameModal: function(){
-                this.show();
-                $('.proname').fadeIn();  //显示产品名称内容
-            },
+    //隐藏模态窗时公用
+    hide: function(){
+        $('.m-modal').fadeOut();  //隐藏遮罩层
+        $('body').removeClass('f-oh');  //overflow
+    },
 
-            showImageLoad: function(){
-                this.show();
-                $('.image_load').fadeIn();  //显示图片上传内容
-            }
-        }
+    //隐藏模态框所有内容
+    hideAll: function(){
+        this.hide();  //隐藏模态窗时公用
+        $('.image_load').fadeOut();  //隐藏图片上传内容
+        $('.proname').fadeOut();  //隐藏产品名称内容
+    },
 
-        //隐藏模态框
-        var hideModal = {
-            hide: function(){
-                $('.m-modal').fadeOut();  //隐藏遮罩层
-                $('body').removeClass('f-oh');  //overflow
-            },
+    //显示图片上传内容窗口
+    showImageLoad: function(){
+        this.show();  //显示模态窗时公用
+        $('.image_load').fadeIn();  //显示图片上传内容
+    },
 
-            hidePronameModal: function(){
-                this.hide();
-                $('.proname').fadeOut();  //隐藏产品名称内容
-            },
+    //显示产品名称输入窗口
+    showPronameModal: function(){
+        this.show();  //显示模态窗时公用
+        $('.proname').fadeIn();  //显示产品名称内容
+    },
 
-            hideImageLoad: function(){
-                this.hide();
-                $('.image_load').fadeOut();  //隐藏图片上传内容
-            }
-        }
+    //隐藏图片上传内容窗口
+    hideImageLoad: function(){
+        this.hide();  //隐藏模态窗时公用
+        $('.image_load').fadeOut();  //隐藏图片上传内容
+    },
 
-        //点击添加按钮
-        add_btn.click(function(){
-            showModal.showPronameModal();
-        });
-
-        //删除节点
-        $('.delete_cot').click(function(){
-            list.remove();
-            indexUtil.tabAutoHeight();  //填充高度
-        });
-
-        //验证产品名称文本框
-        function checkProname(){
-            var proname = $('.proname').find('input[name="proname"]').val();
-            if(proname == ''){
-                util.tipInfo("产品名称不能为空！");
-            }else{
-                hideModal.hidePronameModal();
-                list_box.prepend(str);  //在列表前添加
-                indexUtil.tabAutoHeight();  //填充高度
-                list.find('.title').text(proname);
-            }
-        }
-
-        //点击模态框隐藏所有内容
-        $('.m-modal').click(function(){
-            hideModal.hidePronameModal();
-            hideModal.hideImageLoad();
-        });
-
-        //上传图片
-        $('.img_mask').click(function(){
-            showModal.showImageLoad();
-        });
-
-        //点击模态框保存按钮
-        $('#pronameSave').click(function(){
-            checkProname();
-        });
-
-        //点击关闭按钮隐藏图片上传模态框
-        $('.image_load .close').click(function(){
-            hideModal.hideImageLoad();
-        });
+    //隐藏产品名称输入窗口
+    hidePronameModal: function(){
+        this.hide();  //隐藏模态窗时公用
+        $('.proname').fadeOut();  //隐藏产品名称内容
     },
 
     //选项卡自适应高度
@@ -114,6 +69,73 @@ var indexUtil = {
             tabAutoHeight();  //填充高度
         }, 30);
     },
+}
+
+//点击按钮
+var btnOperation = function(){
+    //点击模态框背景隐藏模态框所有内容
+    $('.m-modal').click(function(){
+        indexUtil.hideAll();
+    });
+
+    //点击添加产品按钮+
+    $('.mrctdl_add').click(function(){
+        //显示产品名称输入窗口
+        indexUtil.showPronameModal();
+        
+        indexUtil.listBox = $(this).parent().find('.add_product_wrap');
+        indexUtil.addMethod = $(this).attr("method");
+    });
+
+    //点击显示图片上传内容窗口
+    $('body').on('click', '.img_mask', function(){
+        indexUtil.showImageLoad();
+        imgUpload();  //上传图片
+    });
+
+    //点击模态框保存按钮
+    $('#pronameSave').click(function(){
+        var productName = $('.proname').find('input[name="proname"]').val();
+        if(productName == ''){
+            util.tipInfo("产品名称不能为空！");
+        }else{
+            
+            ajaxSaveProduct(productName); //ajax保存新增产品信息
+        }
+    });
+
+    //点击关闭按钮隐藏图片上传模态框
+    $('.image_load .close').click(function(){
+        indexUtil.hideImageLoad();
+    });
+
+}
+
+//ajax保存新增产品信息
+function ajaxSaveProduct(productName){
+	//ajax请求返回成功
+    //$.ajax()
+    var productId = 1;
+
+    indexUtil.hidePronameModal();
+    
+    //字符串转对象
+    var str = "";
+    if(indexUtil.addMethod=="editHouseList") {
+    	str = editHouseList(productId,productName);
+    }
+    else if(indexUtil.addMethod=="editTheme") {
+    	str = editTheme(productId,productName);
+    }
+    else if(indexUtil.addMethod=="editLandlords") {
+    	str = editLandlords(productId,productName);
+    }
+    else if(indexUtil.addMethod=="editlocalProduct") {
+    	str = editlocalProduct(productId,productName);
+    }
+    
+    indexUtil.listBox.prepend(str);  //在列表前添加
+    indexUtil.tabAutoHeight();  //填充高度
 }
 
 //图片上传
@@ -167,26 +189,21 @@ var mrifoTab = function(){
     });
 }
 
-//上传头像
-var headPortraitLoad = function(){
-    //util.SingleImgUpLoad($('#headPortraitFile'), $('#headPortraitImg'));
-}
-
-//编辑昵称
+//编辑商户名称
 var fixName = function(){
     util.fixInfo($('#editNickName'), $('.pnfo_nickname span'), $('#NickName'), 
         $('.pnfo_prtifo .edit'), $('#comfirmFixName'), $('#closeFixName'), 
         $('.pnfo_prtifo'), 'edit_name_active');
 }
 
-//编辑简介
+//编辑商户简介
 var fixBrfino = function(){
     util.fixInfo($('#editBrfino'), $('.pnfo_brfino span'), $('#brfino'), 
         $('.pnfo_brfino .edit'), $('#comfirmBrfino'), $('#closeBrfino'), 
         $('.pnfo_brfino'), 'edit_brfino_active');
 }
 
-//编辑地址
+//编辑商户地址
 var fixAddress = function(){
     //点击地址开始选择地址
     $('#addressDetail span').click(function(){
@@ -266,44 +283,44 @@ var submitEditor = function (){
 }
 
 //房源列表
-var editHouseList = function(){
+var editHouseList = function(productId,productName){
     var str = `
-        <div class="hult_list">
+        <div class="hult_list" product_id="${productId}">
             <div class="l-box3 hulist_cot f-cb">
                 <div class="hict_img f-fl">
-                    <img class="room_portrait_img" src="images/default.png" alt="room" />
-                    <div class="img_mask active">
-                        <h3 class="f-ptr1 f-fs1">点击修改</h3>
+                    <img class="room_portrait_img" src="/jxc/static/wechat/admin/images/default.png" alt="room" />
+                    <div class="img_mask">
+                        <h3 class="f-ptr1 f-fs1">点击上传</h3>
                     </div>
                 </div>
                 <div class="hict_txt f-fl">
                     <ul>
                         <li>
                             <dl>
-                                <dd class="title f-toe">平湖秋月房</dd>
-                                <dd class="price">¥200</dd>
+                                <dd class="title f-toe">${productName}</dd>
+                                <dd class="price">¥-</dd>
                             </dl>
                         </li>
                         <li class="lab">
                             <dl>
-                                <dd>20m</dd>
-                                <dd>大床</dd>
-                                <dd>2-3层</dd>
+                                <dd><!--标签1--></dd>
+                                <dd><!--标签2--></dd>
+                                <dd><!--标签3--></dd>
                             </dl>
                         </li>
                         <li>
                             <dl>
-                                <dd>可以马上入住</dd>
-                                <dd>还剩10间</dd>
+                                <dd><!--可以马上入住--></dd>
+                                <dd><!--还剩10间--></dd>
                             </dl>
                         </li>
                         <li class="edit_btn">
                             <dl>
                                 <dd>
-                                    <button class="btn btn1" onclick="location.href='houseList.html'">编辑</button>
+                                    <button class="btn btn1" onclick="location.href='houseList.html?product_id=${productId}'">编辑</button>
                                 </dd>
                                 <dd>
-                                    <button class="btn btn1 delete_cot">删除</button>
+                                    <button class="btn btn1 delete_cot" product_id="${productId}">删除</button>
                                 </dd>
                             </dl>
                         </li>
@@ -313,22 +330,22 @@ var editHouseList = function(){
         </div>
     `;
 
-    indexUtil.editMerchant($('#addHouseList'), str, $('.hult_wrap'), $('.hult_list'));
+    return str;
 }
 
 //主题活动
-var editTheme = function(){
+var editTheme = function(productId,productName){
    var str = `
-        <div class="Theme_list product_list l-bdru l-box1">
+        <div class="Theme_list product_list l-bdru l-box1" product_id="${productId}">
             <div class="product_img">
-                <img class="theme_portrait_img" src="images/default.png" alt="product" />
+                <img class="theme_portrait_img" src="/jxc/static/wechat/admin/images/default.png" alt="product" />
                 <div class="img_mask">
                     <h3 class="f-ptr1 f-fs1">点击上传</h3>
                 </div>
                 <!-- <input class="theme_portrait_file f-csp" type="file" /> -->
             </div>
             <div class="l-box3 product_txt">
-                <h3 class="title">晴天雨后——玩主题</h3>
+                <h3 class="title">${productName}</h3>
                 <p>
                     云和晴天雨后民宿座落在800多年的古村落，村子四周被满山遍野的翠竹，bhdskcnjdskcnsjkcnsjk宿座落在800多年的古村落，宿座落在800多年的古村落
                 </p>
@@ -336,10 +353,10 @@ var editTheme = function(){
                     <li class="edit_btn">
                         <dl>
                             <dd>
-                                <button class="btn btn1" onclick="location.href='theme.html'">编辑</button>
+                                <button class="btn btn1" onclick="location.href='theme.html?product_id=${productId}'">编辑</button>
                             </dd>
                             <dd>
-                                <button class="btn btn1 delete_cot">删除</button>
+                                <button class="btn btn1 delete_cot" product_id="${productId}">删除</button>
                             </dd>
                         </dl>
                     </li>
@@ -348,21 +365,21 @@ var editTheme = function(){
         </div>
     `;
 
-    indexUtil.editMerchant($('#addTheme'), str, $('.Theme_wrap'), $('.Theme_list'));
+    return str;
 }
 
 //地主众筹
-var editLandlords = function(){
+var editLandlords = function(productId,productName){
    var str = `
         <div class="landlords_list product_list l-bdru l-box1">
             <div class="product_img">
-                <img class="land_portrait_img" src="images/default.png" alt="product" />
+                <img class="land_portrait_img" src="/jxc/static/wechat/admin/images/default.png" alt="product" />
                 <div class="img_mask active">
                     <h3 class="f-ptr1 f-fs1">点击修改</h3>
                 </div>
             </div>
             <div class="l-box3 product_txt">
-                <h3 class="title">晴天雨后——做地主</h3>
+                <h3 class="title">${productName}</h3>
                 <p>
                     云和晴天雨后民宿座落在800多年的古村落，村子四周被满山遍野的翠竹，bhdskcnjdskcnsjkcnsjk宿座落在800多年的古村落，宿座落在800多年的古村落
                 </p>
@@ -370,7 +387,7 @@ var editLandlords = function(){
                     <li class="edit_btn">
                         <dl>
                             <dd>
-                                <button class="btn btn1" onclick="location.href='landlords.html'">编辑</button>
+                                <button class="btn btn1" onclick="location.href='landlords.html?product_id=${productId}'">编辑</button>
                             </dd>
                             <dd>
                                 <button class="btn btn1 delete_cot">删除</button>
@@ -382,21 +399,21 @@ var editLandlords = function(){
         </div>
     `;
 
-    indexUtil.editMerchant($('#addLandlords'), str, $('.landlords_wrap'), $('.landlords_list'));
+    return str;
 }
 
 //土特产品
-var editlocalProduct = function(){
+var editlocalProduct = function(productId,productName){
     var str = `
         <div class="localpodt_list product_list l-bdru">
             <div class="product_img">
-                <img class="localpodt_portrait_img" src="images/default.png" alt="product" />
+                <img class="localpodt_portrait_img" src="/jxc/static/wechat/admin/images/default.png" alt="product" />
                 <div class="img_mask">
                     <h3 class="f-ptr f-fs1">点击上传</h3>
                 </div>
             </div>
             <div class="product_txt localpodt_txt">
-                <h3 class="title">****</h3>
+                <h3 class="title">${productName}</h3>
                 <ul class="label">
                     <li>**</li>
                     <li>**</li>
@@ -410,7 +427,7 @@ var editlocalProduct = function(){
                     <li class="edit_btn">
                         <dl>
                             <dd>
-                                <button class="btn btn1" onclick="location.href='localProduct.html'">编辑</button>
+                                <button class="btn btn1" onclick="location.href='localProduct.html?product_id=${productId}'">编辑</button>
                             </dd>
                             <dd>
                                 <button class="btn btn1 delete_cot">删除</button>
@@ -422,7 +439,7 @@ var editlocalProduct = function(){
         </div>
     `;
 
-    indexUtil.editMerchant($('#addLocalProduct'), str, $('.localpodt_wrap'), $('.localpodt_list'));
+    return str;
 }
 
 //窗口大小改变时加载
@@ -436,19 +453,14 @@ $(window).scroll(function(){
 });
 
 $(function(){
-    headPortraitLoad();  //上传头像
-    imgUpload();  //图片上传
-    fixName();  //编辑昵称
-    fixBrfino();  //编辑简介
-    fixAddress();  //编辑地址
+    btnOperation();  //点击按钮
+
+    fixName();  //编辑商户名称
+    fixBrfino();  //编辑商户简介
+    fixAddress();  //编辑商户地址
 
     mrifoTab();  //选项卡
 
     submitBusInfo();  //提交商户信息
     submitEditor();  // 提交图文详情 (富文本 wangEditor)
-    
-    editHouseList();  //房源列表
-    editTheme();  //主题活动
-    editLandlords();  //地主众筹
-    editlocalProduct();  //土特产品
 });
