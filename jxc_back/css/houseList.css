@@ -1,76 +1,60 @@
 /* ==========================================================================
-   module: product_ul
+   module: m-house_cot
 ============================================================================ */
-.product_ul{
-	margin: 0.2rem 0;
+.house_img {
+    position: relative;
+    width: 2.5rem;
+    height: 1.88rem;
 }
 
-.product_ul ul{
-	display: flex;
+.house_txt {
+    position: relative;
+    width: 4.15rem;
+    height: 1.88rem;
+    margin-left: 0.22rem;
+    overflow: hidden;
 }
 
-.product_ul ul li:first-child{
-	flex: 15%;
-}
-
-.product_ul ul li:last-child{
-	flex: 85%;
-}
-
-.product_ul ul li{
-    height: 0.6rem;
-    line-height: 0.6rem;
-}
-
-/* ==========================================================================
-   module: product_dl
-============================================================================ */
-.product_dl dl{
-	margin: 0.12rem 0;
-}
-
-.product_dl dt{
-	margin-bottom: 0.24rem;
-}
-
-/* ==========================================================================
-   module: time
-============================================================================ */
-.m-time{
-	margin: 0.24rem 0;
-}
-
-/* ==========================================================================
-   module: house_info
-============================================================================ */
-.m-house_info dd:not(:last-child){
-	margin-bottom: 0.2rem;
-}
-
-
-/* ==========================================================================
-   module: suppor_facit
-============================================================================ */
-.m-suppor_facit dl{
+.house_txt > ul {
     display: flex;
-    flex-wrap: wrap;
-}
-
-.m-suppor_facit dt{
     width: 100%;
 }
 
-.m-suppor_facit dd{
-	flex-grow: 1;
-    margin: 0.08rem 0.05rem;
-    padding: 0.2rem 0.15rem;
-    text-align: center;
-    border: solid 1px #efefef;
-    cursor: pointer;
-    transition: 0.2s linear;
+.house_txt li.tit {
+    width: 3rem;
+    margin-right: 0.15rem;
 }
 
-.m-suppor_facit dd.active{
-    color: #f5560f;
-    border: solid 1px #f5560f;
+.house_txt li.pri{
+  width: 2rem;
+  margin-right: 0.1rem;
+}
+
+.house_txt .edit_box{
+  margin-top: 0.3rem;
+}
+
+.house_txt input[type="text"]{
+  width: 85%;
+}
+
+/*edit_house_active*/
+
+/* ==========================================================================
+   module: m-house_info
+============================================================================ */
+.houifo_ul{
+  
+}
+
+.houifo_ul li{
+
+}
+
+.edit_house_info textarea{
+    padding: 0.2rem;
+    text-align: justify;
+    color: #666;
+    width: 93%;
+    min-height: 1.4rem;
 }

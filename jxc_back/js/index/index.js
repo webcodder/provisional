@@ -9,46 +9,22 @@ var indexUtil = {
     listBox : null, //
     addMethod : null, //调用动态生成str方法
 
-    //显示模态窗时公用
-    show: function(){
-        $('.m-modal').fadeIn();  //显示遮罩层
-        $('body').addClass('f-oh');  //overflow
-    },
-
-    //隐藏模态窗时公用
-    hide: function(){
-        $('.m-modal').fadeOut();  //隐藏遮罩层
-        $('body').removeClass('f-oh');  //overflow
-    },
-
     //隐藏模态框所有内容
     hideAll: function(){
-        this.hide();  //隐藏模态窗时公用
+        util.hide();  //隐藏模态窗时公用
         $('.image_load').fadeOut();  //隐藏图片上传内容
         $('.proname').fadeOut();  //隐藏产品名称内容
     },
 
-    //显示图片上传内容窗口
-    showImageLoad: function(){
-        this.show();  //显示模态窗时公用
-        $('.image_load').fadeIn();  //显示图片上传内容
-    },
-
     //显示产品名称输入窗口
     showPronameModal: function(){
-        this.show();  //显示模态窗时公用
+        util.show();  //显示模态窗时公用
         $('.proname').fadeIn();  //显示产品名称内容
-    },
-
-    //隐藏图片上传内容窗口
-    hideImageLoad: function(){
-        this.hide();  //隐藏模态窗时公用
-        $('.image_load').fadeOut();  //隐藏图片上传内容
     },
 
     //隐藏产品名称输入窗口
     hidePronameModal: function(){
-        this.hide();  //隐藏模态窗时公用
+        util.hide();  //隐藏模态窗时公用
         $('.proname').fadeOut();  //隐藏产品名称内容
     },
 
@@ -87,12 +63,6 @@ var btnOperation = function(){
         indexUtil.addMethod = $(this).attr("method");
     });
 
-    //点击显示图片上传内容窗口
-    $('body').on('click', '.img_mask', function(){
-        indexUtil.showImageLoad();
-        imgUpload();  //上传图片
-    });
-
     //点击模态框保存按钮
     $('#pronameSave').click(function(){
         var productName = $('.proname').find('input[name="proname"]').val();
@@ -103,12 +73,6 @@ var btnOperation = function(){
             ajaxSaveProduct(productName); //ajax保存新增产品信息
         }
     });
-
-    //点击关闭按钮隐藏图片上传模态框
-    $('.image_load .close').click(function(){
-        indexUtil.hideImageLoad();
-    });
-
 }
 
 //ajax保存新增产品信息
@@ -136,14 +100,6 @@ function ajaxSaveProduct(productName){
     
     indexUtil.listBox.prepend(str);  //在列表前添加
     indexUtil.tabAutoHeight();  //填充高度
-}
-
-//图片上传
-var imgUpload = function(){
-    var id = $('#imgUploadCont');
-    var url = "/upload";
-
-    util.imgUpLoad(id, url);
 }
 
 //nav置顶
@@ -225,22 +181,14 @@ var fixAddress = function(){
         $('.adrdt input[type="text"]'), 'edit_address_active');
 }
 
-//商户标签
-var merchantLabel = function(){
-    $('.bus_lab li').click(function(){
-        if($(this).hasClass('active')){
-            $(this).removeClass('active');
-        }else{
-            $(this).addClass('active');
-        }
-    });
-}
-
 //商户类型
 var merchantStyle = function(){
-    $('.bus_style li').click(function(){
-        $(this).addClass('active').siblings().removeClass('active');
-    });
+    util.selSingleClass($('.bus_style li'));
+}
+
+//商户标签
+var merchantLabel = function(){
+    util.selMultipleClass($('.bus_lab li'));
 }
 
 //提交商户信息
@@ -464,3 +412,8 @@ $(function(){
     submitBusInfo();  //提交商户信息
     submitEditor();  // 提交图文详情 (富文本 wangEditor)
 });
+
+//加载完数据之后加载
+/*$(window).load(function(){
+    indexUtil.tabAutoHeight();  //填充高度
+});*/

@@ -24,6 +24,63 @@ var util = {
         $(".bubble").fadeIn('slow').delay(200).fadeOut('slow');
     },
 
+    //显示模态窗时公用
+    show: function(){
+        $('.m-modal').fadeIn();  //显示遮罩层
+        $('body').addClass('f-oh');  //overflow
+    },
+
+    //隐藏模态窗时公用
+    hide: function(){
+        $('.m-modal').fadeOut();  //隐藏遮罩层
+        $('body').removeClass('f-oh');  //overflow
+    },
+
+    //显示图片上传内容窗口
+    showImageLoad: function(){
+        this.show();  //显示模态窗时公用
+        $('.image_load').fadeIn();  //显示图片上传内容
+    },
+
+    //隐藏图片上传内容窗口
+    hideImageLoad: function(){
+        this.hide();  //隐藏模态窗时公用
+        $('.image_load').fadeOut();  //隐藏图片上传内容
+    },
+
+    //隐藏模态框所有内容
+    hideAll: function(){
+        this.hide();  //隐藏模态窗时公用
+        $('.image_load').fadeOut();  //隐藏图片上传内容
+        //++其他模态框
+    },
+
+    /**
+     * [selMultiple 选择多个样式]
+     * @param  {[type]} $ [clsaa]
+     * @return {[type]}   [description]
+     */
+    selMultipleClass: function(sel_class){
+        sel_class.click(function(){
+            if($(this).hasClass('active')){
+                $(this).removeClass('active');
+            }else{
+                $(this).addClass('active');
+            }
+        });
+    },
+
+    /**
+     * [selSingleClass 选择单个样式]
+     * @param  {[type]} $ [description]
+     * @return {[type]}   [description]
+     */
+    selSingleClass: function(sel_class){
+        sel_class.click(function(){
+            $(this).addClass('active').siblings().removeClass('active');
+        });
+    },
+
     /**
      * [imgUpLoad 多张图片上传]
      * @return {[type]} [0]
@@ -115,6 +172,38 @@ var util = {
     },
 };
 
+//图片上传
+var portraitLoad = function(){
+    function imgUpload(){
+        var id = $('#imgUploadCont');
+        var url = "/upload";
+
+        util.imgUpLoad(id, url);
+    }
+
+    //点击显示图片上传内容窗口
+    $('body').on('click', '.img_mask', function(){
+        util.showImageLoad();
+        imgUpload();  //上传图片
+    });
+
+    //点击关闭按钮隐藏图片上传模态框
+    $('.image_load .close').click(function(){
+        util.hideImageLoad();
+    });
+
+    //点击模态框背景隐藏模态框所有内容
+    $('.m-modal').click(function(){
+        util.hideAll();
+    });
+
+    //删除已选择图片
+    $('.aldy_cancel').click(function(){
+        var node = $(this).parent();
+        node.remove();
+    });
+}
+
 //窗口大小改变时加载
 $(window).on('resize', function(){
     util.resizeWindow();  //根据font自适应
@@ -123,4 +212,5 @@ $(window).on('resize', function(){
 //load
 $(function(){
     util.resizeWindow();  //根据font自适应
+    portraitLoad();  //图片上传
 });

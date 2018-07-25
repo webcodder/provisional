@@ -249,8 +249,8 @@
 		//添加子容器;
 		var li = '<li id="fileBox_'+file_id+'" class="diyUploadHover"> \
 					<div class="viewThumb"></div> \
-					<div class="diySuccess"></div> \
-					<div class="diyCancel"></div> \
+					<div class="diySuccess success"></div> \
+					<div class="diyCancel cancel"></div> \
 					<div class="diyBar"></div>'
 				'</li>';
 				
@@ -279,7 +279,7 @@
 		webUploader.makeThumb( file, function( error, dataSrc ) {
 			if ( !error ) {	
 				$fileBox.find('.viewThumb').append('<img src="'+dataSrc+'" >');
-				$fileBox.find('.diySuccess').append('<input type="radio" name="if_thumbnail">');
+				//$fileBox.find('.diySuccess').append('<input type="radio" name="if_thumbnail">');
 				$fileBox.find('.diyCancel').append('<img src="images/icon/close_modal.png" >');
 			}
 		});	

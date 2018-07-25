@@ -5,6 +5,8 @@
 <link href="images/icon/favicon.ico" rel="shortcut icon">
 <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
 <title>聚乡村后台-房源列表</title>
+<link rel="stylesheet" href="css/lib/webuploader.css">
+
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
 <link rel="stylesheet" type="text/css" href="css/product.css"/>
 <link rel="stylesheet" type="text/css" href="css/houseList.css"/>
@@ -13,89 +15,307 @@
 <body>
 
 <div class="g-box">
-	<!-- banner -->
-	<div class="m-banner l-box1">
-		<div class="banner_cot">
-			<img class="banner_img" src="images/product.jpg" alt="product" />
-			<input class="banner_file f-csp" type="file" />
-		</div>
-	</div>
-	<!-- /banner -->
-
-	<!-- title -->
-	<div class="m-title l-box1">
-		<div class="product_title">
-			<h3 class="l-wrap2 f-fs1">房源列表</h3>
-		</div>
-		<div class="l-box3">
-			<div class="m-hot_tip">
-				<div class="hot_tip_tit">
-					<h3>特别提示</h3>
-				</div>
-				<div class="hot_tip_dtl">
-					<p>
-						有一天和老婆说起小时候在家里，在田野里老婆还用吴伯萧的《菜园小记》劝我。吴伯萧的《菜园小记》劝我。小时候在家里，在田野里老婆还用吴伯萧的《菜园小记》。吴伯萧的《菜园小记》劝我。有一天和老婆说起小时候在家里，在田野里老婆还用吴伯萧的《菜园小记》劝我。吴伯萧的《菜园小记》劝我。小时候在家里，在田野里老婆还用吴伯萧的《菜园小记》。吴伯萧的《菜园小记》劝我。
-					</p>
+	<!-- product_wrap -->
+	<div class="product_wrap">
+		<!-- banner -->
+		<div class="m-banner l-box1">
+			<div class="banner_cot">
+				<img src="images/default.png" id="bannerPortraitImg" />
+				<div class="img_mask">
+					<h3 class="f-ptr1">点击上传</h3>
 				</div>
 			</div>
 		</div>
-	</div>
-	<!-- /title -->
+		<!-- /banner -->
 
-	<!-- time -->
-	<div class="m-time product_ul l-box1">
-		<div class="l-box3">
-			<ul>
-				<li class="f-fs1">日期</li>
-				<li class="f-fs1">2018-7-12 离店 2018-7-15</li>
-			</ul>
+		<!-- title -->
+		<div class="m-title l-box1 l-mgab1">
+			<div class="product_title l-waitedit">
+				<div class="l-wrap2 pudtit_wrap">
+					<h3 class="f-fs1">房源列表</h3>
+					<input type="text" class="f-fs2 f-dn" id="productTitleName" placeholder="请输入产品名称" />
+
+					<b class="f-csp l-icsiz" id="editTitle">
+						<img src="images/icon/edit.png" />
+					</b>
+
+					<div class="edit f-ib f-dn">
+						<ul>
+							<li class="l-icsiz" id="comfirmTitleName">
+								<img src="images/icon/comfirm.png" />
+							</li>
+							<li class="l-icsiz" id="closeTitleName">
+								<img src="images/icon/close.png" />
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<div class="l-box3 l-mgab1">
+				<div class="m-hot_tip">
+					<div class="hot_tip_tit">
+						<h3>特别提示</h3>
+					</div>
+					<div class="hot_tip_dtl">
+						<p class="f-fs0">有一天和老婆说起小时候在家里，在田野里老婆还用吴伯萧的《菜园小记》劝我。吴伯萧的《菜园小记》劝我。小时候在家里，在田野里老婆还用吴伯萧的《菜园小记》。吴伯萧的《菜园小记》劝我。有一天和老婆说起小时候在家里，在田野里老婆还用吴伯萧的《菜园小记》劝我。吴伯萧的《菜园小记》劝我。小时候在家里，在田野里老婆还用吴伯萧的《菜园小记》。吴伯萧的《菜园小记》劝我。</p>
+						<textarea class="f-fs0 f-dn" id="hotTip"></textarea>
+					</div>
+
+					<div class="edit_box">
+						<b class="f-csp l-icsiz f-db" id="editHotTip">
+							<img src="images/icon/edit.png" />
+						</b>
+
+						<div class="edit f-ib f-dn">
+							<ul>
+								<li class="l-icsiz" id="comfirmHotTip">
+									<img src="images/icon/comfirm.png" />
+								</li>
+								<li class="l-icsiz" id="closeHotTip">
+									<img src="images/icon/close.png" />
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
-	</div>
-	<!-- /time -->
+		<!-- /title -->
 
-	<!-- house_info -->
-	<div class="m-house_info product_dl l-box1">
-		<div class="l-box3">
-			<dl>
-				<dt>订房须知</dt>
-				<dd>1.有一天和老婆说起小时候在家里</dd>
-				<dd>1.有一天和老婆说起小时候在家里</dd>
-				<dd>1.有一天和老婆说起小时候在家里</dd>
-			</dl>
+		<!-- house_lab -->
+		<div class="m-house_lab product_dl l-box1 l-mgab1">
+			<div class="l-box3">
+				<dl id="houseLab">
+					<dt>标签</dt>
+					<dd class="active">aa</dd>
+					<dd>cc</dd>
+					<dd>ss</dd>
+					<dd>ww</dd>
+					<dd>qq</dd>
+				</dl>
+			</div>
 		</div>
-	</div>
-	<!-- /house_info -->
+		<!-- /house_lab -->
 
+		<!-- m-house_cot -->
+		<div class="m-house_cot l-box1 l-mgab1">
+			<div class="l-box3 f-cb">
+				<div class="house_img f-fl">
+					<img class="room_portrait_img" src="images/default.png" alt="room">
+					<div class="img_mask active">
+							<h3 class="f-ptr1 f-fs1">点击修改</h3>
+						</div>
+				</div>
+				<div class="house_txt f-fl l-waitedit">
+					<ul>
+						<li class="tit">
+							<h3 class="title f-toe f-db">平湖秋月房</h3>
+							<input type="text" class="f-fs2 f-dn" id="houseTitle" placeholder="房间名称">
 
-	<!-- phone -->
-	<div class="m-phone product_ul l-box1">
-		<div class="l-box3">
-			<ul>
-				<li>手机号</li>
-				<li>123123123</li>
-			</ul>
+							<div class="edit_box">
+								<b class="f-csp l-icsiz f-db" id="editHouseTitle">
+									<img src="images/icon/edit.png" />
+								</b>
+
+								<div class="edit f-ib f-dn">
+									<ul>
+										<li class="l-icsiz" id="comfirmHouseTitle">
+											<img src="images/icon/comfirm.png" />
+										</li>
+										<li class="l-icsiz" id="closeHouseTitle">
+											<img src="images/icon/close.png" />
+										</li>
+									</ul>
+								</div>
+							</div>
+						</li>
+
+						<li class="pri">
+							<h3 class="price f-toe f-db">¥200</h3>
+							<input type="text" class="f-fs2 f-dn" id="housePrice" placeholder="价格">
+
+							<div class="edit_box">
+								<b class="f-csp l-icsiz f-db" id="editHousePrice">
+									<img src="images/icon/edit.png" />
+								</b>
+
+								<div class="edit f-ib f-dn">
+									<ul>
+										<li class="l-icsiz" id="comfirmHousePrice">
+											<img src="images/icon/comfirm.png" />
+										</li>
+										<li class="l-icsiz" id="closeHousePrice">
+											<img src="images/icon/close.png" />
+										</li>
+									</ul>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
 		</div>
-	</div>
-	<!-- /phone -->
+		<!-- /m-house_cot -->
 
-	<!-- suppor_facit -->
-	<div class="m-suppor_facit product_dl l-box1">
-		<div class="l-box3">
-			<dl id="supporFacit">
-				<dt>配套设施</dt>
-				<dd class="active">WiFi</dd>
-				<dd>WiFi</dd>
-				<dd>WiFi</dd>
-				<dd>WiFi</dd>
-				<dd>WiFi</dd>
-			</dl>
+		<!-- house_info -->
+		<div class="m-house_info product_dl l-box1 l-mgab1">
+			<div class="l-box3">
+				<dl class="init">
+					<dt>
+						<ul class="houifo_ul f-cb">
+							<li class="f-fl">订房须知</li>
+							<li class="f-fr edit_box">
+								<b class="f-csp l-icsiz f-db" id="editHouseInfo">
+									<img src="images/icon/edit.png" />
+								</b>
+
+								<div class="edit f-ib f-dn">
+									<ul>
+										<li class="l-icsiz" id="comfirmHouseInfo">
+											<img src="images/icon/comfirm.png" />
+										</li>
+										<li class="l-icsiz" id="closeHouseInfo">
+											<img src="images/icon/close.png" />
+										</li>
+									</ul>
+								</div>
+							</li>
+						</ul>
+					</dt>
+					<dd>
+						<p class="f-fs0 f-db">有一天和老婆说起小时候在家里，在田野里老婆还用吴伯萧的《菜园小记》劝我。吴伯萧的《菜园小记》劝我。小时候在家里，在田野里老婆还用吴伯萧的《菜园小记》。吴伯萧的《菜园小记》劝我。有一天和老婆说起小时候在家里，在田野里老婆还用吴伯萧的《菜园小记》劝我。吴伯萧的《菜园小记》劝我。小时候在家里，在田野里老婆还用吴伯萧的《菜园小记》。吴伯萧的《菜园小记》劝我。</p>
+						<textarea class="f-fs0 f-dn" id="houseInfo"></textarea>
+					</dd>
+				</dl>
+			</div>
 		</div>
+		<!-- /house_info -->
+
+		<!-- suppor_facit -->
+		<div class="m-suppor_facit product_dl l-box1">
+			<div class="l-box3">
+				<dl id="supporFacit">
+					<dt>配套设施</dt>
+					<dd class="active">WiFi</dd>
+					<dd>WiFi</dd>
+					<dd>WiFi</dd>
+					<dd>WiFi</dd>
+					<dd>WiFi</dd>
+				</dl>
+			</div>
+		</div>
+		<!-- /suppor_facit -->
 	</div>
-	<!-- /suppor_facit -->
+	<!-- /product_wrap -->
+
+	<!-- bootom -->
+	<div class="l-box1 bootom">
+		<ul>
+			<li>
+				<a href="javascript:history.back();">返回</a>
+			</li>
+			<li>
+				<a href="javascript:;">预览</a>
+			</li>
+			<li>
+				<a href="index.html">首页</a>
+			</li>
+		</ul>
+	</div>
 </div>
+<!-- bootom -->
+
+<!-- m-modal -->
+<div class="m-modal f-dn"></div>
+
+<!-- 图片上传 -->
+<div class="image_load l-box1 f-dn f-ptr2 l-bdru">
+	<div class="l-box1_title f-pr">
+		<h3 class="f-fs2">图片上传</h3>
+		<b class="close">
+			<img src="images/icon/close_modal.png" alt="">
+		</b>
+	</div>
+	<div class="l-box3">
+		<!-- 正在上传 -->
+		<div class="img_upd uploading" id="imgUploadCont"></div>
+		<!-- /正在上传 -->
+
+		<!-- 已上传 -->
+		<div class="img_upd already_upload" id="alreadyUpload">
+			<h3 class="info">已上传</h3>
+			<div class="img_cot aldupd_cot f-ib">
+				<ul>
+					<li>
+						<img src="images/default.png" alt="">
+						<div class="success aldy_success">
+							<input type="radio" name="if_thumbnail" checked="checked">
+						</div>
+						<div class="cancel aldy_cancel">
+							<img src="images/icon/close_modal.png">
+						</div>
+						<div class="diyBar"></div>
+					</li>
+					<li>
+						<img src="images/default.png" alt="">
+						<div class="success aldy_success">
+							<input type="radio" name="if_thumbnail">
+						</div>
+						<div class="cancel aldy_cancel">
+							<img src="images/icon/close_modal.png">
+						</div>
+						<div class="diyBar"></div>
+					</li>
+					<li>
+						<img src="images/default.png" alt="">
+						<div class="success aldy_success">
+							<input type="radio" name="if_thumbnail">
+						</div>
+						<div class="cancel aldy_cancel">
+							<img src="images/icon/close_modal.png">
+						</div>
+						<div class="diyBar"></div>
+					</li>
+					<li>
+						<img src="images/default.png" alt="">
+						<div class="success aldy_success">
+							<input type="radio" name="if_thumbnail">
+						</div>
+						<div class="cancel aldy_cancel">
+							<img src="images/icon/close_modal.png">
+						</div>
+						<div class="diyBar"></div>
+					</li>
+					<li>
+						<img src="images/default.png" alt="">
+						<div class="success aldy_success">
+							<input type="radio" name="if_thumbnail">
+						</div>
+						<div class="cancel aldy_cancel">
+							<img src="images/icon/close_modal.png">
+						</div>
+						<div class="diyBar"></div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!-- /已上传 -->
+	</div>
+</div>
+<!-- /图片上传 -->
+<!-- /m-modal -->
+
 <!-- js -->
+<!-- 库和插件 -->
 <script src="js/lib/jquery1.8.3.min.js"></script>
+<script src="js/lib/webuploader.html5only.min.js"></script>
+<script src="js/lib/diyUpload.js"></script>
+
+<!-- 业务 -->
 <script src="js/common.js"></script>
+
+<script src="js/product.js"></script>
 <script src="js/houseList.js"></script>
 <!-- /js -->
 </body>

@@ -6,23 +6,45 @@
 
 //houseList工具方法
 var houseListUtil = {
-	
+
 }
 
-//banner图片上传
-var bannerPortraitLoad = function(){
-	util.upLoad($('.banner_file'), $('.banner_img'));
+//标签
+var houseLab = function() {
+	util.selMultipleClass($('#houseLab dd'));
+}
+
+//房间名称编辑
+var houseTitle = function(){
+	util.fixInfo($('#editHouseTitle'), $('.house_txt li.tit h3'), $('#houseTitle'), 
+        $('.house_txt li.tit .edit'), $('#comfirmHouseTitle'), $('#closeHouseTitle'), 
+        $(''), '');
+}
+
+//房间价格编辑
+var housePrice = function(){
+	util.fixInfo($('#editHousePrice'), $('.house_txt li.pri h3'), $('#housePrice'), 
+        $('.house_txt li.pri .edit'), $('#comfirmHousePrice'), $('#closeHousePrice'), 
+        $(''), '');
+}
+
+//订房须知
+var houseInfo = function(){
+	util.fixInfo($('#editHouseInfo'), $('.m-house_info p'), $('#houseInfo'), 
+	        $('.houifo_ul .edit'), $('#comfirmHouseInfo'), $('#closeHouseInfo'), 
+	        $('.m-house_info'), 'edit_house_info');
 }
 
 //配套设施
 var supporFacit = function(){
-	$('#supporFacit dd').click(function(){
-		$(this).addClass('active').siblings().removeClass('active');
-	});
+	util.selMultipleClass($('#supporFacit dd'));
 }
 
 //load
 $(function(){
-	// bannerPortraitLoad();  //banner图片上传
+	houseLab();  //标签
+	houseTitle();  //房间名称编辑
+	housePrice();  //房间价格编辑
+	houseInfo()  //订房须知
 	supporFacit();  //配套设施
 });

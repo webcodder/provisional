@@ -16,7 +16,7 @@ q:before,q:after{content:none;}
 textarea{overflow:auto;resize:none;}
 label,summary{cursor:default;}
 a,button{cursor:pointer;}
-h1,h2,h3,h4,h5,h6,em,strong,b{font-weight:bold;}
+h1,h2,h3,h4,h5,h6,em,strong,b{font-weight:initial;}
 del,ins,u,s,a,a:hover{text-decoration:none;}
 body,textarea,input,button,select,keygen,legend{font:0.24rem/1.14 arial,'PingFangSC-Regular, sans-serif';color:#333;outline:0;}
 body{background:#efefef;}
@@ -47,6 +47,7 @@ label{cursor: pointer;}
 /* 溢出隐藏 */
 .f-oh{overflow:hidden;}
 /* font-size */
+.f-fs0{font-size:0.22rem;}
 .f-fs1{font-size:0.28rem;}
 .f-fs2{font-size:0.30rem;}
 /* font-weight */
@@ -93,7 +94,7 @@ label{cursor: pointer;}
 .l-wrap1{width: 90%;margin: 0 auto;}
 .l-wrap2{width: 92%;margin: 0 auto;}
 /* icon大小 */
-.l-icsiz{width:0.39rem;height:0.39rem;overflow: hidden;}
+.l-icsiz{cursor: pointer;width:0.39rem;height:0.39rem;overflow: hidden;}
 /* 边框圆角 */
 .l-bdru{border-radius: 0.1rem;}
 /* 待编辑文本框 */
@@ -136,12 +137,18 @@ label{cursor: pointer;}
 .img_cot ul{display: flex;flex-wrap: wrap;}
 .img_cot li{position: relative;width: 1.2rem;height: 1rem;padding:0.08rem;margin: 0 0.05rem 0.09rem;text-align: center;border: solid 1px #ffffff;background: #bebebe;cursor: pointer;transition: 0.2s linear;box-shadow: 0.02rem 0.03rem 0.2rem 0.09rem inset #a3a3a3;}
 .img_cot .viewThumb{width: 100%;height: 100%;}
-.img_cot .diyCancel, .img_cot .diySuccess{position: absolute;width: 0.3rem;height: 0.3rem;z-index: 2;cursor: pointer;}
-.img_cot .diySuccess{right: 0; bottom: 0;}
-.img_cot .diyCancel{left: 0; bottom: 0;}
+.img_cot .cancel, .img_cot .success{position: absolute;width: 0.3rem;height: 0.3rem;z-index: 2;cursor: pointer;}
+.img_cot .success{right: 0; bottom: 0;}
+.img_cot .cancel{left: 0; bottom: 0;}
 .img_cot .diyBar{z-index: 1; position: absolute;bottom: 0;left: 0;width: 100%;height: 0.35rem;background: rgba(0,0,0,0.3);}
 .img_cot .diyButton{text-align: right;margin-top: 0.2rem;}
 .img_cot .diyStart{padding: 0.1rem 0.3rem;}
+/* bootom */
+.bootom{position: fixed;bottom: 0;border-top: solid 1px #efefef;}
+.bootom ul{display: flex;}
+.bootom li{flex: 1;height: 0.75rem;line-height: 0.75rem;overflow: hidden;text-align: center;}
+.bootom li:not(:last-child){border-right: solid 1px #efefef;}
+.bootom a{display: block;width: 100%;height: 100%}
 
 
 /* 产品名称 */
