@@ -36,3 +36,12 @@ input{border: solid 1px #ccc; outline: none; background: #fff; padding: 5px;bord
   width: 65px;
   font-size: 16px;
 }
+
+.m-list dd input{
+  transition: 0.2s linear;
+}
+
+.m-list dd input:hover{
+  border-color: #f00;
+  transition: 0.3s linear;
+}
