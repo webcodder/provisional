@@ -1,0 +1,93 @@
+/* ==========================================================================
+   ranklist
+============================================================================ */
+.act_slide{
+	overflow: auto;
+    background: rgba(220, 204, 189, 0.35)
+}
+
+.act_tabitm{
+	max-height: 6.2rem;
+}
+
+
+/* ==========================================================================
+   ranklist
+============================================================================ */
+.ranklist{
+    width: 100%;
+    
+    overflow: hidden;
+}
+
+.ranklist:not(:last-child){
+	border-bottom: solid 1px #efefef;
+}
+
+.raklit_l{
+	width: 65%;
+}
+
+.raklit_r{
+	width: 35%;
+}
+
+.raklit_r dd, .ayrklt_r li{
+	font-size: 0.28rem;
+	color: #5a5a5a;
+}
+
+/* =======================
+   edut_ranklist
+========================== */
+.edut_ranklist{
+	height: 2.12rem;
+}
+
+.etrklt_img{
+	width: 3.8rem;
+    height: 1.8rem;
+}
+
+.seal_img{
+    width: 1.2rem;
+    height: 1.2rem;
+    right: 0.2rem;
+    top: 25%;
+    border-radius: 0.6rem;
+    transform: translateY(-50%) rotate(45deg);
+    opacity: 0.8;
+}
+
+.etrklt_r ul{
+    margin-top: 0.28rem;
+}
+
+.etrklt_r li{
+	margin-bottom: 0.16rem;
+}
+
+
+/* =======================
+   agcy_ranklist
+========================== */
+.agcy_ranklist{
+    height: 1.28rem;
+}
+
+.ayrklt_l li:not(:last-child){
+	margin-right: 0.3rem;
+}
+
+.ayrklt_img{
+	width: 1rem;
+	height: 1rem;
+	border-radius: 0.5rem;
+	overflow: hidden;
+}
+
+.ayrklt_txt{
+	max-width: 2.6rem;
+    height: 1rem;
+    line-height: 1rem;
+}
